@@ -1,0 +1,11 @@
+.wrapper {
+  width: clamp(280px, 100%, 1350px);
+  margin: 0 auto;
+}
+
+input,
+textarea,
+label,
+button {
+  cursor: pointer;
+}
