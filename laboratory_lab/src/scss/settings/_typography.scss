@@ -1,4 +1,4 @@
 :root {
   font-family: $font-family-Open-Sans;
-  font-size: 62.5%;
+  font-size: clamp(5px, 2.5vw, 62.5%);
 }
