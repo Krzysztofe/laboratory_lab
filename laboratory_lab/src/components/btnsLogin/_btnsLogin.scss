@@ -1,0 +1,9 @@
+.btnsLogin {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $space-small;
+  &__btn {
+    padding: 1rem 2rem;
+    font-weight: 700;
+  }
+}
