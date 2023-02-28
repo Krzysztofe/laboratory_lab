@@ -1,7 +1,5 @@
-import React from "react";
-import { Typewriter } from "react-simple-typewriter";
 import TextInput from "../../components/inputs/textInput/TextInput";
-import BtnsLogin from "../../components/btnsLogin/BtnsLogin"
+import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
 
 const Register = () => {
   return (
@@ -39,11 +37,11 @@ const Register = () => {
         {/* <p className="login__errors">{errors}</p> */}
 
         <BtnsLogin
-            link={"/login"}
-            textRight="Załuż konto"
-            textLeft="Zaloguj się"
-            // inputFocus={inputFocus}
-          />
+          link={"/login"}
+          textRight="Załuż konto"
+          textLeft="Zaloguj się"
+          // inputFocus={inputFocus}
+        />
       </form>
     </main>
   );
