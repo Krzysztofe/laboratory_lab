@@ -1,0 +1,61 @@
+.formContainer {
+  @include breakpointFirst {
+    width: 50%;
+    margin-left: auto;
+    padding: $space-small;
+  }
+  &__title {
+    font-size: $font-size-normal;
+    margin-bottom: $space-small;
+  }
+  .contactForm {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: $font-size-small;
+    &__inputContainer {
+      width: 100%;
+      @include breakpointFirst {
+        width: 45%;
+        font-size: $font-size-xsmall;
+      }
+      .contactForm__input {
+        width: 100%;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        border-bottom: 1px solid black;
+        margin-top: $space-small / 2;
+        resize: none;
+        padding: 0.2rem;
+      }
+    }
+    &__inputContainer--textarea {
+      @include breakpointFirst {
+        width: 100%;
+        margin-top: $space-small;
+      }
+      .contactForm__input--textarea {
+        @include breakpointFirst {
+        }
+      }
+    }
+
+    input::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    textarea::placeholder {
+      color: rgba(0, 0, 0, 0.4);
+      font-family: $font-family-Open-Sans;
+    }
+    &__btn {
+      padding: 1em 2em;
+      width: 45%;
+      margin-left: auto;
+      margin-top: $space-small;
+      @include breakpointFirst {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

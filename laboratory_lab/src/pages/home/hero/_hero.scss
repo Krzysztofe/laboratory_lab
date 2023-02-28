@@ -1,4 +1,4 @@
-.header {
+.hero {
   background-color: $color-primary;
   background-image: url("../../../asets/5a224075d268a2.3665670315121941658618.png");
   background-position: center;
@@ -7,6 +7,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 2rem 0;
+  
   &__title {
     color: $color-white;
     margin-left: clamp(4rem, 15vw, 20%);
@@ -15,16 +16,13 @@
     margin-bottom: 2rem;
   }
 
-  &__btns {
+  &__btn {
     margin-left: clamp(4rem, 15vw, 20%);
-
-    .header__btn {
-      padding: 1em 2em;
-      font-size: 1rem;
-      font-family: $font-family-Open-Sans;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      background-color: $color-white;
-    }
+    padding: 1em 2em;
+    font-size: 1rem;
+    font-family: $font-family-Open-Sans;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    background-color: $color-white;
   }
 }

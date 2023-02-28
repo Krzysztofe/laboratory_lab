@@ -1,4 +1,4 @@
-@mixin media {
+@mixin breakpointFirst {
   @media (min-width: 426px)
   {@content}
 };

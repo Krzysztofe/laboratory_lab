@@ -2,9 +2,9 @@
 
 const Nav = () => {
     return (
-        <div>
+        <nav>
             nav
-        </div>
+        </nav>
     );
 };
 
