@@ -1,5 +1,4 @@
-import React from "react";
-import Btn from "../../../components/Btn";
+import BtnLink from "../../../components/btnLink/BtnLink";
 
 const Header = () => {
   return (
@@ -10,8 +9,8 @@ const Header = () => {
           <br /> grupy badawczej
         </h1>
         <div className="header__btns">
-          <Btn text={"ZALOGUJ"} class={"header__btn"} link={"/login"} />
-          <Btn text={"ZAREJESTRUJ"} class={"header__btn"} link={"/register"} />
+          <BtnLink text={"KATALOG PROJEKTÓW"} class={"header__btn"} link={"/login"} />
+         
         </div>
       </div>
     </header>

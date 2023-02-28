@@ -1,13 +1,12 @@
 .header {
-  background-color: rgb(79, 199, 223);
+  background-color: $color-primary;
   background-image: url("../../../asets/5a224075d268a2.3665670315121941658618.png");
   background-position: center;
   background-size: cover;
-  height: 40vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  padding: 2rem 0;
   &__title {
     color: $color-white;
     margin-left: clamp(4rem, 15vw, 20%);
@@ -18,7 +17,6 @@
 
   &__btns {
     margin-left: clamp(4rem, 15vw, 20%);
-    display: flex;
 
     .header__btn {
       padding: 1em 2em;
@@ -26,7 +24,6 @@
       font-family: $font-family-Open-Sans;
       font-weight: 700;
       letter-spacing: 0.3em;
-      margin-right: 2em;
       background-color: $color-white;
     }
   }

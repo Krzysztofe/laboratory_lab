@@ -1,6 +1,6 @@
 import Nav from "../nav/Nav";
 import Header from "../header/Header";
-import Projects from "../projects/Projects";
+import ProjectsContainers from "../projects/ProjectsContainer";
 import Publications from "../publications/Publications";
 import Reactions from "../reactions/Reactions";
 import FormSection from "../form/FormSection";
@@ -11,7 +11,7 @@ const IndexHome = () => {
     <>
       <Nav />
       <Header />
-      <Projects />
+      <ProjectsContainers />
       <Publications />
       <Reactions />
       <FormSection />

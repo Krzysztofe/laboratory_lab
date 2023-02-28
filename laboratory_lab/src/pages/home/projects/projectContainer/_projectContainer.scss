@@ -1,0 +1,21 @@
+.project__container {
+    margin: 2rem;
+  @include media {
+    border: 1px solid $color-black;
+    width: clamp(6rem, 19vw, 125px);
+    height: clamp(6rem, 19vw, 125px);
+    rotate: 45deg;
+    display: flex;
+    align-items: center;
+    margin: 4rem 1rem;
+  }
+  cursor: pointer;
+  &__title {
+    margin: auto;
+    text-align: center;
+    font-size: $font-size-small;
+    @include media {
+      rotate: -45deg;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { Props } from "./model";
+import { Props } from "./modelBtnLink";
 
-const Btn: FC<Props> = props => {
+const BtnLink: FC<Props> = props => {
   return (
     <Link to = {props.link}>
       <button className={props.class}>{props.text}</button>
@@ -10,4 +10,4 @@ const Btn: FC<Props> = props => {
   );
 };
 
-export default Btn;
+export default BtnLink;
