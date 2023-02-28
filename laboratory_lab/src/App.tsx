@@ -9,7 +9,7 @@ const IndexUserPanel = lazy(() => import("./pages/userPanel/IndexUserPanel"));
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/Laboratory_Lab">
         <Suspense fallback={<LoadingHomePage />}>
           <Routes>
             <Route path="/" element={<IndexHome />} />
