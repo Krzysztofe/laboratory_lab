@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunklaboratory_lab=self.webpackChunklaboratory_lab||[]).push([[788],{788:function(a,r,e){e.r(r);var l=e(184);r.default=function(){return(0,l.jsx)("div",{children:"user panel"})}}}]);
+//# sourceMappingURL=788.baf0233f.chunk.js.map
