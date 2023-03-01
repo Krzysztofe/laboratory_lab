@@ -9,12 +9,7 @@ const BtnsLogin: FC<Props> = props => {
         <button className="btnsLogin__btn">{props.textLeft}</button>
       </Link>
 
-
-      <button
-        type="submit"
-        // onClick={props.inputFocus}
-        className="btnsLogin__btn"
-      >
+      <button type="submit" className="btnsLogin__btn">
         {props.textRight}
       </button>
     </div>

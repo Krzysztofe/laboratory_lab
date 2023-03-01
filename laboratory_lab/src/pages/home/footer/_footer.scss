@@ -1,0 +1,17 @@
+.footer {
+  background-color: $color-primary;
+  font-size: x-small;
+  color: $color-black;
+  padding: $space-small/2;
+  display: grid;
+  place-items: center;
+  &__link {
+    text-decoration: 0;
+    display: flex;
+    align-items: center;
+    color: $color-black;
+  }
+  &__icon {
+    margin-left: 0.5em;
+  }
+}

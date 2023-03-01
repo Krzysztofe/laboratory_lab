@@ -12,7 +12,7 @@ const Hero = () => {
         <BtnLink
           text={"KATALOG PROJEKTÓW"}
           class={"hero__btn"}
-          link={"/login"}
+          link={"/user"}
         />
       </div>
     </section>

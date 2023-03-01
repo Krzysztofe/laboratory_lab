@@ -3,18 +3,18 @@ import { Props } from "./modelTextInput";
 
 const TextInput: FC<Props> = props => {
   return (
-
-      <label className={props.classLabel}>
-        {props.text}
-        <input
-          type={props.type}
-          value={props.value}
-          name={props.name}
-          className={props.classInput}
-          // onChange={props.onChange}
-        />
-      </label>
-   
+    <label className={props.classLabel}>
+      {props.text}
+      <input
+        type={props.type}
+        name={props.name}
+        value={props.value}
+        onChange={props.onChange}
+        placeholder={props.placeholder}
+        className={props.classInput}
+        autoComplete="off"
+      />
+    </label>
   );
 };
 

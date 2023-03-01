@@ -4,6 +4,7 @@ export interface Props {
   type: string;
   value: string;
   name?: string;
-  text: string
-  // onChange: () => void;
+  text: string;
+  placeholder: string
+  onChange: any;
 }

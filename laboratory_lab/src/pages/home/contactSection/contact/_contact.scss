@@ -1,15 +1,20 @@
 .contact {
   @include breakpointFirst {
-    background-image: url("../../../../asets/pexels-karolina-grabowska-4021770.jpg");
-    background-position: right;
-    background-size: cover;
+    // background-image: url("../../../../asets/pexels-karolina-grabowska-4021770.jpg");
+    background-image: url("../../../../asets/kisspng-hyaluronic-acid-molecule-skin-chemistry-face-molecul-5b36641f1cf956.7713906315302912311187.png");
+
+    background-position: left;
+    background-size: 50%;
+    background-repeat: no-repeat;
     padding: 0;
+    // rgb(79, 199, 223);
   }
 
   &__opacity {
     @include breakpointFirst {
       width: 100%;
       height: 100%;
+      // background-color: rgba(79, 199, 223, 0.4);
       background-color: rgba(255, 255, 255, 0.8);
       margin: 0;
     }
