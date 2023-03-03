@@ -7,7 +7,7 @@ import Footer from "./pages/home/footer/Footer";
 import NavComponents from "./components/navConponents/NavComponents";
 const Register = lazy(() => import("./pages/register/Register"));
 const Login = lazy(() => import("./pages/login/Login"));
-const IndexUserPanel = lazy(() => import("./pages/userPanel/IndexUserPanel"));
+const IndexUserPanel = lazy(() => import("./pages/userPanel/ReactionsForm"));
 
 function App() {
   return (
