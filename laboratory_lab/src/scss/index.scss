@@ -7,6 +7,9 @@
 @import "settings/base";
 
 @import "../pages/loadingPage/loadingPage";
+@import "../components/navConponents/navSignOut/nav/nav";
+@import "../components/navConponents/navSignOut/navItems/navItems";
 @import "../pages/home/_indexHome/_indexHome";
 @import "../pages/login/login";
 @import "../pages/userPanel/_indexUserPanel";
+

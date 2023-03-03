@@ -1,9 +1,10 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./pages/home/header/nav/Header";
+import Header from "./components/navConponents/navSignOut/nav/Header";
 import IndexHome from "./pages/home/_indexHome/IndexHome";
 import LoadingPage from "./pages/loadingPage/LoadingPage";
 import Footer from "./pages/home/footer/Footer";
+import NavComponents from "./components/navConponents/NavComponents";
 const Register = lazy(() => import("./pages/register/Register"));
 const Login = lazy(() => import("./pages/login/Login"));
 const IndexUserPanel = lazy(() => import("./pages/userPanel/IndexUserPanel"));
@@ -13,7 +14,7 @@ function App() {
     <>
       <BrowserRouter basename="/Laboratory_Lab">
         <Suspense fallback={<LoadingPage />}>
-          <Header />
+          <NavComponents />
           <Routes>
             <Route path="/" element={<IndexHome />} />
             <Route path="/register" element={<Register />} />

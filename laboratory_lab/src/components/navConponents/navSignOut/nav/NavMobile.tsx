@@ -1,4 +1,4 @@
-import NavLinks from "../navLinks/NavLinks";
+import NavItems from "../navItems/NavItems";
 import { useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { GrFormClose } from "react-icons/gr";
@@ -11,23 +11,23 @@ const NavMobile = () => {
     <>
       {isOpen ? (
         <>
-          <nav className="navMobile">
-            <div className="navMobile__top">
+          <nav className="homeNavMobile">
+            <div className="homeNavMobile__icons">
               <GiChemicalDrop className="iconDrop" />
               <GrFormClose
-                className="iconCross"
+                className="icon"
                 onClick={() => setIsOpen(prev => !prev)}
               />
             </div>
-            <NavLinks setIsOpen={setIsOpen} />
+            <NavItems setIsOpen={setIsOpen} />
           </nav>
         </>
       ) : (
-        <nav className="navMobile">
-          <div className="navMobile__top">
+        <nav className="homeNavMobile">
+          <div className="homeNavMobile__icons">
             <GiChemicalDrop className="iconDrop" />
             <RiMenuFill
-              className="iconHamburger"
+              className="icon"
               onClick={() => setIsOpen(prev => !prev)}
             />
           </div>

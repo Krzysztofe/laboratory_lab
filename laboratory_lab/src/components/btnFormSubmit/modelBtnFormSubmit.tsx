@@ -1,4 +1,4 @@
 export interface Props {
     text: string,
-    class: string,
+    class?: string,
 }

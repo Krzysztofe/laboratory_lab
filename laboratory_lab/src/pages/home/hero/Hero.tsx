@@ -1,6 +1,10 @@
 import BtnLink from "../../../components/btnLink/BtnLink";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../data/firebaseConfig";
 const Hero = () => {
+  const [user] = useAuthState(auth);
+  const link = user?.email ? "/user" : "/login";
+
   return (
     <section>
       <div className="wrapper hero">
@@ -12,7 +16,7 @@ const Hero = () => {
         <BtnLink
           text={"KATALOG PROJEKTÓW"}
           class={"hero__btn"}
-          link={"/user"}
+          link={link}
         />
       </div>
     </section>

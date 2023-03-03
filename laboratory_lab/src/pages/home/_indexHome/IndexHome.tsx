@@ -4,8 +4,13 @@ import Publications from "../publications/Publications";
 import Reactions from "../reactions/Reactions";
 import Contact from "../contactSection/contact/Contact";
 import FormContainer from "../contactSection/form/FormContainer";
+import { useParams } from "react-router-dom";
 
 const IndexHome = () => {
+const {id} = useParams()
+
+
+
   return (
     <>
       <main>

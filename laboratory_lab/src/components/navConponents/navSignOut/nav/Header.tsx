@@ -4,7 +4,7 @@ import NavMobile from "./NavMobile";
 const Header = () => {
   return (
     <header>
-      <div className="wrapper header">
+      <div className="wrapper homeHeader">
         <Nav />
       </div>
       <NavMobile />

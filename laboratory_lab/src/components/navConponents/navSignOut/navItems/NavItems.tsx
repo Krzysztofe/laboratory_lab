@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import React, { FC } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
-import { links, signedOutLinks } from "./dataNavLinks";
-import { Props } from "./modelNavLinks";
+import { links, signedOutLinks } from "./dataNavItems";
+import { Props } from "./modelNavItems";
 
-const NavLinks: FC<Props> = props => {
+const NavItems: FC<Props> = props => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -24,10 +24,10 @@ const NavLinks: FC<Props> = props => {
 
   return (
     <>
-      <ul className="listItems">
+      <ul className="navItems">
         {links.map(link => {
           return (
-            <HashLink key={link.delay} smooth to={link.to} className="link">
+            <HashLink key={link.delay} smooth to={link.to} className="item">
               <motion.li
                 onClick={handleCloseMenu}
                 initial={{ opacity: 0, y: -40 }}
@@ -41,10 +41,10 @@ const NavLinks: FC<Props> = props => {
         })}
       </ul>
       {!user?.email && (
-        <ul className="logItems">
+        <ul className="navItems">
           {signedOutLinks.map(link => {
             return (
-              <Link key={link.delay} to={link.to} className="link link--log">
+              <Link key={link.delay} to={link.to} className="item item--log">
                 <motion.li
                   onClick={handleCloseMenu}
                   initial={{ opacity: 0, y: -40 }}
@@ -60,28 +60,28 @@ const NavLinks: FC<Props> = props => {
       )}
 
       {user?.email && (
-        <ul className="logItems">
-          <div className="link link--log link--hi">
+        <ul className="navItems">
+          <div className="item item--log item--hi">
             <motion.li
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              Zalogowany {user?.email}
+              Zalogowany: {user?.email}
             </motion.li>
           </div>
 
-          <Link to="user" className="link link--log">
+          <Link to="user" className="item item--log">
             <motion.li
               onClick={handleCloseMenu}
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              Panel urzytkownika
+              Panel użytkownika
             </motion.li>
           </Link>
-          <Link to="" className="link link--log">
+          <Link to="" className="item item--log">
             <motion.li
               onClick={handleLogout}
               initial={{ opacity: 0, y: -40 }}
@@ -97,4 +97,4 @@ const NavLinks: FC<Props> = props => {
   );
 };
 
-export default NavLinks;
+export default NavItems;
