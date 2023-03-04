@@ -2,7 +2,11 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { useEffect, useState } from "react";
 import useHttp from "../../services/useHTTP";
-import { useGetReactionsQuery } from "../../services/apiSlice";
+import {
+  useAddReactionMutation,
+  useDeleteReactionMutation,
+  useGetReactionsQuery,
+} from "../../services/apiSlice";
 
 interface FormData {
   [key: string]: {
@@ -11,7 +15,7 @@ interface FormData {
   };
 }
 
-const IndexUserPanel = () => {
+const ReactionForm = () => {
   // const { isLoading, error, sendRequest } = useHttp();
   const [values, setValues] = useState<
     Array<{ id: string; name: string; surname: string }>
@@ -20,28 +24,18 @@ const IndexUserPanel = () => {
     (state: RootState) => state.reactionsContact.messages
   );
 
-  // const { data, error, isLoading } = useGetReactionsQuery(undefined);
+  interface Reaction {
+    id: string;
+    name: string;
+    surname: string;
+  }
 
-  // const reactions =
-  //   data &&
-  //   Object.keys(data).map(item => {
-  //     return {
-  //       id: item,
-  //       name: data[item].name,
-  //       surname: data[item].surname,
-  //     };
-  //   });
+  const { data, error, isLoading, refetch } = useGetReactionsQuery(undefined);
 
-  // console.log("query", reactions && typeof reactions[1].id);
-interface Reaction {
-  id: string;
-  name: string;
-  surname: string;
-}
+  const [addReaction] = useAddReactionMutation();
+  const [deleteReaction] = useDeleteReactionMutation();
 
-  const { data, error, isLoading } = useGetReactionsQuery(undefined);
-
-  const reactions: Reaction[]|undefined =
+  const reactions: Reaction[] | undefined =
     data &&
     Object.keys(data).map(key => ({
       id: key,
@@ -49,63 +43,49 @@ interface Reaction {
       surname: data[key].surname,
     }));
 
+  const reaction = {
+    name: "KK",
+    surname: "oo",
+  };
 
-  // useEffect(() => {
-  //   const getFormData = (data: FormData) => {
-  //     const list = Object.keys(data).map(key => ({
-  //       id: key,
-  //       name: data[key].name,
-  //       surname: data[key].surname,
-  //     }));
-  //     setValues(list);
-  //   };
+  const handleAdd = async () => {
+    await addReaction(reaction);
+  };
 
-  //   sendRequest(
-  //     {
-  //       url: "https://react-robocze-default-rtdb.europe-west1.firebasedatabase.app/names.json",
-  //     },
-  //     getFormData
-  //   );
-  // }, []);
+  const handleUbdate = async () => {
 
-// interface Item {
-// id: string,
-// name: string,
-// surname: string
 
-// }
+  };
+
+  const handleDelete = async (id: string) => {
+    await deleteReaction(id);
+  };
 
   return (
     <main>
-      <div className="div">user panel</div>
-    
-      
-        {reactions && (
-          <ul>
-            {reactions.map(reaction => (
-              <li key={reaction.id}>
-                {reaction.name} {reaction.surname}
-              </li>
-            ))}
-          </ul>
-        )}
-   
+      <div>reactions form</div>
 
-      {/* <ul>
-        {reactions.map(item => {
-          return (
-            <li key={item.id}>
-              {item.name}
-              {item.surname}
+      <button style={{ margin: 20 }} onClick={handleAdd}>
+        {" "}
+        add
+      </button>
+      <button style={{ margin: 20 }} onClick={handleUbdate}>
+        {" "}
+        update
+      </button>
+
+      {reactions && (
+        <ul>
+          {reactions.map(reaction => (
+            <li key={reaction.id}>
+              {reaction.name} {reaction.surname}
+              <button onClick={() => handleDelete(reaction.id)}> delate</button>
             </li>
-          );
-        })}
-      </ul> */}
-      {emails.map(item => {
-        return <p key={crypto.randomUUID()}> {item.email}</p>;
-      })}
+          ))}
+        </ul>
+      )}
     </main>
   );
 };
 
-export default IndexUserPanel;
+export default ReactionForm;

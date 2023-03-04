@@ -4,7 +4,15 @@ import NavAside from "./navSignIn/navAside/NavAside";
 const NavComponents = () => {
   const url = useLocation().pathname;
 
-  return <>{url === "/" ? <Header /> : <NavAside />}</>;
+  return (
+    <>
+      {url === "/" || url === "/login" || url === "/register" ? (
+        <Header />
+      ) : (
+        <NavAside />
+      )}
+    </>
+  );
 };
 
 export default NavComponents;

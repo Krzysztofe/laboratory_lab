@@ -8,5 +8,5 @@ export const links = [
 
 export const signedOutLinks = [
   { to: "/login", delay: 0.6, text: "Zaloguj się" },
-  { to: "/register", delay: 0.7, text: "Załuż konto" },
+  { to: "/register", delay: 0.7, text: "Załóż konto" },
 ];
