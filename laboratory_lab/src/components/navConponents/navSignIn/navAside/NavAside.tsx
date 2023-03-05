@@ -1,15 +1,36 @@
-import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../../data/firebaseConfig";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { RiMenuFill } from "react-icons/ri";
+import { GrFormClose } from "react-icons/gr";
+import NavAsideItems from "../navAsideItems/NavAsideItems";
 
 const NavAside = () => {
-  const [user] = useAuthState(auth);
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
     <aside>
-      <nav className="navAside">
-        <Link to="/">Strona główna</Link>
-        <p>Zalogowany: {user?.email}</p>
+      <nav className="navSingedIn">
+        <div className="navSingedIn__top">
+          {isOpen ? (
+            <>
+              <GrFormClose
+                className="navSingedIn__icon"
+                onClick={() => {
+                  setIsOpen(prev => !prev);
+                }}
+              />
+            </>
+          ) : (
+            <>
+              <RiMenuFill
+                className="navSingedIn__icon"
+                onClick={() => {
+                  setIsOpen(prev => !prev);
+                }}
+              />
+            </>
+          )}
+        </div>
+        <NavAsideItems isOpen={isOpen} setIsOpen={setIsOpen} />
       </nav>
     </aside>
   );

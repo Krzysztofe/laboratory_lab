@@ -1,12 +1,14 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { useEffect, useState } from "react";
-import useHttp from "../../services/useHTTP";
+import { useState } from "react";
 import {
   useAddReactionMutation,
   useDeleteReactionMutation,
   useGetReactionsQuery,
 } from "../../services/apiSlice";
+
+
+
 
 interface FormData {
   [key: string]: {
@@ -46,16 +48,19 @@ const ReactionForm = () => {
   const reaction = {
     name: "KK",
     surname: "oo",
+    id: "12"
   };
+
+  const user = {
+    userId: "177",
+    names: [ reaction ]
+  }
 
   const handleAdd = async () => {
-    await addReaction(reaction);
+    await addReaction(user);
   };
 
-  const handleUbdate = async () => {
-
-
-  };
+  const handleUbdate = async () => {};
 
   const handleDelete = async (id: string) => {
     await deleteReaction(id);

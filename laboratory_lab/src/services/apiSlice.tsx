@@ -19,7 +19,7 @@ export const reactionsApiSlice = createApi({
       query: () => "/names.json",
       providesTags: ["names"],
     }),
-    addReaction: builder.mutation<void, Reaction>({
+    addReaction: builder.mutation<void, any>({
       query: reaction => ({
         url: "/names.json",
         method: "POST",

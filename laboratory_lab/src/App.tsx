@@ -7,7 +7,8 @@ import Footer from "./pages/home/footer/Footer";
 import NavComponents from "./components/navConponents/NavComponents";
 const Register = lazy(() => import("./pages/register/Register"));
 const Login = lazy(() => import("./pages/login/Login"));
-const IndexUserPanel = lazy(() => import("./pages/userPanel/ReactionsForm"));
+const ReactionForm = lazy(() => import("./pages/reactionForm/ReactionForm"));
+const ReactionsList = lazy(()=> import("./pages/reactionsList/ReactionsList")) 
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
             <Route path="/" element={<IndexHome />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/user" element={<IndexUserPanel />} />
+            <Route path="/reaction-form" element={<ReactionForm />} />
+            <Route path="/reactions-list" element={<ReactionsList />} />
           </Routes>
           <Footer />
         </Suspense>
