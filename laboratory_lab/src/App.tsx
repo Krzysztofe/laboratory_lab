@@ -5,6 +5,7 @@ import IndexHome from "./pages/home/_indexHome/IndexHome";
 import LoadingPage from "./pages/loadingPage/LoadingPage";
 import Footer from "./pages/home/footer/Footer";
 import NavComponents from "./components/navConponents/NavComponents";
+
 const Register = lazy(() => import("./pages/register/Register"));
 const Login = lazy(() => import("./pages/login/Login"));
 const ReactionForm = lazy(() => import("./pages/reactionForm/ReactionForm"));
