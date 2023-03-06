@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Laboratory_Lab/static/css/main.75032bd4.css",
-    "main.js": "/Laboratory_Lab/static/js/main.60967b0c.js",
+    "main.js": "/Laboratory_Lab/static/js/main.4075989c.js",
     "static/js/412.2569af00.chunk.js": "/Laboratory_Lab/static/js/412.2569af00.chunk.js",
     "static/js/855.180d3a25.chunk.js": "/Laboratory_Lab/static/js/855.180d3a25.chunk.js",
-    "static/js/699.89313584.chunk.js": "/Laboratory_Lab/static/js/699.89313584.chunk.js",
+    "static/js/376.1bebe550.chunk.js": "/Laboratory_Lab/static/js/376.1bebe550.chunk.js",
     "static/js/533.7b40d917.chunk.js": "/Laboratory_Lab/static/js/533.7b40d917.chunk.js",
     "static/media/5a224075d268a2.png": "/Laboratory_Lab/static/media/5a224075d268a2.3665670315121941658618.e392a866494942361317.png",
     "index.html": "/Laboratory_Lab/index.html",
     "main.75032bd4.css.map": "/Laboratory_Lab/static/css/main.75032bd4.css.map",
-    "main.60967b0c.js.map": "/Laboratory_Lab/static/js/main.60967b0c.js.map",
+    "main.4075989c.js.map": "/Laboratory_Lab/static/js/main.4075989c.js.map",
     "412.2569af00.chunk.js.map": "/Laboratory_Lab/static/js/412.2569af00.chunk.js.map",
     "855.180d3a25.chunk.js.map": "/Laboratory_Lab/static/js/855.180d3a25.chunk.js.map",
-    "699.89313584.chunk.js.map": "/Laboratory_Lab/static/js/699.89313584.chunk.js.map",
+    "376.1bebe550.chunk.js.map": "/Laboratory_Lab/static/js/376.1bebe550.chunk.js.map",
     "533.7b40d917.chunk.js.map": "/Laboratory_Lab/static/js/533.7b40d917.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.75032bd4.css",
-    "static/js/main.60967b0c.js"
+    "static/js/main.4075989c.js"
   ]
 }
