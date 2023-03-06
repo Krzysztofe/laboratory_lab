@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunklaboratory_lab=self.webpackChunklaboratory_lab||[]).push([[533],{9533:function(a,r,t){t.r(r);t(2791);var e=t(184);r.default=function(){return(0,e.jsx)("div",{children:"reactions list"})}}}]);
+//# sourceMappingURL=533.7b40d917.chunk.js.map

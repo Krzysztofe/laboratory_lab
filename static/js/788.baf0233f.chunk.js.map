@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/788.baf0233f.chunk.js","mappings":"wIAIA,UAJuB,WACrB,OAAOA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,cACd,C","sources":["pages/userPanel/IndexUserPanel.tsx"],"sourcesContent":["const IndexUserPanel = () => {\r\n  return <div>user panel</div>;\r\n};\r\n\r\nexport default IndexUserPanel;\r\n"],"names":["_jsx","children"],"sourceRoot":""}
