@@ -1,95 +1,87 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
-import { useState } from "react";
-import {
-  useAddReactionMutation,
-  useDeleteReactionMutation,
-  useGetReactionsQuery,
-} from "../../services/apiSlice";
+import React, { useState } from "react";
+import { FormEvent } from "react";
+import useMultistepForm from "../../hooks/useMultistepForm";
+import Step_1 from "./step_1/Step_1";
+import Step_2 from "./step_2/Step_2";
+import Step_3 from "./step_3/Step_3";
+import Step_4 from "./step_4/Step_4";
 
-
-
-
-interface FormData {
-  [key: string]: {
-    name: string;
-    surname: string;
-  };
+export interface InitialData {
+  alcaloids: string;
+  selectMilimolles: string;
+  substract: string;
+  selectReactionCondition: string;
+  CHCL3: boolean;
+  CH3OH: boolean;
+  DMF: boolean;
+  DMSO: boolean;
+  C2H5OH: boolean;
+  startDate: string;
+  finishDate: string;
+  startTime: string;
+  finishTime: string;
+  technics: string;
+  mollCount: string;
 }
+const INITIAL_DATA: InitialData = {
+  alcaloids: "",
+  selectMilimolles: "",
+  substract: "",
+  selectReactionCondition: "",
+  CHCL3: false,
+  CH3OH: false,
+  DMF: false,
+  DMSO: false,
+  C2H5OH: false,
+  startDate: "",
+  finishDate: "",
+  startTime: "",
+  finishTime: "",
+  technics: "",
+  mollCount: "",
+};
 
 const ReactionForm = () => {
-  // const { isLoading, error, sendRequest } = useHttp();
-  const [values, setValues] = useState<
-    Array<{ id: string; name: string; surname: string }>
-  >([]);
-  const emails = useSelector(
-    (state: RootState) => state.reactionsContact.messages
-  );
+  const [data, setData] = useState(INITIAL_DATA);
 
-  interface Reaction {
-    id: string;
-    name: string;
-    surname: string;
-  }
-
-  const { data, error, isLoading, refetch } = useGetReactionsQuery(undefined);
-
-  const [addReaction] = useAddReactionMutation();
-  const [deleteReaction] = useDeleteReactionMutation();
-
-  const reactions: Reaction[] | undefined =
-    data &&
-    Object.keys(data).map(key => ({
-      id: key,
-      name: data[key].name,
-      surname: data[key].surname,
-    }));
-
-  const reaction = {
-    name: "KK",
-    surname: "oo",
-    id: "12"
+  const handleChange = (fields: Partial<InitialData>) => {
+    setData(prev => {
+      return { ...prev, ...fields };
+    });
   };
 
-  const user = {
-    userId: "177",
-    names: [ reaction ]
-  }
+  const { steps, currentStepIdx, step, isFirstStep, isLastStep, back, next } =
+    useMultistepForm([
+      <Step_1 data={data} handleChange={handleChange} />,
+      <Step_2 data={data} handleChange={handleChange} />,
+      <Step_3 data={data} handleChange={handleChange} />,
+      <Step_4 data={data} handleChange={handleChange} />,
+    ]);
 
-  const handleAdd = async () => {
-    await addReaction(user);
-  };
+  console.log("data", data);
 
-  const handleUbdate = async () => {};
-
-  const handleDelete = async (id: string) => {
-    await deleteReaction(id);
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    next();
   };
 
   return (
-    <main>
-      <div>reactions form</div>
+    <form onSubmit={handleSubmit} style={{ marginTop: 150 }}>
+      <p>
+        {currentStepIdx + 1}/{steps.length}
+      </p>
+      <>{step}</>
 
-      <button style={{ margin: 20 }} onClick={handleAdd}>
-        {" "}
-        add
-      </button>
-      <button style={{ margin: 20 }} onClick={handleUbdate}>
-        {" "}
-        update
-      </button>
-
-      {reactions && (
-        <ul>
-          {reactions.map(reaction => (
-            <li key={reaction.id}>
-              {reaction.name} {reaction.surname}
-              <button onClick={() => handleDelete(reaction.id)}> delate</button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
+      <div className="btns">
+        {!isFirstStep && (
+          <button type="button" onClick={back}>
+            {" "}
+            Wróć
+          </button>
+        )}
+        <button type="submit"> {isLastStep ? "Koniec" : "Dalej"}</button>
+      </div>
+    </form>
   );
 };
 
