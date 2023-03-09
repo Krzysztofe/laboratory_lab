@@ -8,8 +8,10 @@ import NavComponents from "./components/navConponents/NavComponents";
 
 const Register = lazy(() => import("./pages/register/Register"));
 const Login = lazy(() => import("./pages/login/Login"));
-const ReactionForm = lazy(() => import("./pages/reactionForm/ReactionForm"));
-const ReactionsList = lazy(()=> import("./pages/reactionsList/ReactionsList")) 
+const ReactionForm = lazy(
+  () => import("./pages/reactionForm/formReaction/FormReaction")
+);
+const ReactionsList = lazy(() => import("./pages/reactionsList/ReactionsList"));
 
 function App() {
   return (

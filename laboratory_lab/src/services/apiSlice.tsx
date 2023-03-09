@@ -1,13 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { URL_DATA } from "../data/apiKeys";
-
+import { ModelFormReaction } from "../pages/reactionForm/formReaction/ModelFormReaction";
+import { ModelListReactions } from "../pages/reactionsList/modelListReactions";
 interface Reaction {
   name: string;
   surname: string;
 }
 
 interface Reactions {
-  [key: string]: Reaction;
+  [key: string]: ModelFormReaction;
 }
 
 export const reactionsApiSlice = createApi({
@@ -19,6 +20,7 @@ export const reactionsApiSlice = createApi({
       query: () => "/names.json",
       providesTags: ["names"],
     }),
+    // ModelListReactions[]
     addReaction: builder.mutation<void, any>({
       query: reaction => ({
         url: "/names.json",
@@ -34,7 +36,9 @@ export const reactionsApiSlice = createApi({
     //     body: rest,
     //   }),
     // }),
-    deleteReaction: builder.mutation<void, string>({
+
+    // ModelListReactions[]
+    deleteReaction: builder.mutation<void, any>({
       query: id => ({
         url: `/names/${id}.json`,
         method: "DELETE",

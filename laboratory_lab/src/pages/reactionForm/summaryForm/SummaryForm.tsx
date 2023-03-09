@@ -1,91 +1,94 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { useState } from "react";
-import {
-  useAddReactionMutation,
-  useDeleteReactionMutation,
-  useGetReactionsQuery,
-} from "../../../services/apiSlice";
+import{} from "react"
 
-interface FormData {
-  [key: string]: {
-    name: string;
-    surname: string;
-  };
-}
+// import { useSelector } from "react-redux";
+// import { RootState } from "../../../redux/store";
+// import { useState } from "react";
+// import {
+//   useAddReactionMutation,
+//   useDeleteReactionMutation,
+//   useGetReactionsQuery,
+// } from "../../../services/apiSlice";
 
-const SummaryForm = () => {
-  const [values, setValues] = useState<
-    Array<{ id: string; name: string; surname: string }>
-  >([]);
+// interface FormData {
+//   [key: string]: {
+//     name: string;
+//     surname: string;
+//   };
+// }
 
-  interface Reaction {
-    id: string;
-    name: string;
-    surname: string;
-  }
+// const SummaryForm = () => {
+//   const [values, setValues] = useState<
+//     Array<{ id: string; name: string; surname: string }>
+//   >([]);
 
-  const { data, error, isLoading, refetch } = useGetReactionsQuery(undefined);
+//   interface Reaction {
+//     id: string;
+//     name: string;
+//     surname: string;
+//   }
 
-  const [addReaction] = useAddReactionMutation();
-  const [deleteReaction] = useDeleteReactionMutation();
-  const reactions: Reaction[] | undefined =
-    data &&
-    Object.keys(data).map(key => ({
-      id: key,
-      name: data[key].name,
-      surname: data[key].surname,
-    }));
+//   const { data, error, isLoading, refetch } = useGetReactionsQuery(undefined);
 
-  const reaction = {
-    name: "KK",
-    surname: "oo",
-    id: "12",
-  };
+//   const [addReaction] = useAddReactionMutation();
+//   const [deleteReaction] = useDeleteReactionMutation();
 
-  const user = {
-    userId: "177",
-    names: [reaction],
-  };
+//   const reactions: Reaction[] | undefined =
+//     data &&
+//     Object.keys(data).map(key => ({
+//       id: key,
+//       name: data[key].name,
+//       surname: data[key].surname,
+//     }));
 
-  const handleAdd = async () => {
-    await addReaction(user);
-  };
+//   const reaction = {
+//     name: "KK",
+//     surname: "oo",
+//     id: "12",
+//   };
 
-  const handleUbdate = async () => {};
+//   const user = {
+//     userId: "177",
+//     names: [reaction],
+//   };
 
-  const handleDelete = async (id: string) => {
-    await deleteReaction(id);
-  };
+//   const handleAdd = async () => {
+//     await addReaction(user);
+//   };
 
-  return (
-    <main style={{ marginTop: 100 }}>
-      <div>reactions form</div>
+//   const handleUbdate = async () => {};
 
-      <button style={{ margin: 20 }} onClick={handleAdd}>
-        {" "}
-        add
-      </button>
-      <button style={{ margin: 20 }} onClick={handleUbdate}>
-        {" "}
-        update
-      </button>
+//   const handleDelete = async (id: string) => {
+//     await deleteReaction(id);
+//   };
 
-      {reactions && (
-        <ul>
-          {reactions.map(reaction => (
-            <li key={reaction.id}>
-              {reaction.name} {reaction.surname}
-              <button onClick={() => handleDelete(reaction.id)}>
-                {" "}
-                delatee
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
-  );
-};
+//   return (
+//     <main style={{ marginTop: 100 }}>
+//       <div>reactions form</div>
 
-export default SummaryForm;
+//       <button style={{ margin: 20 }} onClick={handleAdd}>
+//         {" "}
+//         add
+//       </button>
+//       <button style={{ margin: 20 }} onClick={handleUbdate}>
+//         {" "}
+//         update
+//       </button>
+
+//       {reactions && (
+//         <ul>
+//           {reactions.map(reaction => (
+//             <li key={reaction.id}>
+//               {reaction.name} {reaction.surname}
+//               <button onClick={() => handleDelete(reaction.id)}>
+//                 {" "}
+//                 delatee
+//               </button>
+//             </li>
+//           ))}
+//         </ul>
+//       )}
+//     </main>
+//   );
+// };
+
+// export default SummaryForm;

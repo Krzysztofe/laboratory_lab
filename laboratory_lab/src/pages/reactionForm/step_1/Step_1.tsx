@@ -1,29 +1,43 @@
 import React, { FC } from "react";
-import { InitialData } from "../ReactionForm";
+import RadioInput from "../../../components/inputs/radioInput/RadioInput";
+import TextInput from "../../../components/inputs/textInput/TextInput";
+import { ChangeEvent } from "../../../data/types";
+import { alcaloidsData } from "./dataStep_1";
+import { ModelStep_1 } from "./ModelStep_1";
 
-interface Props {
-  data: InitialData;
-  handleChange: (fields: Partial<InitialData>) => void;
-}
+const Step_1: FC<ModelStep_1> = ({ data, handleChange }): JSX.Element => {
+ 
+  const handleAlcaloidsChange = (e: ChangeEvent) => {
+    return handleChange({ alcaloids: e.target.value });
+  };
 
-const Step_1: FC<Props> = (props): JSX.Element => {
+
+  const handleTextChange = (e: ChangeEvent) => {
+    return handleChange({ name: e.target.value });
+  };
+
   return (
-    <div>
-      <p>wybierz alkaloid</p>
-
-      <div className="radio__container">
-        <input
-          type="radio"
-          name=""
-          value={props.data.alcaloids}
-          //   checked={}
-          onChange={e => props.handleChange({ alcaloids: e.target.value })}
-          className="radio"
-          id="id"
-        />
-        <label htmlFor="id">gramina</label>
-      </div>
-    </div>
+    <>
+      <TextInput
+        type={"text"}
+        name={"name"}
+        value={data.name}
+        onChange={handleTextChange}
+        text={"Nazwa reakcji"}
+        placeholder={"Nazwa"}
+      />
+      <p>Alkaloid</p>
+      {alcaloidsData.map(alcaloid => {
+        return (
+          <RadioInput
+            key={alcaloid}
+            value={alcaloid}
+            onChange={handleAlcaloidsChange}
+            checked={data.alcaloids}
+          />
+        );
+      })}
+    </>
   );
 };
 

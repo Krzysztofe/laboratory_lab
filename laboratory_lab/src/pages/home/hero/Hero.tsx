@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../data/firebaseConfig";
 const Hero = () => {
   const [user] = useAuthState(auth);
-  const link = user?.email ? "/user" : "/login";
+  const link = user?.email ? "/reaction-form" : "/login";
 
   return (
     <section>
@@ -13,11 +13,7 @@ const Hero = () => {
           <br /> grupy badawczej
         </h1>
 
-        <BtnLink
-          text={"KATALOG PROJEKTÓW"}
-          class={"hero__btn"}
-          link={link}
-        />
+        <BtnLink text={"KATALOG PROJEKTÓW"} class={"hero__btn"} link={link} />
       </div>
     </section>
   );
