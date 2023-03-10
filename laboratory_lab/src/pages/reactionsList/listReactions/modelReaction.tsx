@@ -1,4 +1,4 @@
-export interface ModelListReactions {
+export interface ModelReaction {
   id?: string;
   name: string;
   alcaloids: string;

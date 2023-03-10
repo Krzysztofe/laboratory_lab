@@ -8,20 +8,21 @@ interface Props {
   handleChange: (fields: Partial<ModelFormReaction>) => void;
 }
 
-const Step_4: FC<Props> = ({data, handleChange} )=> {
+const Step_4: FC<Props> = ({ data, handleChange }) => {
+  const handleStarthDate = (e: ChangeEvent) => {
+    return handleChange({ startDate: e.target.value });
+  };
+
   const handleFinishDate = (e: ChangeEvent) => {
     return handleChange({ finishDate: e.target.value });
   };
 
-  const handleFinishTime = (e: ChangeEvent) => {
-    return handleChange({ finishTime: e.target.value });
+  const handleStartTime = (e: ChangeEvent) => {
+    return handleChange({ startTime: e.target.value });
   };
 
-
-  
-
-  const handleTechnics = (e: ChangeEvent) => {
-    return handleChange({ technics: e.target.value });
+  const handleFinishTime = (e: ChangeEvent) => {
+    return handleChange({ finishTime: e.target.value });
   };
 
   return (
@@ -29,31 +30,41 @@ const Step_4: FC<Props> = ({data, handleChange} )=> {
       <TextInput
         type={"date"}
         name={"startDate"}
-        value={data.finishDate}
-        onChange={handleFinishDate}
+        value={data.startDate}
+        onChange={handleStarthDate}
         text={"Data rozpoczęcia"}
         placeholder={""}
         classLabel={""}
         classInput={""}
       />
       <TextInput
-        type={"time"}
+        type={"date"}
         name={"finishDate"}
-        value={data.finishTime}
-        onChange={handleFinishTime}
-        text={"Data zakończenia"}
+        value={data.finishDate}
+        onChange={handleFinishDate}
+        text={"Data ukończenia"}
         placeholder={""}
         classLabel={""}
         classInput={""}
       />
 
       <TextInput
-        type={"text"}
-        name={"technics"}
-        value={data.technics}
-        onChange={handleTechnics}
-        text={"Technika"}
-        placeholder={"Technika"}
+        type={"time"}
+        name={"startTime"}
+        value={data.startTime}
+        onChange={handleStartTime}
+        text={"Godzina rozpoczęcia"}
+        placeholder={""}
+        classLabel={""}
+        classInput={""}
+      />
+      <TextInput
+        type={"time"}
+        name={"finishTime"}
+        value={data.finishTime}
+        onChange={handleFinishTime}
+        text={"Godzina zakończenia"}
+        placeholder={""}
         classLabel={""}
         classInput={""}
       />

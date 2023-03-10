@@ -1,20 +1,33 @@
-import React, { FC } from "react";
-import { Props } from "./modelTextInput";
+import { FC } from "react";
+import { ModelTextInput } from "./ModelTextInput";
 
-const TextInput: FC<Props> = props => {
+const TextInput: FC<ModelTextInput> = ({
+  text,
+  type,
+  name,
+  value,
+  onChange,
+  placeholder,
+  classContainer,
+  classLabel,
+  classInput,
+}) => {
   return (
-    <label className={props.classLabel}>
-      {props.text}
+    <div className={classContainer}>
+      <label htmlFor={name} className={classLabel}>
+        {text}{" "}
+      </label>
       <input
-        type={props.type}
-        name={props.name}
-        value={props.value}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
-        className={props.classInput}
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className={classInput}
         autoComplete="off"
+        id={name}
       />
-    </label>
+    </div>
   );
 };
 

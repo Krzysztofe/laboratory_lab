@@ -11,7 +11,9 @@ const Step_1: FC<ModelStep_1> = ({ data, handleChange }): JSX.Element => {
     return handleChange({ alcaloids: e.target.value });
   };
 
-
+  const handleTechnics = (e: ChangeEvent) => {
+    return handleChange({ technics: e.target.value });
+  };
   const handleTextChange = (e: ChangeEvent) => {
     return handleChange({ name: e.target.value });
   };
@@ -25,6 +27,17 @@ const Step_1: FC<ModelStep_1> = ({ data, handleChange }): JSX.Element => {
         onChange={handleTextChange}
         text={"Nazwa reakcji"}
         placeholder={"Nazwa"}
+      />
+
+      <TextInput
+        type={"text"}
+        name={"technics"}
+        value={data.technics}
+        onChange={handleTechnics}
+        text={"Technika"}
+        placeholder={"Technika"}
+        classLabel={""}
+        classInput={""}
       />
       <p>Alkaloid</p>
       {alcaloidsData.map(alcaloid => {

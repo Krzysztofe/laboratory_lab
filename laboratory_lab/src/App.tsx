@@ -11,7 +11,9 @@ const Login = lazy(() => import("./pages/login/Login"));
 const ReactionForm = lazy(
   () => import("./pages/reactionForm/formReaction/FormReaction")
 );
-const ReactionsList = lazy(() => import("./pages/reactionsList/ReactionsList"));
+const ReactionsList = lazy(
+  () => import("./pages/reactionsList/listReactions/ListReactions")
+);
 
 function App() {
   return (
