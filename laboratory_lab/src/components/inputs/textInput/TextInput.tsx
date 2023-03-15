@@ -17,7 +17,7 @@ const TextInput: FC<ModelTextInput> = ({
       <label htmlFor={name} className={classLabel}>
         {text}{" "}
       </label>
-      <input
+      <input style ={{width: 50}}
         type={type}
         name={name}
         value={value}

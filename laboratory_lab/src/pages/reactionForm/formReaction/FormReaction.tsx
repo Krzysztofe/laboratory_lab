@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FormEvent } from "react";
-import {useGetReactionsQuery, useAddReactionMutation } from "../../../services/apiSlice";
+import {useReactionsQuery, useAddReactionMutation } from "../../../services/apiSlice";
 import { ModelFormReaction } from "./ModelFormReaction";
 import { INITIAL_DATA } from "./dataFormReaction";
 import useMultistepForm from "../../../hooks/useMultistepForm";
@@ -11,35 +11,38 @@ import Step_4 from "../step_4/Step_4";
 import Step_5 from "../step_5/Step_5";
 
 const FormReaction = () => {
-  const [reactionValues, setReactionValues] = useState(INITIAL_DATA);
+  const [reaction, setReaction] = useState(INITIAL_DATA);
 
   const handleChange = (fields: Partial<ModelFormReaction>) => {
-    setReactionValues(prev => {
+    setReaction(prev => {
       return { ...prev, ...fields };
     });
   };
 
   const { steps, currentStepIdx, step, isFirstStep, isLastStep, back, next } =
     useMultistepForm([
-      <Step_1 data={reactionValues} handleChange={handleChange} />,
-      <Step_2 data={reactionValues} handleChange={handleChange} />,
-      <Step_3 data={reactionValues} handleChange={handleChange} />,
-      <Step_4 data={reactionValues} handleChange={handleChange} />,
-      <Step_5 data={reactionValues} handleChange={handleChange} />,
+      <Step_1 reaction={reaction} handleChange={handleChange} />,
+      <Step_2 reaction={reaction} handleChange={handleChange} />,
+      <Step_3 reaction={reaction} handleChange={handleChange} />,
+      <Step_4 reaction={reaction} handleChange={handleChange} />,
+      <Step_5 reaction={reaction} handleChange={handleChange} />,
     ]);
 
-  console.log("data", reactionValues);
-  const { data, error, isLoading, refetch } = useGetReactionsQuery(undefined);
+  console.log("data", reaction);
+  
+  const { data, error, isLoading, refetch } = useReactionsQuery(undefined);
   const [addReaction] = useAddReactionMutation();
+ 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    isLastStep ? await addReaction(reactionValues) : next();
+    isLastStep ? await addReaction(reaction) : next();
   };
 
     if (isLoading) return <div>Loading...</div>;
 
-    if (error) return <div>{`Error: ${error}`}</div>;
-
+    if (error) {
+      if ("error" in error) return <div>{error.error}</div>;
+    }
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: 150 }}>
       <p>

@@ -71,7 +71,7 @@ const NavItems: FC<Props> = props => {
             </motion.li>
           </div>
 
-          <Link to="user" className="item item--log">
+          <Link to="reaction-form" className="item item--log">
             <motion.li
               onClick={handleCloseMenu}
               initial={{ opacity: 0, y: -40 }}

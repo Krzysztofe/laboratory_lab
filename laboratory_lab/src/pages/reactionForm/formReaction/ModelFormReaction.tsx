@@ -10,4 +10,5 @@ export interface ModelFormReaction {
   finishDate: string;
   startTime: string;
   finishTime: string;
+  isEdit: boolean
 }

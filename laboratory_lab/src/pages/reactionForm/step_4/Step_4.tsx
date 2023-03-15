@@ -4,11 +4,11 @@ import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 
 interface Props {
-  data: ModelFormReaction;
+  reaction: ModelFormReaction;
   handleChange: (fields: Partial<ModelFormReaction>) => void;
 }
 
-const Step_4: FC<Props> = ({ data, handleChange }) => {
+const Step_4: FC<Props> = ({ reaction, handleChange }) => {
   const handleStarthDate = (e: ChangeEvent) => {
     return handleChange({ startDate: e.target.value });
   };
@@ -30,7 +30,7 @@ const Step_4: FC<Props> = ({ data, handleChange }) => {
       <TextInput
         type={"date"}
         name={"startDate"}
-        value={data.startDate}
+        value={reaction.startDate}
         onChange={handleStarthDate}
         text={"Data rozpoczęcia"}
         placeholder={""}
@@ -40,7 +40,7 @@ const Step_4: FC<Props> = ({ data, handleChange }) => {
       <TextInput
         type={"date"}
         name={"finishDate"}
-        value={data.finishDate}
+        value={reaction.finishDate}
         onChange={handleFinishDate}
         text={"Data ukończenia"}
         placeholder={""}
@@ -51,7 +51,7 @@ const Step_4: FC<Props> = ({ data, handleChange }) => {
       <TextInput
         type={"time"}
         name={"startTime"}
-        value={data.startTime}
+        value={reaction.startTime}
         onChange={handleStartTime}
         text={"Godzina rozpoczęcia"}
         placeholder={""}
@@ -61,7 +61,7 @@ const Step_4: FC<Props> = ({ data, handleChange }) => {
       <TextInput
         type={"time"}
         name={"finishTime"}
-        value={data.finishTime}
+        value={reaction.finishTime}
         onChange={handleFinishTime}
         text={"Godzina zakończenia"}
         placeholder={""}

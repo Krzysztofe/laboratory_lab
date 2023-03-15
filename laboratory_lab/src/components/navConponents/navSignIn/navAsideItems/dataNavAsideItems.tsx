@@ -10,7 +10,7 @@ export const links = [
   },
   {
     link: "/reaction-form",
-    text: "Formulaż reakcji",
+    text: "Formularz reakcji",
     icon: <FaWpforms />,
   },
   {

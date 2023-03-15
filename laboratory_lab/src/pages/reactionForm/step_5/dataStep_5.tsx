@@ -1,4 +1,4 @@
-export const summaryData = [
+export const summaryTitles = [
   "Nazwa",
   "Technika",
   "Alkaloidy",

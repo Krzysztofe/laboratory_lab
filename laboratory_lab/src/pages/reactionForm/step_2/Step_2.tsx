@@ -5,11 +5,11 @@ import SelectInput from "../../../components/inputs/selectInut/SelectInput";
 import { ChangeEvent } from "../../../data/types";
 
 interface Props {
-  data: ModelFormReaction;
+  reaction: ModelFormReaction;
   handleChange: (fields: Partial<ModelFormReaction>) => void;
 }
 
-const Step_2: FC<Props> = ({ handleChange, data }): JSX.Element => {
+const Step_2: FC<Props> = ({ handleChange, reaction }): JSX.Element => {
   const handleTextInputChange = (e: ChangeEvent) => {
     handleChange({ substract: e.target.value });
   };
@@ -21,20 +21,20 @@ const Step_2: FC<Props> = ({ handleChange, data }): JSX.Element => {
   return (
     <>
       <SelectInput
-        label={"Ilość milimoli"}
+        label={"Ilość moli substratu"}
         inputName={"selectMilimolles"}
         selectValues={[1, 2, 3, 4, 5, 6]}
-        value={data.selectMilimolles}
+        value={reaction.selectMilimolles}
         handleChange={handleSelectChange}
       />
 
       <TextInput
         type={"text"}
         name={"substract"}
-        value={data.substract}
+        value={reaction.substract}
         onChange={handleTextInputChange}
-        text={"Substrakt"}
-        placeholder={"Substrakt"}
+        text={"Substrat"}
+        placeholder={"Substrat"}
       />
     </>
   );

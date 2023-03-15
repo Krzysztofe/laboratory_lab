@@ -5,35 +5,38 @@ import SelectInput from "../../../components/inputs/selectInut/SelectInput";
 import { solventsData, INITIAL_DATA } from "./dataStep_3";
 
 interface Props {
-  data: ModelFormReaction;
+  reaction: ModelFormReaction;
   handleChange: (fields: Partial<ModelFormReaction>) => void;
 }
 
-const Step_3: FC<Props> = ({ data, handleChange }) => {
+const Step_3: FC<Props> = ({ reaction, handleChange }) => {
   const [isChecked, setIsChecked] = useState(INITIAL_DATA);
 
   // Update isChecked state if data.solvents changes
   useEffect(() => {
     const newIsChecked = [...isChecked];
     solventsData.forEach((solvent, idx) => {
-      newIsChecked[idx] = data.solvents.includes(solvent.name);
+      newIsChecked[idx] = reaction.solvents.includes(solvent.name);
     });
     setIsChecked(newIsChecked);
-  }, [data.solvents]);
+  }, [reaction.solvents]);
 
   const handleCheckboxChange = (idx: number, name: string) => {
     const newIsChecked = [...isChecked];
     newIsChecked[idx] = !newIsChecked[idx];
     setIsChecked(newIsChecked);
 
-    const newSolvents = newIsChecked.reduce((acc: string[], checked, idx) => {
-      if (checked) {
-        acc.push(solventsData[idx].name);
-      }
-      return acc;
-    }, []);
+    const getNewSolvents = newIsChecked.reduce(
+      (acc: string[], checked, idx) => {
+        if (checked) {
+          acc.push(solventsData[idx].name);
+        }
+        return acc;
+      },
+      []
+    );
 
-    handleChange({ solvents: newSolvents });
+    handleChange({ solvents: getNewSolvents });
   };
 
   const handleSelectChange = (value: string) => {
@@ -59,7 +62,7 @@ const Step_3: FC<Props> = ({ data, handleChange }) => {
         label={"Warunki reakcji"}
         inputName={"selectReactionCondition"}
         selectValues={["mieszanie", "ogrzewanie", "mikrofala", "chłodzenie"]}
-        value={data.selectReactionCondition}
+        value={reaction.selectReactionCondition}
         handleChange={handleSelectChange}
       />
     </>

@@ -4,7 +4,7 @@ import { GrFormClose } from "react-icons/gr";
 import NavAsideItems from "../navAsideItems/NavAsideItems";
 
 const NavAside = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <aside>

@@ -1,27 +1,28 @@
 import React, { FC } from "react";
 import { ModelFormReaction } from "../formReaction/ModelFormReaction";
-import { summaryData } from "./dataStep_5";
+import { summaryTitles } from "./dataStep_5";
 
 interface Props {
-  data: ModelFormReaction;
+  reaction: ModelFormReaction;
   handleChange: (fields: Partial<ModelFormReaction>) => void;
 }
 
-const Step_5: FC<Props> = ({ data }) => {
-  const printInputs = Object.entries(data).map(([key, value]) => ({
+const Step_5: FC<Props> = ({ reaction }) => {
+  const getReactionValues = Object.entries(reaction).map(([key, value]) => ({
     [key]: value,
   }));
+
 
   return (
     <>
       <div>Podsumowanie</div>
       <ul>
-        {printInputs.map((item, idx) => {
-          const value = Object.values(item)[0];
+        {getReactionValues.map((reactionValue, idx) => {
+          const value = Object.values(reactionValue);
 
           return (
             <li key={crypto.randomUUID()}>
-              {summaryData[idx]}:&nbsp;
+              {summaryTitles[idx]}:&nbsp;
               {Array.isArray(value) ? value.flat().join(", ") : value}
             </li>
           );

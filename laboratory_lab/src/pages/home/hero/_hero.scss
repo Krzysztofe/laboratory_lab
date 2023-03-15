@@ -1,22 +1,35 @@
+.menuSpacer {
+  height: 90px;
+  @include breakpointFirst {
+  }
+}
+
 .hero {
-  background-color: $color-primary;
-  background-image: url("../../../asets/5a224075d268a2.3665670315121941658618.png");
-  background-position: center;
-  background-size: cover;
+  background-color: $color-white;
+  background-image: url("../../../asets/pexels-anna-shvets-3786245.jpg");
+  background-position: right;
+  background-size: 130%;
+  background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: end;
   padding: 2rem 0;
-  
+  @include breakpointFirst {
+    padding: 12rem 5rem;
+  }
+
   &__title {
-    color: $color-white;
-    margin-left: clamp(4rem, 15vw, 20%);
+    color: $color-black;
+    // margin-left: clamp(4rem, 15vw, 20%);
     text-transform: uppercase;
     font-size: 3rem;
     margin-bottom: 2rem;
+    width: 50%;
+    max-width: 560px;
   }
 
   &__btn {
+    // display: block;
     margin-left: clamp(4rem, 15vw, 20%);
     padding: 1em 2em;
     font-size: 1rem;
@@ -24,5 +37,6 @@
     font-weight: 700;
     letter-spacing: 0.3em;
     background-color: $color-white;
+    width: 50%;
   }
 }

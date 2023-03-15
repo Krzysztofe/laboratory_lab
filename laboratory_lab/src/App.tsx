@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/navConponents/navSignOut/nav/Header";
 import IndexHome from "./pages/home/_indexHome/IndexHome";
 import LoadingPage from "./pages/loadingPage/LoadingPage";
 import Footer from "./pages/home/footer/Footer";
@@ -12,7 +11,7 @@ const ReactionForm = lazy(
   () => import("./pages/reactionForm/formReaction/FormReaction")
 );
 const ReactionsList = lazy(
-  () => import("./pages/reactionsList/listReactions/ListReactions")
+  () => import("./pages/reactionsTable/tableMain/TableMain")
 );
 
 function App() {

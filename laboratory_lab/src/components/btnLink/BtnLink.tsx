@@ -4,8 +4,9 @@ import { Props } from "./modelBtnLink";
 
 const BtnLink: FC<Props> = props => {
   return (
-    <Link to = {props.link}>
-      <button className={props.class}>{props.text}</button>
+    <Link className={props.class} to={props.link} >
+      <button >
+        {props.text}</button>
     </Link>
   );
 };

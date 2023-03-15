@@ -11,4 +11,5 @@ export const INITIAL_DATA: ModelFormReaction = {
   finishDate: "",
   startTime: "",
   finishTime: "",
+  isEdit: true
 };

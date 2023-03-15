@@ -1,11 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { AnyAaaaRecord } from "dns";
 import { URL_DATA } from "../data/apiKeys";
 import { ModelFormReaction } from "../pages/reactionForm/formReaction/ModelFormReaction";
-import { ModelReaction } from "../pages/reactionsList/listReactions/modelReaction";
-interface Reaction {
-  name: string;
-  surname: string;
-}
 
 interface Reactions {
   [key: string]: ModelFormReaction;
@@ -16,12 +12,11 @@ export const reactionsApiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: URL_DATA }),
   tagTypes: ["names"],
   endpoints: builder => ({
-    getReactions: builder.query<Reactions, void>({
+    reactions: builder.query<Reactions, void>({
       query: () => "/names.json",
       providesTags: ["names"],
     }),
-    // ModelListReactions[]
-    addReaction: builder.mutation<void, any>({
+    addReaction: builder.mutation<void, ModelFormReaction>({
       query: reaction => ({
         url: "/names.json",
         method: "POST",
@@ -29,16 +24,16 @@ export const reactionsApiSlice = createApi({
       }),
       invalidatesTags: ["names"],
     }),
-    // updateReaction: builder.mutation<void, Reaction>({
-    //   query: ({ id, ...rest }) => ({
-    //     url: `/names/${id}.json`,
-    //     method: "PUT",
-    //     body: rest,
-    //   }),
-    // }),
+    updateReaction: builder.mutation<any, any>({
+      query: ubdateReaction => ({
+        url: `/names/${ubdateReaction.id}.json`,
+        method: "PUT",
+        body: ubdateReaction,
+      }),
+      invalidatesTags: ["names"],
+    }),
 
-    // ModelListReactions[]
-    deleteReaction: builder.mutation<void, any>({
+    deleteReaction: builder.mutation<ModelFormReaction, string | undefined>({
       query: id => ({
         url: `/names/${id}.json`,
         method: "DELETE",
@@ -49,7 +44,8 @@ export const reactionsApiSlice = createApi({
 });
 
 export const {
-  useGetReactionsQuery,
+  useReactionsQuery,
   useAddReactionMutation,
   useDeleteReactionMutation,
+  useUpdateReactionMutation,
 } = reactionsApiSlice;
