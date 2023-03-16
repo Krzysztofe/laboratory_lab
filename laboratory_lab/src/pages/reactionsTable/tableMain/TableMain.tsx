@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
 import { tableHeadFirs, tableHeadSecond } from "./dataListReactions";
 import TableReactions from "../tableReactions/TableReactions";
 import {
@@ -7,19 +8,22 @@ import {
 } from "./utilsListReactions";
 import TableBody from "../tableBody/TableBody";
 import TableHead from "../tableHead/TableHead";
+import { handleOpen } from "../../../redux/storeFeatures/tableReactionsSlice";
+import { RootState } from "../../../redux/store";
 
 const TableMain = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const handleOpen = (isOpen: boolean) => {
-    setIsOpen(isOpen);
-  };
+  const { isOpen } = useSelector(
+    (state: RootState) => state.tableReactions.toggleTable
+  );
+  const dispatch = useDispatch();
 
   return (
     <>
       <div style={{ fontSize: 10, marginTop: 200 }}>
-        <div onClick={() => handleOpen(true)}>Podsawowe parametry</div>
-        <div onClick={() => handleOpen(false)}>Czas</div>
+        <div onClick={() => dispatch(handleOpen(true))}>
+          Podsawowe parametry
+        </div>
+        <div onClick={() => dispatch(handleOpen(false))}>Czas</div>
       </div>
       <TableReactions>
         <TableHead tableHead={isOpen ? tableHeadFirs : tableHeadSecond} />

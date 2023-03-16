@@ -5,15 +5,20 @@ import {
 } from "../../../services/apiSlice";
 import { ModelTableBody } from "./ModelTableBody";
 import { useUpdateReactionMutation } from "../../../services/apiSlice";
-import { INITIAL_DATA_EDIT_FORM } from "./dataTableBody";
-import { ChangeEvent } from "../../../data/types";
+import {
+  INITIAL_DATA_EDIT_FORM,
+  inputsPrintDataFirst,
+  inputsPrintDataSecond,
+} from "./dataTableBody";
 import { useReactions } from "../../../hooks/useReactions";
+import TableEditForm from "../tableEditForm/TableEditForm";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
-import TextInput from "../../../components/inputs/textInput/TextInput";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 const TableBody: FC<ModelTableBody> = ({ getTableBodyReactions }) => {
-  const [reactionEdit, setReactionEdit] = useState(INITIAL_DATA_EDIT_FORM);
   const { reactions } = useReactions();
+  const [reactionEdit, setReactionEdit] = useState(INITIAL_DATA_EDIT_FORM);
   const [reactionsPrint, setReactionsPrint] = useState(reactions);
   const { error, isLoading } = useReactionsQuery(undefined);
   const [deleteReaction] = useDeleteReactionMutation();
@@ -21,13 +26,9 @@ const TableBody: FC<ModelTableBody> = ({ getTableBodyReactions }) => {
   useEffect(() => {
     setReactionsPrint(reactions);
   }, [reactions]);
-
-  const handleChange = (e: ChangeEvent) => {
-    setReactionEdit({ ...reactionEdit, [e.target.name]: e.target.value });
-  };
-
-
-  console.log('',reactionEdit)
+  const { isOpen } = useSelector(
+    (state: RootState) => state.tableReactions.toggleTable
+  );
 
   const handleDelete = async (id?: string) => {
     await deleteReaction(id);
@@ -55,7 +56,9 @@ const TableBody: FC<ModelTableBody> = ({ getTableBodyReactions }) => {
       selectMilimolles: editReaction?.selectMilimolles,
       substract: editReaction?.substract,
       selectReactionCondition: editReaction?.selectReactionCondition,
-      solvents: editReaction?.solvents.join(", "),
+      solvents: Array.isArray(editReaction?.solvents)
+        ? editReaction?.solvents.join(", ")
+        : editReaction?.solvents,
       startDate: editReaction?.startDate,
       finishDate: editReaction?.finishDate,
       startTime: editReaction?.startTime,
@@ -64,7 +67,7 @@ const TableBody: FC<ModelTableBody> = ({ getTableBodyReactions }) => {
     });
   };
 
-  const handleUbdate = async (reactionID: any) => {
+  const handleUpdate = async (reactionID: any) => {
     const editReactions = [...reactionsPrint].map(reaction => {
       return reaction.id === reactionID
         ? { ...reaction, isEdit: true }
@@ -75,8 +78,6 @@ const TableBody: FC<ModelTableBody> = ({ getTableBodyReactions }) => {
     await updateReaction(reactionEdit);
   };
 
-// console.log("", reactionEdit.solvents?.join(", "));
-
   isLoading && <TableBodyRequestMessage message={"Loading..."} />;
   if (error) {
     if ("error" in error)
@@ -85,101 +86,44 @@ const TableBody: FC<ModelTableBody> = ({ getTableBodyReactions }) => {
 
   return (
     <tbody>
-      <tr>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"name"}
-            value={reactionEdit.name}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"technics"}
-            value={reactionEdit.technics}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"alcaloids"}
-            value={reactionEdit.alcaloids}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"selectMilimolles"}
-            value={reactionEdit?.selectMilimolles}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"substract"}
-            value={reactionEdit?.substract}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"selectReactionCondition"}
-            value={reactionEdit?.selectReactionCondition}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-        <td>
-          <TextInput
-            text={""}
-            type={"text"}
-            name={"solvents"}
-            value={reactionEdit.solvents}
-            onChange={handleChange}
-            placeholder={""}
-          />
-        </td>
-      </tr>
-
       {reactionsPrint?.map(reaction => {
         return (
-          <tr key={crypto.randomUUID()}>
-            {getTableBodyReactions(reaction).map(item => {
-              return (
-                <td key={crypto.randomUUID()}>
-                  {Array.isArray(item) ? item.flat().join(", ") : item}
-                </td>
-              );
-            })}
-
+          <tr key={reaction.id}>
             {reaction?.isEdit ? (
-              <td>
-                <button onClick={() => handleEdit(reaction.id)}>Edytuj</button>
-              </td>
+              <>
+                {getTableBodyReactions(reaction).map(item => {
+                  return (
+                    <td key={crypto.randomUUID()}>
+                      {Array.isArray(item) ? item.flat().join(", ") : item}
+                    </td>
+                  );
+                })}
+              </>
+            ) : isOpen ? (
+              <TableEditForm
+                reactionEdit={reactionEdit}
+                setReactionEdit={setReactionEdit}
+                inputsData={inputsPrintDataFirst}
+              />
             ) : (
-              <td>
-                <button onClick={() => handleUbdate(reaction.id)}>
-                  Zatwierdz
-                </button>
-              </td>
+              <TableEditForm
+                reactionEdit={reactionEdit}
+                setReactionEdit={setReactionEdit}
+                inputsData={inputsPrintDataSecond}
+              />
             )}
+
+            <td>
+              <button
+                onClick={() =>
+                  reaction.isEdit
+                    ? handleEdit(reaction.id)
+                    : handleUpdate(reaction.id)
+                }
+              >
+                {reaction.isEdit ? "Edytuj" : "Zatwierdz"}
+              </button>
+            </td>
 
             <td>
               <button onClick={() => handleDelete(reaction.id)}>Usuń</button>

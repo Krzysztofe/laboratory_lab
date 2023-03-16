@@ -4,7 +4,7 @@ export interface ModelTextInput {
   value?: string | number ;
   onChange: any;
   text: string;
-  placeholder: string;
+  placeholder?: string;
   classContainer?: string;
   classLabel?: string;
   classInput?: string;
