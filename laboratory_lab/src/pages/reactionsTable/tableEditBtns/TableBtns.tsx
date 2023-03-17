@@ -21,9 +21,12 @@ const TableBtns: FC<any> = ({ reaction }) => {
   const { printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
-
   const [updateReaction] = useUpdateReactionMutation();
   const [deleteReaction] = useDeleteReactionMutation();
+
+  const handleReactionEdit = (printReactions: any, reactionID: any) => {
+    dispatch(handleEdit([printReactions, reactionID]));
+  };
 
   const handleReactionUpdate = async (printReactions: any, reactionID: any) => {
     const updatedEditedReaction = { ...editedReaction, isEdit: true };
@@ -37,24 +40,21 @@ const TableBtns: FC<any> = ({ reaction }) => {
 
   return (
     <>
-      {reaction.isEdit ? (
-        <td>
+      <td>
+        {reaction.isEdit ? (
           <button
-            onClick={() => dispatch(handleEdit([printReactions, reaction.id]))}
+            onClick={() => handleReactionEdit(printReactions, reaction.id)}
           >
             <AiFillEdit style={{ fontSize: 25 }} />
           </button>
-        </td>
-      ) : (
-        <td>
+        ) : (
           <button
             onClick={() => handleReactionUpdate(printReactions, reaction.id)}
           >
             <MdSystemUpdateAlt style={{ fontSize: 25 }} />
           </button>
-        </td>
-      )}
-
+        )}
+      </td>
       <td>
         <button onClick={() => handleDelete(reaction.id)}>
           <FaTrashAlt style={{ fontSize: 25 }} />
