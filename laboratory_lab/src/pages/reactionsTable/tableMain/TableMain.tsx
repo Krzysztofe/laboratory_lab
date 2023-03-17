@@ -1,6 +1,4 @@
-
 import { useDispatch, useSelector } from "react-redux";
-import { tableHeadFirs, tableHeadSecond } from "./dataListReactions";
 import TableReactions from "../tableReactions/TableReactions";
 import {
   getTableBodyReactionsFirst,
@@ -8,7 +6,7 @@ import {
 } from "./utilsListReactions";
 import TableBody from "../tableBody/TableBody";
 import TableHead from "../tableHead/TableHead";
-import { handleOpen } from "../../../redux/storeFeatures/tableReactionsSlice";
+import { handleTableOpen } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { RootState } from "../../../redux/store";
 
 const TableMain = () => {
@@ -20,13 +18,13 @@ const TableMain = () => {
   return (
     <>
       <div style={{ fontSize: 10, marginTop: 200 }}>
-        <div onClick={() => dispatch(handleOpen(true))}>
+        <div onClick={() => dispatch(handleTableOpen(true))}>
           Podsawowe parametry
         </div>
-        <div onClick={() => dispatch(handleOpen(false))}>Czas</div>
+        <div onClick={() => dispatch(handleTableOpen(false))}>Czas</div>
       </div>
       <TableReactions>
-        <TableHead tableHead={isOpen ? tableHeadFirs : tableHeadSecond} />
+        <TableHead />
         <TableBody
           getTableBodyReactions={
             isOpen ? getTableBodyReactionsFirst : getTableBodyReactionsSecond

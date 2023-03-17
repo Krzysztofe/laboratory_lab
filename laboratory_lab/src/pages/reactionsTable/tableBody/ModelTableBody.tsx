@@ -16,6 +16,6 @@ export interface ModelReaction {
 }
 
 export interface ModelTableBody {
-  getTableBodyReactions: (reaction: ModelReaction) => any[];
+  getTableBodyReactions: (reaction: any) => any[];
 }
 

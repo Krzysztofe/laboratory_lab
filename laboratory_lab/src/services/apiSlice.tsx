@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { AnyAaaaRecord } from "dns";
 import { URL_DATA } from "../data/apiKeys";
 import { ModelFormReaction } from "../pages/reactionForm/formReaction/ModelFormReaction";
 
@@ -24,6 +23,7 @@ export const reactionsApiSlice = createApi({
       }),
       invalidatesTags: ["names"],
     }),
+
     updateReaction: builder.mutation<any, any>({
       query: ubdateReaction => ({
         url: `/names/${ubdateReaction.id}.json`,

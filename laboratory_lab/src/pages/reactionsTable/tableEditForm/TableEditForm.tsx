@@ -2,23 +2,24 @@ import { FC } from "react";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { ModelEditForm } from "../tableBody/dataTableBody";
+import { useDispatch, useSelector } from "react-redux";
+import { handleChange } from "../../../redux/storeFeatures/tableReactionsSlice";
+import { RootState } from "../../../redux/store";
 
 interface ModelEditFormProps {
-  reactionEdit: ModelEditForm;
-  setReactionEdit: React.Dispatch<React.SetStateAction<ModelEditForm>>;
-  inputsData: {name: string, type: string}[]
+  inputsData: { name: string; type: string }[];
 }
 
-const TableEditForm: FC<ModelEditFormProps> = ({
-  reactionEdit,
-  setReactionEdit,
-  inputsData
-}) => {
-  const handleChange = (e: ChangeEvent) => {
-    setReactionEdit({
-      ...reactionEdit,
-      [e.target.name]: e.target.value,
-    });
+const TableEditForm: FC<ModelEditFormProps> = ({ inputsData }) => {
+  const dispatch = useDispatch();
+
+  const { editedReaction } = useSelector(
+    (state: RootState) => state.tableReactions
+  );
+
+  const handleInputChange = (e: ChangeEvent) => {
+    const { name, value } = e.target;
+    dispatch(handleChange([name, value]));
   };
 
   return (
@@ -30,8 +31,8 @@ const TableEditForm: FC<ModelEditFormProps> = ({
               text={""}
               type={inputData.type}
               name={inputData.name}
-              value={reactionEdit[inputData.name]}
-              onChange={handleChange}
+              value={editedReaction[inputData.name]}
+              onChange={handleInputChange}
             />
           </td>
         );
