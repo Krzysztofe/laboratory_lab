@@ -1,20 +1,22 @@
-import { FC } from "react";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
-import { ModelEditForm } from "../tableBody/dataTableBody";
 import { useDispatch, useSelector } from "react-redux";
 import { handleChange } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { RootState } from "../../../redux/store";
+import {
+  inputsPrintDataFirst,
+  inputsPrintDataSecond,
+} from "./dataTableEditForm";
 
-interface ModelEditFormProps {
-  inputsData: { name: string; type: string }[];
-}
-
-const TableEditForm: FC<ModelEditFormProps> = ({ inputsData }) => {
+const TableEditForm = () => {
   const dispatch = useDispatch();
 
   const { editedReaction } = useSelector(
     (state: RootState) => state.tableReactions
+  );
+
+  const { isOpen } = useSelector(
+    (state: RootState) => state.tableReactions.toggleTable
   );
 
   const handleInputChange = (e: ChangeEvent) => {
@@ -22,9 +24,11 @@ const TableEditForm: FC<ModelEditFormProps> = ({ inputsData }) => {
     dispatch(handleChange([name, value]));
   };
 
+  const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
+
   return (
     <>
-      {inputsData.map(inputData => {
+      {inputsPrintData.map(inputData => {
         return (
           <td key={inputData.name}>
             <TextInput
