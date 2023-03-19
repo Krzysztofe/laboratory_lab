@@ -6,9 +6,10 @@ import {
   getTableBodyReactionsSecond,
 } from "./utilsTableReactionPrint";
 import { useReactionsQuery } from "../../../services/apiSlice";
-import  TableBodyRequestMessage  from "../requestMesageTableBody/TableBodyRequestMessage";
+import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
+import { ModelReaction } from "../../../hooks/useReactions";
 
-const TablePrintReaction: FC<any> = ({ reaction }) => {
+const TablePrintReaction: FC<ModelReaction> = ({ reaction }) => {
   const { error, isLoading } = useReactionsQuery(undefined);
 
   const { isOpen } = useSelector(

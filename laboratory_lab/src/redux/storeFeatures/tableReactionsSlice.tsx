@@ -1,25 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ModelReaction } from "../../hooks/useReactions";
 
-interface ModelEditForm {
-  [key: string]: any;
-  id?: string;
-  name?: string;
-  alcaloids?: string;
-  selectMilimolles?: string | number;
-  substract?: string;
-  selectReactionCondition?: string;
-  solvents?: string;
-  startDate?: string;
-  finishDate?: string;
-  startTime?: string;
-  finishTime?: string;
-  technics?: string;
-  isEdit?: boolean;
-}
 
 interface TableReactionsState {
-  editedReaction: ModelEditForm;
-  printReactions: ModelEditForm[];
+  editedReaction: ModelReaction;
+  printReactions: ModelReaction[];
   toggleTable: { isOpen: boolean };
 }
 
@@ -32,7 +17,7 @@ const initialState: TableReactionsState = {
     selectMilimolles: "",
     substract: "",
     selectReactionCondition: "",
-    solvents: "",
+    solvents: [],
     startDate: "",
     finishDate: "",
     startTime: "",
@@ -47,7 +32,7 @@ export const tableReactionsSlice = createSlice({
   name: "tableReactions",
   initialState,
   reducers: {
-    handleChange: (state, action: PayloadAction<[string, any]>) => {
+    handleChange: (state, action: PayloadAction<[string, string]>) => {
       state.editedReaction = {
         ...state.editedReaction,
         [action.payload[0]]: action.payload[1],
@@ -58,7 +43,7 @@ export const tableReactionsSlice = createSlice({
       state.printReactions = action.payload;
     },
 
-    handleEdit: (state, action: PayloadAction<[ModelEditForm[], any]>) => {
+    handleEdit: (state, action: PayloadAction<[ModelReaction[], string]>) => {
       state.printReactions = action.payload[0].map(reaction => {
         return reaction.id === action.payload[1]
           ? { ...reaction, isEdit: false }
@@ -73,7 +58,7 @@ export const tableReactionsSlice = createSlice({
       }
     },
 
-    handleUpdate: (state, action: PayloadAction<[ModelEditForm[], string]>) => {
+    handleUpdate: (state, action: PayloadAction<[ModelReaction[], string]>) => {
       state.printReactions = action.payload[0].map(reaction => {
         return reaction.id === action.payload[1]
           ? { ...reaction, isEdit: true }

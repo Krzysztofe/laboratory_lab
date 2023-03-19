@@ -7,17 +7,16 @@ import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestM
 import { getReactions } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../redux/store";
-import TableBtns from "../tableEditBtns/TableBtns";
+import TableBtns from "../tableBtns/TableBtns";
 
-
-const TableBody  = () => {
+const TableBody = () => {
   const dispatch = useDispatch();
   const { reactions } = useReactions();
 
   const { printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
- 
+
   const { error, isLoading } = useReactionsQuery(undefined);
 
   useEffect(() => {

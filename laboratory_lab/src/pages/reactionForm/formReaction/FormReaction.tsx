@@ -18,6 +18,14 @@ const FormReaction = () => {
       return { ...prev, ...fields };
     });
   };
+  // const handleChangeInput = e => {
+  //   const value =
+  //     e.target.type === "checkbox" ? e.target.checked : e.target.value;
+  //   setInputValue({
+  //     ...inputValue,
+  //     [e.target.name]: value,
+  //   });
+  // };
 
   const { steps, currentStepIdx, step, isFirstStep, isLastStep, back, next } =
     useMultistepForm([
@@ -29,20 +37,20 @@ const FormReaction = () => {
     ]);
 
   console.log("data", reaction);
-  
+
   const { data, error, isLoading, refetch } = useReactionsQuery(undefined);
   const [addReaction] = useAddReactionMutation();
- 
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     isLastStep ? await addReaction(reaction) : next();
   };
 
-    if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div>Loading...</div>;
 
-    if (error) {
-      if ("error" in error) return <div>{error.error}</div>;
-    }
+  if (error) {
+    if ("error" in error) return <div>{error.error}</div>;
+  }
   return (
     <form onSubmit={handleSubmit} style={{ marginTop: 150 }}>
       <p>

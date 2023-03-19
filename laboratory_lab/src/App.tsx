@@ -11,7 +11,7 @@ const ReactionForm = lazy(
   () => import("./pages/reactionForm/formReaction/FormReaction")
 );
 const ReactionsList = lazy(
-  () => import("./pages/reactionsTable/tableMain/TableMain")
+  () => import("./pages/tableReactions/_indexTableReactions/IndexTable")
 );
 
 function App() {

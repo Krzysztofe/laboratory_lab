@@ -4,16 +4,16 @@ import TableBody from "../tableBody/TableBody";
 import TableHead from "../tableHead/TableHead";
 import { handleTableOpen } from "../../../redux/storeFeatures/tableReactionsSlice";
 
-const TableMain = () => {
+const IndexTable = () => {
   const dispatch = useDispatch();
 
   return (
     <>
       <div style={{ fontSize: 10, marginTop: 200 }}>
         <div onClick={() => dispatch(handleTableOpen(true))}>
-          Podsawowe parametry
+          Warunki reakcji
         </div>
-        <div onClick={() => dispatch(handleTableOpen(false))}>Czas</div>
+        <div onClick={() => dispatch(handleTableOpen(false))}>Czasy reakcji</div>
       </div>
       <TableReactions>
         <TableHead />
@@ -23,4 +23,4 @@ const TableMain = () => {
   );
 };
 
-export default TableMain;
+export default IndexTable;

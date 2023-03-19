@@ -1,6 +1,22 @@
 import { useMemo } from "react";
-import { ModelReaction } from "../pages/reactionsTable/tableMain/modelReaction";
 import { useReactionsQuery } from "../services/apiSlice";
+
+export interface ModelReaction {
+  [key: string]: any;
+  id?: string;
+  name?: string;
+  alcaloids?: string;
+  selectMilimolles?: string | number;
+  substract?: string;
+  selectReactionCondition?: string;
+  solvents?: string[];
+  startDate?: string;
+  finishDate?: string;
+  startTime?: string;
+  finishTime?: string;
+  technics?: string;
+  isEdit?: boolean;
+}
 
 export const useReactions = () => {
   const { data } = useReactionsQuery(undefined);
