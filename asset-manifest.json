@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.c46fd447.css",
-    "main.js": "/Laboratory_Lab/static/js/main.18476e22.js",
+    "main.css": "/Laboratory_Lab/static/css/main.7a90c779.css",
+    "main.js": "/Laboratory_Lab/static/js/main.36c1e8fc.js",
     "static/js/412.2569af00.chunk.js": "/Laboratory_Lab/static/js/412.2569af00.chunk.js",
     "static/js/855.180d3a25.chunk.js": "/Laboratory_Lab/static/js/855.180d3a25.chunk.js",
-    "static/js/918.561400a5.chunk.js": "/Laboratory_Lab/static/js/918.561400a5.chunk.js",
-    "static/js/775.a576ca3a.chunk.js": "/Laboratory_Lab/static/js/775.a576ca3a.chunk.js",
-    "static/media/5a224075d268a2.png": "/Laboratory_Lab/static/media/5a224075d268a2.3665670315121941658618.e392a866494942361317.png",
+    "static/js/918.3806c7b5.chunk.js": "/Laboratory_Lab/static/js/918.3806c7b5.chunk.js",
+    "static/js/482.66e0f0ce.chunk.js": "/Laboratory_Lab/static/js/482.66e0f0ce.chunk.js",
+    "static/js/856.89a5d45a.chunk.js": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js",
+    "static/media/pexels-anna-shvets-3786245.jpg": "/Laboratory_Lab/static/media/pexels-anna-shvets-3786245.ad0a8ee2d936780101ac.jpg",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.c46fd447.css.map": "/Laboratory_Lab/static/css/main.c46fd447.css.map",
-    "main.18476e22.js.map": "/Laboratory_Lab/static/js/main.18476e22.js.map",
+    "main.7a90c779.css.map": "/Laboratory_Lab/static/css/main.7a90c779.css.map",
+    "main.36c1e8fc.js.map": "/Laboratory_Lab/static/js/main.36c1e8fc.js.map",
     "412.2569af00.chunk.js.map": "/Laboratory_Lab/static/js/412.2569af00.chunk.js.map",
     "855.180d3a25.chunk.js.map": "/Laboratory_Lab/static/js/855.180d3a25.chunk.js.map",
-    "918.561400a5.chunk.js.map": "/Laboratory_Lab/static/js/918.561400a5.chunk.js.map",
-    "775.a576ca3a.chunk.js.map": "/Laboratory_Lab/static/js/775.a576ca3a.chunk.js.map"
+    "918.3806c7b5.chunk.js.map": "/Laboratory_Lab/static/js/918.3806c7b5.chunk.js.map",
+    "482.66e0f0ce.chunk.js.map": "/Laboratory_Lab/static/js/482.66e0f0ce.chunk.js.map",
+    "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c46fd447.css",
-    "static/js/main.18476e22.js"
+    "static/css/main.7a90c779.css",
+    "static/js/main.36c1e8fc.js"
   ]
 }
