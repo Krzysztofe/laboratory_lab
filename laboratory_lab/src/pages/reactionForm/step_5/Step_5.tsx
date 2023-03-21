@@ -1,17 +1,16 @@
-import React, { FC } from "react";
-import { ModelFormReaction } from "../formReaction/ModelFormReaction";
+import { FC } from "react";
 import { summaryTitles } from "./dataStep_5";
 
 interface Props {
-  reaction: ModelFormReaction;
-  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  formik: any;
 }
 
-const Step_5: FC<Props> = ({ reaction }) => {
-  const getReactionValues = Object.entries(reaction).map(([key, value]) => ({
-    [key]: value,
-  }));
-
+const Step_5: FC<Props> = ({ formik }) => {
+  const getReactionValues = Object.entries(formik.values).map(
+    ([key, value]) => ({
+      [key]: value,
+    })
+  );
 
   return (
     <>

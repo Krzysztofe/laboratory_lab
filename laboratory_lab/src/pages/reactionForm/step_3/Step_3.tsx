@@ -1,25 +1,23 @@
 import React, { FC, useState, useRef, useEffect } from "react";
 import { ModelFormReaction } from "../formReaction/ModelFormReaction";
 import CheckboxInput from "../../../components/inputs/checkboxInput/CheckboxInput";
-import SelectInput from "../../../components/inputs/selectInut/SelectInput";
+import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import { solventsData, INITIAL_DATA } from "./dataStep_3";
 
 interface Props {
-  reaction: ModelFormReaction;
-  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  formik: any;
 }
 
-const Step_3: FC<Props> = ({ reaction, handleChange }) => {
+const Step_3: FC<Props> = ({ formik }) => {
   const [isChecked, setIsChecked] = useState(INITIAL_DATA);
 
-  // Update isChecked state if data.solvents changes
   useEffect(() => {
     const newIsChecked = [...isChecked];
     solventsData.forEach((solvent, idx) => {
-      newIsChecked[idx] = reaction.solvents.includes(solvent.name);
+      newIsChecked[idx] = formik.values.solvents.includes(solvent.name);
     });
     setIsChecked(newIsChecked);
-  }, [reaction.solvents]);
+  }, [formik.values.solvents]);
 
   const handleCheckboxChange = (idx: number, name: string) => {
     const newIsChecked = [...isChecked];
@@ -36,11 +34,11 @@ const Step_3: FC<Props> = ({ reaction, handleChange }) => {
       []
     );
 
-    handleChange({ solvents: getNewSolvents });
+    formik.setFieldValue("solvents", getNewSolvents);
   };
 
   const handleSelectChange = (value: string) => {
-    handleChange({ selectReactionCondition: value });
+    formik.setFieldValue("selectReactionCondition", value);
   };
 
   return (
@@ -57,14 +55,24 @@ const Step_3: FC<Props> = ({ reaction, handleChange }) => {
           classStyledDiv={""}
         />
       ))}
+      {formik.touched.solvents && formik.errors.solvents ? (
+        <small>{formik.errors.solvents}</small>
+      ) : (
+        <small></small>
+      )}
 
       <SelectInput
         label={"Warunki reakcji"}
         inputName={"selectReactionCondition"}
         selectValues={["mieszanie", "ogrzewanie", "mikrofala", "chłodzenie"]}
-        value={reaction.selectReactionCondition}
+        value={formik.values.selectReactionCondition}
         handleChange={handleSelectChange}
       />
+      {formik.errors.selectReactionCondition ? (
+        <small>Wybierz warunki reakcji</small>
+      ) : (
+        <small></small>
+      )}
     </>
   );
 };

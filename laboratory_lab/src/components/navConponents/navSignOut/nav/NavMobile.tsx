@@ -11,11 +11,11 @@ const NavMobile = () => {
     <>
       {isOpen ? (
         <>
-          <nav className="homeNavMobile">
-            <div className="homeNavMobile__icons">
-              <GiChemicalDrop className="iconDrop" />
+          <nav className="navHomeMobile">
+            <div className="navHomeMobile__topIcons">
+              <GiChemicalDrop />
               <GrFormClose
-                className="icon"
+                className="navHomeMobile__icon"
                 onClick={() => setIsOpen(prev => !prev)}
               />
             </div>
@@ -23,11 +23,11 @@ const NavMobile = () => {
           </nav>
         </>
       ) : (
-        <nav className="homeNavMobile">
-          <div className="homeNavMobile__icons">
-            <GiChemicalDrop className="iconDrop" />
+        <nav className="navHomeMobile" style = {{height: 90}}>
+          <div className="navHomeMobile__topIcons">
+            <GiChemicalDrop />
             <RiMenuFill
-              className="icon"
+              className="navHomeMobile__icon"
               onClick={() => setIsOpen(prev => !prev)}
             />
           </div>

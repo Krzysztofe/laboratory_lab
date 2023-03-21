@@ -1,5 +1,6 @@
-.navItems {
-  margin: $space-small;
+.navHomeItems {
+  width: 100%;
+  background-color: $color-white;
   &:first-of-type {
     border-bottom: 1px solid black;
   }
@@ -7,8 +8,9 @@
   @include breakpointNav {
   }
   & .item {
+
     display: block;
-    padding: $space-small/2 0;
+    padding: $space-small/2 $space-small;;
     text-decoration: 0;
     color: $color-black;
     

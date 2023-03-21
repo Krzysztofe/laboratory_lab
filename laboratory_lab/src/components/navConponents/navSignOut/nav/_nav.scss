@@ -1,4 +1,4 @@
-.homeNav {
+.navHome {
   display: none;
   @include breakpointNav {
     display: block;
@@ -6,13 +6,8 @@
   }
 }
 
-.homeNavMobile {
-  display: flex;
-  // justify-content: space-between;
-  flex-direction: column;
-  align-items: center;
+.navHomeMobile {
   width: 100%;
-  height: 90px;
   padding: $space-small;
   position: fixed;
   top: 0;
@@ -23,14 +18,14 @@
     display: none;
   }
 
-  &__icons {
+  &__topIcons {
     font-size: $font-size-large * 2;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    & .icon {
+    .navHomeMobile__icon {
       cursor: pointer;
     }
   }

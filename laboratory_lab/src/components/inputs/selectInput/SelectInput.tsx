@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import { useState, FC } from "react";
 
 interface Props {
   selectValues: number[] | string[];
@@ -6,6 +6,7 @@ interface Props {
   inputName: any;
   value: string | number;
   handleChange: any;
+  handleBlur?: any;
 }
 
 const SelectInput: FC<Props> = props => {
@@ -20,8 +21,12 @@ const SelectInput: FC<Props> = props => {
       <label className="selec__label">{props.label}</label>
 
       <div className="select__options">
-        <div onClick={handleOpen} className="select__top" 
-        style = {{border: "1px solid black", width:"fix contemt" }}>
+        <div
+          onBlur={props.handleBlur}
+          onClick={handleOpen}
+          className="select__top"
+          style={{ border: "1px solid black", width: "fix contemt" }}
+        >
           {props.value}
           <div className={open ? "select__arrow--up" : "select__arrow"}></div>
         </div>
@@ -32,6 +37,7 @@ const SelectInput: FC<Props> = props => {
               return (
                 <div
                   key={value}
+                  onBlur={props.handleBlur}
                   onClick={() => {
                     props.handleChange(value);
                     handleOpen();

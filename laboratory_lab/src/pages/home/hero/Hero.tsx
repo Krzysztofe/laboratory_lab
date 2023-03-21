@@ -8,12 +8,12 @@ const Hero = () => {
 
   return (
     <section>
-      <div className="menuSpacer"></div>
+      <div className="menuSpacer" style={{ height: 90 }}></div>
       <div className="wrapper hero">
-        <h1 className="hero__title">
+        {/* <h1 className="hero__title">
           Dziennik laboratoryjny
           <br /> grupy badawczej
-        </h1>
+        </h1> */}
 
         <BtnLink text={"KATALOG PROJEKTÓW"} class={"hero__btn"} link={link} />
       </div>

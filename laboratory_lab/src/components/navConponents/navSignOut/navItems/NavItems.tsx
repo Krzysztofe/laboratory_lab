@@ -24,7 +24,7 @@ const NavItems: FC<Props> = props => {
 
   return (
     <>
-      <ul className="navItems">
+      <ul className="navHomeItems">
         {links.map(link => {
           return (
             <motion.li
@@ -33,8 +33,9 @@ const NavItems: FC<Props> = props => {
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: link.delay }}
+              className="item"
             >
-              <HashLink smooth to={link.to} className="item">
+              <HashLink smooth to={link.to}>
                 {link.text}
               </HashLink>
             </motion.li>
@@ -42,7 +43,7 @@ const NavItems: FC<Props> = props => {
         })}
       </ul>
       {!user?.email && (
-        <ul className="navItems">
+        <ul className="navHomeItems">
           {signedOutLinks.map(link => {
             return (
               <motion.li
@@ -51,10 +52,9 @@ const NavItems: FC<Props> = props => {
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: link.delay }}
+                className="item"
               >
-                <Link to={link.to} className="item item--log">
-                  {link.text}
-                </Link>
+                <Link to={link.to}>{link.text}</Link>
               </motion.li>
             );
           })}
@@ -62,7 +62,7 @@ const NavItems: FC<Props> = props => {
       )}
 
       {user?.email && (
-        <ul className="navItems">
+        <ul className="navHomeItems">
           <motion.li
             className="item item--log item--hi"
             initial={{ opacity: 0, y: -40 }}
@@ -77,13 +77,13 @@ const NavItems: FC<Props> = props => {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
+            className="item item--log"
           >
-            <Link to="reaction-form" className="item item--log">
-              Panel użytkownika
-            </Link>
+            <Link to="reaction-form">Panel użytkownika</Link>
           </motion.li>
 
           <motion.li
+            className="item item--log"
             onClick={handleLogout}
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}

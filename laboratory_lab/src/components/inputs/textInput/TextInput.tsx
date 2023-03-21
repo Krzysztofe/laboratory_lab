@@ -1,3 +1,4 @@
+
 import { FC } from "react";
 import { ModelTextInput } from "./ModelTextInput";
 
@@ -7,11 +8,15 @@ const TextInput: FC<ModelTextInput> = ({
   name,
   value,
   onChange,
+  handleBlur,
   placeholder,
   classContainer,
   classLabel,
   classInput,
 }) => {
+
+
+
   return (
     <div className={classContainer}>
       <label htmlFor={name} className={classLabel}>
@@ -22,6 +27,7 @@ const TextInput: FC<ModelTextInput> = ({
         name={name}
         value={value}
         onChange={onChange}
+        onBlur ={handleBlur}
         placeholder={placeholder}
         className={classInput}
         autoComplete="off"

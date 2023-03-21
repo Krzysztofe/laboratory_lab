@@ -1,10 +1,10 @@
-import React, { FC } from "react";
-
+import { FC } from "react";
 
 interface ModelRadio {
   value: string;
   onChange: any;
-  checked: string;
+  checked: boolean;
+  handleBlur?: any;
 }
 
 const RadioInput: FC<ModelRadio> = props => {
@@ -14,8 +14,9 @@ const RadioInput: FC<ModelRadio> = props => {
         type="radio"
         name=""
         value={props.value}
-        checked={props.value === props.checked}
+        checked={props.checked}
         onChange={props.onChange}
+        onBlur={props.handleBlur}
         className="radio"
         id="id"
       />
