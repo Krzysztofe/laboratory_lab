@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import TextInput from "../../components/inputs/textInput/TextInput";
 import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -12,7 +12,7 @@ const Register = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-      user && navigate("/user");
+      user && navigate("/reaction-form");
     });
   }, []);
 
@@ -36,7 +36,7 @@ const Register = () => {
     onSubmit: values => {
       const { email, password } = values;
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => navigate("/user"))
+        .then(() => navigate("/reaction-form"))
         .catch(error => alert(error.code));
     },
   });
