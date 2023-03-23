@@ -9,7 +9,7 @@ import {
   inputsPrintDataSecond,
 } from "./dataTableEditForm";
 
-// import { validationEditForm } from "./useValidationEditForm";
+import { useValidationEditForm } from "../tableEditForm/useValidationEditForm";
 
 const TableEditForm = ({ formik }: any) => {
   const dispatch = useDispatch();
@@ -21,8 +21,7 @@ const TableEditForm = ({ formik }: any) => {
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
   );
-
-
+  const { validationEditForm } = useValidationEditForm(editedReaction);
 
   const handleInputChange = (e: ChangeEvent, key: any) => {
     const { name, value } = e.target;
@@ -30,6 +29,9 @@ const TableEditForm = ({ formik }: any) => {
   };
 
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
+
+// console.log("edit", validationEditForm());
+
 
   return (
     <>
@@ -42,10 +44,9 @@ const TableEditForm = ({ formik }: any) => {
               name={name}
               value={editedReaction[name]}
               onChange={handleInputChange}
-              handleBlur={formik.handleBlur}
             />
             <small>
-              {/* {validationEditForm()[name as keyof typeof validationEditForm]} */}
+              {validationEditForm()[name as keyof typeof validationEditForm]}
             </small>
           </td>
         );

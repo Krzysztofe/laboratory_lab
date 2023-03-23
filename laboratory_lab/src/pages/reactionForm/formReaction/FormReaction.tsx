@@ -14,10 +14,6 @@ import Step_5 from "../step_5/Step_5";
 import { useValidationEditForm } from "../../tableReactions/tableEditForm/useValidationEditForm";
 import { ModelFormReaction } from "./ModelFormReaction";
 
-
-
-
-
 const FormReaction = () => {
   const { error, isLoading } = useReactionsQuery(undefined);
   const [currentStepIdxUpdate, setCurrentStepIdxUpdate] = useState(0);
@@ -25,10 +21,7 @@ const FormReaction = () => {
   const [addReaction] = useAddReactionMutation();
 
   const [reaction, setReaction] = useState(INITIAL_DATA);
-console.log('reaction',reaction)
-
-
-
+  console.log("reaction", reaction);
 
   const handleChange = (fields: Partial<ModelFormReaction>) => {
     setReaction(prev => {
@@ -58,12 +51,8 @@ console.log('reaction',reaction)
         handleChange={handleChange}
         errors={errors}
       />,
-      <Step_5
-        reaction={reaction}
-       
-      />,
+      <Step_5 reaction={reaction} />,
     ]);
-
 
   const { validationEditForm } = useValidationEditForm(
     reaction,
@@ -80,8 +69,6 @@ console.log('reaction',reaction)
   useEffect(() => {
     setCurrentStepIdxUpdate(currentStepIdx);
   }, [currentStepIdx]);
-
-  
 
   if (isLoading) return <div>Loading...</div>;
 
