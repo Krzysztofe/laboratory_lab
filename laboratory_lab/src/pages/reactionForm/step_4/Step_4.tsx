@@ -1,74 +1,79 @@
 import { FC } from "react";
 import TextInput from "../../../components/inputs/textInput/TextInput";
-
+import { ChangeEvent } from "../../../data/types";
 
 interface Props {
-  formik: any;
+  reaction: any;
+  errors: any;
+  handleChange: any;
 }
 
-const Step_4: FC<Props> = ({ formik }) => {
+const Step_4: FC<Props> = ({ reaction, errors, handleChange }) => {
+  const handleStarthDate = (e: ChangeEvent) => {
+    return handleChange({ startDate: e.target.value });
+  };
+
+  const handleFinishDate = (e: ChangeEvent) => {
+    return handleChange({ finishDate: e.target.value });
+  };
+
+  const handleStartTime = (e: ChangeEvent) => {
+    return handleChange({ startTime: e.target.value });
+  };
+
+  const handleFinishTime = (e: ChangeEvent) => {
+    return handleChange({ finishTime: e.target.value });
+  };
+
   return (
     <>
       <TextInput
         type={"date"}
         name={"startDate"}
-        value={formik.values.startDate}
-        onChange={formik.handleChange}
+        value={reaction.startDate}
+        onChange={handleStarthDate}
         text={"Data rozpoczęcia"}
         placeholder={""}
         classLabel={""}
         classInput={""}
       />
-      {formik.touched.startDate && formik.errors.startDate ? (
-        <small>{formik.errors.startDate}</small>
-      ) : (
-        <small></small>
-      )}
+      <small> {errors.startDate} </small>
+
       <TextInput
         type={"date"}
         name={"finishDate"}
-        value={formik.values.finishDate}
-        onChange={formik.handleChange}
+        value={reaction.finishDate}
+        onChange={handleFinishDate}
         text={"Data ukończenia"}
         placeholder={""}
         classLabel={""}
         classInput={""}
       />
-      {formik.touched.finishDate && formik.errors.finishDate ? (
-        <small>{formik.errors.finishDate}</small>
-      ) : (
-        <small></small>
-      )}
+      <small> {errors.finishDate} </small>
+
       <TextInput
         type={"time"}
         name={"startTime"}
-        value={formik.values.startTime}
-        onChange={formik.handleChange}
+        value={reaction.startTime}
+        onChange={handleStartTime}
         text={"Godzina rozpoczęcia"}
         placeholder={""}
         classLabel={""}
         classInput={""}
       />
-      {formik.touched.startTime && formik.errors.startTime ? (
-        <small>{formik.errors.startTime}</small>
-      ) : (
-        <small></small>
-      )}
+      <small> {errors.startTime} </small>
+
       <TextInput
         type={"time"}
         name={"finishTime"}
-        value={formik.values.finishTime}
-        onChange={formik.handleChange}
+        value={reaction.finishTime}
+        onChange={handleFinishTime}
         text={"Godzina zakończenia"}
         placeholder={""}
         classLabel={""}
         classInput={""}
       />
-      {formik.touched.finishTime && formik.errors.finishTime ? (
-        <small>{formik.errors.finishTime}</small>
-      ) : (
-        <small></small>
-      )}
+      <small> {errors.finishTime} </small>
     </>
   );
 };

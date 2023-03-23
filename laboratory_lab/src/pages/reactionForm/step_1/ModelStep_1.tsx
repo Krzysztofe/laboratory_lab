@@ -1,3 +1,5 @@
 export interface ModelStep_1 {
-  formik: any;
+  reaction: any;
+  handleChange: any;
+  errors: any
 }

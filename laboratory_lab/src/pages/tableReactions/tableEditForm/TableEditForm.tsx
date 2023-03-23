@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +9,9 @@ import {
   inputsPrintDataSecond,
 } from "./dataTableEditForm";
 
-const TableEditForm = () => {
+// import { validationEditForm } from "./useValidationEditForm";
+
+const TableEditForm = ({ formik }: any) => {
   const dispatch = useDispatch();
 
   const { editedReaction } = useSelector(
@@ -19,7 +22,9 @@ const TableEditForm = () => {
     (state: RootState) => state.tableReactions.toggleTable
   );
 
-  const handleInputChange = (e: ChangeEvent) => {
+
+
+  const handleInputChange = (e: ChangeEvent, key: any) => {
     const { name, value } = e.target;
     dispatch(handleChange([name, value]));
   };
@@ -28,16 +33,20 @@ const TableEditForm = () => {
 
   return (
     <>
-      {inputsPrintData.map(inputData => {
+      {inputsPrintData.map(({ type, name }) => {
         return (
-          <td key={inputData.name}>
+          <td key={name}>
             <TextInput
               text={""}
-              type={inputData.type}
-              name={inputData.name}
-              value={editedReaction[inputData.name]}
+              type={type}
+              name={name}
+              value={editedReaction[name]}
               onChange={handleInputChange}
+              handleBlur={formik.handleBlur}
             />
+            <small>
+              {/* {validationEditForm()[name as keyof typeof validationEditForm]} */}
+            </small>
           </td>
         );
       })}

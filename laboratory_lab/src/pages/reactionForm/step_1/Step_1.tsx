@@ -1,66 +1,71 @@
 import { FC, useState } from "react";
+import { useSelector } from "react-redux";
 import RadioInput from "../../../components/inputs/radioInput/RadioInput";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
+import { useAddReactionMutation } from "../../../services/apiSlice";
 import { alcaloidsData } from "./dataStep_1";
 import { ModelStep_1 } from "./ModelStep_1";
+import { RootState } from "../../../redux/store";
+import { useValidationEditForm } from "../../tableReactions/tableEditForm/useValidationEditForm";
 
-const Step_1: FC<ModelStep_1> = ({ formik }): JSX.Element => {
+const Step_1: FC<ModelStep_1> = ({
+  reaction,
+  handleChange,
+  errors,
+}): JSX.Element => {
   const [selectedAlcaloid, setSelectedAlcaloid] = useState("");
+
+  const handleAlcaloidsChange = (e: ChangeEvent) => {
+    return handleChange({ alcaloids: e.target.value });
+  };
+
+  const handleTechnics = (e: ChangeEvent) => {
+    return handleChange({ technics: e.target.value });
+  };
+  const handleTextChange = (e: ChangeEvent) => {
+    return handleChange({ name: e.target.value });
+  };
+
+
 
   return (
     <>
       <TextInput
         type={"text"}
         name={"name"}
-        value={formik.values.name}
-        onChange={formik.handleChange}
-        handleBlur={formik.handleBlur}
+        value={reaction.name}
+        onChange={handleTextChange}
+        // handleBlur = {}
         text={"Nazwa reakcji"}
         placeholder={"Nazwa"}
       />
-      {formik.touched.name && formik.errors.name ? (
-        <small>{formik.errors.name}</small>
-      ) : (
-        <small></small>
-      )}
+      <small>{errors.name}</small>
 
       <TextInput
         type={"text"}
         name={"technics"}
-        value={formik.values.technics}
-        onChange={formik.handleChange}
-        handleBlur={formik.handleBlur}
+        value={reaction.technics}
+        onChange={handleTechnics}
         text={"Technika"}
         placeholder={"Technika"}
         classLabel={""}
         classInput={""}
       />
-      {formik.touched.technics && formik.errors.technics ? (
-        <small>{formik.errors.technics}</small>
-      ) : (
-        <small></small>
-      )}
+      <small>{errors.technics}</small>
+
       <p>Alkaloid</p>
       {alcaloidsData.map(alcaloid => {
         return (
           <RadioInput
             key={alcaloid}
             value={alcaloid}
-            onChange={(e: ChangeEvent) => {
-              formik.setFieldValue("alcaloids", e.target.value);
-              setSelectedAlcaloid(e.target.value);
-            }}
-            checked={formik.values.alcaloids === alcaloid}
-            handleBlur={formik.handleBlur}
+            onChange={handleAlcaloidsChange}
+            checked={reaction.alcaloids === alcaloid}
           />
         );
       })}
-      {formik.touched.alcaloids && formik.errors.alcaloids ? (
-        <small>{formik.errors.alcaloids}</small>
-      ) : (
-        <small></small>
-      )}
+      <small>{errors.alcaloids}</small>
     </>
   );
 };

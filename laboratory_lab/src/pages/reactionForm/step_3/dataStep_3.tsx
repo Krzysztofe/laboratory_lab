@@ -7,4 +7,3 @@ export const solventsData = [
 ];
 
 
-export const INITIAL_DATA = [false, false, false, false, false]

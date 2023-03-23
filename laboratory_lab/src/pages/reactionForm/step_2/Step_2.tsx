@@ -5,16 +5,20 @@ import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import { ChangeEvent } from "../../../data/types";
 
 interface Props {
-  formik: any;
+  reaction: any;
+  handleChange: any
+  errors: any;
+  
 }
 
-const Step_2: FC<Props> = ({ formik }): JSX.Element => {
+const Step_2: FC<Props> = ({ reaction, handleChange, errors }): JSX.Element => {
   
- const handleSelectChange = (value: string | number) => {
-  formik.setFieldValue("selectMilimolles", value);
+  const handleTextInputChange = (e: ChangeEvent) => {
+    handleChange({ substract: e.target.value });
+  };
 
-    formik.setFieldTouched("selectMilimolles", true);
-  
+const handleSelectChange = (value: string | number) => {
+  handleChange({ selectMilimolles: value });
 };
   return (
     <>
@@ -22,29 +26,20 @@ const Step_2: FC<Props> = ({ formik }): JSX.Element => {
         label={"Ilość moli substratu"}
         inputName={"selectMilimolles"}
         selectValues={[1, 2, 3, 4, 5, 6]}
-        value={formik.values.selectMilimolles}
+        value={reaction.selectMilimolles}
         handleChange={handleSelectChange}
-        handleBlur={formik.handleBlur}
       />
-      {formik.touched.selectMilimolles && formik.errors.selectMilimolles ? (
-        <small>{formik.errors.selectMilimolles}</small>
-      ) : (
-        <small></small>
-      )}
+      <small>{errors.selectMilimolles}</small>
+
       <TextInput
         type={"text"}
         name={"substract"}
-        value={formik.values.substract}
-        onChange={formik.handleChange}
-        handleBlur={formik.handleBlur}
+        value={reaction.substract}
+        onChange={handleTextInputChange}
         text={"Substrat"}
         placeholder={"Substrat"}
       />
-      {formik.touched.substract && formik.errors.substract ? (
-        <small>{formik.errors.substract}</small>
-      ) : (
-        <small></small>
-      )}
+      <small>{errors.substract}</small>
     </>
   );
 };

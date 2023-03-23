@@ -2,16 +2,15 @@ import { FC } from "react";
 import { summaryTitles } from "./dataStep_5";
 
 interface Props {
-  formik: any;
+  reaction: any;
 }
 
-const Step_5: FC<Props> = ({ formik }) => {
-  const getReactionValues = Object.entries(formik.values).map(
-    ([key, value]) => ({
-      [key]: value,
-    })
-  );
-
+const Step_5: FC<Props> = ({ reaction }) => {
+  const getReactionValues = Object.entries(reaction).map(([key, value]) => ({
+    [key]: value,
+  }))
+  getReactionValues.pop();
+  
   return (
     <>
       <div>Podsumowanie</div>

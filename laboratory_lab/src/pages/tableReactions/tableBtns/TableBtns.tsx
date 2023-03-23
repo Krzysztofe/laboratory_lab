@@ -12,15 +12,16 @@ import {
 import { FaTrashAlt } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { MdSystemUpdateAlt } from "react-icons/md";
+import { useFormikOperations } from "../tableEditForm/useFormik";
+import { ChangeEvent } from "../../../data/types";
+// import { useValidationEditForm } from "../tableEditForm/useValidationEditForm";
 
-const TableBtns: FC<any> = ({ reaction }) => {
+const TableBtns: FC<any> = ({ reaction, formik }) => {
   const dispatch = useDispatch();
-  const { editedReaction } = useSelector(
+  const { editedReaction, printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
-  const { printReactions } = useSelector(
-    (state: RootState) => state.tableReactions
-  );
+  // const { validationEditForm } = useValidationEditForm(editedReaction);
   const [updateReaction] = useUpdateReactionMutation();
   const [deleteReaction] = useDeleteReactionMutation();
 
@@ -29,10 +30,13 @@ const TableBtns: FC<any> = ({ reaction }) => {
   };
 
   const handleReactionUpdate = async (printReactions: any, reactionID: any) => {
+    // if (Object.keys(validationEditForm()).length > 0) return;
     const updatedEditedReaction = { ...editedReaction, isEdit: true };
     dispatch(handleUpdate([printReactions, reactionID]));
     await updateReaction(updatedEditedReaction);
   };
+
+  // console.log("leng", Object.keys(validationEditForm()).length);
 
   const handleDelete = async (id?: string) => {
     await deleteReaction(id);
