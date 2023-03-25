@@ -1,18 +1,16 @@
 import { useLocation } from "react-router-dom";
-import Header from "./navSignOut/nav/Header";
-import NavAside from "./navSignIn/navAside/NavAside";
-import { ProSidebarProvider } from "react-pro-sidebar";
+import HeaderHome from "./navHome/navHome/HeaderHome";
+import NavAside from "./navAside/navAside/NavAside";
+
 const NavComponents = () => {
   const url = useLocation().pathname;
 
   return (
     <>
       {url === "/" || url === "/login" || url === "/register" ? (
-        <Header />
+        <HeaderHome />
       ) : (
-        <ProSidebarProvider>
-          <NavAside />
-        </ProSidebarProvider>
+        <NavAside />
       )}
     </>
   );

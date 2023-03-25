@@ -1,0 +1,26 @@
+.navSingedIn__items {
+  transition: 850ms;
+  padding-top: $space-large;
+  padding-left: $space-large;
+  background-color: $color-white;
+  width: fit-content;
+  padding-bottom: 100%;
+}
+
+.navSingedIn__items--closed {
+  width: fit-content;
+  padding-top: $space-large;
+  margin-left: -100%;
+  transition: 850ms;
+}
+
+.navSingedIn__item {
+  padding: $space-small 0;
+  &__name {
+    color: $color-black;
+  }
+
+  &__name + &__name {
+    margin-left: $space-small/2;
+  }
+}

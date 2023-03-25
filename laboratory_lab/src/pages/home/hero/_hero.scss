@@ -1,42 +1,55 @@
-.menuSpacer {
-  height: 90px;
+.hero {
+  display: flex;
+  padding: 0;
   @include breakpointFirst {
   }
-}
+  &__leftContainer {
+    display: none;
+    @include breakpointFirst {
+      display: block;
+      width: 50%;
+      background-color: $color-white;
+      background-image: url("../../../asets/pexels-kindel-media-8326692.jpg");
+      background-size: cover;
+    }
+  }
 
-.hero {
-  background-color: $color-white;
-  background-image: url("../../../asets/pexels-anna-shvets-3786245.jpg");
-  background-position: right;
-  background-size: 130%;
-  background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  padding: 2rem 0;
-  @include breakpointFirst {
-    padding: 12rem 5rem;
+  &__rightContainer {
+    padding: 10rem $space-small;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    box-shadow: -20px -4px 20px 8px $color-white;
+
+    @include breakpointFirst {
+      width: 50%;
+       padding: 20rem $space-small;
+    }
   }
 
   &__title {
-    color: $color-black;
-    // margin-left: clamp(4rem, 15vw, 20%);
     text-transform: uppercase;
     font-size: 3rem;
     margin-bottom: 2rem;
-    width: 50%;
-    max-width: 560px;
+    @include breakpointFirst {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-right: auto;
+    }
   }
 
   &__btn {
-    // display: block;
-    margin-left: clamp(4rem, 15vw, 20%);
+    display: block;
+    margin-right: auto;
     padding: 1em 2em;
     font-size: 1rem;
     font-family: $font-family-Open-Sans;
     font-weight: 700;
     letter-spacing: 0.3em;
-    background-color: $color-white;
-    width: 50%;
+    color: $color-black;
+    border: 1px solid black;
+    cursor: pointer;
+    &:hover {
+      box-shadow: $box-shadow;
+    }
   }
 }

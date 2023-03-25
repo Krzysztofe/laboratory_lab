@@ -15,40 +15,41 @@ const IndexTable = () => {
   const { validationEditForm } = useValidationEditForm(editedReaction);
   const values = editedReaction.id
 
-  const conditionsColor =
+  const conditionsPrint =
     values &&
     (validationEditForm().name ||
       validationEditForm().technics ||
       validationEditForm().alcaloids ||
       validationEditForm().selectMilimolles ||
+      validationEditForm().substract ||
       validationEditForm().selectReactionCondition ||
       validationEditForm().solvents)
-      ? "red"
-      : "black";
+      ? { color: "red", text: "Warunki reakcji - brak danych" }
+      : { color: "black", text: "Warunki reakcji" };
 
-  const timeColor =
+  const timePrint =
     values &&
     (validationEditForm().startDate ||
       validationEditForm().finishDate ||
       validationEditForm().startTime ||
       validationEditForm().finishTime)
-      ? "red"
-      : "black";
+      ? { color: "red", text: "Czasy reakcji - brak danych" }
+      : { color: "black", text: "Czasy reakcji" };
 
   return (
     <>
       <div style={{ fontSize: 10, marginTop: 200 }}>
         <div
           onClick={() => dispatch(handleTableOpen(true))}
-          style={{ color: conditionsColor }}
+          style={{ color: conditionsPrint.color }}
         >
-          Warunki rekacji
+          {conditionsPrint.text}
         </div>
         <div
           onClick={() => dispatch(handleTableOpen(false))}
-          style={{ color: timeColor }}
+          style={{ color: timePrint.color }}
         >
-          Czasy reakcji
+          {timePrint.text}
         </div>
       </div>
       <TableReactions>

@@ -1,4 +1,4 @@
-import { useState, FC } from "react";
+import { useState } from "react";
 
 interface Props {
   selectValues: number[] | string[];
@@ -9,7 +9,7 @@ interface Props {
   handleBlur?: any;
 }
 
-const SelectInput: FC<Props> = props => {
+const SelectInput = (props:Props) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {

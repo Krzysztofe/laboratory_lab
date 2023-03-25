@@ -1,8 +1,13 @@
-import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { Props } from "./modelBtnsLogin";
 
-const BtnsLogin: FC<Props> = props => {
+export interface Props {
+  link: string;
+  textRight: string;
+  textLeft: string;
+}
+
+
+const BtnsLogin = (props:Props )=> {
   return (
     <div className="btnsLogin">
       <Link to={props.link}>

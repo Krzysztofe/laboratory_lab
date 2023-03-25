@@ -18,10 +18,11 @@ export const useReactionsSelection = (counter: number): ReactionsSelection => {
   const getReactionsToPrint =
     counter in alcaloidsMap
       ? reactions.filter(
-          reaction => reaction.alcaloids === alcaloidsMap[counter]
+          reaction =>
+            reaction.alcaloids?.toLowerCase() ===
+            alcaloidsMap[counter].toLowerCase()
         )
       : [];
 
   return { getReactionsToPrint };
 };
-

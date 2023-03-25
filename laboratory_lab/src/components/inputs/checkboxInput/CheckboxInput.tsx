@@ -1,8 +1,13 @@
-import React, { FC } from "react";
+export interface Props {
+  name: string;
+  checked: boolean;
+  onChange: any;
+  classLabel: string;
+  classInput: string;
+  classStyledDiv: string;
+}
 
-import { modelCheckbox } from "./modelCHeckbox";
-
-const CheckboxInput: FC<modelCheckbox> = props => {
+const CheckboxInput = (props: Props) => {
   return (
     <div>
       <label className={props.classLabel}>

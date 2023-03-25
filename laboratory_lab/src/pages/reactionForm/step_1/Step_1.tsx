@@ -27,7 +27,7 @@ const Step_1: FC<ModelStep_1> = ({
     return handleChange({ name: e.target.value });
   };
 
-
+  const { validationEditForm } = useValidationEditForm(reaction);
 
   return (
     <>
@@ -36,12 +36,11 @@ const Step_1: FC<ModelStep_1> = ({
         name={"name"}
         value={reaction.name}
         onChange={handleTextChange}
-        // handleBlur = {}
         text={"Nazwa reakcji"}
         placeholder={"Nazwa"}
       />
       <small>{errors.name}</small>
-
+   
       <TextInput
         type={"text"}
         name={"technics"}

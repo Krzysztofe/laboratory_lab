@@ -8,14 +8,17 @@ const Hero = () => {
 
   return (
     <section>
-      <div className="menuSpacer" style={{ height: 90 }}></div>
+      <div style={{ height: 90 }}></div>
       <div className="wrapper hero">
-        {/* <h1 className="hero__title">
+        <div className="hero__leftContainer"></div>
+
+        <div className="hero__rightContainer">
+          <h1 className="hero__title">
           Dziennik laboratoryjny
           <br /> grupy badawczej
-        </h1> */}
-
-        <BtnLink text={"KATALOG PROJEKTÓW"} class={"hero__btn"} link={link} />
+        </h1>
+          <BtnLink text={"KATALOG PROJEKTÓW"} class={"hero__btn"} link={link} />
+        </div>
       </div>
     </section>
   );

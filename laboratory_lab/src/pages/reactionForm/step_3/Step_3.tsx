@@ -2,7 +2,7 @@ import React, { FC, useState, useRef, useEffect } from "react";
 import { ModelFormReaction } from "../formReaction/ModelFormReaction";
 import CheckboxInput from "../../../components/inputs/checkboxInput/CheckboxInput";
 import SelectInput from "../../../components/inputs/selectInput/SelectInput";
-import { solventsData } from "./dataStep_3";
+import { solventsNameKeyData } from "./dataStep_3";
 
 interface Props {
 reaction: any,
@@ -13,11 +13,11 @@ handleChange: any
 
 const Step_3: FC<Props> = ({ reaction, errors, handleChange }) => {
   
-  const [isChecked, setIsChecked] = useState([false, false, false, false]);
+  const [isChecked, setIsChecked] = useState([false, false, false, false, false]);
 
   useEffect(() => {
     const newIsChecked = [...isChecked];
-    solventsData.forEach((solvent, idx) => {
+    solventsNameKeyData.forEach((solvent, idx) => {
       newIsChecked[idx] = reaction.solvents.includes(solvent.name);
     });
     setIsChecked(newIsChecked);
@@ -31,7 +31,7 @@ const Step_3: FC<Props> = ({ reaction, errors, handleChange }) => {
     const getNewSolvents = newIsChecked.reduce(
       (acc: string[], checked, idx) => {
         if (checked) {
-          acc.push(solventsData[idx].name);
+          acc.push(solventsNameKeyData[idx].name);
         }
         return acc;
       },
@@ -47,7 +47,7 @@ const Step_3: FC<Props> = ({ reaction, errors, handleChange }) => {
   return (
     <>
       <h3>Rozpuszczalnik</h3>
-      {solventsData.map(({ name, key }) => (
+      {solventsNameKeyData.map(({ name, key }) => (
         <CheckboxInput
           key={key}
           name={name}

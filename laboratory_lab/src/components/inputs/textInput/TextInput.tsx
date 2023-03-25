@@ -1,37 +1,36 @@
 
-import { FC } from "react";
-import { ModelTextInput } from "./ModelTextInput";
+export interface Props {
+  type: string;
+  name?: string;
+  value?: string | number;
+  onChange: any;
+  handleBlur?: any;
+  text: string;
+  placeholder?: string;
+  classContainer?: string;
+  classLabel?: string;
+  classInput?: string;
+}
 
-const TextInput: FC<ModelTextInput> = ({
-  text,
-  type,
-  name,
-  value,
-  onChange,
-  handleBlur,
-  placeholder,
-  classContainer,
-  classLabel,
-  classInput,
-}) => {
+const TextInput= (props:Props) => {
 
 
 
   return (
-    <div className={classContainer}>
-      <label htmlFor={name} className={classLabel}>
-        {text}{" "}
+    <div className={props.classContainer}>
+      <label htmlFor={props.name} className={props.classLabel}>
+        {props.text}{" "}
       </label>
       <input style ={{width: 50}}
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        onBlur ={handleBlur}
-        placeholder={placeholder}
-        className={classInput}
+        type={props.type}
+        name={props.name}
+        value={props.value}
+        onChange={props.onChange}
+        onBlur ={props.handleBlur}
+        placeholder={props.placeholder}
+        className={props.classInput}
         autoComplete="off"
-        id={name}
+        id={props.name}
       />
     </div>
   );

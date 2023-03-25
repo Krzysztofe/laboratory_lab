@@ -1,7 +1,4 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
-import { ModelReaction } from "../../../hooks/useReactions";
-import { useState } from "react";
+
 export interface Error {
   error?: boolean;
   name?: any;

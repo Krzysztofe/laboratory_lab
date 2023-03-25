@@ -1,4 +1,4 @@
-export const solventsData = [
+export const solventsNameKeyData = [
   { name: "CHCL3", key: 0 },
   { name: "CH3OH", key: 1 },
   { name: "DMF", key: 2 },

@@ -12,7 +12,7 @@ const TablePagination = ({
   const reactionPerPage = 3;
   const pagesVisited = pageNumber * reactionPerPage;
 
-  const displayOrganizations = getReactionsToPrint
+  const displayReactions = getReactionsToPrint
     .slice(pagesVisited, pagesVisited + reactionPerPage)
     .map((reaction: ModelReaction) => {
       return (
@@ -39,7 +39,7 @@ const TablePagination = ({
       {getReactionsToPrint.length === 0 ? (
         <div>Brak przeprowadzonych reakcji</div>
       ) : (
-         displayOrganizations 
+        displayReactions
       )}
     </>
   );

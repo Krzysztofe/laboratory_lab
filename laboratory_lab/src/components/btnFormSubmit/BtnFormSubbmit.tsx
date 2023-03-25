@@ -1,7 +1,10 @@
-import React, { FC } from "react";
-import { Props } from "./modelBtnFormSubmit";
+export interface Props {
+  text: string;
+  class?: string;
+}
 
-const BtnFormSubbmit: FC<Props> = props => {
+
+const BtnFormSubbmit = (props:Props) => {
   return <button className={props.class}> {props.text}</button>;
 };
 

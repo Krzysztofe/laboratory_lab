@@ -1,13 +1,11 @@
-import { FC } from "react";
-
-interface ModelRadio {
+interface Props {
   value: string;
   onChange: any;
   checked: boolean;
   handleBlur?: any;
 }
 
-const RadioInput: FC<ModelRadio> = props => {
+const RadioInput = (props:Props) => {
   return (
     <div className="radio__container">
       <input
