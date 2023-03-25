@@ -7,13 +7,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import { links, signedOutLinks } from "./dataNavHomeItems";
 
-
 export interface Props {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-
-const NavHomeItems: FC<Props> = (props:Props) => {
+const NavHomeItems = (props: Props) => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
@@ -38,9 +36,8 @@ const NavHomeItems: FC<Props> = (props:Props) => {
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: link.delay }}
-              className="item"
             >
-              <HashLink smooth to={link.to}>
+              <HashLink smooth to={link.to} className="navHomeItems__item">
                 {link.text}
               </HashLink>
             </motion.li>
@@ -57,9 +54,10 @@ const NavHomeItems: FC<Props> = (props:Props) => {
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: link.delay }}
-                className="item"
               >
-                <Link to={link.to}>{link.text}</Link>
+                <Link to={link.to} className="navHomeItems__item">
+                  {link.text}
+                </Link>
               </motion.li>
             );
           })}
@@ -69,10 +67,10 @@ const NavHomeItems: FC<Props> = (props:Props) => {
       {user?.email && (
         <ul className="navHomeItems">
           <motion.li
-            className="item item--log item--hi"
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
+            className="navHomeItems__item"
           >
             Zalogowany: {user?.email}
           </motion.li>
@@ -82,19 +80,19 @@ const NavHomeItems: FC<Props> = (props:Props) => {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="item item--log"
           >
-            <Link to="reaction-form">Panel użytkownika</Link>
+            <Link to="reaction-form" className="navHomeItems__item">
+              Panel użytkownika
+            </Link>
           </motion.li>
 
           <motion.li
-            className="item item--log"
             onClick={handleLogout}
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-            <Link to="" className="item item--log">
+            <Link to="" className="navHomeItems__item item--log">
               Wyloguj
             </Link>
           </motion.li>

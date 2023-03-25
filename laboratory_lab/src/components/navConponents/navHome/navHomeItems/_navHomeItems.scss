@@ -1,28 +1,23 @@
 .navHomeItems {
-  width: 100%;
-  background-color: $color-white;
   &:first-of-type {
     border-bottom: 1px solid black;
+    @include breakpointNav {
+      border-bottom: none;
+      font-size: 2rem;
+    }
   }
-
   @include breakpointNav {
-  display: none;
+    display: flex;
+    font-size: 1.5rem;
   }
-  & .item {
 
+  &__item {
     display: block;
-    padding: $space-small/2 $space-small;;
+    padding: $space-small/2 $space-small;
     text-decoration: 0;
     color: $color-black;
-    
     &:hover {
       background-color: $color-primary;
-    }
-    @include breakpointNav {
-    }
-  }
-  & .item--log {
-    @include breakpointNav {
     }
   }
 }

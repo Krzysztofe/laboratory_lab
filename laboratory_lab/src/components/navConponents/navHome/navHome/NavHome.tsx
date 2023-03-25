@@ -2,7 +2,7 @@ import NavItems from "../navHomeItems/NavIHometems";
 
 const NavHome = () => {
   return (
-    <nav className="navHome">
+    <nav className= "wrapper navHome">
       <NavItems />
     </nav>
   );

@@ -1,13 +1,11 @@
-import Nav from "./NavHome";
-import NavMobile from "./NavHomeMobile";
+import NavHome from "./NavHome";
+import NavHomeMobile from "./NavHomeMobile";
 
 const HeaderHome = () => {
   return (
     <header>
-      <div className="wrapper homeHeader">
-        <Nav />
-      </div>
-      <NavMobile />
+      <NavHome />
+      <NavHomeMobile />
     </header>
   );
 };
