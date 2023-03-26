@@ -1,33 +1,47 @@
-.formContainer {
+.contactformContainer {
+  margin: $space-large 0;
   @include breakpointFirst {
     width: 50%;
+    margin: 0;
     margin-left: auto;
     padding: $space-small;
   }
   &__title {
-    margin-bottom: $space-small;
+    margin-bottom: $space-large;
+    @include breakpointFirst {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
   }
   .contactForm {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     font-size: $font-size-small;
-    &__inputContainer {
+    @include breakpointFirst {
+      font-size: $font-size-xsmall;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    &__container {
       width: 100%;
       @include breakpointFirst {
         width: 45%;
         font-size: $font-size-xsmall;
       }
-      .contactForm__input {
-        width: 100%;
-        border: none;
-        background-color: rgba(0, 0, 0, 0);
-        border-bottom: 1px solid black;
-        margin-top: $space-small / 2;
-        resize: none;
-        padding: 0.2rem;
-      }
     }
+    &__label {
+      display: block;
+      margin-bottom: $space-small/2;
+      font-weight: $font-weight-bold;
+    }
+    &__input {
+      width: 100%;
+      border: none;
+      background-color: rgba(0, 0, 0, 0);
+      border-bottom: 1px solid black;
+      resize: none;
+      padding: 0.2rem;
+      margin-bottom: $space-small;
+    }
+
     &__inputContainer--textarea {
       @include breakpointFirst {
         width: 100%;
@@ -49,10 +63,12 @@
     }
 
     &__btn {
+      display: flex;
+      justify-content: center;
       padding: 1em 2em;
       width: 45%;
       margin-left: auto;
-      margin-top: $space-small;
+
       @include breakpointFirst {
         margin-top: 1rem;
       }

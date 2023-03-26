@@ -1,45 +1,51 @@
 import { ModelReaction } from "../../../../hooks/useReactions";
 import { useReactionsSelection } from "../utilsPagination";
 
-const TablePagination = ({
-  counter,
-  pageNumber,
-}: {
+interface Props {
   counter: number;
   pageNumber: number;
-}) => {
-  const { getReactionsToPrint } = useReactionsSelection(counter);
+}
+
+const TablePagination = (props: Props) => {
+  const { getReactionsToPrint } = useReactionsSelection(props.counter);
   const reactionPerPage = 3;
-  const pagesVisited = pageNumber * reactionPerPage;
+  const pagesVisited = props.pageNumber * reactionPerPage;
 
   const displayReactions = getReactionsToPrint
     .slice(pagesVisited, pagesVisited + reactionPerPage)
     .map((reaction: ModelReaction) => {
       return (
-        <table key={reaction.id} className="">
-          <thead>
-            <tr>
-              <th>Nazwa</th>
-              <th>Alkaloidy</th>
-              <th>Substraty</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="">{reaction.name}</td>
-              <td className="">{reaction.alcaloids}</td>
-              <td className="">{reaction.substract}</td>
-            </tr>
-          </tbody>
-        </table>
+        <>
+        <tr key={reaction.id}>
+          <td>{reaction.name}</td>
+          <td>{reaction.alcaloids}</td>
+          <td>{reaction.substract}</td>
+        </tr>
+     
+        </>
+        
       );
     });
+    
   return (
     <>
       {getReactionsToPrint.length === 0 ? (
-        <div>Brak przeprowadzonych reakcji</div>
+        <div className="reactionsHome__emptyTableMessage">
+          Brak zapisanych reakcji
+        </div>
       ) : (
-        displayReactions
+        <div className="reactionsHome__container">
+          <table className="reactionsHome__table">
+            <thead>
+              <tr>
+                <th>Nazwa</th>
+                <th>Alkaloidy</th>
+                <th>Substraty</th>
+              </tr>
+            </thead>
+            <tbody className="reactionsHome__tBody">{displayReactions}</tbody>
+          </table>
+        </div>
       )}
     </>
   );

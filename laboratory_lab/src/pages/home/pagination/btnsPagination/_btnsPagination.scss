@@ -1,0 +1,16 @@
+.reactionsHome__btns {
+  display: flex;
+  justify-content: center;
+  column-gap: $space-small/2;
+  margin-top: $space-large;
+
+  .reactionsHome__btn {
+    width: 100%;
+    padding: 1em 0;
+    background-color: $color_white;
+    border: 1px solid black;
+    &:hoover {
+      box-shadow: $box-shadow;
+    }
+  }
+}

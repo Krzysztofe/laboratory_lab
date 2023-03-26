@@ -1,0 +1,42 @@
+.reactionsHome__emptyTableMessage {
+  display: grid;
+  place-items: center;
+  font-weight: $font-weight-bold;
+  height: 24rem;
+}
+.reactionsHome__container {
+  display: none;
+  @include breakpointFirst {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 24rem;
+    margin: 0 auto;
+  }
+  .reactionsHome__table {
+    border-collapse: collapse;
+    width: 100%;
+    & thead tr {
+      width: 100%;
+      display: flex;
+      padding: $space-small;
+    }
+    & th {
+      width: 100%;
+    }
+    & tbody {
+      display: flex;
+      flex-direction: column;
+      & tr {
+        display: flex;
+        padding: $space-small/2;
+        border-top: 1px solid $color-black;
+
+        & td {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -13,15 +13,12 @@ export interface Props {
 }
 
 const TextInput= (props:Props) => {
-
-
-
   return (
     <div className={props.classContainer}>
       <label htmlFor={props.name} className={props.classLabel}>
         {props.text}{" "}
       </label>
-      <input style ={{width: 50}}
+      <input
         type={props.type}
         name={props.name}
         value={props.value}

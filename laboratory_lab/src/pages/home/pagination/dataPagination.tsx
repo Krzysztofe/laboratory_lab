@@ -1,3 +1,7 @@
+export const btnsProjectsData = ["Gramina", "Kofeina", "Nikotyna"];
 
-export const btnsProjectsData = ["Gramina", "Kofeina", "Nikotyna", "Sparteina"];
-
+export const btnsProjectDescriptionData = [
+  "gramina jjjj kkkk, llll ",
+  "kofeina gggg kkkk, xxxx ",
+  "nikotyna hhhhh kkkk, xbbbb ",
+];

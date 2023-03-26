@@ -4,19 +4,9 @@ import TextInput from "../../../../components/inputs/textInput/TextInput"
 
 const FormContainer = () => {
   return (
-    <aside className="formContainer">
-      <h3 className="formContainer__title">Kontakt z grupą badawczą</h3>
+    <aside className="contactformContainer">
+      <h3 className="contactformContainer__title">Wiadomość dla grupy badawczej</h3>
       <form className="contactForm">
-        {/* <div className="contactForm__inputContainer">
-          <label className="contactForm__label">Wpisz imię</label>
-          <input
-            type="text"
-            name="name"
-            className="contactForm__input"
-            placeholder="Imię"
-          />
-        </div> */}
-
         <TextInput
           type={"text"}
           name={"name"}
@@ -24,6 +14,7 @@ const FormContainer = () => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log("")}
           text={"Wpisz imię"}
           placeholder={"Imię"}
+          classContainer={"contactForm__container"}
           classLabel={"contactForm__label"}
           classInput={"contactForm__input"}
         />
@@ -34,19 +25,10 @@ const FormContainer = () => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => console.log("")}
           text={"Wpisz email"}
           placeholder={"Email"}
+          classContainer={"contactForm__container"}
           classLabel={"contactForm__label"}
           classInput={"contactForm__input"}
         />
-
-        {/* <div className="contactForm__inputContainer">
-          <label className="contactForm__label">Wpisz email</label>
-          <input
-            type="text"
-            name="email"
-            className="contactForm__input"
-            placeholder="Email"
-          />
-        </div> */}
 
         <div
           className="contactForm__inputContainer

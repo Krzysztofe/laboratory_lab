@@ -1,3 +1,29 @@
-.reactionsHome{
-    height: 30vh;
+.reactionsHome {
+  &__reactionDescription {
+    text-align: center;
+    margin: $space-small 0;
+  }
+  .paginationCounters {
+    display: none;
+    @include breakpointFirst {
+      display: flex;
+      justify-content: center;
+      height: 3.5rem;
+    }
+
+    &__previousNext {
+      margin: $space-small;
+    }
+    &__btn {
+      padding: $space-small / 2;
+    }
+    &__active {
+      color: red;
+    }
+    &__disabledBtn {
+    }
+  }
+  .emptyContainer {
+    height: 3.5rem;
+  }
 }

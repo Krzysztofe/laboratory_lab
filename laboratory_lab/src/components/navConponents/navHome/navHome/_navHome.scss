@@ -2,6 +2,9 @@
   display: none;
   @include breakpointNav {
     position: fixed;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%);
     display: flex;
     background-color: $color-white;
     flex-direction: column-reverse;
@@ -18,7 +21,7 @@
   top: 0;
   box-shadow: 0px 6px 14px 1px $color-black;
   background-color: $color-white;
-  z-index: 1;
+  z-index: 3;
   @include breakpointNav {
     display: none;
   }

@@ -1,9 +1,8 @@
-import React from "react";
 import { BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="wrapper footer">
       <Link
         to={"https://github.com/Krzysztofe/Laboratory_Lab"}
         className="footer__link"
