@@ -8,30 +8,26 @@ const NavAside = () => {
 
   return (
     <aside>
-      <nav className="navSingedIn">
-        <div className="navSingedIn__top">
-          {isOpen ? (
-            <>
-              <GrFormClose
-                className="navSingedIn__icon"
-                onClick={() => {
-                  setIsOpen(prev => !prev);
-                }}
-              />
-            </>
-          ) : (
-            <>
-              <RiMenuFill
-                className="navSingedIn__icon"
-                onClick={() => {
-                  setIsOpen(prev => !prev);
-                }}
-              />
-            </>
-          )}
-        </div>
-        <NavAsideItems isOpen={isOpen} setIsOpen={setIsOpen} />
-      </nav>
+      {isOpen ? (
+        <>
+          <GrFormClose
+            className="navAside__icon"
+            onClick={() => {
+              setIsOpen(prev => !prev);
+            }}
+          />
+        </>
+      ) : (
+        <>
+          <RiMenuFill
+            className="navAside__icon"
+            onClick={() => {
+              setIsOpen(prev => !prev);
+            }}
+          />
+        </>
+      )}
+      <NavAsideItems isOpen={isOpen} setIsOpen={setIsOpen} />
     </aside>
   );
 };

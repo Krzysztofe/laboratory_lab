@@ -75,7 +75,7 @@ const FormReaction = () => {
   // if (success.data) return <p>Data sent successfully!</p>;
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginTop: 150 }}>
+    <form onSubmit={handleSubmit} style={{height: "100vh"}}>
       <>
         {isLoading && <p>Loading</p>}
         {success.data && <p>Dane wysłane</p>}
@@ -83,7 +83,7 @@ const FormReaction = () => {
       <p>
         {currentStepIdx + 1}/{steps.length}
       </p>
-      <>{success.data? 0 : step}</>
+      <>{success.data ? 0 : step}</>
 
       <div className="btns">
         {!isFirstStep && (

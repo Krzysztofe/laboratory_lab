@@ -16,25 +16,24 @@ const TablePagination = (props: Props) => {
     .map((reaction: ModelReaction) => {
       return (
         <>
-        <tr key={reaction.id}>
-          <td>{reaction.name}</td>
-          <td>{reaction.alcaloids}</td>
-          <td>{reaction.substract}</td>
-        </tr>
-     
+          <tr key={reaction.id}>
+            <td>{reaction.name}</td>
+            <td>{reaction.alcaloids}</td>
+            <td>{reaction.substract}</td>
+          </tr>
         </>
-        
       );
     });
-    
+
   return (
     <>
       {getReactionsToPrint.length === 0 ? (
         <div className="reactionsHome__emptyTableMessage">
-          Brak zapisanych reakcji
+          Brak reakcji zapisanych w dzienniku
         </div>
       ) : (
         <div className="reactionsHome__container">
+          <h3>Wykaz reakcji zapisanych w dzienniku</h3>
           <table className="reactionsHome__table">
             <thead>
               <tr>

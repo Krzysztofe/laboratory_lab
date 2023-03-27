@@ -1,16 +1,15 @@
-.navSingedIn {
-  position: fixed;
-  top: 0;
-  height: 0;
-  display: flex;
-  flex-direction: column;
-
-  &__top {
-    background-color: $color-white;
-    padding: $space-large;
-    padding-bottom: 0;
-    .navSingedIn__icon {
-      font-size: $font-size-large * 2;
-    }
+.navAside__icon {
+  position: absolute;
+  right: 10%;
+  top: 80%;
+  font-size: $font-size-large * 3;
+  padding: $space-small/2;
+  border: 1px solid black;
+  border-radius: 50%;
+  box-shadow: $box_shadow;
+  backdrop-filter: blur(5px);
+  @include breakpointNav {
+    display: none;
   }
 }
+

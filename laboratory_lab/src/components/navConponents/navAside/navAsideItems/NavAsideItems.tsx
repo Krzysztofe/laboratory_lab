@@ -1,4 +1,6 @@
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import { auth } from "../../../../data/firebaseConfig";
 import { links } from "./dataNavAsideItems";
 
 export interface Props {
@@ -7,22 +9,26 @@ export interface Props {
 }
 
 const NavAsideItems = (props: Props) => {
+  const [user] = useAuthState(auth);
+
   return (
     <>
       <ul
-        className={` ${
-          props.isOpen ? "navSingedIn__items" : "navSingedIn__items--closed"
+        className={`navAsideItems ${
+          props.isOpen ? "navAsideItems__open" : "navAsideItems__close"
         } `}
       >
-        {links.map(item => (
+        <li className="navAsideSignIn">Zalogowany: {user?.email}</li>
+
+        {links.map(({ text, icon, link }) => (
           <li
-            key={item.text}
-            className="navSingedIn__item"
+            key={text}
+            className="navAsideItem"
             onClick={() => props.setIsOpen(prev => !prev)}
           >
-            <Link to={item.link}>
-              <span className={"navSingedIn__item__name"}>{item.icon}</span>
-              <span className={"navSingedIn__item__name"}>{item.text}</span>
+            <Link to={link} className={"navAsideItem__link"}>
+              <div className={"navAsideItem__icon"}>{icon}</div>
+              <div className={"navAsideItem__name"}>{text}</div>
             </Link>
           </li>
         ))}

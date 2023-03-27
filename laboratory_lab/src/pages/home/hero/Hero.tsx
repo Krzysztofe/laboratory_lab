@@ -14,10 +14,14 @@ const Hero = () => {
 
         <div className="hero__rightContainer">
           <h1 className="hero__title">
-          Dziennik laboratoryjny
-          <br /> grupy badawczej
-        </h1>
-          <BtnLink text={"KATALOG PROJEKTÓW"} class={"hero__btn"} link={link} />
+            Dziennik laboratoryjny
+            <br /> grupy badawczej
+          </h1>
+          <BtnLink
+            text={"Wypełnij dziennik"}
+            class={"hero__btn"}
+            link={link}
+          />
         </div>
       </div>
     </section>

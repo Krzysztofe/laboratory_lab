@@ -82,7 +82,7 @@ const NavHomeItems = (props: Props) => {
             transition={{ delay: 0.7 }}
           >
             <Link to="reaction-form" className="navHomeItems__item">
-              Panel użytkownika
+              Wypełnij dziennik
             </Link>
           </motion.li>
 

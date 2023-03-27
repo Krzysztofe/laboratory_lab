@@ -9,6 +9,7 @@
       background-color: $color-white;
       background-image: url("../../../asets/pexels-kindel-media-8326692.jpg");
       background-size: cover;
+      background-position: center;
     }
   }
 
@@ -21,7 +22,7 @@
 
     @include breakpointFirst {
       width: 50%;
-       padding: 15rem $space-small;
+      padding: clamp(8rem, 13vw, 18rem) $space-small;
     }
   }
 

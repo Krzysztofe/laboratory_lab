@@ -24,6 +24,10 @@
     }
   }
   .emptyContainer {
-    height: 3.5rem;
+    display: none;
+    @include breakpointFirst {
+      display: block;
+      height: 3.5rem;
+    }
   }
 }

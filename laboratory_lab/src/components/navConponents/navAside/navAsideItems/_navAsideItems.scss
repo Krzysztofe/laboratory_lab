@@ -1,26 +1,83 @@
-.navSingedIn__items {
+.navAsideItems {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 2rem;
   transition: 850ms;
-  padding-top: $space-large;
-  padding-left: $space-large;
-  background-color: $color-white;
   width: fit-content;
-  padding-bottom: 100%;
+  padding: $space-large 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  &:hover {
+    display: block;
+  }
+  &__close {
+    margin-left: -100%;
+    @include breakpointNav {
+      margin-left: 0%;
+      &:hover .navAsideItem__name {
+        display: block;
+      }
+    }
+  }
+  &__open {
+    @include breakpointNav {
+      &:hover .navAsideItem__name {
+        display: block;
+      }
+    }
+  }
 }
 
-.navSingedIn__items--closed {
-  width: fit-content;
-  padding-top: $space-large;
-  margin-left: -100%;
-  transition: 850ms;
+.navAsideSignIn {
+  color: $color-white;
+  font-size: $font-size-xsmall;
+  text-align: center;
+  margin-bottom: $space-small;
+  @include breakpointNav {
+    height: $font-size-xsmall;
+    font-size: 0;
+    width: 0;
+  }
 }
 
-.navSingedIn__item {
-  padding: $space-small 0;
-  &__name {
-    color: $color-black;
+.navAsideItems__close:hover .navAsideSignIn,
+.navAsideItems__open:hover .navAsideSignIn {
+  @include breakpointNav {
+    font-size: $font-size-xsmall;
+    width: auto;
   }
+}
 
-  &__name + &__name {
-    margin-left: $space-small/2;
+.navAsideItem__link {
+  display: flex;
+  align-items: center;
+  color: $color-white;
+  padding: $space-small;
+  height: 5rem;
+  &:hover {
+    background-color: $color-grey;
   }
+  .navAsideItem__icon{
+    width: 2rem ;
+  } 
+  &:hover .navAsideItem__icon {
+    font-size: 2.7rem;
+  }
+  // &:hover .navAsideItem__name {
+  //   transform: translateX(0);
+  // }
+
+  .navAsideItem__name {
+    padding-left: $space-small*2;
+    @include breakpointNav {
+      display: none;
+    }
+  }
+}
+.navAsideItem__link:hover .navAsideItem__name {
+  // transform: translateX(0);
+  // position: inherit
 }

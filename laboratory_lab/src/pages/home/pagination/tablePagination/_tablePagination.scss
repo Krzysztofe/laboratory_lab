@@ -1,14 +1,17 @@
 .reactionsHome__emptyTableMessage {
-  display: grid;
-  place-items: center;
-  font-weight: $font-weight-bold;
-  height: 24rem;
+  display: none;
+  @include breakpointFirst {
+    display: grid;
+    place-items: center;
+    font-weight: $font-weight-bold;
+    height: 24rem;
+  }
 }
 .reactionsHome__container {
   display: none;
   @include breakpointFirst {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 80%;
     height: 24rem;
     margin: 0 auto;
