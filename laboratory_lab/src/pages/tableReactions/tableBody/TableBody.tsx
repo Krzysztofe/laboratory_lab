@@ -8,26 +8,21 @@ import { getReactions } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../redux/store";
 import TableBtns from "../tableBtns/TableBtns";
-import { useFormikOperations } from "../tableEditForm/useFormik";
 
 const TableBody = () => {
   const dispatch = useDispatch();
-  const { reactions } = useReactions();
+  const { data, error, isLoading } = useReactionsQuery(undefined);
 
-  const { editedReaction, printReactions } = useSelector(
+  const {printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
 
-  const { formik } = useFormikOperations();
-  const { error, isLoading } = useReactionsQuery(undefined);
-
-
 
   useEffect(() => {
-    if (reactions) {
-      dispatch(getReactions(reactions));
+    if (data) {
+      dispatch(getReactions(data));
     }
-  }, [reactions, dispatch]);
+  }, [data, dispatch]);
 
   isLoading && <TableBodyRequestMessage message={"Loading..."} />;
   if (error) {
@@ -46,9 +41,9 @@ const TableBody = () => {
             {reaction.isEdit ? (
               <TablePrintReaction reaction={reaction} />
             ) : (
-              <TableEditForm formik={formik} />
+              <TableEditForm />
             )}
-            <TableBtns reaction={reaction} formik={formik} />
+            <TableBtns reaction={reaction} />
           </tr>
         );
       })}

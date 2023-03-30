@@ -1,1 +1,1 @@
-export const alcaloidsData = ["gramina", "kofeina", "nikotyna"];
+export const alcaloidsData = ["Gramina", "Kofeina", "Nikotyna"];

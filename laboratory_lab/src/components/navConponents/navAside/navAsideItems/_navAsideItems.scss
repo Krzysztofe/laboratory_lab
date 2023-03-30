@@ -8,8 +8,9 @@
   transition: 850ms;
   width: fit-content;
   padding: $space-large 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
+  z-index: 1;
   &:hover {
     display: block;
   }
@@ -19,6 +20,10 @@
       margin-left: 0%;
       &:hover .navAsideItem__name {
         display: block;
+         opacity: 1;
+        transition-delay: 200ms;
+       
+        // transition: opacity 200ms;
       }
     }
   }
@@ -26,6 +31,10 @@
     @include breakpointNav {
       &:hover .navAsideItem__name {
         display: block;
+           opacity: 1;
+        transition-delay: 200ms;
+     
+        // transition: opacity 200ms;
       }
     }
   }
@@ -54,30 +63,26 @@
 .navAsideItem__link {
   display: flex;
   align-items: center;
-  color: $color-white;
+  color: rgba(255, 255, 255, 0.6);
   padding: $space-small;
   height: 5rem;
   &:hover {
-    background-color: $color-grey;
+    background-color: rgb(52, 53, 65);
   }
-  .navAsideItem__icon{
-    width: 2rem ;
-  } 
+  .navAsideItem__icon {
+    width: 2rem;
+  }
   &:hover .navAsideItem__icon {
+    transition: 200ms;
     font-size: 2.7rem;
+    color: $color-white;
   }
-  // &:hover .navAsideItem__name {
-  //   transform: translateX(0);
-  // }
 
   .navAsideItem__name {
-    padding-left: $space-small*2;
+    padding-left: $space-small * 2;
+    transition-delay: 200ms;
     @include breakpointNav {
       display: none;
     }
   }
-}
-.navAsideItem__link:hover .navAsideItem__name {
-  // transform: translateX(0);
-  // position: inherit
 }

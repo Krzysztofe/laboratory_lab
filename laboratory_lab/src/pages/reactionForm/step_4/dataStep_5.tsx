@@ -6,8 +6,8 @@ export const summaryTitles = [
   "Substrakt",
   "Warunki reakcji",
   "Rozpuszczalniki",
-  "Data rozpoczęcia",
-  "Data zakończenia",
-  "Godzina rozpoczęcia",
-  "Godzina zakończenia",
+  "Rozpoczęcie",
+  "Zakończenie",
+  "Rozpoczęcie",
+  "Zakończenie",
 ];

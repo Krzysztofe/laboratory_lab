@@ -1,4 +1,3 @@
-
 export interface Error {
   error?: boolean;
   name?: any;
@@ -22,18 +21,7 @@ export const useValidationEditForm = (editedReaction: any, idx?: any) => {
         errorMessage: "Min. 3 znaki",
         key: "name",
       },
-      {
-        condition: editedReaction.technics.length < 3,
-        errorMessage: "Min. 3 znaki",
-        key: "technics",
-      },
-      {
-        condition: !editedReaction.alcaloids,
-        errorMessage: "Wymagane",
-        key: "alcaloids",
-      },
-    ],
-    [
+
       {
         condition:
           editedReaction.selectMilimolles === "--Wybierz--" ||
@@ -42,9 +30,15 @@ export const useValidationEditForm = (editedReaction: any, idx?: any) => {
         key: "selectMilimolles",
       },
       {
-        condition: editedReaction.substract.length < 3,
+        condition: !editedReaction.alcaloids,
+        errorMessage: "Wymagane",
+        key: "alcaloids",
+      },
+
+      {
+        condition: editedReaction.technics.length < 3,
         errorMessage: "Min. 3 znaki",
-        key: "substract",
+        key: "technics",
       },
     ],
 
@@ -54,10 +48,17 @@ export const useValidationEditForm = (editedReaction: any, idx?: any) => {
         errorMessage: "Wymagane",
         key: "solvents",
       },
+
       {
         condition: editedReaction.selectReactionCondition === "--Wybierz--",
         errorMessage: "Wymagane",
         key: "selectReactionCondition",
+      },
+
+      {
+        condition: editedReaction.substract.length < 3,
+        errorMessage: "Min. 3 znaki",
+        key: "substract",
       },
     ],
 

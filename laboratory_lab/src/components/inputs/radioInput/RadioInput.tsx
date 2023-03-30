@@ -3,11 +3,14 @@ interface Props {
   onChange: any;
   checked: boolean;
   handleBlur?: any;
+  classContainer?: string;
+  classInupt?: string;
+  classLabel?: string;
 }
 
-const RadioInput = (props:Props) => {
+const RadioInput = (props: Props) => {
   return (
-    <div className="radio__container">
+    <div className={props.classContainer}>
       <input
         type="radio"
         name=""
@@ -15,10 +18,12 @@ const RadioInput = (props:Props) => {
         checked={props.checked}
         onChange={props.onChange}
         onBlur={props.handleBlur}
-        className="radio"
-        id="id"
+        className={props.classInupt}
+        id={props.value}
       />
-      <label htmlFor="id">{props.value}</label>
+      <label htmlFor={props.value} className={props.classLabel}>
+        {props.value}
+      </label>
     </div>
   );
 };

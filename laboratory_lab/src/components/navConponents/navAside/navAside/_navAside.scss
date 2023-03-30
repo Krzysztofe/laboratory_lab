@@ -8,6 +8,7 @@
   border-radius: 50%;
   box-shadow: $box_shadow;
   backdrop-filter: blur(5px);
+  z-index: 1;
   @include breakpointNav {
     display: none;
   }

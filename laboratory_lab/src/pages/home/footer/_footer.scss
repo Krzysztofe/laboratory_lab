@@ -1,10 +1,11 @@
 .footer {
   background-color: $color-primary;
   font-size: $font-size-small;
+  line-height: $font-size-small;
   color: $color-black;
-  padding: $space-small/2;
   display: grid;
   place-items: center;
+  height: auto;
   &__link {
     text-decoration: 0;
     display: flex;

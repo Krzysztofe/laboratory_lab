@@ -1,81 +1,49 @@
-import { FC } from "react";
-import TextInput from "../../../components/inputs/textInput/TextInput";
-import { ChangeEvent } from "../../../data/types";
-
+import { summaryTitles } from "./dataStep_5";
+import React from "react";
 interface Props {
   reaction: any;
-  errors: any;
-  handleChange: any;
 }
 
-const Step_4: FC<Props> = ({ reaction, errors, handleChange }) => {
-  const handleStarthDate = (e: ChangeEvent) => {
-    return handleChange({ startDate: e.target.value });
-  };
+const Step_5 = (props: Props) => {
+  const getReactionValues = Object.entries(props.reaction).map(
+    ([key, value]) => ({
+      [key]: value,
+    })
+  );
 
-  const handleFinishDate = (e: ChangeEvent) => {
-    return handleChange({ finishDate: e.target.value });
-  };
-
-  const handleStartTime = (e: ChangeEvent) => {
-    return handleChange({ startTime: e.target.value });
-  };
-
-  const handleFinishTime = (e: ChangeEvent) => {
-    return handleChange({ finishTime: e.target.value });
-  };
+  getReactionValues.pop();
 
   return (
-    <>
-      <TextInput
-        type={"date"}
-        name={"startDate"}
-        value={reaction.startDate}
-        onChange={handleStarthDate}
-        text={"Data rozpoczęcia"}
-        placeholder={""}
-        classLabel={""}
-        classInput={""}
-      />
-      <small> {errors.startDate} </small>
+    <section className="step1">
+      <div className="step4__header">Podsumowanie</div>
+      <ul>
+        {getReactionValues.map((reactionValue, idx) => {
+          const value = Object.values(reactionValue);
+          const isSecondIndex = idx === 0;
 
-      <TextInput
-        type={"date"}
-        name={"finishDate"}
-        value={reaction.finishDate}
-        onChange={handleFinishDate}
-        text={"Data ukończenia"}
-        placeholder={""}
-        classLabel={""}
-        classInput={""}
-      />
-      <small> {errors.finishDate} </small>
-
-      <TextInput
-        type={"time"}
-        name={"startTime"}
-        value={reaction.startTime}
-        onChange={handleStartTime}
-        text={"Godzina rozpoczęcia"}
-        placeholder={""}
-        classLabel={""}
-        classInput={""}
-      />
-      <small> {errors.startTime} </small>
-
-      <TextInput
-        type={"time"}
-        name={"finishTime"}
-        value={reaction.finishTime}
-        onChange={handleFinishTime}
-        text={"Godzina zakończenia"}
-        placeholder={""}
-        classLabel={""}
-        classInput={""}
-      />
-      <small> {errors.finishTime} </small>
-    </>
+          return (
+            <React.Fragment key={crypto.randomUUID()}>
+              {isSecondIndex && <li className="step4__subHeader">Warunki</li>}
+              <li className="step4__reactionItem">
+                {idx === 6 ? (
+                  <div className="step4__subHeader">Czasy:</div>
+                ) : (
+                  <>
+                    <div className="step4__reactionProperty">
+                      {summaryTitles[idx]}: &nbsp;
+                    </div>
+                    <div className="step4__reactionValue">
+                      {Array.isArray(value) ? value.flat().join(", ") : value}
+                    </div>
+                  </>
+                )}
+              </li>
+            </React.Fragment>
+          );
+        })}
+      </ul>
+    </section>
   );
 };
 
-export default Step_4;
+export default Step_5;

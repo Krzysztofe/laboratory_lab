@@ -7,7 +7,7 @@ const Footer = () => {
         to={"https://github.com/Krzysztofe/Laboratory_Lab"}
         className="footer__link"
       >
-        <h4>Laboratory Lab repository </h4>{" "}
+        Laboratory Lab repository
         <BsGithub className="footer__icon" />
       </Link>
     </footer>

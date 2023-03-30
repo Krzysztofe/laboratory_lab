@@ -7,7 +7,15 @@ interface Props {
   value: string | number;
   handleChange: any;
   handleBlur?: any;
+  classContainer?: string;
+  classLabel?: string;
+  classOptionsContainer?: string;
+  classInputTop?: string;
+  classOption?:string
 }
+
+
+
 
 const SelectInput = (props:Props) => {
   const [open, setOpen] = useState(false);
@@ -17,15 +25,13 @@ const SelectInput = (props:Props) => {
   };
 
   return (
-    <div className="select__container">
-      <label className="selec__label">{props.label}</label>
+    <div className={props.classContainer}>
+      <label className={props.classLabel}>{props.label}</label>
 
-      <div className="select__options">
+      <div className={props.classOptionsContainer}>
         <div
-          onBlur={props.handleBlur}
           onClick={handleOpen}
-          className="select__top"
-          style={{ border: "1px solid black", width: "fix contemt" }}
+          className={props.classInputTop}
         >
           {props.value}
           <div className={open ? "select__arrow--up" : "select__arrow"}></div>
@@ -37,7 +43,7 @@ const SelectInput = (props:Props) => {
               return (
                 <div
                   key={value}
-                  onBlur={props.handleBlur}
+               className = {props.classOption}
                   onClick={() => {
                     props.handleChange(value);
                     handleOpen();

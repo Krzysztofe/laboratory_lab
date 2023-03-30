@@ -1,75 +1,90 @@
-import React, { FC, useState, useRef, useEffect } from "react";
-import { ModelFormReaction } from "../formReaction/ModelFormReaction";
-import CheckboxInput from "../../../components/inputs/checkboxInput/CheckboxInput";
-import SelectInput from "../../../components/inputs/selectInput/SelectInput";
-import { solventsNameKeyData } from "./dataStep_3";
+import { FC } from "react";
+import TextInput from "../../../components/inputs/textInput/TextInput";
+import { ChangeEvent } from "../../../data/types";
 
 interface Props {
-reaction: any,
-errors: any,
-handleChange: any
-
+  reaction: any;
+  errors: any;
+  handleChange: any;
 }
 
-const Step_3: FC<Props> = ({ reaction, errors, handleChange }) => {
-  
-  const [isChecked, setIsChecked] = useState([false, false, false, false, false]);
-
-  useEffect(() => {
-    const newIsChecked = [...isChecked];
-    solventsNameKeyData.forEach((solvent, idx) => {
-      newIsChecked[idx] = reaction.solvents.includes(solvent.name);
-    });
-    setIsChecked(newIsChecked);
-  }, [reaction.solvents]);
-
-  const handleCheckboxChange = (idx: number, name: string) => {
-    const newIsChecked = [...isChecked];
-    newIsChecked[idx] = !newIsChecked[idx];
-    setIsChecked(newIsChecked);
-
-    const getNewSolvents = newIsChecked.reduce(
-      (acc: string[], checked, idx) => {
-        if (checked) {
-          acc.push(solventsNameKeyData[idx].name);
-        }
-        return acc;
-      },
-      []
-    );
-
-    handleChange({ solvents: getNewSolvents });
+const Step_4 = (props: Props) => {
+  const handleStarthDate = (e: ChangeEvent) => {
+    return props.handleChange({ startDate: e.target.value });
   };
 
-  const handleSelectChange = (value: string) => {
-    handleChange({ selectReactionCondition: value });  };
+  const handleFinishDate = (e: ChangeEvent) => {
+    return props.handleChange({ finishDate: e.target.value });
+  };
+
+  const handleStartTime = (e: ChangeEvent) => {
+    return props.handleChange({ startTime: e.target.value });
+  };
+
+  const handleFinishTime = (e: ChangeEvent) => {
+    return props.handleChange({ finishTime: e.target.value });
+  };
 
   return (
-    <>
-      <h3>Rozpuszczalnik</h3>
-      {solventsNameKeyData.map(({ name, key }) => (
-        <CheckboxInput
-          key={key}
-          name={name}
-          checked={isChecked[key]}
-          onChange={() => handleCheckboxChange(key, name)}
-          classLabel={""}
-          classInput={""}
-          classStyledDiv={""}
-        />
-      ))}
-      <small>{errors.solvents}</small>
-
-      <SelectInput
-        label={"Warunki reakcji"}
-        inputName={"selectReactionCondition"}
-        selectValues={["mieszanie", "ogrzewanie", "mikrofala", "chłodzenie"]}
-        value={reaction.selectReactionCondition}
-        handleChange={handleSelectChange}
+    <section className="step1">
+      <TextInput
+        type={"date"}
+        name={"startDate"}
+        value={props.reaction.startDate}
+        onChange={handleStarthDate}
+        text={"Data rozpoczęcia"}
+        classContainer={"reaction__textInputContainer"}
+        classLabel={"reaction__textInputLabel"}
+        classInput={"reaction__textInput"}
       />
-      <small>{errors.selectReactionCondition}</small>
-    </>
+
+      <div className="reaction__error">
+        <small>{props.errors.startDate}</small>
+      </div>
+
+      <TextInput
+        type={"date"}
+        name={"finishDate"}
+        value={props.reaction.finishDate}
+        onChange={handleFinishDate}
+        text={"Data ukończenia"}
+        classContainer={"reaction__textInputContainer"}
+        classLabel={"reaction__textInputLabel"}
+        classInput={"reaction__textInput"}
+      />
+      <div className="reaction__error">
+        <small>{props.errors.finishDate}</small>
+      </div>
+
+      <TextInput
+        type={"time"}
+        name={"startTime"}
+        value={props.reaction.startTime}
+        onChange={handleStartTime}
+        text={"Godzina rozpoczęcia"}
+        classContainer={"reaction__textInputContainer"}
+        classLabel={"reaction__textInputLabel"}
+        classInput={"reaction__textInput"}
+      />
+      <div className="reaction__error">
+        <small>{props.errors.startTime}</small>
+      </div>
+
+      <TextInput
+        type={"time"}
+        name={"finishTime"}
+        value={props.reaction.finishTime}
+        onChange={handleFinishTime}
+        text={"Godzina zakończenia"}
+        classContainer={"reaction__textInputContainer"}
+        classLabel={"reaction__textInputLabel"}
+        classInput={"reaction__textInput"}
+      />
+      <div className="reaction__error">
+        <small>{props.errors.finishTime}</small>
+      </div>
+    </section>
   );
 };
 
-export default Step_3;
+export default Step_4;

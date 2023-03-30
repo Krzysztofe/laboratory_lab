@@ -1,5 +1,64 @@
-.div{
-    margin-top: 200px;
+@import "../formReaction/reactionInputs";
+@import "../step_1/step_1";
+@import "../step_2/step_2";
+@import "../step_3/step_3";
+@import "../step_4/step_4";
+
+.mainFormReaction {
+  height: calc(100% - $font-size-small - ($space-small * 2));
+  display: flex;
+  flex-direction: column;
+
+  .formReaction__stepIdx {
+    padding: $space-small/2 $space-small;
+    text-align: right;
+  }
+  .formReaction__topDescription {
+    padding: $space-small/2 $space-small;
+  }
+  .formReaction {
+    padding: $space-small/2 $space-small;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpointFirst {
+      align-items: center;
+      background-color: $color-blue;
+      background-image: url("../../../asets/5a224075d268a2.3665670315121941658618.png");
+      background-position: left;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    &__wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      backdrop-filter: blur(5px);
+      @include breakpointFirst {
+        margin: 4vh 0;
+        padding: $space-small $space-large;
+        border: 0.5px solid $color-grey;
+      }
+      @include breakpointNav {
+        max-width: 600px;
+        width: 100%;
+      }
+    }
+    &__requestMessage {
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+    &__btns {
+      display: flex;
+      .formReaction__btn {
+      }
+    }
+  }
 }
-
-
+.formReaction--loading {
+  filter: blur(1.5rem);
+}

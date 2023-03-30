@@ -7,7 +7,7 @@ import NavComponents from "./components/navConponents/NavComponents";
 
 const Register = lazy(() => import("./pages/register/Register"));
 const Login = lazy(() => import("./pages/login/Login"));
-const ReactionForm = lazy(
+const FormReaction = lazy(
   () => import("./pages/reactionForm/formReaction/FormReaction")
 );
 const ReactionsList = lazy(
@@ -24,7 +24,7 @@ function App() {
             <Route path="/" element={<IndexHome />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/reaction-form" element={<ReactionForm />} />
+            <Route path="/reaction-form" element={<FormReaction />} />
             <Route path="/reactions-list" element={<ReactionsList />} />
           </Routes>
           <Footer />

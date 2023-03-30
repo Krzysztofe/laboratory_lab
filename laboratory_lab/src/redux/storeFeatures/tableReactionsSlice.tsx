@@ -39,7 +39,29 @@ export const tableReactionsSlice = createSlice({
     },
 
     getReactions: (state, action: PayloadAction<any>) => {
-      state.printReactions = action.payload;
+      console.log("", Object.keys(action.payload));
+
+      const reactions = action.payload
+        ? Object.keys(action.payload).map(key => ({
+            id: key,
+            name: action.payload[key].name,
+            technics: action.payload[key].technics,
+            alcaloids: action.payload[key].alcaloids,
+            selectMilimolles: action.payload[key].selectMilimolles,
+            substract: action.payload[key].substract,
+            selectReactionCondition:
+              action.payload[key].selectReactionCondition,
+            solvents: action.payload[key].solvents,
+            startDate: action.payload[key].startDate,
+            finishDate: action.payload[key].finishDate,
+            startTime: action.payload[key].startTime,
+            finishTime: action.payload[key].finishTime,
+            isEdit: action.payload[key].isEdit,
+          }))
+        : [];
+
+      console.log("", reactions);
+      state.printReactions = reactions;
     },
 
     handleEdit: (state, action: PayloadAction<[ModelReaction[], string]>) => {
