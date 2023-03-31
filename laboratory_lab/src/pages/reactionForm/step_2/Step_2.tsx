@@ -55,7 +55,7 @@ const Step_3 = (props: Props) => {
   };
 
   return (
-    <div className="step1">
+    <div className="stepContainer">
       <p className="reaction__checkboxesHeader">Rozpuszczalnik</p>
       <div className="reaction__checkboxecContainer">
         {solventsNameKeyData.map(({ name, key }) => (
@@ -68,15 +68,15 @@ const Step_3 = (props: Props) => {
             classInput={"reaction__checkboxInput"}
             classStyle={"reaction__checkboxStyle"}
             labelTransform={(label: string) =>
-              label
-                .split("")
-                .map(char =>
-                  isNaN(Number(char)) ? (
-                    char
-                  ) : (
-                    <small className="numberInCheckbox" key = {crypto.randomUUID()}>{char}</small>
-                  )
+              label.split("").map(char =>
+                isNaN(Number(char)) ? (
+                  char
+                ) : (
+                  <small className="numberInCheckbox" key={crypto.randomUUID()}>
+                    {char}
+                  </small>
                 )
+              )
             }
           />
         ))}

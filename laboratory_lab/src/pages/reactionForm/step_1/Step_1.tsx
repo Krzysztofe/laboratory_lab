@@ -24,7 +24,7 @@ const Step_1 = (props: Props): JSX.Element => {
     props.handleChange({ selectMilimolles: value });
   };
   return (
-    <section className="step1">
+    <section className="stepContainer">
       <TextInput
         type={"text"}
         name={"name"}

@@ -26,7 +26,7 @@ const Step_4 = (props: Props) => {
   };
 
   return (
-    <section className="step1">
+    <section className="stepContainer">
       <TextInput
         type={"date"}
         name={"startDate"}

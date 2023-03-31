@@ -1,44 +1,41 @@
-import { summaryTitles } from "./dataStep_5";
-import React from "react";
+import { summaryConditions, summaryDates } from "./dataStep_4";
+
 interface Props {
   reaction: any;
 }
 
 const Step_5 = (props: Props) => {
-  const getReactionValues = Object.entries(props.reaction).map(
-    ([key, value]) => ({
-      [key]: value,
-    })
-  );
 
-  getReactionValues.pop();
+  const get = Object.values(props.reaction);
+
 
   return (
-    <section className="step1">
+    <section className="stepContainer">
       <div className="step4__header">Podsumowanie</div>
       <ul>
-        {getReactionValues.map((reactionValue, idx) => {
-          const value = Object.values(reactionValue);
-          const isSecondIndex = idx === 0;
+        <li className="step4__subHeader">Warunki:</li>
 
+        {get.slice(0, 7).map((value: any, idx: number) => {
           return (
-            <React.Fragment key={crypto.randomUUID()}>
-              {isSecondIndex && <li className="step4__subHeader">Warunki</li>}
-              <li className="step4__reactionItem">
-                {idx === 6 ? (
-                  <div className="step4__subHeader">Czasy:</div>
-                ) : (
-                  <>
-                    <div className="step4__reactionProperty">
-                      {summaryTitles[idx]}: &nbsp;
-                    </div>
-                    <div className="step4__reactionValue">
-                      {Array.isArray(value) ? value.flat().join(", ") : value}
-                    </div>
-                  </>
-                )}
-              </li>
-            </React.Fragment>
+            <li key={idx} className="step4__reactionItem">
+              <div className="step4__reactionProperty">
+                {summaryConditions[idx]}:&nbsp;
+              </div>
+              <div className="step4__reactionValue">
+                {Array.isArray(value) ? value.flat().join(", ") : value}
+              </div>
+            </li>
+          );
+        })}
+        <li className="step4__subHeader">Czasy:</li>
+        {get.slice(7, 11).map((value: any, idx: number) => {
+          return (
+            <li key={idx} className="step4__reactionItem">
+              <div className="step4__reactionProperty">
+                {summaryDates[idx]}:&nbsp;
+              </div>
+              <div className="step4__reactionValue">{value}</div>
+            </li>
           );
         })}
       </ul>
