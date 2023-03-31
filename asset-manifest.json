@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.0551ffe9.css",
-    "main.js": "/Laboratory_Lab/static/js/main.e656f65a.js",
+    "main.css": "/Laboratory_Lab/static/css/main.6dfa96ad.css",
+    "main.js": "/Laboratory_Lab/static/js/main.dad73f3c.js",
     "static/js/412.0a286d25.chunk.js": "/Laboratory_Lab/static/js/412.0a286d25.chunk.js",
     "static/js/855.f9579945.chunk.js": "/Laboratory_Lab/static/js/855.f9579945.chunk.js",
-    "static/js/403.78539eb8.chunk.js": "/Laboratory_Lab/static/js/403.78539eb8.chunk.js",
-    "static/js/959.4c02d034.chunk.js": "/Laboratory_Lab/static/js/959.4c02d034.chunk.js",
+    "static/js/86.da004553.chunk.js": "/Laboratory_Lab/static/js/86.da004553.chunk.js",
+    "static/js/482.1e1f87ec.chunk.js": "/Laboratory_Lab/static/js/482.1e1f87ec.chunk.js",
     "static/js/306.0bb8fdd3.chunk.js": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js",
     "static/js/856.89a5d45a.chunk.js": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js",
     "static/media/pexels-anna-shvets-3786245.jpg": "/Laboratory_Lab/static/media/pexels-anna-shvets-3786245.ad0a8ee2d936780101ac.jpg",
     "static/media/pexels-kindel-media-8326692.jpg": "/Laboratory_Lab/static/media/pexels-kindel-media-8326692.441e1625b0f050046249.jpg",
+    "static/media/5a224075d268a2.png": "/Laboratory_Lab/static/media/5a224075d268a2.3665670315121941658618.e392a866494942361317.png",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.0551ffe9.css.map": "/Laboratory_Lab/static/css/main.0551ffe9.css.map",
-    "main.e656f65a.js.map": "/Laboratory_Lab/static/js/main.e656f65a.js.map",
+    "main.6dfa96ad.css.map": "/Laboratory_Lab/static/css/main.6dfa96ad.css.map",
+    "main.dad73f3c.js.map": "/Laboratory_Lab/static/js/main.dad73f3c.js.map",
     "412.0a286d25.chunk.js.map": "/Laboratory_Lab/static/js/412.0a286d25.chunk.js.map",
     "855.f9579945.chunk.js.map": "/Laboratory_Lab/static/js/855.f9579945.chunk.js.map",
-    "403.78539eb8.chunk.js.map": "/Laboratory_Lab/static/js/403.78539eb8.chunk.js.map",
-    "959.4c02d034.chunk.js.map": "/Laboratory_Lab/static/js/959.4c02d034.chunk.js.map",
+    "86.da004553.chunk.js.map": "/Laboratory_Lab/static/js/86.da004553.chunk.js.map",
+    "482.1e1f87ec.chunk.js.map": "/Laboratory_Lab/static/js/482.1e1f87ec.chunk.js.map",
     "306.0bb8fdd3.chunk.js.map": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js.map",
     "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0551ffe9.css",
-    "static/js/main.e656f65a.js"
+    "static/css/main.6dfa96ad.css",
+    "static/js/main.dad73f3c.js"
   ]
 }
