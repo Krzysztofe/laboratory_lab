@@ -2,61 +2,72 @@
 @import "../formReaction/reactionStepGeneric";
 @import "../step_4/step_4";
 
-.mainFormReaction {
-  height: calc(100% - $font-size-small - ($space-small * 2));
+.formReaction {
+  min-height: calc(100% - $font-size-small - ($space-small * 2));
   display: flex;
   flex-direction: column;
 
-  .formReaction__stepIdx {
+  &__stepIdx {
     padding: $space-small/2 $space-small;
     text-align: right;
   }
-  .formReaction__topDescription {
+  &__topDescription {
     padding: $space-small/2 $space-small;
   }
-  .formReaction {
+  &__form {
+    height: 100%;
+    width: 100%;
     padding: $space-small/2 $space-small;
     flex-grow: 1;
     display: flex;
-    flex-direction: column;
-
+    justify-content: center;
     @include breakpointFirst {
-      align-items: center;
       background-color: $color-blue;
       background-image: url("../../../asets/5a224075d268a2.3665670315121941658618.png");
       background-position: left;
       background-size: cover;
       background-repeat: no-repeat;
     }
-    &__wrapper {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 100%;
-      backdrop-filter: blur(5px);
-      @include breakpointFirst {
-        margin: 4vh 0;
-        padding: $space-small $space-large;
-        border: 0.5px solid $color-grey;
-      }
-      @include breakpointNav {
-        max-width: 600px;
-        width: 100%;
-      }
-    }
-    &__requestMessage {
-      height: 100%;
-      display: grid;
-      place-items: center;
-    }
-    &__btns {
-      display: flex;
-      .formReaction__btn {
-      }
+    &--loading {
+      filter: blur(1.5rem);
     }
   }
-}
-.formReaction--loading {
-  filter: blur(1.5rem);
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    @include breakpointFirst {
+      width: 100%;
+      // margin: 4vh 0;
+      padding: $space-small $space-large;
+      border: 0.5px solid $color-grey;
+    }
+    @include breakpointNav {
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+  &__requestMessage {
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    @include breakpointFirst {
+      justify-content: flex-start;
+      column-gap: 4rem;
+      min-width: 300px;
+      width: 50%;
+    }
+    .btn--formReaction {
+      width: 30%;
+      padding: 0.5em 0;
+    }
+  }
 }

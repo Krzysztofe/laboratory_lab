@@ -11,13 +11,10 @@ interface Props {
   classLabel?: string;
   classOptionsContainer?: string;
   classInputTop?: string;
-  classOption?:string
+  classOption?: string;
 }
 
-
-
-
-const SelectInput = (props:Props) => {
+const SelectInput = (props: Props) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -30,6 +27,7 @@ const SelectInput = (props:Props) => {
 
       <div className={props.classOptionsContainer}>
         <div
+          id="selectTop"
           onClick={handleOpen}
           className={props.classInputTop}
         >
@@ -43,7 +41,7 @@ const SelectInput = (props:Props) => {
               return (
                 <div
                   key={value}
-               className = {props.classOption}
+                  className={props.classOption}
                   onClick={() => {
                     props.handleChange(value);
                     handleOpen();

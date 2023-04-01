@@ -16,7 +16,7 @@ const TextInput= (props:Props) => {
   return (
     <div className={props.classContainer}>
       <label htmlFor={props.name} className={props.classLabel}>
-        {props.text}{" "}
+        {props.text}
       </label>
       <input
         type={props.type}

@@ -5,17 +5,20 @@
 .reaction__textInput {
   max-width: 250px;
   width: 100%;
-  border: none;
-  border-bottom: 1px solid $color-grey;
+  border: 1px solid $color-grey;
+  background-color: rgba(0, 0, 0, 0);
+  padding: $space-small/3;
   @include breakpointFirst {
     font-size: 2rem;
-    padding: $space-small/3;
+  }
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+    transition-duration: 350ms;
   }
 }
 
 .reaction__radioInputHeader {
   font-weight: $font-weight-bold;
-  margin-bottom: $space-small;
 }
 
 .reaction__radioInput {
@@ -34,18 +37,18 @@
 .reaction__selectLabel {
   display: block;
   font-weight: $font-weight-bold;
-  padding-bottom: $space-small/2;
 }
 
 .reaction__selectTop {
+  max-width: 250px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
-  width: 19rem;
-  padding: $space-small/3;
+  border: 1px solid $color-grey;
+  padding: $space-small/5;
   margin-bottom: $space-small/3;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
 
   .select__arrow,
   .select__arrow--up {
@@ -60,6 +63,7 @@
     transform: rotate(180deg);
   }
 }
+
 .reaction__selectOptionsContainer {
   height: 4rem;
 }
@@ -88,7 +92,6 @@
   column-gap: 1rem;
   row-gap: 1rem;
   @include breakpointFirst {
-
   }
 
   .reaction__checkboxLabel {
@@ -111,7 +114,6 @@
   }
 }
 
-
 .numberInCheckbox {
   font-size: $font-size-xsmall;
   line-height: 6px;
@@ -124,7 +126,6 @@
 
 .reaction__error {
   color: $color-red;
-  margin-bottom: $space-small/2;
   font-size: $font-size-small;
   line-height: $font-size-small;
   height: $font-size-small;

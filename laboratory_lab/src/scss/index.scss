@@ -8,6 +8,8 @@
 @import "settings/mixins";
 @import "settings/base";
 
+@import "../components/scss/btn";
+
 @import "../pages/loadingPage/loadingPage";
 @import "../components/navConponents/navHome/navHome/navHome";
 @import "../components/navConponents/navHome/navHomeItems/navHomeItems";

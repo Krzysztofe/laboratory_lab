@@ -43,7 +43,7 @@ const FormContainer = () => {
           />
         </div>
 
-        <BtnFormSubbmit text={"Wyślij"} class={"contactForm__btn"} />
+        <BtnFormSubbmit text={"Wyślij"} class={"btn contactForm__btn"} />
       </form>
     </aside>
   );

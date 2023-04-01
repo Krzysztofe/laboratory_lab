@@ -1,6 +1,7 @@
-import { FC } from "react";
+
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
+import { motion } from "framer-motion";
 
 interface Props {
   reaction: any;
@@ -26,7 +27,12 @@ const Step_4 = (props: Props) => {
   };
 
   return (
-    <section className="stepContainer">
+    <motion.section
+      className="stepContainer"
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 }}
+    >
       <TextInput
         type={"date"}
         name={"startDate"}
@@ -83,7 +89,7 @@ const Step_4 = (props: Props) => {
       <div className="reaction__error">
         <small>{props.errors.finishTime}</small>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

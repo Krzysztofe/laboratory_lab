@@ -2,7 +2,9 @@ import RadioInput from "../../../components/inputs/radioInput/RadioInput";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { alcaloidsData } from "./dataStep_1";
-import SelectInput from "../../../components/inputs/selectInput/SelectInput"
+import SelectInput from "../../../components/inputs/selectInput/SelectInput";
+import { motion } from "framer-motion";
+
 export interface Props {
   reaction: any;
   handleChange: any;
@@ -24,7 +26,12 @@ const Step_1 = (props: Props): JSX.Element => {
     props.handleChange({ selectMilimolles: value });
   };
   return (
-    <section className="stepContainer">
+    <motion.section
+      className="stepContainer"
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 }}
+    >
       <TextInput
         type={"text"}
         name={"name"}
@@ -87,7 +94,7 @@ const Step_1 = (props: Props): JSX.Element => {
       <div className="reaction__error">
         <small>{props.errors.technics}</small>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

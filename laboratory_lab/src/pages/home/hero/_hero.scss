@@ -36,18 +36,9 @@
     }
   }
 
-  &__btn {
-    display: block;
-    margin-right: auto;
-    padding: 1em 2em;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: $color-black;
-    border: 1px solid black;
-    cursor: pointer;
-    &:hover {
-      box-shadow: $box-shadow;
-    }
+  .btn--hero {
+   margin-right: auto;
+   font-size: $font-size-small;
+   padding: 0.5em 2em;
   }
 }

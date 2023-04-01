@@ -11,8 +11,8 @@ import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { ModelFormReaction } from "./ModelFormReaction";
+import { motion } from "framer-motion";
 import { ChangeEvent } from "../../../data/types";
-
 
 const FormReaction = () => {
   const { error, isLoading } = useReactionsQuery(undefined);
@@ -77,7 +77,7 @@ const FormReaction = () => {
   const reactionFormHeaderData = ["Opis 1", "Opis_2", "Opis_3", "opis_4"];
 
   return (
-    <main className="mainFormReaction">
+    <main className="formReaction">
       <h4 className="wrapper formReaction__stepIdx">
         Krok {currentStepIdx + 1}/{steps.length}
       </h4>
@@ -87,27 +87,31 @@ const FormReaction = () => {
 
       <form
         onSubmit={handleSubmit}
-        className={`formReaction ${isLoading && "formReaction--loading"}`}
+        className={`formReaction__form ${
+          isLoading && "formReaction__form--loading"
+        }`}
       >
         <div className="formReaction__wrapper">
           <>{isLoading && <h3>Loading</h3>}</>
+
           {success.isSuccess ? (
             <h3 className="formReaction__requestMessage">Dane wysłane</h3>
           ) : (
             <>{step}</>
           )}
+
           {!success.isSuccess && (
             <div className="formReaction__btns">
               {!isFirstStep && (
                 <button
                   type="button"
                   onClick={back}
-                  className="formReaction__btn"
+                  className="btn btn--formReaction"
                 >
                   Wróć
                 </button>
               )}
-              <button type="submit" className="formReaction__btn">
+              <button type="submit" className="btn btn--formReaction">
                 {isLastStep ? "Wyślij" : "Dalej"}
               </button>
             </div>

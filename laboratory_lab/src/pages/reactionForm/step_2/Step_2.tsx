@@ -4,6 +4,7 @@ import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import { solventsNameKeyData } from "./dataStep_2";
 import { ChangeEvent } from "../../../data/types";
 import TextInput from "../../../components/inputs/textInput/TextInput";
+import { motion } from "framer-motion";
 
 interface Props {
   reaction: any;
@@ -55,7 +56,12 @@ const Step_3 = (props: Props) => {
   };
 
   return (
-    <div className="stepContainer">
+    <motion.div
+      className="stepContainer"
+      initial={{ opacity: 0, y: -40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.1 }}
+    >
       <p className="reaction__checkboxesHeader">Rozpuszczalnik</p>
       <div className="reaction__checkboxecContainer">
         {solventsNameKeyData.map(({ name, key }) => (
@@ -117,7 +123,7 @@ const Step_3 = (props: Props) => {
       <div className="reaction__error">
         <small>{props.errors.substract}</small>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

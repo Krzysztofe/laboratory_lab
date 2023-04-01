@@ -19,7 +19,7 @@ const Hero = () => {
           </h1>
           <BtnLink
             text={"Wypełnij dziennik"}
-            class={"hero__btn"}
+            class={"btn btn--hero"}
             link={link}
           />
         </div>
