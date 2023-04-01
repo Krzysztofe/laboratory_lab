@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.f3b9bd0b.css",
-    "main.js": "/Laboratory_Lab/static/js/main.657fc60d.js",
-    "static/js/412.0a286d25.chunk.js": "/Laboratory_Lab/static/js/412.0a286d25.chunk.js",
-    "static/js/855.f9579945.chunk.js": "/Laboratory_Lab/static/js/855.f9579945.chunk.js",
-    "static/js/86.6ff0acee.chunk.js": "/Laboratory_Lab/static/js/86.6ff0acee.chunk.js",
-    "static/js/169.7b8cf71d.chunk.js": "/Laboratory_Lab/static/js/169.7b8cf71d.chunk.js",
+    "main.css": "/Laboratory_Lab/static/css/main.37b864ec.css",
+    "main.js": "/Laboratory_Lab/static/js/main.a70d48be.js",
+    "static/js/412.344f8df9.chunk.js": "/Laboratory_Lab/static/js/412.344f8df9.chunk.js",
+    "static/js/855.24557608.chunk.js": "/Laboratory_Lab/static/js/855.24557608.chunk.js",
+    "static/js/86.00d0e203.chunk.js": "/Laboratory_Lab/static/js/86.00d0e203.chunk.js",
+    "static/js/169.ef456134.chunk.js": "/Laboratory_Lab/static/js/169.ef456134.chunk.js",
     "static/js/306.0bb8fdd3.chunk.js": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js",
     "static/js/856.89a5d45a.chunk.js": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js",
     "static/media/pexels-anna-shvets-3786245.jpg": "/Laboratory_Lab/static/media/pexels-anna-shvets-3786245.ad0a8ee2d936780101ac.jpg",
     "static/media/pexels-kindel-media-8326692.jpg": "/Laboratory_Lab/static/media/pexels-kindel-media-8326692.441e1625b0f050046249.jpg",
     "static/media/5a224075d268a2.png": "/Laboratory_Lab/static/media/5a224075d268a2.3665670315121941658618.e392a866494942361317.png",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.f3b9bd0b.css.map": "/Laboratory_Lab/static/css/main.f3b9bd0b.css.map",
-    "main.657fc60d.js.map": "/Laboratory_Lab/static/js/main.657fc60d.js.map",
-    "412.0a286d25.chunk.js.map": "/Laboratory_Lab/static/js/412.0a286d25.chunk.js.map",
-    "855.f9579945.chunk.js.map": "/Laboratory_Lab/static/js/855.f9579945.chunk.js.map",
-    "86.6ff0acee.chunk.js.map": "/Laboratory_Lab/static/js/86.6ff0acee.chunk.js.map",
-    "169.7b8cf71d.chunk.js.map": "/Laboratory_Lab/static/js/169.7b8cf71d.chunk.js.map",
+    "main.37b864ec.css.map": "/Laboratory_Lab/static/css/main.37b864ec.css.map",
+    "main.a70d48be.js.map": "/Laboratory_Lab/static/js/main.a70d48be.js.map",
+    "412.344f8df9.chunk.js.map": "/Laboratory_Lab/static/js/412.344f8df9.chunk.js.map",
+    "855.24557608.chunk.js.map": "/Laboratory_Lab/static/js/855.24557608.chunk.js.map",
+    "86.00d0e203.chunk.js.map": "/Laboratory_Lab/static/js/86.00d0e203.chunk.js.map",
+    "169.ef456134.chunk.js.map": "/Laboratory_Lab/static/js/169.ef456134.chunk.js.map",
     "306.0bb8fdd3.chunk.js.map": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js.map",
     "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3b9bd0b.css",
-    "static/js/main.657fc60d.js"
+    "static/css/main.37b864ec.css",
+    "static/js/main.a70d48be.js"
   ]
 }
