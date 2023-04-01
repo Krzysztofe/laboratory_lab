@@ -13,7 +13,7 @@ export interface Error {
   finishTime?: string;
 }
 
-export const useValidationEditForm = (editedReaction: any, idx?: any) => {
+export const useValidationForm = (editedReaction: any, idx?: any) => {
   const conditions = [
     [
       {
@@ -86,7 +86,7 @@ export const useValidationEditForm = (editedReaction: any, idx?: any) => {
     ],
   ];
 
-  const validationEditForm = () => {
+  const validationForm = () => {
     const errors: any = {};
 
     const conditionSet =
@@ -101,5 +101,5 @@ export const useValidationEditForm = (editedReaction: any, idx?: any) => {
     return errors;
   };
 
-  return { validationEditForm };
+  return { validationForm };
 };

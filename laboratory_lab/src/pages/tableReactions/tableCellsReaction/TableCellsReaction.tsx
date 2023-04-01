@@ -1,15 +1,15 @@
-import { FC } from "react";
+
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import {
   getTableBodyReactionsFirst,
   getTableBodyReactionsSecond,
-} from "./utilsTableReactionPrint";
+} from "./utilsTableCellsReaction";
 import { useReactionsQuery } from "../../../services/apiSlice";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import { ModelReaction } from "../../../hooks/useReactions";
 
-const TablePrintReaction: FC<ModelReaction> = ({ reaction }) => {
+const TableCellsReaction = (props: ModelReaction) => {
   const { error, isLoading } = useReactionsQuery(undefined);
 
   const { isOpen } = useSelector(
@@ -28,7 +28,7 @@ const TablePrintReaction: FC<ModelReaction> = ({ reaction }) => {
 
   return (
     <>
-      {getReactions(reaction).map(item => {
+      {getReactions(props.reaction).map(item => {
         return (
           <td key={crypto.randomUUID()}>
             {Array.isArray(item) ? item.flat().join(", ") : item}
@@ -39,4 +39,4 @@ const TablePrintReaction: FC<ModelReaction> = ({ reaction }) => {
   );
 };
 
-export default TablePrintReaction;
+export default TableCellsReaction;

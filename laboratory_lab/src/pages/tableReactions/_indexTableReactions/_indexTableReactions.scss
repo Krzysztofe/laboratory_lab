@@ -1,0 +1,25 @@
+@import "../tableReactions/tableReactions";
+@import "../tableReactions/tableReactions";
+@import "../tableEditForm/tableEditForm";
+
+.tableReactions__main {
+  height: calc(100% - $font-size-small - ($space-small * 2));
+}
+.tableReactions__headers {
+  display: flex;
+  margin-top: $space-small;
+  
+  @include breakpointNav {
+    padding-left: 70px;
+  }
+  .tableReactions__header {
+    background-color: $color-grey;
+    margin: 0 2px -2px 2px;
+    padding: $space-small/2;
+    font-weight: $font-weight-bold;
+    width: 30%;
+    max-width: 20rem;
+    text-align: center;
+    cursor: pointer;
+  }
+}

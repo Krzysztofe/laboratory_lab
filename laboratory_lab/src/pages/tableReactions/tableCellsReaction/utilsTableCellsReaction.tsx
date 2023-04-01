@@ -11,7 +11,7 @@ export const getTableBodyReactionsSecond = (reaction: ModelReaction) => {
   const reactionValues = Object.values(reaction);
   const reactionValuesFiltered = [
     reactionValues[0],
-    ...reactionValues.slice(8, 13),
+    ...reactionValues.slice(8, 12),
   ];
   reactionValuesFiltered.shift();
   return reactionValuesFiltered;

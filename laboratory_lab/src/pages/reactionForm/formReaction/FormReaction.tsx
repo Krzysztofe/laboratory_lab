@@ -9,9 +9,10 @@ import Step_1 from "../step_1/Step_1";
 import Step_2 from "../step_2/Step_2";
 import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
-import { useValidationEditForm } from "../../tableReactions/tableEditForm/useValidationEditForm";
+import { useValidationForm } from "../../../hooks/useValidationForm";
 import { ModelFormReaction } from "./ModelFormReaction";
 import { ChangeEvent } from "../../../data/types";
+
 
 const FormReaction = () => {
   const { error, isLoading } = useReactionsQuery(undefined);
@@ -44,12 +45,12 @@ const FormReaction = () => {
   ]);
 
   const idx = currentStepIdx === 3 ? undefined : currentStepIdx;
-  const { validationEditForm } = useValidationEditForm(reaction, idx);
+  const { validationForm } = useValidationForm(reaction, idx);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setErrors(validationEditForm());
-    if (Object.keys(validationEditForm()).length) return;
+    setErrors(validationForm());
+    if (Object.keys(validationForm()).length) return;
     isLastStep ? await addReaction(reaction) : next();
   };
 
@@ -59,8 +60,6 @@ const FormReaction = () => {
   //   if ("error" in error) return <div>{error.error}</div>;
   // }
 
-
-
   useEffect(() => {
     let timeoutID: any;
 
@@ -69,7 +68,7 @@ const FormReaction = () => {
         setCurrentStepIdx(0);
         setReaction(INITIAL_DATA);
         success.isSuccess = false as true;
-      }, 4000);
+      }, 2000);
     }
 
     return () => clearTimeout(timeoutID);

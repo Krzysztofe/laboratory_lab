@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { tableHeadDataFirst, tableHeadDataSecond } from "./dataTableHead";
@@ -13,19 +12,12 @@ const TableHead = () => {
       <tr>
         {isOpen
           ? tableHeadDataFirst.map(reaction => {
-              return (
-                <td key={reaction} style={{ fontWeight: 900 }}>
-                  {reaction}
-                </td>
-              );
+              return <td key={reaction}>{reaction}</td>;
             })
           : tableHeadDataSecond.map(reaction => {
-              return (
-                <td key={reaction} style={{ fontWeight: 900 }}>
-                  {reaction}
-                </td>
-              );
+              return <td key={crypto.randomUUID()}>{reaction}</td>;
             })}
+        <td></td>
       </tr>
     </thead>
   );

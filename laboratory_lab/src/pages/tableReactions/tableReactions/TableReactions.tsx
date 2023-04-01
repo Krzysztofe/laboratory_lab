@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { ReactNode } from "react";
 
-import { ModelTableReactions } from "./modelTableReactions";
+export interface Props {
+  children: ReactNode;
+}
 
-const TableReactions: FC<ModelTableReactions> = ({ children }) => {
-  return <table style={{ fontSize: 10 }}>{children}</table>;
+const TableReactions = (props: Props) => {
+  return <table className="wrapper tableReactions__table">{props.children}</table>;
 };
 
 export default TableReactions;

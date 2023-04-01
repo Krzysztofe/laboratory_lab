@@ -12,14 +12,15 @@ import {
 import { FaTrashAlt } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { MdSystemUpdateAlt } from "react-icons/md";
-import { useValidationEditForm } from "../tableEditForm/useValidationEditForm";
+import { useValidationForm } from "../../../hooks/useValidationForm";
+import { ModelReaction } from "../../../hooks/useReactions";
 
-const TableBtns: FC<any> = ({ reaction, formik }) => {
+const TableBtns = (props: ModelReaction) => {
   const dispatch = useDispatch();
   const { editedReaction, printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
-  const { validationEditForm } = useValidationEditForm(editedReaction);
+  const { validationForm } = useValidationForm(editedReaction);
   const [updateReaction] = useUpdateReactionMutation();
   const [deleteReaction] = useDeleteReactionMutation();
 
@@ -28,13 +29,11 @@ const TableBtns: FC<any> = ({ reaction, formik }) => {
   };
 
   const handleReactionUpdate = async (printReactions: any, reactionID: any) => {
-    if (Object.keys(validationEditForm()).length) return;
+    if (Object.keys(validationForm()).length) return;
     const updatedEditedReaction = { ...editedReaction, isEdit: true };
     dispatch(handleUpdate([printReactions, reactionID]));
     await updateReaction(updatedEditedReaction);
   };
-
-
 
   const handleDelete = async (id?: string) => {
     await deleteReaction(id);
@@ -43,23 +42,31 @@ const TableBtns: FC<any> = ({ reaction, formik }) => {
   return (
     <>
       <td>
-        {reaction.isEdit ? (
+        {props.reaction.isEdit ? (
           <button
-            onClick={() => handleReactionEdit(printReactions, reaction.id)}
+            onClick={() =>
+              handleReactionEdit(printReactions, props.reaction.id)
+            }
+            className="tableReactions__btn"
           >
-            <AiFillEdit style={{ fontSize: 25 }} />
+            <AiFillEdit />
           </button>
         ) : (
           <button
-            onClick={() => handleReactionUpdate(printReactions, reaction.id)}
+            onClick={() =>
+              handleReactionUpdate(printReactions, props.reaction.id)
+            }
+            className="tableReactions__btn"
           >
-            <MdSystemUpdateAlt style={{ fontSize: 25 }} />
+            <MdSystemUpdateAlt />
           </button>
         )}
-      </td>
-      <td>
-        <button onClick={() => handleDelete(reaction.id)}>
-          <FaTrashAlt style={{ fontSize: 25 }} />
+
+        <button
+          onClick={() => handleDelete(props.reaction.id)}
+          className="tableReactions__btn tableReactions__btn--trash"
+        >
+          <FaTrashAlt />
         </button>
       </td>
     </>

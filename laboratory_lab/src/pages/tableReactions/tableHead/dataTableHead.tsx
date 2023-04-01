@@ -2,15 +2,15 @@ export const tableHeadDataFirst = [
   "Nazwa",
   "Technika",
   "Alkaloidy",
-  "Milimole",
+  "Mole",
   "Substrakt",
   "Warunki",
-  "Rozpuszczalniki",
+  "Rozp.",
 ];
 
 export const tableHeadDataSecond = [
-  "Data start",
-  "Data koniec",
-  "Gdzina start",
-  "Godzina koniec",
+  "Początek",
+  "Koniec",
+  "Początek",
+  "Koniec",
 ];

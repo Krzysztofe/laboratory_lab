@@ -39,7 +39,7 @@ export const tableReactionsSlice = createSlice({
     },
 
     getReactions: (state, action: PayloadAction<any>) => {
-      console.log("", Object.keys(action.payload));
+    
 
       const reactions = action.payload
         ? Object.keys(action.payload).map(key => ({
@@ -59,8 +59,6 @@ export const tableReactionsSlice = createSlice({
             isEdit: action.payload[key].isEdit,
           }))
         : [];
-
-      console.log("", reactions);
       state.printReactions = reactions;
     },
 

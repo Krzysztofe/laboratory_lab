@@ -1,4 +1,3 @@
-import { useState } from "react";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +8,7 @@ import {
   inputsPrintDataSecond,
 } from "./dataTableEditForm";
 
-import { useValidationEditForm } from "../tableEditForm/useValidationEditForm";
+import { useValidationForm } from "../../../hooks/useValidationForm";
 
 const TableEditForm = ({ formik }: any) => {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const TableEditForm = ({ formik }: any) => {
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
   );
-  const { validationEditForm } = useValidationEditForm(editedReaction);
+  const { validationForm } = useValidationForm(editedReaction);
 
   const handleInputChange = (e: ChangeEvent, key: any) => {
     const { name, value } = e.target;
@@ -29,9 +28,6 @@ const TableEditForm = ({ formik }: any) => {
   };
 
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
-
-// console.log("edit", validationEditForm());
-
 
   return (
     <>
@@ -44,10 +40,16 @@ const TableEditForm = ({ formik }: any) => {
               name={name}
               value={editedReaction[name]}
               onChange={handleInputChange}
+              classContainer={"editForm__textInputContainer"}
+              classLabel={"editForm__textInputLabel"}
+              classInput={"editForm__textInput"}
             />
-            <small>
-              {validationEditForm()[name as keyof typeof validationEditForm]}
-            </small>
+
+            <div className="editForm__error">
+              <small>
+                {validationForm()[name as keyof typeof validationForm]}
+              </small>
+            </div>
           </td>
         );
       })}

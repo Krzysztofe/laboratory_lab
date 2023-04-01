@@ -1,0 +1,106 @@
+.tableReactions__table {
+  height: 90%;
+
+  @include breakpointNav {
+    padding-left: 70px;
+  }
+}
+
+.tableReactions__table tbody {
+  height: 100%;
+  overflow-x: auto;
+  display: block;
+  border-collapse: collapse;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+// Table head
+
+.tableReactions__table thead tr {
+  border-collapse: collapse;
+  display: flex;
+  padding: $space-small/2 0;
+  background-color: $color-grey;
+}
+
+.tableReactions__table thead {
+  border-collapse: collapse;
+}
+
+.tableReactions__table thead tr td {
+  display: none;
+  font-weight: 900;
+  padding-left: $space-small/2;
+  width: 100%;
+  &:nth-child(-n + 3) {
+    display: block;
+  }
+  @include breakpointFirst {
+    &:last-child {
+      display: block;
+      width: 50%;
+    }
+  }
+  @include breakpointNav {
+    &:nth-child(-n + 5) {
+      display: block;
+    }
+  }
+  @include breakpointTable {
+    &:nth-child(n + 5):nth-child(-n + 8) {
+      display: block;
+    }
+  }
+}
+
+// Table body
+
+.tableReactions__table tbody tr {
+  display: flex;
+  padding: $font-size-small 0;
+
+  &:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+  }
+}
+
+.tableReactions__table tbody tr td {
+  display: none;
+  padding-left: $space-small/2;
+  height: $font-size-small + 2rem;
+  width: 100%;
+  &:nth-child(-n + 3) {
+    display: block;
+  }
+  @include breakpointFirst {
+    &:last-child {
+      display: flex;
+      width: 50%;
+    }
+  }
+  @include breakpointNav {
+    &:nth-child(-n + 5) {
+      display: block;
+    }
+  }
+  @include breakpointTable {
+    &:nth-child(n + 5):nth-child(-n + 8) {
+      display: block;
+      height: fit-content;
+    }
+  }
+}
+
+// Table btns
+
+.tableReactions__btn {
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0);
+  padding-right: $space-small/3;
+  &--trash {
+    color: rgba(238, 28, 24, 0.6);
+  }
+}

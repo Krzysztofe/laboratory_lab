@@ -1,13 +1,12 @@
-import { FC } from "react";
-import { ModelTableBodyRequestMessage } from "./ModelTableBodyRequestMessage";
+export interface Props {
+  message: string;
+}
 
-const TableBodyRequestMessage: FC<ModelTableBodyRequestMessage> = ({
-  message,
-}) => {
+const TableBodyRequestMessage = (props:Props) => {
   return (
     <tbody>
       <tr>
-        <td>{message}</td>
+        <td>{props.message}</td>
       </tr>
     </tbody>
   );

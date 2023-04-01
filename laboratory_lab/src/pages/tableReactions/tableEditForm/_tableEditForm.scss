@@ -1,0 +1,21 @@
+.editForm__textInputContainer {
+  width: 100%;
+}
+.editForm__textInputLabel {
+}
+.editForm__textInput {
+  width: 100%;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  border-bottom: 1px solid $color-black;
+  &:focus {
+    background-color: rgb(200, 200, 200);
+  }
+}
+.editForm__error {
+  color: $color-red;
+  font-size: $font-size-small;
+  line-height: $font-size-small;
+  height: $font-size-small;
+}

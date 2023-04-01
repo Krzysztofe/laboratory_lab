@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { useReactionsQuery } from "../../../services/apiSlice";
 import { useReactions } from "../../../hooks/useReactions";
 import TableEditForm from "../tableEditForm/TableEditForm";
-import TablePrintReaction from "../tableReactionPrint/TablePrintReaction";
+import TableCellsReaction from "../tableCellsReaction/TableCellsReaction";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import { getReactions } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../redux/store";
 import TableBtns from "../tableBtns/TableBtns";
+
 
 const TableBody = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const TableBody = () => {
         return (
           <tr key={reaction.id}>
             {reaction.isEdit ? (
-              <TablePrintReaction reaction={reaction} />
+              <TableCellsReaction reaction={reaction} />
             ) : (
               <TableEditForm />
             )}
