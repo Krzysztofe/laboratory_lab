@@ -8,7 +8,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const Login = () => {
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,9 +38,9 @@ const Login = () => {
       <h2 className="login__title">Zaloguj się</h2>
       <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
         <small>
-          ww@wp.pl
+          login: &nbsp; ww@wp.pl
           <br />
-          wwwwww
+          hasło: &nbsp; wwwwww
         </small>
 
         <TextInput
@@ -52,14 +51,16 @@ const Login = () => {
           handleBlur={formik.handleBlur}
           text={"Email"}
           placeholder={"Email"}
+          classContainer={"loginForm__container"}
           classLabel={"loginForm__label"}
           classInput={"loginForm__input"}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <small>{formik.errors.email}</small>
-        ) : (
-          <small></small>
-        )}
+        <div className="loginForm__error">
+          {formik.touched.email && formik.errors.email && (
+            <small>{formik.errors.email}</small>
+          )}
+        </div>
+
         <TextInput
           type={"password"}
           name={"password"}
@@ -68,15 +69,16 @@ const Login = () => {
           handleBlur={formik.handleBlur}
           text={"Hasło"}
           placeholder={"Hasło"}
+          classContainer={"loginForm__container"}
           classLabel={"loginForm__label"}
           classInput={"loginForm__input"}
         />
 
-        {formik.touched.password && formik.errors.password ? (
-          <small>{formik.errors.password}</small>
-        ) : (
-          <small></small>
-        )}
+        <div className="loginForm__error">
+          {formik.touched.password && formik.errors.password && (
+            <small>{formik.errors.password}</small>
+          )}
+        </div>
 
         <BtnsLogin
           link={"/register"}

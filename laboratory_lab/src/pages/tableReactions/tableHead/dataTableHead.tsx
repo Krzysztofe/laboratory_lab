@@ -9,8 +9,15 @@ export const tableHeadDataFirst = [
 ];
 
 export const tableHeadDataSecond = [
-  "Początek",
-  "Koniec",
+  "Otwarcie",
+  "Zamknięcie",
   "Początek",
   "Koniec",
 ];
+
+
+<body>
+<main></main>
+<footer>uuuuu</footer>
+
+</body>

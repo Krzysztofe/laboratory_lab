@@ -1,17 +1,14 @@
 .footer {
-  background-color: $color-primary;
+  display: flex;
+  justify-content: center;
+  padding: $space-small 0;
   font-size: $font-size-small;
   line-height: $font-size-small;
-  color: $color-black;
-  display: grid;
-  place-items: center;
-  height: auto;
+  background-color: $color-primary;
   &__link {
-    text-decoration: 0;
     display: flex;
     align-items: center;
     color: $color-black;
-    padding: $space-small 0;
   }
   &__icon {
     margin-left: 0.5em;

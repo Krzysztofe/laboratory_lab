@@ -53,14 +53,17 @@ const Register = () => {
           handleBlur={formik.handleBlur}
           text={"Email"}
           placeholder={"Email"}
+          classContainer={"loginForm__container"}
           classLabel={"loginForm__label"}
           classInput={"loginForm__input"}
         />
-        {formik.touched.email && formik.errors.email ? (
-          <small>{formik.errors.email}</small>
-        ) : (
-          <small></small>
-        )}
+
+        <div className="loginForm__error">
+          {formik.touched.email && formik.errors.email && (
+            <small>{formik.errors.email}</small>
+          )}
+        </div>
+
         <TextInput
           type={"password"}
           name={"password"}
@@ -69,14 +72,17 @@ const Register = () => {
           handleBlur={formik.handleBlur}
           text={"Hasło"}
           placeholder={"Hasło"}
+          classContainer={"loginForm__container"}
           classLabel={"loginForm__label"}
           classInput={"loginForm__input"}
         />
-        {formik.touched.password && formik.errors.password ? (
-          <small>{formik.errors.password}</small>
-        ) : (
-          <small></small>
-        )}
+
+        <div className="loginForm__error">
+          {formik.touched.password && formik.errors.password && (
+            <small>{formik.errors.password}</small>
+          )}
+        </div>
+
         <TextInput
           type={"password"}
           name={"passwordRepeated"}
@@ -85,14 +91,18 @@ const Register = () => {
           handleBlur={formik.handleBlur}
           text={"Powtórz hasło"}
           placeholder={"Hasło"}
+          classContainer={"loginForm__container"}
           classLabel={"loginForm__label"}
           classInput={"loginForm__input"}
         />
-        {formik.touched.passwordRepeated && formik.errors.passwordRepeated ? (
-          <small>{formik.errors.passwordRepeated}</small>
-        ) : (
-          <small></small>
-        )}
+
+        <div className="loginForm__error">
+          {formik.touched.passwordRepeated &&
+            formik.errors.passwordRepeated && (
+              <small>{formik.errors.passwordRepeated}</small>
+            )}
+        </div>
+
         <BtnsLogin
           link={"/login"}
           textRight="Załuż konto"

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useReactionsQuery } from "../../../services/apiSlice";
-import { useReactions } from "../../../hooks/useReactions";
 import TableEditForm from "../tableEditForm/TableEditForm";
 import TableCellsReaction from "../tableCellsReaction/TableCellsReaction";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";

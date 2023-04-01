@@ -1,8 +1,8 @@
 @import "../../components/btnsLogin/btnsLogin";
 
 .main__login {
-  height: 100vh;
-  width: 100vw;
+  min-height: calc(100% - $font-size-small - ($space-small * 2));
+  padding-top: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,21 +12,34 @@
     margin-top: $space-small;
     width: 90%;
     max-width: 400px;
-
-    &__label {
+    background-color: $color-primary;
+    padding: $space-small;
+    &__container {
       display: flex;
       flex-direction: column;
-      background-color: $color-primary;
-      padding: $space-small;
-
-      & .loginForm__input {
-        margin-top: $space-small/2;
-        padding: 0.2rem;
-        font-size: 2rem;
-        border: 0;
-        border-bottom: 1px solid black;
-        background-color: rgba(0, 0, 0, 0);
-      }
+      align-items: center;
+    }
+    &__label {
+      margin-bottom: $space-small/3;
+      width: 50%;
+      font-weight: $font-weight-bold;
+    }
+    &__input {
+      margin: 0 auto;
+      width: 50%;
+      padding: 0.2rem;
+      border: 0;
+      border-bottom: 1px solid $color-black;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    &__error {
+      width: 50%;
+      height: $font-size-small + ($space-small/3) *2 ;
+      margin: 0 auto;
+      padding: $space-small/3 0;
+      font-size: $font-size-small;
+      line-height: $font-size-small;
+      color: $color-red;
     }
   }
 }
