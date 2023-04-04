@@ -8,22 +8,19 @@ const Hero = () => {
 
   return (
     <section>
-      <div style={{ height: 90 }}></div>
       <div className="wrapper hero">
-        <div className="hero__leftContainer"></div>
-
-        <div className="hero__rightContainer">
-          <h1 className="hero__title">
-            Dziennik laboratoryjny
-            <br /> grupy badawczej
-          </h1>
-          <BtnLink
-            text={"Wypełnij dziennik"}
-            class={"btn btn--hero"}
-            link={link}
-          />
+        <div className="hero__opacity">
+            <h1 className="hero__title">
+              Dziennik laboratoryjny
+              <br /> grupy badawczej
+            </h1>
+            <BtnLink
+              text={"Wypełnij dziennik"}
+              class={"btn btn--hero"}
+              link={link}
+            />
+          </div>
         </div>
-      </div>
     </section>
   );
 };

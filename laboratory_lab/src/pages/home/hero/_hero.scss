@@ -1,44 +1,48 @@
 .hero {
-  display: flex;
-  padding: 0;
-  &__leftContainer {
-    display: none;
-    @include breakpointFirst {
-      display: block;
-      width: 50%;
-      background-color: $color-white;
-      background-image: url("../../../asets/pexels-kindel-media-8326692.jpg");
-      background-size: cover;
-      background-position: center;
-    }
+  padding: 86px 0 0 0;
+  display: block;
+  position: relative;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url("../../../asets/hero_large.jpg");
+    background-size: 200%;
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: -1;
   }
 
-  &__rightContainer {
-    padding: 10rem $space-small;
-    width: 100%;
-    display: grid;
-    place-items: center;
-    box-shadow: -20px -4px 20px 8px $color-white;
+  &:before {
+    right: 0;
+    width: 50%;
+    transform: scaleX(-1);
+  }
 
-    @include breakpointFirst {
-      width: 50%;
-      padding: clamp(8rem, 13vw, 18rem) $space-small;
-    }
+  &__opacity {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(25px, 8vw, 80px) 0;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   &__title {
     text-transform: uppercase;
     font-size: 3rem;
     margin-bottom: 2rem;
-    @include breakpointFirst {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-right: auto;
-    }
+    text-align: center;
+    color: $color-white;
+    font-size: clamp(2rem, 6vw, 4rem);
   }
 
   .btn--hero {
-   margin-right: auto;
-   font-size: $font-size-small;
-   padding: 0.5em 2em;
+    font-size: $font-size-small;
+    padding: 0.5em 1.5em;
+    color: $color-white;
   }
 }

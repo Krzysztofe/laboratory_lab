@@ -1,5 +1,5 @@
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../../data/firebaseConfig";
 import { links } from "./dataNavAsideItems";
 
@@ -10,6 +10,12 @@ export interface Props {
 
 const NavAsideItems = (props: Props) => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  const handleLogout = (): void => {
+    auth.signOut();
+    navigate("/");
+  };
 
   return (
     <>
@@ -18,7 +24,9 @@ const NavAsideItems = (props: Props) => {
           props.isOpen ? "navAsideItems__open" : "navAsideItems__close"
         } `}
       >
-        <li className="navAsideSignIn">Zalogowany: {user?.email}</li>
+        <li onClick={handleLogout} className="navAsideSignIn">
+          Wyloguj: {user?.email}
+        </li>
 
         {links.map(({ text, icon, link }) => (
           <li

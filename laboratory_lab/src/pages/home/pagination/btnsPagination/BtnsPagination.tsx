@@ -13,7 +13,7 @@ const BtnsPagination = (props: Props) => {
           <button
             key={project}
             onClick={() => (props.setCounter(idx), props.setPageNumber(0))}
-            className="reactionsHome__btn"
+            className="btn reactionsHome__btn"
           >
             {project}
           </button>

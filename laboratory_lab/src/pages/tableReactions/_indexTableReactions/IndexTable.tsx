@@ -30,7 +30,7 @@ const IndexTable = () => {
       validationForm().selectReactionCondition ||
       validationForm().solvents)
       ? { color: "red", text: "Uzupełnij" }
-      : { color: "black", text: "Warunki" };
+      : { color: "black", text: "Parametry" };
 
   const timePrint =
     values &&

@@ -33,7 +33,6 @@ const TablePagination = (props: Props) => {
         </div>
       ) : (
         <div className="reactionsHome__container">
-          <h3>Wykaz reakcji zapisanych w dzienniku</h3>
           <table className="reactionsHome__table">
             <thead>
               <tr>

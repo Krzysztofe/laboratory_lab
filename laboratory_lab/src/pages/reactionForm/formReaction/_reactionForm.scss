@@ -15,19 +15,39 @@
     padding: $space-small/2 $space-small;
   }
   &__form {
+    position: relative;
     height: 100%;
     width: 100%;
     padding: $space-small/2 $space-small;
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    @include breakpointFirst {
-      background-color: $color-blue;
-      background-image: url("../../../asets/5a224075d268a2.3665670315121941658618.png");
-      background-position: left;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background-image: url("../../../asets/hero_large.jpg");
       background-size: cover;
       background-repeat: no-repeat;
+      background-position: left;
+      z-index: -1;
+      @include breakpointTable {
+        background-size: 200%;
+      }
     }
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+      width: 50%;
+      transform: scaleX(-1);
+    }
+
     &--loading {
       filter: blur(1.5rem);
     }
@@ -38,10 +58,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     @include breakpointFirst {
       width: 100%;
-      // margin: 4vh 0;
       padding: $space-small $space-large;
       border: 0.5px solid $color-grey;
     }
@@ -54,19 +74,16 @@
     height: 100%;
     display: grid;
     place-items: center;
+    color: $color-white;
   }
   &__btns {
     display: flex;
     justify-content: space-between;
+    max-width: 250px;
     width: 100%;
-    @include breakpointFirst {
-      justify-content: flex-start;
-      column-gap: 4rem;
-      min-width: 300px;
-      width: 50%;
-    }
+
     .btn--formReaction {
-      width: 30%;
+      width: 40%;
       padding: 0.5em 0;
     }
   }

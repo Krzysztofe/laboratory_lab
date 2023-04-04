@@ -1,4 +1,4 @@
-export const summaryConditions = [
+export const summaryParams = [
   "Nazwa",
   "Ilość milimoli",
   "Alkaloidy",

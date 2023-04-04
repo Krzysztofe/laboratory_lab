@@ -1,5 +1,6 @@
 .stepContainer {
   width: 100%;
+  color: $color-white;
   @include breakpointNav {
     margin-top: 0;
     display: flex;

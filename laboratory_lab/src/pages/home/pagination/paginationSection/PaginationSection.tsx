@@ -31,13 +31,13 @@ const PaginationSection = () => {
   return (
     <section>
       <div className="wrapper reactionsHome">
-        
+        <h3>Wykaz reakcji aktualnie zapisanych w dzienniku</h3>
         <BtnsPagination setCounter={setCounter} setPageNumber={setPageNumber} />
 
         <div className="reactionsHome__reactionDescription">
           {btnsProjectDescriptionData[counter]}
         </div>
-      
+
         <TablePagination counter={counter} pageNumber={pageNumber} />
 
         {getReactionsToPrint.length > 0 ? (

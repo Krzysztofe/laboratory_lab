@@ -1,8 +1,8 @@
-import NavItems from "../navHomeItems/NavIHometems";
+import NavItems from "../navHomeItems/NavIHomeItems";
 
 const NavHome = () => {
   return (
-    <nav className= "wrapper navHome">
+    <nav className="wrapper navHome">
       <NavItems />
     </nav>
   );

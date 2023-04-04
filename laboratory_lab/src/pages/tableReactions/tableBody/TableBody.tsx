@@ -8,15 +8,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../redux/store";
 import TableBtns from "../tableBtns/TableBtns";
 
-
 const TableBody = () => {
   const dispatch = useDispatch();
   const { data, error, isLoading } = useReactionsQuery(undefined);
 
-  const {printReactions } = useSelector(
+  const { printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
-
 
   useEffect(() => {
     if (data) {

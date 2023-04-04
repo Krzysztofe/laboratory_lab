@@ -1,8 +1,7 @@
-import NavItems from "../navHomeItems/NavIHometems";
+import NavItems from "../navHomeItems/NavIHomeItems";
 import { useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { GrFormClose } from "react-icons/gr";
-import { GiChemicalDrop } from "react-icons/gi";
 
 const NavHomeMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +11,7 @@ const NavHomeMobile = () => {
       {isOpen ? (
         <>
           <nav className="navHomeMobile">
-            <div className="navHomeMobile__topIcons">
-              <GiChemicalDrop />
+            <div className="navHomeMobile__topIcon">
               <GrFormClose
                 className="navHomeMobile__icon"
                 onClick={() => setIsOpen(prev => !prev)}
@@ -24,8 +22,7 @@ const NavHomeMobile = () => {
         </>
       ) : (
         <nav className="navHomeMobile" style={{ height: 90 }}>
-          <div className="navHomeMobile__topIcons">
-            <GiChemicalDrop />
+          <div className="navHomeMobile__topIcon">
             <RiMenuFill
               className="navHomeMobile__icon"
               onClick={() => setIsOpen(prev => !prev)}

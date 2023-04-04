@@ -70,9 +70,11 @@ const NavHomeItems = (props: Props) => {
             initial={{ opacity: 0, y: -40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="navHomeItems__item"
+            onClick={handleLogout}
           >
-            Zalogowany: {user?.email}
+            <Link to="" className="navHomeItems__item">
+              Wyloguj: {user?.email}
+            </Link>
           </motion.li>
 
           <motion.li
@@ -83,17 +85,6 @@ const NavHomeItems = (props: Props) => {
           >
             <Link to="reaction-form" className="navHomeItems__item">
               Wypełnij dziennik
-            </Link>
-          </motion.li>
-
-          <motion.li
-            onClick={handleLogout}
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-          >
-            <Link to="" className="navHomeItems__item item--log">
-              Wyloguj
             </Link>
           </motion.li>
         </ul>

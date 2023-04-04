@@ -5,15 +5,20 @@
 .reaction__textInput {
   max-width: 250px;
   width: 100%;
-  border: 1px solid $color-grey;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   background-color: rgba(0, 0, 0, 0);
   padding: $space-small/3;
+  color: $color-white;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
   @include breakpointFirst {
     font-size: 2rem;
   }
   &:focus {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     transition-duration: 350ms;
+    border: 1px solid $color-accent;
   }
 }
 
@@ -21,16 +26,18 @@
   font-weight: $font-weight-bold;
 }
 
+.reaction__radioLabel {
+}
 .reaction__radioInput {
   width: 1.5em;
   height: 1.5em;
-  border: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   margin-right: 2em;
   -webkit-appearance: none;
   transition-duration: 320ms;
 
   &:checked {
-    background-color: $color-grey;
+    background-color: $color-white;
   }
 }
 
@@ -45,16 +52,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid $color-grey;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   padding: $space-small/5;
   margin-bottom: $space-small/3;
   background-color: rgba(0, 0, 0, 0);
-
   .select__arrow,
   .select__arrow--up {
     width: 20px;
     height: 10px;
-    background-color: $color-black;
+    background-color: $color-white;
     transition-duration: 320ms;
     clip-path: polygon(50% 80%, 90% 0, 100% 0, 50% 100%, 0 0, 10% 0);
   }
@@ -73,8 +79,9 @@
   border: 1px solid $color-grey;
   position: relative;
   z-index: 1;
-  background-color: white;
+  background-color: $color-white;
   padding: 0 0.6rem;
+  color: $color-black;
   &:hover {
     background-color: $color-grey;
   }
@@ -91,8 +98,6 @@
   flex-wrap: wrap;
   column-gap: 1rem;
   row-gap: 1rem;
-  @include breakpointFirst {
-  }
 
   .reaction__checkboxLabel {
     display: block;
@@ -103,12 +108,14 @@
       display: none;
     }
     .reaction__checkboxStyle {
-      background-color: $color-grey;
+      background-color: rgba(255, 255, 255, 0.5);
       cursor: pointer;
       text-align: center;
       padding: 0.5em 0;
       transition-duration: 320ms;
-      @include breakpointFirst {
+      &:hover {
+        background-color: $color-white;
+         color: $color-black;
       }
     }
   }
@@ -121,12 +128,20 @@
 }
 
 .reaction__checkboxInput:checked + .reaction__checkboxStyle {
-  background-color: yellow;
+  background-color: $color-white;
+  color: $color-black;
 }
 
 .reaction__error {
-  color: $color-red;
+  width: fit-content;
+  color: $color-accent;
   font-size: $font-size-small;
   line-height: $font-size-small;
   height: $font-size-small;
+  font-weight: $font-weight-bold;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }

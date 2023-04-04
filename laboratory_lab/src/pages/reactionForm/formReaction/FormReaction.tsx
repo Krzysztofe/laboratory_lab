@@ -74,7 +74,12 @@ const FormReaction = () => {
     return () => clearTimeout(timeoutID);
   }, [success.isSuccess, setCurrentStepIdx, setReaction]);
 
-  const reactionFormHeaderData = ["Opis 1", "Opis_2", "Opis_3", "opis_4"];
+  const reactionFormHeaderData = [
+    "Podstawowe reagenty",
+    "Techniki laboratoryjne",
+    "Przebieg reakcji",
+    "Podsumowanie",
+  ];
 
   return (
     <main className="formReaction">

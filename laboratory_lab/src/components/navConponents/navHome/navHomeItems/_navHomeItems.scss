@@ -13,11 +13,21 @@
 
   &__item {
     display: block;
-    padding: $space-small/2 $space-small;
+    margin: $space-small/3 $space-small;
+    padding-bottom: $space-small/4;
     text-decoration: 0;
     color: $color-black;
     &:hover {
-      background-color: $color-primary;
+      background-color: $color-accent;
+      transition-duration: 350ms;
+    }
+    @include breakpointNav {
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        border-bottom: 2px solid $color-accent;
+        background-color: transparent;
+      }
     }
   }
 }

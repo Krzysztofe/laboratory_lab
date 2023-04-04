@@ -1,4 +1,4 @@
-import { summaryConditions, summaryDates } from "./dataStep_4";
+import { summaryParams, summaryDates } from "./dataStep_4";
 import { motion } from "framer-motion";
 
 interface Props {
@@ -6,9 +6,7 @@ interface Props {
 }
 
 const Step_5 = (props: Props) => {
-
   const get = Object.values(props.reaction);
-
 
   return (
     <motion.section
@@ -17,15 +15,15 @@ const Step_5 = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
     >
-      <div className="step4__header">Podsumowanie</div>
+    
       <ul>
-        <li className="step4__subHeader">Warunki:</li>
+        <li className="step4__subHeader">Parametry:</li>
 
         {get.slice(0, 7).map((value: any, idx: number) => {
           return (
             <li key={idx} className="step4__reactionItem">
               <div className="step4__reactionProperty">
-                {summaryConditions[idx]}:&nbsp;
+                {summaryParams[idx]}:&nbsp;
               </div>
               <div className="step4__reactionValue">
                 {Array.isArray(value) ? value.flat().join(", ") : value}

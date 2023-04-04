@@ -1,12 +1,12 @@
-  .btn {
-    font-weight: $font-weight-bold;
-    color: $color-black;
-    border: 1px solid $color-grey;
+.btn {
+  font-weight: $font-weight-bold;
+  color: $color-black;
+  border: 1px solid $color-accent;
 
-    &:hover {
-      box-shadow: $box-shadow;
-      background-color: $color-button;
-      color: $color-white;
-      transition-duration: 0.35s;
-    }
+  &:hover {
+     border: 1px solid $color-button;
+    background-color: $color-button;
+    color: $color-white;
+    transition-duration: 0.35s;
   }
+}
