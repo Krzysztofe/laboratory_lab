@@ -7,16 +7,15 @@
   .paginationHome__btn {
     width: 30%;
     max-width: 125px;
-    padding: 1em 0;
+    padding: $space-small/2 0;
     letter-spacing: 2px;
-    background-color:#0000 ;
+    background-color: transparent ;
     &:hoover {
       background-color: $color-button;
     }
     &:focus {
-      box-shadow: $box-shadow;
-      color: $color-white;
       background-color: $color-button;
+      color: $color-white;
     }
   }
 }

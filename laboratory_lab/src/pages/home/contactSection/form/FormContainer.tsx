@@ -5,7 +5,7 @@ import TextInput from "../../../../components/inputs/textInput/TextInput"
 const FormContainer = () => {
   return (
     <aside className="contactformContainer">
-      <h3 className="contactformContainer__title">Skontaktuj się z grupą badawczą</h3>
+      <h3 className="contactformContainer__title">Skontaktuj się z grupą <br/> badawczą</h3>
       <form className="contactForm">
         <TextInput
           type={"text"}

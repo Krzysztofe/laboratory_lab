@@ -1,18 +1,20 @@
 .contact {
-  @include breakpointFirst {
-    background-image: url("../../../../asets/scott-graham-OQMZwNd3ThU-unsplash.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 0;
-    //  transform: scaleX(-1);
-  }
+  display: flex;
+  padding: 0;
 
-  &__opacity {
-    @include breakpointFirst {
-      height: 100%;
-      margin: 0;
-      background-color: rgba(255,255,255,0.6);
+  &__leftContainer {
+    display: none;
+    @include breakpointNav {
+      display: block;
+      width: 50%;
+      background-image: url("../../../../asets/scott-graham-OQMZwNd3ThU-unsplash.jpg");
+      background-position: left;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transform: scaleX(-1);
+      z-index: -1;
+      opacity: 0.5;
     }
   }
 }
+

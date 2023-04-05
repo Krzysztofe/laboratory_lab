@@ -14,11 +14,8 @@ const {id} = useParams()
     <>
       <main>
         <Hero />
-        {/* <Projects /> */}
         <PaginationSection />
-        <Contact>
-          <FormContainer />
-        </Contact>
+        <Contact/>
       </main>
     </>
   );

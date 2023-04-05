@@ -1,30 +1,29 @@
 .contactformContainer {
-  margin: $space-large 0;
-  @include breakpointFirst {
+  margin: $space-large auto;
+  @include breakpointNav {
     width: 50%;
     margin: 0;
     margin-left: auto;
-    padding: $space-small;
+    padding: 7rem 4rem;
+    box-shadow: -4px -2px 14px 11px white;
   }
   &__title {
     margin-bottom: $space-large;
-    @include breakpointFirst {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
+    text-align: center;
+    font-size: 2.7rem;
   }
   .contactForm {
-    font-size: $font-size-small;
+    padding: 0 $space-small;
     @include breakpointFirst {
-      font-size: $font-size-xsmall;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+      
     }
     &__container {
       width: 100%;
       @include breakpointFirst {
         width: 45%;
-        font-size: $font-size-xsmall;
       }
     }
     &__label {
@@ -40,16 +39,15 @@
       resize: none;
       padding: 0.2rem;
       margin-bottom: $space-small;
+      &:focus {
+        background-color: $color-neutral-light;
+      }
     }
 
     &__inputContainer--textarea {
       @include breakpointFirst {
         width: 100%;
         margin-top: $space-small;
-      }
-      .contactForm__input--textarea {
-        @include breakpointFirst {
-        }
       }
     }
 
@@ -65,10 +63,13 @@
     &__btn {
       display: flex;
       justify-content: center;
-      padding: 1em 2em;
+      padding: $space-small/2;
       width: 45%;
       margin-left: auto;
-
+      background-color: transparent;
+      &:hover {
+        background-color: $color-button;
+      }
       @include breakpointFirst {
         margin-top: 1rem;
       }

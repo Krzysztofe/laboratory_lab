@@ -4,7 +4,9 @@
   padding: $space-small 0;
   font-size: $font-size-small;
   line-height: $font-size-small;
-  background-color: $color-neutral-second;
+  background-color: $color-neutral-light;
+  position: relative;
+  z-index: 1;
   &__link {
     display: flex;
     align-items: center;

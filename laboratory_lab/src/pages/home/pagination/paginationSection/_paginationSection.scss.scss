@@ -2,6 +2,8 @@
   background-color: $color-neutral-light;
   color: $color-neutral-dark;
   padding: $space-small;
+  position: relative;
+  z-index: 1;
   &__header {
     max-width: 540px;
     margin: 0 auto;
