@@ -1,15 +1,15 @@
 .contact {
   @include breakpointFirst {
-    background-image: url("../../../../asets/pexels-anna-shvets-3786245.jpg");
-    background-position: right;
-    background-size: 120%;
+    background-image: url("../../../../asets/scott-graham-OQMZwNd3ThU-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     padding: 0;
+    //  transform: scaleX(-1);
   }
 
   &__opacity {
     @include breakpointFirst {
-      width: 100%;
       height: 100%;
       margin: 0;
       background-color: rgba(255,255,255,0.6);

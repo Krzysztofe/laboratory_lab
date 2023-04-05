@@ -6,7 +6,7 @@ const Contact = (props:Props) => {
   return (
     <section>
       <div className="wrapper contact">
-        <div className="contact__opacity">{props.children}</div>
+        <div className="contact__opacity" id = "contact">{props.children}</div>
       </div>
     </section>
   );

@@ -1,15 +1,17 @@
-.reactionsHome__btns {
+.paginationHome__btns {
   display: flex;
   justify-content: center;
   column-gap: $space-small/2;
-  margin-top: $space-large;
+  margin: $space-small auto $space-small/2 auto;
 
-  .reactionsHome__btn {
-    width: 10%;
+  .paginationHome__btn {
+    width: 30%;
+    max-width: 125px;
     padding: 1em 0;
     letter-spacing: 2px;
+    background-color:#0000 ;
     &:hoover {
-      box-shadow: $box-shadow;
+      background-color: $color-button;
     }
     &:focus {
       box-shadow: $box-shadow;

@@ -12,6 +12,7 @@ const alcaloidsMap: { [key: string]: string } = {
 };
 
 export const useReactionsSelection = (counter: number): ReactionsSelection => {
+  
   const { reactions } = useReactions();
 
   const getReactionsToPrint =

@@ -7,6 +7,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+      background-image: url("../../asets/microscope-largre.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0;
 
   .loginForm {
     margin-top: $space-small;

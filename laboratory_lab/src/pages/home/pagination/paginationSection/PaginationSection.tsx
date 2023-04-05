@@ -2,17 +2,14 @@ import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useReactionsQuery } from "../../../../services/apiSlice";
 import { useReactionsSelection } from "../utilsPagination";
-import {
-  btnsProjectsData,
-  btnsProjectDescriptionData,
-} from "../dataPagination";
+import { btnsDescriptionData } from "../dataPagination";
 import TablePagination from "../tablePagination/TablePagination";
 import BtnsPagination from "../btnsPagination/BtnsPagination";
 
 const PaginationSection = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [counter, setCounter] = useState(0);
-  const { isLoading, error } = useReactionsQuery(undefined);
+  const { data, isLoading, error } = useReactionsQuery(undefined);
   const { getReactionsToPrint } = useReactionsSelection(counter);
 
   const pageCount =
@@ -22,24 +19,21 @@ const PaginationSection = () => {
     setPageNumber(selected);
   };
 
-  isLoading && <div>Loading...</div>;
+  let tablePrint = <div></div>;
 
-  if (error) {
-    if ("error" in error) return <div> {error.error} </div>;
+  if (isLoading) {
+    tablePrint = <div style={{ textAlign: "center" }}>Loading...</div>;
   }
 
-  return (
-    <section>
-      <div className="wrapper reactionsHome">
-        <h3>Wykaz reakcji aktualnie zapisanych w dzienniku</h3>
-        <BtnsPagination setCounter={setCounter} setPageNumber={setPageNumber} />
+  if (error) {
+    if ("error" in error)
+      tablePrint = <div style={{ textAlign: "center" }}> {error.error} </div>;
+  }
 
-        <div className="reactionsHome__reactionDescription">
-          {btnsProjectDescriptionData[counter]}
-        </div>
-
+  if (data) {
+    tablePrint = (
+      <>
         <TablePagination counter={counter} pageNumber={pageNumber} />
-
         {getReactionsToPrint.length > 0 ? (
           <ReactPaginate
             previousLabel={"<<"}
@@ -56,6 +50,23 @@ const PaginationSection = () => {
         ) : (
           <div className="emptyContainer"></div>
         )}
+      </>
+    );
+  }
+
+  return (
+    <section id="pagination">
+      <div className="wrapper paginationHome">
+        <h3 className="paginationHome__header">
+          Wykaz reakcji aktualnie zapisanych w dzienniku
+        </h3>
+        <BtnsPagination setCounter={setCounter} setPageNumber={setPageNumber} />
+
+        <div className="paginationHome__reactionDescription">
+          {btnsDescriptionData[counter]}
+        </div>
+
+        {tablePrint}
       </div>
     </section>
   );

@@ -1,11 +1,18 @@
-import { HashLink } from "react-router-hash-link";
+import { useMemo } from "react";
+import { HashLink, HashLinkProps } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { auth } from "../../../../data/firebaseConfig";
 import { motion } from "framer-motion";
-import { FC } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import { links, signedOutLinks } from "./dataNavHomeItems";
+
+
+
+interface CustomHashLinkProps extends HashLinkProps {
+  hash?: string;
+  offset?: number;
+}
 
 export interface Props {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -25,72 +32,90 @@ const NavHomeItems = (props: Props) => {
     handleCloseMenu();
   };
 
-  return (
-    <>
-      <ul className="navHomeItems">
-        {links.map(link => {
-          return (
-            <motion.li
-              key={crypto.randomUUID()}
-              onClick={handleCloseMenu}
-              initial={{ opacity: 0, y: -40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: link.delay }}
-            >
-              <HashLink smooth to={link.to} className="navHomeItems__item">
-                {link.text}
-              </HashLink>
-            </motion.li>
-          );
-        })}
-      </ul>
-      {!user?.email && (
+  const scrollToHash = (hash: string): void => {
+    const element = document.querySelector(hash);
+    if (element) {
+      const offset =
+        element.getBoundingClientRect().top + window.pageYOffset - 86;
+      window.scrollTo({ top: offset, behavior: "smooth" });
+    }
+  };
+
+  const memoizedNavHome = useMemo(() => {
+    return (
+      <>
         <ul className="navHomeItems">
-          {signedOutLinks.map(link => {
+          {links.map(link => {
             return (
               <motion.li
-                key={link.text}
+                key={crypto.randomUUID()}
                 onClick={handleCloseMenu}
                 initial={{ opacity: 0, y: -40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: link.delay }}
               >
-                <Link to={link.to} className="navHomeItems__item">
+                <HashLink
+                  to={link.to}
+                  smooth
+                  className="navHomeItems__item"
+                  scroll={el => scrollToHash(link.to)}
+                >
                   {link.text}
-                </Link>
+                </HashLink>
               </motion.li>
             );
           })}
         </ul>
-      )}
+        {!user?.email && (
+          <ul className="navHomeItems">
+            {signedOutLinks.map(link => {
+              return (
+                <motion.li
+                  key={link.text}
+                  onClick={handleCloseMenu}
+                  initial={{ opacity: 0, y: -40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: link.delay }}
+                >
+                  <Link to={link.to} className="navHomeItems__item">
+                    {link.text}
+                  </Link>
+                </motion.li>
+              );
+            })}
+          </ul>
+        )}
 
-      {user?.email && (
-        <ul className="navHomeItems">
-          <motion.li
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            onClick={handleLogout}
-          >
-            <Link to="" className="navHomeItems__item">
-              Wyloguj: {user?.email}
-            </Link>
-          </motion.li>
+        {user?.email && (
+          <ul className="navHomeItems">
+            <motion.li
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              onClick={handleLogout}
+            >
+              <Link to="" className="navHomeItems__item">
+                Wyloguj: {user?.email}
+              </Link>
+            </motion.li>
 
-          <motion.li
-            onClick={handleCloseMenu}
-            initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-          >
-            <Link to="reaction-form" className="navHomeItems__item">
-              Wypełnij dziennik
-            </Link>
-          </motion.li>
-        </ul>
-      )}
-    </>
-  );
+            <motion.li
+              onClick={handleCloseMenu}
+              initial={{ opacity: 0, y: -40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              <Link to="reaction-form" className="navHomeItems__item">
+                Wypełnij dziennik
+              </Link>
+            </motion.li>
+          </ul>
+        )}
+      </>
+    );
+  }, []);
+
+  return memoizedNavHome;
 };
 
 export default NavHomeItems;

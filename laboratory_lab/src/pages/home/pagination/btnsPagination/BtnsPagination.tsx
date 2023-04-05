@@ -1,4 +1,4 @@
-import { btnsProjectsData } from "../dataPagination";
+import { btnsReactionsNameData } from "../dataPagination";
 
 interface Props {
   setPageNumber: React.Dispatch<React.SetStateAction<number>>;
@@ -7,15 +7,15 @@ interface Props {
 
 const BtnsPagination = (props: Props) => {
   return (
-    <div className="reactionsHome__btns">
-      {btnsProjectsData.map((project, idx) => {
+    <div className="paginationHome__btns">
+      {btnsReactionsNameData.map((name, idx) => {
         return (
           <button
-            key={project}
+            key={name}
             onClick={() => (props.setCounter(idx), props.setPageNumber(0))}
-            className="btn reactionsHome__btn"
+            className="btn paginationHome__btn"
           >
-            {project}
+            {name}
           </button>
         );
       })}

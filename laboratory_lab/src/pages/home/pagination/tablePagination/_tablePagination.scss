@@ -1,21 +1,17 @@
 .reactionsHome__emptyTableMessage {
-  display: none;
-  @include breakpointFirst {
-    display: grid;
-    place-items: center;
-    font-weight: $font-weight-bold;
-    height: 24rem;
-  }
+  display: grid;
+  place-items: center;
+  font-weight: $font-weight-bold;
+  height: 24rem;
 }
 .reactionsHome__container {
-  display: none;
-  @include breakpointFirst {
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 24rem;
-    margin: 0 auto;
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  height: 24rem;
+  margin: 0 auto;
+
   .reactionsHome__table {
     border-collapse: collapse;
     width: 100%;
@@ -33,11 +29,14 @@
       & tr {
         display: flex;
         padding: $space-small/2;
-        border-top: 1px solid $color-black;
+        border-top: 1px solid $color-neutral-second;
 
         & td {
           width: 100%;
           text-align: center;
+          @include breakpointFirst {
+            font-size: $font-size-small;
+          }
         }
       }
     }

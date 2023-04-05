@@ -1,4 +1,4 @@
-import NavItems from "../navHomeItems/NavIHomeItems";
+import NavHomeItems from "../navHomeItems/NavIHomeItems";
 import { useState } from "react";
 import { RiMenuFill } from "react-icons/ri";
 import { GrFormClose } from "react-icons/gr";
@@ -17,7 +17,7 @@ const NavHomeMobile = () => {
                 onClick={() => setIsOpen(prev => !prev)}
               />
             </div>
-            <NavItems setIsOpen={setIsOpen} />
+            <NavHomeItems setIsOpen={setIsOpen} />
           </nav>
         </>
       ) : (

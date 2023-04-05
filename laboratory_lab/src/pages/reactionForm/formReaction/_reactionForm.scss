@@ -34,9 +34,6 @@
       background-repeat: no-repeat;
       background-position: left;
       z-index: -1;
-      @include breakpointTable {
-        background-size: 200%;
-      }
     }
     &:before {
       left: 0;
@@ -44,7 +41,6 @@
 
     &:after {
       right: 0;
-      width: 50%;
       transform: scaleX(-1);
     }
 
@@ -85,6 +81,11 @@
     .btn--formReaction {
       width: 40%;
       padding: 0.5em 0;
+      background-color: transparent;
+      color: $color-white;
+      &:hover{
+        background-color: $color-button;
+      }
     }
   }
 }
