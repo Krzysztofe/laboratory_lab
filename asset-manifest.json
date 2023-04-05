@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.8baf8e0f.css",
-    "main.js": "/Laboratory_Lab/static/js/main.fa5b2c0f.js",
-    "static/js/412.344f8df9.chunk.js": "/Laboratory_Lab/static/js/412.344f8df9.chunk.js",
-    "static/js/855.24557608.chunk.js": "/Laboratory_Lab/static/js/855.24557608.chunk.js",
+    "main.css": "/Laboratory_Lab/static/css/main.b2f76a3e.css",
+    "main.js": "/Laboratory_Lab/static/js/main.b0d6d8d3.js",
+    "static/js/412.71a7dedf.chunk.js": "/Laboratory_Lab/static/js/412.71a7dedf.chunk.js",
+    "static/js/855.37048bbe.chunk.js": "/Laboratory_Lab/static/js/855.37048bbe.chunk.js",
     "static/js/86.756a1e79.chunk.js": "/Laboratory_Lab/static/js/86.756a1e79.chunk.js",
     "static/js/169.8abdd842.chunk.js": "/Laboratory_Lab/static/js/169.8abdd842.chunk.js",
     "static/js/306.0bb8fdd3.chunk.js": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js",
     "static/js/856.89a5d45a.chunk.js": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js",
-    "static/media/pexels-anna-shvets-3786245.jpg": "/Laboratory_Lab/static/media/pexels-anna-shvets-3786245.ad0a8ee2d936780101ac.jpg",
+    "static/media/microscope-largre.jpg": "/Laboratory_Lab/static/media/microscope-largre.e506f8d0071da76b747e.jpg",
     "static/media/hero_large.jpg": "/Laboratory_Lab/static/media/hero_large.e0c3a6f601896387cd38.jpg",
+    "static/media/scott-graham-OQMZwNd3ThU-unsplash.jpg": "/Laboratory_Lab/static/media/scott-graham-OQMZwNd3ThU-unsplash.7e7ac93dacd0d89ff51b.jpg",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.8baf8e0f.css.map": "/Laboratory_Lab/static/css/main.8baf8e0f.css.map",
-    "main.fa5b2c0f.js.map": "/Laboratory_Lab/static/js/main.fa5b2c0f.js.map",
-    "412.344f8df9.chunk.js.map": "/Laboratory_Lab/static/js/412.344f8df9.chunk.js.map",
-    "855.24557608.chunk.js.map": "/Laboratory_Lab/static/js/855.24557608.chunk.js.map",
+    "main.b2f76a3e.css.map": "/Laboratory_Lab/static/css/main.b2f76a3e.css.map",
+    "main.b0d6d8d3.js.map": "/Laboratory_Lab/static/js/main.b0d6d8d3.js.map",
+    "412.71a7dedf.chunk.js.map": "/Laboratory_Lab/static/js/412.71a7dedf.chunk.js.map",
+    "855.37048bbe.chunk.js.map": "/Laboratory_Lab/static/js/855.37048bbe.chunk.js.map",
     "86.756a1e79.chunk.js.map": "/Laboratory_Lab/static/js/86.756a1e79.chunk.js.map",
     "169.8abdd842.chunk.js.map": "/Laboratory_Lab/static/js/169.8abdd842.chunk.js.map",
     "306.0bb8fdd3.chunk.js.map": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js.map",
     "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8baf8e0f.css",
-    "static/js/main.fa5b2c0f.js"
+    "static/css/main.b2f76a3e.css",
+    "static/js/main.b0d6d8d3.js"
   ]
 }
