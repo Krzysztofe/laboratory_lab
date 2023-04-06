@@ -83,44 +83,50 @@ const FormReaction = () => {
 
   return (
     <main className="formReaction">
-      <h4 className="wrapper formReaction__stepIdx">
-        Krok {currentStepIdx + 1}/{steps.length}
+      <h4 className="wrapper wrapper--formReactionTop ">
+        <div className="formReaction__stepIdx ">
+          Krok {currentStepIdx + 1}/{steps.length}
+        </div>
       </h4>
-      <h3 className="wrapper formReaction__topDescription">
-        {reactionFormHeaderData[currentStepIdx]}
+      <h3 className="wrapper wrapper--formReactionTop">
+        <div className="formReaction__topDescription">
+          {reactionFormHeaderData[currentStepIdx]}
+        </div>
       </h3>
 
       <form
         onSubmit={handleSubmit}
-        className={`formReaction__form ${
+        className={`wrapper formReaction__form ${
           isLoading && "formReaction__form--loading"
         }`}
       >
-        <div className="formReaction__wrapper">
-          <>{isLoading && <h3>Loading</h3>}</>
+        <div className="formReaction__opacity">
+          <div className="formReaction__wrapper">
+            <>{isLoading && <h3>Loading</h3>}</>
 
-          {success.isSuccess ? (
-            <h3 className="formReaction__requestMessage">Dane wysłane</h3>
-          ) : (
-            <>{step}</>
-          )}
+            {success.isSuccess ? (
+              <h3 className="formReaction__requestMessage">Dane wysłane</h3>
+            ) : (
+              <>{step}</>
+            )}
 
-          {!success.isSuccess && (
-            <div className="formReaction__btns">
-              {!isFirstStep && (
-                <button
-                  type="button"
-                  onClick={back}
-                  className="btn btn--formReaction"
-                >
-                  Wróć
+            {!success.isSuccess && (
+              <div className="formReaction__btns">
+                {!isFirstStep && (
+                  <button
+                    type="button"
+                    onClick={back}
+                    className="btn btn--formReaction"
+                  >
+                    Wróć
+                  </button>
+                )}
+                <button type="submit" className="btn btn--formReaction">
+                  {isLastStep ? "Wyślij" : "Dalej"}
                 </button>
-              )}
-              <button type="submit" className="btn btn--formReaction">
-                {isLastStep ? "Wyślij" : "Dalej"}
-              </button>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </div>
       </form>
     </main>

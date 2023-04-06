@@ -54,6 +54,8 @@ const PaginationSection = () => {
     );
   }
 
+console.log('',counter)
+
   return (
     <section id="pagination">
       <div className="wrapper paginationHome">
@@ -64,6 +66,7 @@ const PaginationSection = () => {
 
         <div className="paginationHome__reactionDescription">
           {btnsDescriptionData[counter]}
+          {counter === 2 ? null : "°C"}
         </div>
 
         {tablePrint}

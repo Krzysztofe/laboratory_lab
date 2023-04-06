@@ -5,20 +5,16 @@
 .reaction__textInput {
   max-width: 250px;
   width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.3);
   padding: $space-small/3;
   color: $color-white;
   &::placeholder {
     color: rgba(255, 255, 255, 0.5);
   }
+
   @include breakpointFirst {
     font-size: 2rem;
-  }
-  &:focus {
-    background-color: rgba(0, 0, 0, 0.3);
-    transition-duration: 350ms;
-    border: 1px solid $color-accent;
   }
 }
 
@@ -26,16 +22,13 @@
   font-weight: $font-weight-bold;
 }
 
-.reaction__radioLabel {
-}
 .reaction__radioInput {
   width: 1.5em;
   height: 1.5em;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   margin-right: 2em;
   -webkit-appearance: none;
   transition-duration: 320ms;
-
+  background-color: rgba(0, 0, 0, 0.3);
   &:checked {
     background-color: $color-white;
   }
@@ -52,10 +45,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   padding: $space-small/5;
   margin-bottom: $space-small/3;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.3);
   .select__arrow,
   .select__arrow--up {
     width: 20px;
@@ -93,6 +85,7 @@
 }
 
 .reaction__checkboxecContainer {
+  max-width: 250px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -108,15 +101,11 @@
       display: none;
     }
     .reaction__checkboxStyle {
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(0, 0, 0, 0.3);
       cursor: pointer;
       text-align: center;
       padding: 0.5em 0;
       transition-duration: 320ms;
-      &:hover {
-        background-color: $color-white;
-        color: $color-black;
-      }
     }
   }
 }
@@ -134,17 +123,16 @@
 
 .reaction__error {
   width: fit-content;
-  color: $color-accent;
+  color: $color-red;
   font-size: $font-size-small;
+  letter-spacing: 3px;
   line-height: $font-size-small;
   height: $font-size-small;
   font-weight: $font-weight-bold;
   animation-name: shake;
   animation-duration: 340ms;
   animation-timing-function: ease-in;
-  
 }
-
 
 @keyframes shake {
   0% {

@@ -2,17 +2,11 @@ import { useMemo } from "react";
 import { HashLink, HashLinkProps } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { auth } from "../../../../data/firebaseConfig";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router";
 import { links, signedOutLinks } from "./dataNavHomeItems";
-
-
-
-interface CustomHashLinkProps extends HashLinkProps {
-  hash?: string;
-  offset?: number;
-}
+import { useMediaQuery } from "@material-ui/core";
 
 export interface Props {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,6 +15,7 @@ export interface Props {
 const NavHomeItems = (props: Props) => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const isDesktop = useMediaQuery("(min-width: 769px)");
 
   const handleCloseMenu = (): void => {
     props.setIsOpen && props.setIsOpen(false);
@@ -41,7 +36,7 @@ const NavHomeItems = (props: Props) => {
     }
   };
 
-  const memoizedNavHome = useMemo(() => {
+  const memoizedNavHomeItems = useMemo(() => {
     return (
       <>
         <ul className="navHomeItems">
@@ -113,9 +108,9 @@ const NavHomeItems = (props: Props) => {
         )}
       </>
     );
-  }, []);
+  }, [user]);
 
-  return memoizedNavHome;
+  return memoizedNavHomeItems
 };
 
 export default NavHomeItems;

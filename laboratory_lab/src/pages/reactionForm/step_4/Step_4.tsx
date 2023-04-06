@@ -36,7 +36,7 @@ const Step_5 = (props: Props) => {
           return (
             <li key={idx} className="step4__reactionItem">
               <div className="step4__reactionProperty">
-                {summaryDates[idx]}:&nbsp;
+                {summaryDates[idx]}:
               </div>
               <div className="step4__reactionValue">{value}</div>
             </li>

@@ -20,21 +20,14 @@
       margin-left: 0%;
       &:hover .navAsideItem__name {
         display: block;
-         opacity: 1;
-        transition-delay: 200ms;
-       
-        // transition: opacity 200ms;
       }
     }
   }
   &__open {
     @include breakpointNav {
+      opacity: 0;
       &:hover .navAsideItem__name {
         display: block;
-           opacity: 1;
-        transition-delay: 200ms;
-     
-        // transition: opacity 200ms;
       }
     }
   }
@@ -43,8 +36,10 @@
 .navAsideSignIn {
   color: $color-white;
   font-size: $font-size-xsmall;
+  letter-spacing: 1.5px;
   text-align: center;
   margin-bottom: $space-small;
+  cursor: pointer;
   @include breakpointNav {
     height: $font-size-xsmall;
     font-size: 0;

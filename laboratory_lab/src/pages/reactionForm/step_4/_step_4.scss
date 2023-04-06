@@ -3,19 +3,21 @@
   font-size: 3rem;
 }
 .step4__subHeader {
-    font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold;
 }
 .step4__reactionItem {
   .step4__reactionProperty {
-    text-align: right;
     display: inline-block;
     width: 50%;
+    text-align: right;
+    background-color: rgba(0, 0, 0, 0.3);
   }
   .step4__reactionValue {
-    text-align: left;
-    font-weight: $font-weight-bold;
     display: inline-block;
-    width: 50%;
+    width: fit-content;
+    text-align: left;
+    padding: 0 1em 0 0.5em;
+    font-weight: $font-weight-bold;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 }
-
