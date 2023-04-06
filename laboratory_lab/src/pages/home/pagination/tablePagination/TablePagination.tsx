@@ -15,13 +15,11 @@ const TablePagination = (props: Props) => {
     .slice(pagesVisited, pagesVisited + reactionPerPage)
     .map((reaction: ModelReaction) => {
       return (
-        <>
-          <tr key={reaction.id}>
-            <td>{reaction.name}</td>
-            <td>{reaction.alcaloids}</td>
-            <td>{reaction.substract}</td>
-          </tr>
-        </>
+        <tr key={reaction.id}>
+          <td>{reaction.name}</td>
+          <td>{reaction.alcaloids}</td>
+          <td>{reaction.substract}</td>
+        </tr>
       );
     });
 

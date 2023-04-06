@@ -3,8 +3,8 @@ import FormContainer from "../form/FormContainer";
 const Contact = () => {
   return (
     <section>
-      <div className="wrapper contact">
-        <div className="contact__leftContainer" id="contact"></div>
+      <div className="wrapper contact" id="contact">
+        <div className="contact__leftContainer"></div>
         <FormContainer />
       </div>
     </section>

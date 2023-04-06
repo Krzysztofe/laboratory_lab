@@ -1,9 +1,16 @@
 .btnsLogin {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin-top: $space-small;
-  &__btn {
+  .btn--login {
     padding: 1rem 2rem;
-    font-weight: 700;
+    text-decoration: 0;
+    font-family: $font-family-Open-Sans;
+    color: $color-black;
+    font-size: $font-size-small;
+    &:hover {
+      color: $color-white;
+    }
   }
 }

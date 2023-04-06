@@ -42,75 +42,80 @@ const Register = () => {
   });
 
   return (
-    <main className="main__login">
-      <h2 className="login__title">Załuż konto</h2>
-      <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
-        <TextInput
-          type={"text"}
-          name={"email"}
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          handleBlur={formik.handleBlur}
-          text={"Email"}
-          placeholder={"Email"}
-          classContainer={"loginForm__container"}
-          classLabel={"loginForm__label"}
-          classInput={"loginForm__input"}
-        />
+    <>
+      <div style={{ height: 86 }}></div>
+      <main className="wrapper login">
+        <div className="login__opacity">
+          <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
+            <h2 className="loginForm__title">Załuż konto</h2>
+            <TextInput
+              type={"text"}
+              name={"email"}
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              handleBlur={formik.handleBlur}
+              text={"Email"}
+              placeholder={"Email"}
+              classContainer={"loginForm__inputContainer"}
+              classLabel={"loginForm__label"}
+              classInput={"loginForm__input"}
+            />
 
-        <div className="loginForm__error">
-          {formik.touched.email && formik.errors.email && (
-            <small>{formik.errors.email}</small>
-          )}
+            <div className="loginForm__error">
+              {formik.touched.email && formik.errors.email && (
+                <small>{formik.errors.email}</small>
+              )}
+            </div>
+
+            <TextInput
+              type={"password"}
+              name={"password"}
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              handleBlur={formik.handleBlur}
+              text={"Hasło"}
+              placeholder={"Hasło"}
+              classContainer={"loginForm__inputContainer"}
+              classLabel={"loginForm__label"}
+              classInput={"loginForm__input"}
+            />
+
+            <div className="loginForm__error">
+              {formik.touched.password && formik.errors.password && (
+                <small>{formik.errors.password}</small>
+              )}
+            </div>
+
+            <TextInput
+              type={"password"}
+              name={"passwordRepeated"}
+              value={formik.values.passwordRepeated}
+              onChange={formik.handleChange}
+              handleBlur={formik.handleBlur}
+              text={"Powtórz hasło"}
+              placeholder={"Hasło"}
+              classContainer={"loginForm__inputContainer"}
+              classLabel={"loginForm__label"}
+              classInput={"loginForm__input"}
+            />
+
+            <div className="loginForm__error">
+              {formik.touched.passwordRepeated &&
+                formik.errors.passwordRepeated && (
+                  <small>{formik.errors.passwordRepeated}</small>
+                )}
+            </div>
+
+            <BtnsLogin
+              link={"/login"}
+              textRight="Załuż konto"
+              textLeft="Zaloguj się"
+              // inputFocus={inputFocus}
+            />
+          </form>
         </div>
-
-        <TextInput
-          type={"password"}
-          name={"password"}
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          handleBlur={formik.handleBlur}
-          text={"Hasło"}
-          placeholder={"Hasło"}
-          classContainer={"loginForm__container"}
-          classLabel={"loginForm__label"}
-          classInput={"loginForm__input"}
-        />
-
-        <div className="loginForm__error">
-          {formik.touched.password && formik.errors.password && (
-            <small>{formik.errors.password}</small>
-          )}
-        </div>
-
-        <TextInput
-          type={"password"}
-          name={"passwordRepeated"}
-          value={formik.values.passwordRepeated}
-          onChange={formik.handleChange}
-          handleBlur={formik.handleBlur}
-          text={"Powtórz hasło"}
-          placeholder={"Hasło"}
-          classContainer={"loginForm__container"}
-          classLabel={"loginForm__label"}
-          classInput={"loginForm__input"}
-        />
-
-        <div className="loginForm__error">
-          {formik.touched.passwordRepeated &&
-            formik.errors.passwordRepeated && (
-              <small>{formik.errors.passwordRepeated}</small>
-            )}
-        </div>
-
-        <BtnsLogin
-          link={"/login"}
-          textRight="Załuż konto"
-          textLeft="Zaloguj się"
-          // inputFocus={inputFocus}
-        />
-      </form>
-    </main>
+      </main>
+    </>
   );
 };
 

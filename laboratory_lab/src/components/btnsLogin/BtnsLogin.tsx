@@ -6,15 +6,14 @@ export interface Props {
   textLeft: string;
 }
 
-
-const BtnsLogin = (props:Props )=> {
+const BtnsLogin = (props: Props) => {
   return (
     <div className="btnsLogin">
-      <Link to={props.link}>
-        <button className="btnsLogin__btn">{props.textLeft}</button>
+      <Link to={props.link} className="btn btn--login">
+        {props.textLeft}
       </Link>
 
-      <button type="submit" className="btnsLogin__btn">
+      <button type="submit" className="btn btn--login">
         {props.textRight}
       </button>
     </div>

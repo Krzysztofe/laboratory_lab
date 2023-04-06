@@ -58,7 +58,7 @@ const PaginationSection = () => {
     <section id="pagination">
       <div className="wrapper paginationHome">
         <h3 className="paginationHome__header">
-          Wykaz reakcji aktualnie zapisanych w dzienniku
+          Reakcje aktualnie zapisane w dzienniku
         </h3>
         <BtnsPagination setCounter={setCounter} setPageNumber={setPageNumber} />
 
