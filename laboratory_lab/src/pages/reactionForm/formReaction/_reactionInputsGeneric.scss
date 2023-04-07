@@ -18,11 +18,11 @@
   }
 }
 
-.reaction__textInput input[type="date"]::-webkit-calendar-picker-indicator,
-.reaction__textInput input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
-
+// .reaction__textInput input[type="date"]::-webkit-calendar-picker-indicator,
+// .reaction__textInput input[type="time"]::-webkit-calendar-picker-indicator {
+//   filter: invert(1);
+//   background-color: white;
+// }
 
 .reaction__radioInputHeader {
   font-weight: $font-weight-bold;
@@ -137,7 +137,9 @@
   font-weight: $font-weight-bold;
 }
 
-// input[type="date"]::-webkit-calendar-picker-indicator,
-// input[type="time"]::-webkit-calendar-picker-indicator {
-//   filter: invert(1);
-// }
+.reaction__textInputContainer
+  input[type="date"]::-webkit-calendar-picker-indicator,
+.reaction__textInputContainer
+  input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}

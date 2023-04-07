@@ -32,8 +32,8 @@
     font-size: 2rem;
   }
 }
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="date"]::-webkit-calendar-picker-indicator {
+.editForm__textInputContainer input[type="date"]::-webkit-calendar-picker-indicator,
+.editForm__textInputContainer input[type="date"]::-webkit-calendar-picker-indicator {
   position: absolute;
   right: 0;
 }
