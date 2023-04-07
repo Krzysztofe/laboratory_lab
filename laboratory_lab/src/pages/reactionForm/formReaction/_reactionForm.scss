@@ -9,18 +9,19 @@
   .wrapper--formReactionTop {
     background-color: $color-neutral-light;
   }
-  &__stepIdx {
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    padding: $space-small/2 0;
-  }
+  &__stepIdx,
   &__topDescription {
-    max-width: 400px;
+    max-width: 250px;
     width: 100%;
     margin: 0 auto;
     padding: $space-small/2 0;
+    font-size: $font-size-small;
   }
+
+  &__stepIdx {
+    font-size: $font-size-xsmall;
+  }
+
   &__form {
     position: relative;
     height: 100%;
@@ -67,17 +68,17 @@
     }
   }
   &__wrapper {
-    max-width: 400px;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: $space-small $space-large;
     @include breakpointNav {
+      width: 400px;
       max-height: 500px;
     }
   }

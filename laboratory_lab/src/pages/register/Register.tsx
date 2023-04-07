@@ -43,8 +43,8 @@ const Register = () => {
 
   return (
     <>
-      <div style={{ height: 86 }}></div>
       <main className="wrapper login">
+        <div style={{ height: 74 }}></div>
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
             <h2 className="loginForm__title">Załuż konto</h2>

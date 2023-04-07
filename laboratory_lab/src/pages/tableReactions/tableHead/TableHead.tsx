@@ -10,6 +10,7 @@ const TableHead = () => {
   return (
     <thead>
       <tr>
+        <td>nr</td>
         {isOpen
           ? tableHeadDataFirst.map(reaction => {
               return <td key={reaction}>{reaction}</td>;

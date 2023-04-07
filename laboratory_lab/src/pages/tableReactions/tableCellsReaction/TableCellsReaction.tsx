@@ -11,6 +11,9 @@ import { ModelReaction } from "../../../hooks/useReactions";
 
 const TableCellsReaction = (props: ModelReaction) => {
   const { error, isLoading } = useReactionsQuery(undefined);
+   const { printReactions } = useSelector(
+     (state: RootState) => state.tableReactions
+   );
 
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable

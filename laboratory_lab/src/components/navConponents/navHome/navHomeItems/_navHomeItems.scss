@@ -1,4 +1,8 @@
 .navHomeItems {
+  @include breakpointNav {
+    display: flex;
+    font-size: 1.5rem;
+  }
   &:first-of-type {
     border-bottom: 1px solid black;
     @include breakpointNav {
@@ -6,14 +10,10 @@
       font-size: 2rem;
     }
   }
-  @include breakpointNav {
-    display: flex;
-    font-size: 1.5rem;
-  }
 
   &__item {
     display: block;
-    margin: $space-small/3 $space-small;
+    margin: $space-small/2 $space-small;
     padding-bottom: $space-small/4;
     text-decoration: 0;
     color: $color-black;
@@ -23,7 +23,7 @@
     }
     @include breakpointNav {
       border-bottom: 2px solid transparent;
-
+      margin: 0 $space-small;
       &:hover {
         border-bottom: 2px solid $color-accent;
         background-color: transparent;

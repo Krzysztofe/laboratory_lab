@@ -1,5 +1,5 @@
 .tableReactions__table {
-  height: 90%;
+  height: calc(100% - 2rem - $space-small/2);
   display: flex;
   flex-direction: column;
   @include breakpointNav {
@@ -12,30 +12,32 @@
 .tableReactions__table thead tr {
   display: flex;
   padding: $space-small/2 0;
-  background-color: $color-grey;
+  line-height: 2rem;
+  background-color: $color-neutral-secondary-dark;
 }
-
 
 .tableReactions__table thead tr td {
   display: none;
   font-weight: 900;
   padding-left: $space-small/2;
   width: 100%;
-  &:nth-child(-n + 2) {
+  &:nth-child(-n + 3) {
     display: block;
+  }
+  &:first-child {
+    width: 30%;
   }
   &:last-child {
     display: block;
     width: 50%;
   }
-  @include breakpointFirst {
-    &:nth-child(-n + 3) {
+
+  @include breakpointNav {
+    &:nth-child(-n + 6) {
       display: block;
     }
-  }
-  @include breakpointNav {
-    &:nth-child(-n + 5) {
-      display: block;
+    &:nth-child(5) {
+      width: 50%;
     }
   }
   @include breakpointTable {
@@ -61,7 +63,7 @@
   padding: $font-size-small 0;
 
   &:nth-child(even) {
-    background-color: rgb(200, 200, 200);
+    background-color: $color-neutral-secondary-light;
   }
 }
 
@@ -70,22 +72,24 @@
   padding-left: $space-small/2;
   height: $font-size-small + 2rem;
   width: 100%;
-  &:nth-child(-n + 2) {
+  &:nth-child(-n + 3) {
     display: block;
+  }
+  &:first-child {
+    width: 30%;
   }
   &:last-child {
     display: flex;
     width: 50%;
   }
-  @include breakpointFirst {
-    &:nth-child(-n + 3) {
-      display: block;
-    }
-  }
+
   @include breakpointNav {
-    &:nth-child(-n + 5) {
+    &:nth-child(-n + 6) {
       display: block;
       height: $font-size-small + 2rem + 0.8rem;
+    }
+    &:nth-child(5) {
+      width: 50%;
     }
   }
   @include breakpointTable {
@@ -102,6 +106,9 @@
   font-size: 2rem;
   background-color: rgba(0, 0, 0, 0);
   padding-right: $space-small/3;
+  &--edit {
+    color: $color-accent;
+  }
   &--trash {
     color: rgba(238, 28, 24, 0.6);
   }

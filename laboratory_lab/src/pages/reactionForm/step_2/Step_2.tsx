@@ -29,7 +29,7 @@ const Step_3 = (props: Props) => {
     setIsChecked(newIsChecked);
   }, [props.reaction.solvents]);
 
-  const handleCheckboxChange = (idx: number, name: string) => {
+  const handleCheckboxChange = ( idx: number, name: string) => {
     const newIsChecked = [...isChecked];
     newIsChecked[idx] = !newIsChecked[idx];
     setIsChecked(newIsChecked);
@@ -44,7 +44,7 @@ const Step_3 = (props: Props) => {
       []
     );
 
-    props.handleChange({ solvents: getNewSolvents });
+    props.handleChange({solvents: getNewSolvents});
   };
 
   const handleSelectChange = (value: string) => {

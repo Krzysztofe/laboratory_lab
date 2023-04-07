@@ -24,9 +24,10 @@ const FormReaction = () => {
     setReaction(prev => {
       return { ...prev, ...fields };
     });
-
-    // setReaction({...reaction, [e.target.name]:e.target.value})
+  
   };
+
+console.log('',reaction)
 
   const {
     steps,

@@ -1,6 +1,7 @@
 interface Props {
   value: string;
-  onChange: any;
+  name: string;
+  handleChange: any;
   checked: boolean;
   handleBlur?: any;
   classContainer?: string;
@@ -13,10 +14,10 @@ const RadioInput = (props: Props) => {
     <div className={props.classContainer}>
       <input
         type="radio"
-        name=""
+        name={props.name}
         value={props.value}
         checked={props.checked}
-        onChange={props.onChange}
+        onChange={props.handleChange}
         onBlur={props.handleBlur}
         className={props.classInupt}
         id={props.value}

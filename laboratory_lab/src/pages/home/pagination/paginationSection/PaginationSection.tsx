@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useReactionsQuery } from "../../../../services/apiSlice";
 import { useReactionsSelection } from "../utilsPagination";
-import { btnsDescriptionData } from "../dataPagination";
+import { btnsSubtitleData } from "../dataPagination";
 import TablePagination from "../tablePagination/TablePagination";
 import BtnsPagination from "../btnsPagination/BtnsPagination";
 
@@ -54,7 +54,6 @@ const PaginationSection = () => {
     );
   }
 
-console.log('',counter)
 
   return (
     <section id="pagination">
@@ -65,8 +64,7 @@ console.log('',counter)
         <BtnsPagination setCounter={setCounter} setPageNumber={setPageNumber} />
 
         <div className="paginationHome__reactionDescription">
-          {btnsDescriptionData[counter]}
-          {counter === 2 ? null : "°C"}
+          {btnsSubtitleData[counter]}
         </div>
 
         {tablePrint}

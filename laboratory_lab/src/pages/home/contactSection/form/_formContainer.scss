@@ -14,16 +14,20 @@
   }
   .contactForm {
     padding: 0 $space-small;
+    position: relative;
     @include breakpointFirst {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
     }
-    &__container {
-      width: 100%;
+    &__inputWrapper{
+        width: 100%;
       @include breakpointFirst {
         width: 45%;
       }
+    }
+    &__container {
+      width: 100%;
     }
     &__label {
       display: block;
@@ -37,7 +41,6 @@
       border-bottom: 1px solid black;
       resize: none;
       padding: 0.2rem;
-      margin-bottom: $space-small;
       &:focus {
         background-color: $color-neutral-light;
       }
@@ -58,15 +61,21 @@
       color: rgba(0, 0, 0, 0.4);
       font-family: $font-family-Open-Sans;
     }
+    &__error {
+      color: $color-red;
+      height: $font-size-small;
+      line-height: $font-size-small;
+      font-size: $font-size-small;
+      letter-spacing: 1.5px;
+    }
 
     &__btn {
       width: 45%;
       display: flex;
       justify-content: center;
       margin-left: auto;
-      @include breakpointFirst {
-        margin-top: 1rem;
-      }
+      margin-top: 1rem;
+     
     }
   }
 }

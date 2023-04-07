@@ -12,19 +12,27 @@ export interface Props {
 }
 
 const Step_1 = (props: Props): JSX.Element => {
-  const handleAlcaloidsChange = (e: ChangeEvent) => {
+
+
+   const handleChangeName = (e: ChangeEvent) => {
+    return props.handleChange({ name: e.target.value });
+  };
+  const handleChangeAlcaloids = (e: ChangeEvent) => {
     return props.handleChange({ alcaloids: e.target.value });
   };
 
-  const handleTechnics = (e: ChangeEvent) => {
+  const handleChangeTechnics = (e: ChangeEvent) => {
     return props.handleChange({ technics: e.target.value });
   };
-  const handleTextChange = (e: ChangeEvent) => {
-    return props.handleChange({ name: e.target.value });
-  };
-  const handleSelectChange = (value: string | number) => {
+ 
+  const handleChangeMilimolles = (value: string | number) => {
     props.handleChange({ selectMilimolles: value });
   };
+
+
+
+
+
   return (
     <motion.section
       className="stepContainer"
@@ -36,7 +44,7 @@ const Step_1 = (props: Props): JSX.Element => {
         type={"text"}
         name={"name"}
         value={props.reaction.name}
-        onChange={handleTextChange}
+        onChange={handleChangeName}
         text={"Nazwa reakcji"}
         placeholder={"Nazwa"}
         classContainer={"reaction__textInputContainer"}
@@ -52,7 +60,7 @@ const Step_1 = (props: Props): JSX.Element => {
         inputName={"selectMilimolles"}
         selectValues={[1, 2, 3, 4, 5, 6]}
         value={props.reaction.selectMilimolles}
-        handleChange={handleSelectChange}
+        handleChange={handleChangeMilimolles}
         classContainer="reaction__selectContainer"
         classLabel="reaction__selectLabel"
         classInputTop="reaction__selectTop"
@@ -69,7 +77,8 @@ const Step_1 = (props: Props): JSX.Element => {
           <RadioInput
             key={alcaloid}
             value={alcaloid}
-            onChange={handleAlcaloidsChange}
+            name={"alcaloids"}
+            handleChange={handleChangeAlcaloids}
             checked={props.reaction.alcaloids === alcaloid}
             classContainer={"reaction__radioContainer"}
             classInupt={"reaction__radioInput"}
@@ -84,7 +93,7 @@ const Step_1 = (props: Props): JSX.Element => {
         type={"text"}
         name={"technics"}
         value={props.reaction.technics}
-        onChange={handleTechnics}
+        onChange={handleChangeTechnics}
         text={"Technika"}
         placeholder={"Technika"}
         classContainer={"reaction__textInputContainer"}

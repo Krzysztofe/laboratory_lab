@@ -18,6 +18,12 @@
   }
 }
 
+.reaction__textInput input[type="date"]::-webkit-calendar-picker-indicator,
+.reaction__textInput input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+
 .reaction__radioInputHeader {
   font-weight: $font-weight-bold;
 }
@@ -129,33 +135,9 @@
   line-height: $font-size-small;
   height: $font-size-small;
   font-weight: $font-weight-bold;
-  animation-name: shake;
-  animation-duration: 340ms;
-  animation-timing-function: ease-in;
 }
 
-@keyframes shake {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(1rem);
-  }
-  40% {
-    transform: translate(-1rem);
-  }
-  60% {
-    transform: translate(0.5rem);
-  }
-  80% {
-    transform: translate(-0.5rem);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator,
-input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
+// input[type="date"]::-webkit-calendar-picker-indicator,
+// input[type="time"]::-webkit-calendar-picker-indicator {
+//   filter: invert(1);
+// }

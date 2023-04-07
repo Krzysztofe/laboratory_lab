@@ -27,7 +27,6 @@ const SelectInput = (props: Props) => {
 
       <div className={props.classOptionsContainer}>
         <div
-          id="selectTop"
           onClick={handleOpen}
           className={props.classInputTop}
         >

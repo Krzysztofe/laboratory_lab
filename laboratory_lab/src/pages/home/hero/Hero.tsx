@@ -8,7 +8,7 @@ const Hero = () => {
 
   return (
     <section>
-      <div style = {{height:87}}></div>
+      <div style = {{height:74}}></div>
       <div className="wrapper hero">
         <div className="hero__opacity">
             <h1 className="hero__title">

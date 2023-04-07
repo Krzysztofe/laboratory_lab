@@ -9,7 +9,7 @@ import { RootState } from "../../../redux/store";
 
 const IndexTable = () => {
   const dispatch = useDispatch();
-  const { editedReaction } = useSelector(
+  const { printReactions, editedReaction } = useSelector(
     (state: RootState) => state.tableReactions
   );
 
@@ -49,7 +49,7 @@ const IndexTable = () => {
           style={{
             color: conditionsPrint.color,
             backgroundColor: `${
-              isOpen ? "rgb(156,156,156)" : "rgb(255 255 255)"
+              isOpen ? "rgb(142,151,164)" : "rgb(255 255 255)"
             }`,
           }}
           className="tableReactions__header"
@@ -61,14 +61,20 @@ const IndexTable = () => {
           style={{
             color: timePrint.color,
             backgroundColor: `${
-              isOpen ? "rgb(255 255 255)" : "rgb(156,156,156)"
+              isOpen ? "rgb(255 255 255)" : "rgb(142,151,164)"
             }`,
           }}
           className="tableReactions__header"
         >
           {timePrint.text}
         </div>
+        <div className="tableReactions__header  tableReactions__header--counter ">
+          {printReactions
+            ? `Liczba reakcji: ${printReactions.length}`
+            : "Brak zapisanych reakcji"}
+        </div>
       </section>
+
       <TableReactions>
         <TableHead />
         <TableBody />

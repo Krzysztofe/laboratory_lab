@@ -23,7 +23,7 @@ const TextInput= (props:Props) => {
         name={props.name}
         value={props.value}
         onChange={props.onChange}
-        onBlur ={props.handleBlur}
+        onBlur={props.handleBlur}
         placeholder={props.placeholder}
         className={props.classInput}
         autoComplete="off"

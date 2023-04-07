@@ -33,9 +33,10 @@ const TableBody = () => {
 
   return (
     <tbody>
-      {printReactions?.map(reaction => {
+      {printReactions?.map((reaction, idx) => {
         return (
           <tr key={reaction.id}>
+            <td>{idx + 1}</td>
             {reaction.isEdit ? (
               <TableCellsReaction reaction={reaction} />
             ) : (

@@ -35,8 +35,10 @@ const Login = () => {
 
   return (
     <>
-      <div style={{ height: 86 }}></div>
+     
       <main className="wrapper login">
+ 
+        <div style={{ height: 74}}></div>
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="loginForm">
             <h2 className="loginForm__title">Zaloguj się</h2>

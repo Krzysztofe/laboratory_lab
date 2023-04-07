@@ -47,7 +47,7 @@ const TableBtns = (props: ModelReaction) => {
             onClick={() =>
               handleReactionEdit(printReactions, props.reaction.id)
             }
-            className="tableReactions__btn"
+            className="tableReactions__btn tableReactions__btn--edit"
           >
             <AiFillEdit />
           </button>
@@ -56,7 +56,7 @@ const TableBtns = (props: ModelReaction) => {
             onClick={() =>
               handleReactionUpdate(printReactions, props.reaction.id)
             }
-            className="tableReactions__btn"
+            className="tableReactions__btn tableReactions__btn--edit"
           >
             <MdSystemUpdateAlt />
           </button>
