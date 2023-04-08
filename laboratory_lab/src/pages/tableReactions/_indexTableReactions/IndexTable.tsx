@@ -69,16 +69,16 @@ const IndexTable = () => {
           {timePrint.text}
         </div>
         <div className="tableReactions__header  tableReactions__header--counter ">
-          {printReactions
+          {printReactions.length>0
             ? `Liczba reakcji: ${printReactions.length}`
-            : "Brak zapisanych reakcji"}
+            : ""}
         </div>
       </section>
 
       <TableReactions>
-        <TableHead />
-        <TableBody />
-      </TableReactions>
+         <TableHead />
+        <TableBody /> 
+      </TableReactions> 
     </main>
   );
 };

@@ -29,6 +29,15 @@ const TableEditForm = ({ formik }: any) => {
 
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
 
+function toArray(val:any) {
+  if (!Array.isArray(val)) {
+    return [val];
+  }
+  return val;
+}
+
+console.log('edit',editedReaction)
+
   return (
     <>
       {inputsPrintData.map(({ type, name }) => {

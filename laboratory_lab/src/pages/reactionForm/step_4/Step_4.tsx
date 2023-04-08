@@ -10,12 +10,11 @@ const Step_5 = (props: Props) => {
 
   return (
     <motion.section
-      className="stepContainer"
+      className="step4"
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
     >
-    
       <ul>
         <li className="step4__subHeader">Parametry:</li>
 

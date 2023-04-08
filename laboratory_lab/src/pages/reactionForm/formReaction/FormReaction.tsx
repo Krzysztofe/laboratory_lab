@@ -11,8 +11,7 @@ import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { ModelFormReaction } from "./ModelFormReaction";
-import { motion } from "framer-motion";
-import { ChangeEvent } from "../../../data/types";
+
 
 const FormReaction = () => {
   const { error, isLoading } = useReactionsQuery(undefined);
@@ -24,10 +23,7 @@ const FormReaction = () => {
     setReaction(prev => {
       return { ...prev, ...fields };
     });
-  
   };
-
-console.log('',reaction)
 
   const {
     steps,
@@ -61,6 +57,8 @@ console.log('',reaction)
   //   if ("error" in error) return <div>{error.error}</div>;
   // }
 
+console.log('',reaction)
+
   useEffect(() => {
     let timeoutID: any;
 
@@ -69,31 +67,31 @@ console.log('',reaction)
         setCurrentStepIdx(0);
         setReaction(INITIAL_DATA);
         success.isSuccess = false as true;
-      }, 2000);
+      }, 3000);
     }
 
     return () => clearTimeout(timeoutID);
   }, [success.isSuccess, setCurrentStepIdx, setReaction]);
 
   const reactionFormHeaderData = [
-    "Podstawowe reagenty",
-    "Techniki laboratoryjne",
+    "Wpisz podstawowe reagenty",
+    "Wpisz techniki laboratoryjne",
     "Przebieg reakcji",
-    "Podsumowanie",
+    "Podsumowanie ",
   ];
 
   return (
     <main className="formReaction">
-      <h4 className="wrapper wrapper--formReactionTop ">
-        <div className="formReaction__stepIdx ">
+      <section className="wrapper wrapper--formReactionTop ">
+        <p className="formReaction__stepIdx ">
           Krok {currentStepIdx + 1}/{steps.length}
-        </div>
-      </h4>
-      <h3 className="wrapper wrapper--formReactionTop">
-        <div className="formReaction__topDescription">
+        </p>
+      </section>
+      <section className="wrapper wrapper--formReactionTop">
+        <h2 className="formReaction__topDescription">
           {reactionFormHeaderData[currentStepIdx]}
-        </div>
-      </h3>
+        </h2>
+      </section>
 
       <form
         onSubmit={handleSubmit}
@@ -106,7 +104,9 @@ console.log('',reaction)
             <>{isLoading && <h3>Loading</h3>}</>
 
             {success.isSuccess ? (
-              <h3 className="formReaction__requestMessage">Dane wysłane</h3>
+              <h3 className="formReaction__requestMessage">
+                Dane wysłane i zapisane w liście reakcji
+              </h3>
             ) : (
               <>{step}</>
             )}

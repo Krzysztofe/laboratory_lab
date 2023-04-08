@@ -6,6 +6,10 @@
   min-height: calc(100% - $font-size-small - ($space-small * 2));
   display: flex;
   flex-direction: column;
+
+// Form top
+
+
   .wrapper--formReactionTop {
     background-color: $color-neutral-light;
   }
@@ -14,7 +18,6 @@
     max-width: 250px;
     width: 100%;
     margin: 0 auto;
-    padding: $space-small/2 0;
     font-size: $font-size-small;
     @include breakpointNav {
       max-width: 400px;
@@ -25,6 +28,8 @@
     font-size: $font-size-xsmall;
   }
 
+// Form
+
   &__form {
     position: relative;
     height: 100%;
@@ -32,6 +37,7 @@
     display: flex;
     justify-content: center;
     padding: 0;
+    color: $color-white;
     &:before,
     &:after {
       content: "";
@@ -44,9 +50,9 @@
       background-repeat: no-repeat;
       background-position: left;
       z-index: -1;
-       @include breakpointNav {
+      @include breakpointNav {
         background-size: 250%;
-    }
+      }
     }
     &:before {
       left: 0;
@@ -63,15 +69,9 @@
   }
   &__opacity {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    @include breakpointNav {
-      display: flex;
-      align-items: center;
-    }
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
   }
   &__wrapper {
     width: 100%;
@@ -81,8 +81,8 @@
     align-items: center;
     justify-content: space-between;
     backdrop-filter: blur(25px);
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: $space-small;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: $space-small $space-large;
     @include breakpointNav {
       width: 400px;
       max-height: 500px;
@@ -94,7 +94,11 @@
     display: grid;
     place-items: center;
     color: $color-white;
+    text-align: center;
   }
+
+  // Btns 
+
   &__btns {
     display: flex;
     justify-content: space-between;
@@ -107,6 +111,9 @@
       background-color: transparent;
       color: $color-white;
       &:hover {
+        background-color: $color-button;
+      }
+      &:focus {
         background-color: $color-button;
       }
     }

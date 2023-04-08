@@ -1,5 +1,5 @@
 .tableReactions__table {
-  height: calc(100% - 2rem - $space-small/2);
+  height: calc(100% - 65px);
   display: flex;
   flex-direction: column;
   @include breakpointNav {
@@ -36,9 +36,6 @@
     &:nth-child(-n + 6) {
       display: block;
     }
-    &:nth-child(5) {
-      width: 50%;
-    }
   }
   @include breakpointTable {
     &:nth-child(n + 5):nth-child(-n + 8) {
@@ -50,7 +47,6 @@
 // Table body
 
 .tableReactions__table tbody {
-  height: 100%;
   overflow-x: auto;
   display: block;
   border-collapse: collapse;
@@ -60,7 +56,7 @@
 }
 .tableReactions__table tbody tr {
   display: flex;
-  padding: $font-size-small 0;
+  padding: $font-size-small 0 $font-size-small/2 0;
 
   &:nth-child(even) {
     background-color: $color-neutral-secondary-light;
@@ -87,9 +83,6 @@
     &:nth-child(-n + 6) {
       display: block;
       height: $font-size-small + 2rem + 0.8rem;
-    }
-    &:nth-child(5) {
-      width: 50%;
     }
   }
   @include breakpointTable {

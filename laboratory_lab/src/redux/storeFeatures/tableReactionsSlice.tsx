@@ -16,7 +16,7 @@ const initialState: TableReactionsState = {
     selectMilimolles: "",
     substract: "",
     selectReactionCondition: "",
-    solvents: [],
+    solvents: "",
     startDate: "",
     finishDate: "",
     startTime: "",
@@ -39,12 +39,10 @@ export const tableReactionsSlice = createSlice({
     },
 
     getReactions: (state, action: PayloadAction<any>) => {
-    
-
       const reactions = action.payload
         ? Object.keys(action.payload).map(key => ({
             id: key,
-            name: action.payload[key].name,
+            name: action.payload[key].name.trim(),
             technics: action.payload[key].technics,
             alcaloids: action.payload[key].alcaloids,
             selectMilimolles: action.payload[key].selectMilimolles,
@@ -59,6 +57,7 @@ export const tableReactionsSlice = createSlice({
             isEdit: action.payload[key].isEdit,
           }))
         : [];
+    
       state.printReactions = reactions;
     },
 

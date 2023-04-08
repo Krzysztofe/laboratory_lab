@@ -17,10 +17,9 @@ const TableBody = () => {
   );
 
   useEffect(() => {
-    if (data) {
-      dispatch(getReactions(data));
-    }
+    dispatch(getReactions(data));
   }, [data, dispatch]);
+
 
   isLoading && <TableBodyRequestMessage message={"Loading..."} />;
   if (error) {

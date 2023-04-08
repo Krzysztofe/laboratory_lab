@@ -1,10 +1,11 @@
+// Text input
+
 .reaction__textInputLabel {
   display: block;
   font-weight: $font-weight-bold;
 }
 .reaction__textInput {
-  max-width: 250px;
-  width: 100%;
+  width: 250px;
   border: 0;
   background-color: rgba(0, 0, 0, 0.3);
   padding: $space-small/3;
@@ -18,11 +19,15 @@
   }
 }
 
-// .reaction__textInput input[type="date"]::-webkit-calendar-picker-indicator,
-// .reaction__textInput input[type="time"]::-webkit-calendar-picker-indicator {
-//   filter: invert(1);
-//   background-color: white;
-// }
+.reaction__textInputContainer
+  input[type="date"]::-webkit-calendar-picker-indicator,
+.reaction__textInputContainer
+  input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+
+// Radio input 
 
 .reaction__radioInputHeader {
   font-weight: $font-weight-bold;
@@ -39,6 +44,8 @@
     background-color: $color-white;
   }
 }
+
+// Select input
 
 .reaction__selectLabel {
   display: block;
@@ -82,8 +89,11 @@
   color: $color-black;
   &:hover {
     background-color: $color-grey;
+    color: $color-white;
   }
 }
+
+// Checkbox input
 
 .reaction__checkboxesHeader {
   margin-bottom: $space-small/2;
@@ -127,6 +137,8 @@
   color: $color-black;
 }
 
+// Error
+
 .reaction__error {
   width: fit-content;
   color: $color-red;
@@ -137,9 +149,4 @@
   font-weight: $font-weight-bold;
 }
 
-.reaction__textInputContainer
-  input[type="date"]::-webkit-calendar-picker-indicator,
-.reaction__textInputContainer
-  input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
+

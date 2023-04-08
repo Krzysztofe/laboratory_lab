@@ -35,7 +35,7 @@ const Step_1 = (props: Props): JSX.Element => {
 
   return (
     <motion.section
-      className="stepContainer"
+      // className="stepContainer"
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}

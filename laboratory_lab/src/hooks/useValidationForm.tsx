@@ -13,51 +13,88 @@ export interface Error {
   finishTime?: string;
 }
 
+const toArray = (solventsValue: any) => {
+  if (!Array.isArray(solventsValue)) {
+    return [solventsValue];
+  }
+  return solventsValue;
+};
+
 export const useValidationForm = (editedReaction: any, idx?: any) => {
   const conditions = [
     [
       {
-        condition: editedReaction.name.length < 3,
+        condition: editedReaction.name.trim().length < 3,
         errorMessage: "Min. 3 znaki",
+        key: "name",
+      },
+      {
+        condition: editedReaction.name.trim().length > 10,
+        errorMessage: "Max. 10 znaków",
         key: "name",
       },
 
       {
         condition:
-          editedReaction.selectMilimolles === "--Wybierz--" ||
-          !editedReaction.selectMilimolles,
-        errorMessage: "Wymagane",
+          isNaN(+editedReaction.selectMilimolles) ||
+          +editedReaction.selectMilimolles < 1 ||
+          +editedReaction.selectMilimolles > 6,
+        errorMessage: "Podaj liczbę: 1-6",
         key: "selectMilimolles",
       },
       {
-        condition: !editedReaction.alcaloids,
-        errorMessage: "Wymagane",
+        condition:
+          editedReaction.alcaloids.trim().toUpperCase() !== "GRAMINA" &&
+          editedReaction.alcaloids.trim().toUpperCase() !== "KOFEINA" &&
+          editedReaction.alcaloids.trim().toUpperCase() !== "NIKOTYNA",
+        errorMessage: "Podaj alkaloid",
         key: "alcaloids",
       },
 
       {
-        condition: editedReaction.technics.length < 3,
+        condition: editedReaction.technics.trim().length < 3,
         errorMessage: "Min. 3 znaki",
+        key: "technics",
+      },
+      {
+        condition: editedReaction.technics.trim().length > 10,
+        errorMessage: "Max. 10 znaków",
         key: "technics",
       },
     ],
 
     [
       {
-        condition: !editedReaction.solvents.length,
+        condition:
+          toArray(editedReaction.solvents).filter(value =>
+            ["CHCL3", "CH3OH", "DMF", "DMSO", "C2H5OH"].includes(value)
+          ).length === 0,
         errorMessage: "Wymagane",
         key: "solvents",
       },
 
       {
-        condition: editedReaction.selectReactionCondition === "--Wybierz--",
-        errorMessage: "Wymagane",
+        condition:
+          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+            "MIESZANIE" &&
+          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+            "OGRZEWANIE" &&
+          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+            "MIKROFALA" &&
+          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+            "CHŁODZENIE",
+        errorMessage: "Podaj warunki",
         key: "selectReactionCondition",
       },
 
       {
-        condition: editedReaction.substract.length < 3,
+        condition: editedReaction.substract.trim().length < 3,
         errorMessage: "Min. 3 znaki",
+        key: "substract",
+      },
+      {
+        condition: editedReaction.substract.trim().length > 10,
+        errorMessage: "Max. 10 znaków",
         key: "substract",
       },
     ],

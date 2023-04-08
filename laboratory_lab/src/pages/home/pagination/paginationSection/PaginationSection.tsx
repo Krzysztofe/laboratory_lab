@@ -19,7 +19,11 @@ const PaginationSection = () => {
     setPageNumber(selected);
   };
 
-  let tablePrint = <div></div>;
+  let tablePrint = (
+    <div className="reactionsHome__emptyTableMessage">
+      Brak reakcji zapisanych w dzienniku
+    </div>
+  );
 
   if (isLoading) {
     tablePrint = <div style={{ textAlign: "center" }}>Loading...</div>;
@@ -54,6 +58,15 @@ const PaginationSection = () => {
     );
   }
 
+
+ if (isLoading) {
+   tablePrint = <div style={{ textAlign: "center" }}>Loading...</div>;
+ }
+
+ if (error) {
+   if ("error" in error)
+     tablePrint = <div style={{ textAlign: "center" }}> {error.error} </div>;
+ }
 
   return (
     <section id="pagination">

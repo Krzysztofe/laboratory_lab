@@ -12,17 +12,16 @@ const alcaloidsMap: { [key: string]: string } = {
 };
 
 export const useReactionsSelection = (counter: number): ReactionsSelection => {
-  
   const { reactions } = useReactions();
+  // counter in alcaloidsMap;
 
-  const getReactionsToPrint =
-    counter in alcaloidsMap
-      ? reactions.filter(
-          reaction =>
-            reaction.alcaloids?.toLowerCase() ===
-            alcaloidsMap[counter].toLowerCase()
-        )
-      : [];
+  const getReactionsToPrint = reactions
+    ? reactions.filter(
+        reaction =>
+          reaction.alcaloids?.toLowerCase() ===
+          alcaloidsMap[counter].toLowerCase()
+      )
+    : [];
 
   return { getReactionsToPrint };
 };

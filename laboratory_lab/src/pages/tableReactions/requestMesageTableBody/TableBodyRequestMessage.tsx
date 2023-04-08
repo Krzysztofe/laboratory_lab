@@ -6,7 +6,7 @@ const TableBodyRequestMessage = (props:Props) => {
   return (
     <tbody>
       <tr>
-        <td>{props.message}</td>
+        <td style={{ margin: "0px auto", width:"fit-content"}}>{props.message}</td>
       </tr>
     </tbody>
   );
