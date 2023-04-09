@@ -9,7 +9,7 @@
     width: 50%;
     height: 100%;
     background-image: url("../../../asets/hero_large.jpg");
-    background-size: 200%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
     z-index: -1;
@@ -26,8 +26,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: clamp(55px, 17vw, 150px) 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    padding: clamp(90px, 17vw, 150px) 0;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 
   &__title {

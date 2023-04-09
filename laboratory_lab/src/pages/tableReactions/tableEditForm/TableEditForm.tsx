@@ -10,7 +10,7 @@ import {
 
 import { useValidationForm } from "../../../hooks/useValidationForm";
 
-const TableEditForm = ({ formik }: any) => {
+const TableEditForm = () => {
   const dispatch = useDispatch();
 
   const { editedReaction } = useSelector(
@@ -28,15 +28,6 @@ const TableEditForm = ({ formik }: any) => {
   };
 
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
-
-function toArray(val:any) {
-  if (!Array.isArray(val)) {
-    return [val];
-  }
-  return val;
-}
-
-console.log('edit',editedReaction)
 
   return (
     <>

@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import { FaLaptopHouse } from "react-icons/fa";
+
 export interface Error {
   error?: boolean;
   name?: any;
@@ -111,6 +114,13 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
         key: "finishDate",
       },
       {
+        condition:
+          new Date(editedReaction.startDate) >
+          new Date(editedReaction.finishDate),
+        errorMessage: "Podaj puźniejszą datę",
+        key: "finishDate",
+      },
+      {
         condition: !editedReaction.startTime,
         errorMessage: "Wymagane",
         key: "startTime",
@@ -124,18 +134,18 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
   ];
 
   const validationForm = () => {
-    const errors: any = {};
+    let _errors: any = {};
 
     const conditionSet =
       idx === undefined ? conditions.flat() : conditions[idx];
 
     conditionSet.forEach(({ condition, errorMessage, key }) => {
       if (condition) {
-        errors[key] = errorMessage;
+        _errors[key] = errorMessage;
       }
     });
 
-    return errors;
+    return _errors;
   };
 
   return { validationForm };

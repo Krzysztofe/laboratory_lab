@@ -47,7 +47,7 @@ const Register = () => {
         <div style={{ height: 74 }}></div>
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
-            <h2 className="loginForm__title">Załuż konto</h2>
+            <h2 className="loginForm__title">Załóż konto</h2>
             <TextInput
               type={"text"}
               name={"email"}

@@ -3,7 +3,7 @@ export const tableHeadDataFirst = [
   "Technika",
   "Alkaloidy",
   "Mole",
-  "Substrakt",
+  "Substrat",
   "Warunki",
   "Rozp.",
 ];

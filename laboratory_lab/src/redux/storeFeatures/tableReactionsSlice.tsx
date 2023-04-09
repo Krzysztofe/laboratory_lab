@@ -57,7 +57,7 @@ export const tableReactionsSlice = createSlice({
             isEdit: action.payload[key].isEdit,
           }))
         : [];
-    
+
       state.printReactions = reactions;
     },
 
@@ -84,6 +84,10 @@ export const tableReactionsSlice = createSlice({
       });
     },
 
+    handleClearEditForm: (state) => {
+      state.editedReaction = initialState.editedReaction;
+    },
+
     handleTableOpen: (state, action: PayloadAction<boolean>) => {
       state.toggleTable.isOpen = action.payload;
     },
@@ -95,6 +99,7 @@ export const {
   getReactions,
   handleEdit,
   handleUpdate,
+  handleClearEditForm,
   handleTableOpen,
 } = tableReactionsSlice.actions;
 export default tableReactionsSlice.reducer;

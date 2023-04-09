@@ -8,15 +8,14 @@
     @include breakpointFirst {
       font-size: 2rem;
     }
-  }
-  &::-webkit-calendar-picker-indicator,
-  &::-webkit-calendar-picker-indicator {
-    position: absolute;
-    right: 0;
+    &::-webkit-calendar-picker-indicator,
+    &::-webkit-calendar-picker-indicator {
+      position: absolute;
+      right: 7;
+    }
   }
 }
-.editForm__textInputLabel {
-}
+
 .editForm__textInput {
   width: 100%;
   font-size: 2rem;
@@ -35,12 +34,4 @@
   line-height: $font-size-small;
   height: $font-size-small;
   margin-top: 0.3rem;
-}
-
-.editForm__textInputContainer
-  input[type="date"]::-webkit-calendar-picker-indicator,
-.editForm__textInputContainer
-  input[type="date"]::-webkit-calendar-picker-indicator {
-  position: absolute;
-  right: 0;
 }

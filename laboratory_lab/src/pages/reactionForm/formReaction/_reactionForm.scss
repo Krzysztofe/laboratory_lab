@@ -18,14 +18,14 @@
     max-width: 250px;
     width: 100%;
     margin: 0 auto;
-    font-size: $font-size-small;
+    font-size: $font-size-large;
     @include breakpointNav {
       max-width: 400px;
     }
   }
 
   &__stepIdx {
-    font-size: $font-size-xsmall;
+    font-size: $font-size-small;
   }
 
 // Form

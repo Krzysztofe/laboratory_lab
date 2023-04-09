@@ -8,6 +8,7 @@ import {
 import {
   handleUpdate,
   handleEdit,
+  handleClearEditForm,
 } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { FaTrashAlt } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
@@ -61,13 +62,14 @@ const TableBtns = (props: ModelReaction) => {
             <MdSystemUpdateAlt />
           </button>
         )}
-
-        <button
-          onClick={() => handleDelete(props.reaction.id)}
-          className="tableReactions__btn tableReactions__btn--trash"
-        >
-          <FaTrashAlt />
-        </button>
+        {/* {props.reaction.isEdit && ( */}
+          <button
+            onClick={() => handleDelete(props.reaction.id)}
+            className="tableReactions__btn tableReactions__btn--trash"
+          >
+            <FaTrashAlt />
+          </button>
+        {/* )} */}
       </td>
     </>
   );

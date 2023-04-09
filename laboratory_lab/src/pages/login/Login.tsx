@@ -88,7 +88,7 @@ const Login = () => {
             <BtnsLogin
               link={"/register"}
               textRight="Zaloguj się"
-              textLeft="Załuż konto"
+              textLeft="Załóż konto"
               // inputFocus={inputFocus}
             />
           </form>

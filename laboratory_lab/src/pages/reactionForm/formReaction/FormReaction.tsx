@@ -57,8 +57,6 @@ const FormReaction = () => {
   //   if ("error" in error) return <div>{error.error}</div>;
   // }
 
-console.log('',reaction)
-
   useEffect(() => {
     let timeoutID: any;
 
@@ -77,7 +75,7 @@ console.log('',reaction)
     "Wpisz podstawowe reagenty",
     "Wpisz techniki laboratoryjne",
     "Przebieg reakcji",
-    "Podsumowanie ",
+    "Podsumowanie wykonanej reakcji",
   ];
 
   return (

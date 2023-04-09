@@ -66,7 +66,7 @@
 .tableReactions__table tbody tr td {
   display: none;
   padding-left: $space-small/2;
-  height: $font-size-small + 2rem;
+  height: $font-size-small + 2rem + 0.8rem;
   width: 100%;
   &:nth-child(-n + 3) {
     display: block;
@@ -82,7 +82,6 @@
   @include breakpointNav {
     &:nth-child(-n + 6) {
       display: block;
-      height: $font-size-small + 2rem + 0.8rem;
     }
   }
   @include breakpointTable {
