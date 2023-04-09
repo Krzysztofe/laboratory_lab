@@ -1,4 +1,5 @@
 .navHomeItems {
+    background-color: $color-white;
   @include breakpointNav {
     display: flex;
     font-size: 1.5rem;

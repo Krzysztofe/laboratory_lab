@@ -11,7 +11,7 @@ const NavHomeMobile = () => {
       {isOpen ? (
         <>
           <nav className="navHomeMobile">
-            <div className="navHomeMobile__topIcon">
+            <div className="navHomeMobile__topIconContainer">
               <GrFormClose
                 className="navHomeMobile__icon"
                 onClick={() => setIsOpen(prev => !prev)}
@@ -21,8 +21,8 @@ const NavHomeMobile = () => {
           </nav>
         </>
       ) : (
-        <nav className="navHomeMobile" style={{ height: 90 }}>
-          <div className="navHomeMobile__topIcon">
+        <nav className="navHomeMobile">
+          <div className="navHomeMobile__topIconContainer">
             <RiMenuFill
               className="navHomeMobile__icon"
               onClick={() => setIsOpen(prev => !prev)}

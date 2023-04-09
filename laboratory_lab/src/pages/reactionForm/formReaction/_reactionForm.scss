@@ -7,10 +7,9 @@
   display: flex;
   flex-direction: column;
 
-// Form top
+  // Header
 
-
-  .wrapper--formReactionTop {
+  .wrapper--formReactionHeader {
     background-color: $color-neutral-light;
   }
   &__stepIdx,
@@ -18,7 +17,7 @@
     max-width: 250px;
     width: 100%;
     margin: 0 auto;
-    font-size: $font-size-large;
+    font-size: 2rem;
     @include breakpointNav {
       max-width: 400px;
     }
@@ -28,7 +27,7 @@
     font-size: $font-size-small;
   }
 
-// Form
+  // Form
 
   &__form {
     position: relative;
@@ -38,6 +37,7 @@
     justify-content: center;
     padding: 0;
     color: $color-white;
+    font-weight: $font-weight-slim;
     &:before,
     &:after {
       content: "";
@@ -89,15 +89,18 @@
     }
   }
 
+  // Request message
+
   &__requestMessage {
     height: 100%;
     display: grid;
     place-items: center;
     color: $color-white;
     text-align: center;
+    font-weight: $font-weight-slim;
   }
 
-  // Btns 
+  // Btns
 
   &__btns {
     display: flex;

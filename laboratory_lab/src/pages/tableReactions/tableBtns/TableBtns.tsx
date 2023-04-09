@@ -62,14 +62,14 @@ const TableBtns = (props: ModelReaction) => {
             <MdSystemUpdateAlt />
           </button>
         )}
-        {/* {props.reaction.isEdit && ( */}
+        {props.reaction.isEdit && (
           <button
             onClick={() => handleDelete(props.reaction.id)}
             className="tableReactions__btn tableReactions__btn--trash"
           >
             <FaTrashAlt />
           </button>
-        {/* )} */}
+        )}
       </td>
     </>
   );

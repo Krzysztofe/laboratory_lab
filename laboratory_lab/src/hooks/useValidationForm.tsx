@@ -117,7 +117,7 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
         condition:
           new Date(editedReaction.startDate) >
           new Date(editedReaction.finishDate),
-        errorMessage: "Podaj puźniejszą datę",
+        errorMessage: "Data po rozpoczęciu",
         key: "finishDate",
       },
       {

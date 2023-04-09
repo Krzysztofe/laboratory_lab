@@ -62,11 +62,11 @@
       font-family: $font-family-Open-Sans;
     }
     &__error {
+       width: 100%;
       color: $color-red;
       height: $font-size-small;
       line-height: $font-size-small;
       font-size: $font-size-small;
-      letter-spacing: 1.5px;
     }
 
     &__btn {

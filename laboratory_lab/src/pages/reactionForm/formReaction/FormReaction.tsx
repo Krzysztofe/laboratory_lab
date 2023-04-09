@@ -12,7 +12,6 @@ import Step_4 from "../step_4/Step_4";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { ModelFormReaction } from "./ModelFormReaction";
 
-
 const FormReaction = () => {
   const { error, isLoading } = useReactionsQuery(undefined);
   const [errors, setErrors] = useState({});
@@ -72,24 +71,22 @@ const FormReaction = () => {
   }, [success.isSuccess, setCurrentStepIdx, setReaction]);
 
   const reactionFormHeaderData = [
-    "Wpisz podstawowe reagenty",
-    "Wpisz techniki laboratoryjne",
+    "Podstawowe reagenty",
+    "Techniki laboratoryjne",
     "Przebieg reakcji",
-    "Podsumowanie wykonanej reakcji",
+    "Podsumowanie",
   ];
 
   return (
     <main className="formReaction">
-      <section className="wrapper wrapper--formReactionTop ">
+      <header className="wrapper wrapper--formReactionHeader ">
         <p className="formReaction__stepIdx ">
           Krok {currentStepIdx + 1}/{steps.length}
         </p>
-      </section>
-      <section className="wrapper wrapper--formReactionTop">
         <h2 className="formReaction__topDescription">
           {reactionFormHeaderData[currentStepIdx]}
         </h2>
-      </section>
+      </header>
 
       <form
         onSubmit={handleSubmit}

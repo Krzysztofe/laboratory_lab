@@ -31,7 +31,7 @@ const NavHomeItems = (props: Props) => {
     const element = document.querySelector(hash);
     if (element) {
       const offset =
-        element.getBoundingClientRect().top + window.pageYOffset - 86;
+        element.getBoundingClientRect().top + window.pageYOffset - 74;
       window.scrollTo({ top: offset, behavior: "smooth" });
     }
   };
@@ -110,7 +110,7 @@ const NavHomeItems = (props: Props) => {
     );
   }, [user]);
 
-  return memoizedNavHomeItems
+  return memoizedNavHomeItems;
 };
 
 export default NavHomeItems;

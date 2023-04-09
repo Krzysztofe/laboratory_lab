@@ -32,6 +32,12 @@
     width: 50%;
   }
 
+  @media (min-width: 650px) {
+    &:nth-child(-n + 4) {
+      display: block;
+    }
+  }
+
   @include breakpointNav {
     &:nth-child(-n + 6) {
       display: block;
@@ -77,6 +83,13 @@
   &:last-child {
     display: flex;
     width: 50%;
+  }
+
+  
+  @media (min-width: 650px) {
+    &:nth-child(-n + 4) {
+      display: block;
+    }
   }
 
   @include breakpointNav {

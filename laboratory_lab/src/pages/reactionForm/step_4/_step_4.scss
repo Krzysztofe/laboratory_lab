@@ -1,11 +1,8 @@
 .step4 {
+  max-width: 400px;
   width: 100%;
 }
 
-.step4__header {
-  font-weight: $font-weight-bold;
-  font-size: 3rem;
-}
 .step4__subHeader {
   font-weight: $font-weight-bold;
 }
@@ -16,6 +13,7 @@
     width: 50%;
     text-align: right;
     background-color: rgba(0, 0, 0, 0.3);
+      font-weight: $font-weight-slim;
   }
   .step4__reactionValue {
     display: inline-block;
@@ -26,3 +24,4 @@
     background-color: rgba(0, 0, 0, 0.3);
   }
 }
+
