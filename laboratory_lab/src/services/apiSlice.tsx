@@ -9,36 +9,36 @@ interface Reactions {
 export const reactionsApiSlice = createApi({
   reducerPath: "reactionsApi",
   baseQuery: fetchBaseQuery({ baseUrl: URL_DATA }),
-  tagTypes: ["names"],
+  tagTypes: ["reactions"],
   endpoints: builder => ({
     reactions: builder.query<Reactions, void>({
-      query: () => "/names.json",
-      providesTags: ["names"],
+      query: () => "/reactions.json",
+      providesTags: ["reactions"],
     }),
     addReaction: builder.mutation<void, any>({
       query: reaction => ({
-        url: "/names.json",
+        url: "/reactions.json",
         method: "POST",
         body: reaction,
       }),
-      invalidatesTags: ["names"],
+      invalidatesTags: ["reactions"],
     }),
 
     updateReaction: builder.mutation<any, any>({
       query: ubdateReaction => ({
-        url: `/names/${ubdateReaction.id}.json`,
+        url: `/reactions/${ubdateReaction.id}.json`,
         method: "PUT",
         body: ubdateReaction,
       }),
-      invalidatesTags: ["names"],
+      invalidatesTags: ["reactions"],
     }),
 
     deleteReaction: builder.mutation<ModelFormReaction, string | undefined>({
       query: id => ({
-        url: `/names/${id}.json`,
+        url: `/reactions/${id}.json`,
         method: "DELETE",
       }),
-      invalidatesTags: ["names"],
+      invalidatesTags: ["reactions"],
     }),
   }),
 });

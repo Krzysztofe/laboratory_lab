@@ -88,8 +88,6 @@ const FormReaction = () => {
           )
 
 
-console.log('valid', validation)
-
   return (
     <main className="formReaction">
       <header className="wrapper wrapper--formReactionHeader ">

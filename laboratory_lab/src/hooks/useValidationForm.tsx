@@ -63,7 +63,7 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
 
     [
       {
-        condition: editedReaction.solvents.length>3,
+        condition: editedReaction.solvents.length<3,
         errorMessage: "Min. 3 znaki",
         key: "solvents",
       },
