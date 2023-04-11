@@ -8,11 +8,15 @@
     top: 0;
     width: 50%;
     height: 100%;
-    background-image: url("../../../asets/hero_large.jpg");
+    background-image: url("../../../asets/hero-small.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
     z-index: -1;
+     @include breakpointNav {
+        background-size: 250%;
+         background-image: url("../../../asets/hero_large.jpg");
+      }
   }
 
   &:before {

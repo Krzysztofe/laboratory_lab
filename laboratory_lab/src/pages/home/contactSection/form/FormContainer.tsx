@@ -72,6 +72,9 @@ const FormContainer = () => {
 
         <BtnFormSubbmit text={"Wyślij"} class={"btn contactForm__btn"} />
       </form>
+      <div className="div" contentEditable="true">
+        moli ala ola ela jkkkk wwwww
+      </div>
     </aside>
   );
 };

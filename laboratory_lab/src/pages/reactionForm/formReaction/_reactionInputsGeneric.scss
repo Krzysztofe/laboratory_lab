@@ -10,6 +10,7 @@
   background-color: rgba(0, 0, 0, 0.3);
   padding: $space-small/3;
   color: $color-white;
+  font-weight: $font-weight-bold;
   &::placeholder {
     color: rgba(255, 255, 255, 0.5);
   }
@@ -36,6 +37,7 @@
   width: 1.5em;
   height: 1.5em;
   margin-right: 2em;
+   font-weight: $font-weight-bold;
   -webkit-appearance: none;
   transition-duration: 320ms;
   background-color: rgba(0, 0, 0, 0.3);
@@ -60,7 +62,7 @@
   padding: $space-small/5;
   margin-bottom: $space-small/3;
   background-color: rgba(0, 0, 0, 0.3);
-  font-weight: $font-weight-primary;
+ font-weight: $font-weight-bold;
   .select__arrow,
   .select__arrow--up {
     width: 20px;
@@ -120,7 +122,7 @@
       background-color: rgba(0, 0, 0, 0.3);
       cursor: pointer;
       text-align: center;
-      font-weight: $font-weight-primary;
+      font-weight: $font-weight-bold;
       padding: 0.5em 0;
       transition-duration: 320ms;
     }
@@ -131,6 +133,7 @@
   font-size: $font-size-xsmall;
   line-height: 6px;
   vertical-align: -0.4em;
+  padding: 0 2px;
 }
 
 .reaction__checkboxInput:checked + .reaction__checkboxStyle {

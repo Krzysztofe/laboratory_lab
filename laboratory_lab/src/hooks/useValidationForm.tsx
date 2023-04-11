@@ -16,14 +16,9 @@ export interface Error {
   finishTime?: string;
 }
 
-const toArray = (solventsValue: any) => {
-  if (!Array.isArray(solventsValue)) {
-    return [solventsValue];
-  }
-  return solventsValue;
-};
-
 export const useValidationForm = (editedReaction: any, idx?: any) => {
+
+
   const conditions = [
     [
       {
@@ -68,11 +63,8 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
 
     [
       {
-        condition:
-          toArray(editedReaction.solvents).filter(value =>
-            ["CHCL3", "CH3OH", "DMF", "DMSO", "C2H5OH"].includes(value)
-          ).length === 0,
-        errorMessage: "Wymagane",
+        condition: editedReaction.solvents.length>3,
+        errorMessage: "Min. 3 znaki",
         key: "solvents",
       },
 

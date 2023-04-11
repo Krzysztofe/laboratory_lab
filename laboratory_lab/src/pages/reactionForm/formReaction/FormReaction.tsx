@@ -77,6 +77,19 @@ const FormReaction = () => {
     "Podsumowanie",
   ];
 
+
+
+  const items = "ala ola ela"
+
+ const validation = items.split("").some(value =>
+            ["CHCL3", "CH3OH", "DMF", "DMSO", "C2H5OH"].includes(
+              value.toUpperCase()
+            )
+          )
+
+
+console.log('valid', validation)
+
   return (
     <main className="formReaction">
       <header className="wrapper wrapper--formReactionHeader ">
@@ -100,7 +113,7 @@ const FormReaction = () => {
 
             {success.isSuccess ? (
               <h3 className="formReaction__requestMessage">
-                Dane wysłane i zapisane w liście reakcji
+                Dane wysłane i zapisane <br /> w liście reakcji
               </h3>
             ) : (
               <>{step}</>

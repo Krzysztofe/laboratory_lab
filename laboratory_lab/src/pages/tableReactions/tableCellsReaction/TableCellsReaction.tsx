@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import {
@@ -11,13 +10,17 @@ import { ModelReaction } from "../../../hooks/useReactions";
 
 const TableCellsReaction = (props: ModelReaction) => {
   const { error, isLoading } = useReactionsQuery(undefined);
-   const { printReactions } = useSelector(
-     (state: RootState) => state.tableReactions
-   );
 
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
   );
+
+  const toString = (solventsValue: any) => {
+    if (Array.isArray(solventsValue)) {
+      return solventsValue.join(", ");
+    }
+    return solventsValue;
+  };
 
   const getReactions = isOpen
     ? getTableBodyReactionsFirst
@@ -29,12 +32,28 @@ const TableCellsReaction = (props: ModelReaction) => {
       return <TableBodyRequestMessage message={error.error} />;
   }
 
+ 
   return (
     <>
-      {getReactions(props.reaction).map(item => {
+      {getReactions(props.reaction).map((item, idx) => {
         return (
           <td key={crypto.randomUUID()}>
-            {Array.isArray(item) ? item.flat().join(", ") : item}
+            {idx === 6
+              ? toString(item)
+                  .split("")
+                  .map((char: string) => {
+                    return isNaN(Number(char)) ? (
+                      char
+                    ) : (
+                      <small
+                        className="numberInCheckbox"
+                        key={crypto.randomUUID()}
+                      >
+                        {char}
+                      </small>
+                    );
+                  })
+              : item}
           </td>
         );
       })}
