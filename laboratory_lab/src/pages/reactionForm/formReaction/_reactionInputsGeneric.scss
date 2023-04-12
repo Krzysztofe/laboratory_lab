@@ -37,7 +37,7 @@
   width: 1.5em;
   height: 1.5em;
   margin-right: 2em;
-   font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold;
   -webkit-appearance: none;
   transition-duration: 320ms;
   background-color: rgba(0, 0, 0, 0.3);
@@ -62,7 +62,7 @@
   padding: $space-small/5;
   margin-bottom: $space-small/3;
   background-color: rgba(0, 0, 0, 0.3);
- font-weight: $font-weight-bold;
+  font-weight: $font-weight-bold;
   .select__arrow,
   .select__arrow--up {
     width: 20px;
@@ -112,7 +112,7 @@
 
   .reaction__checkboxLabel {
     display: block;
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
     width: 45%;
     flex-grow: 1;
     .reaction__checkboxInput {

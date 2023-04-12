@@ -5,11 +5,13 @@ import { solventsNameKeyData } from "./dataStep_2";
 import { ChangeEvent } from "../../../data/types";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { motion } from "framer-motion";
+import { ModelFormReaction } from "../formReaction/ModelFormReaction";
+import { ModelValidationErrors } from "../../../hooks/useValidationForm";
 
-interface Props {
-  reaction: any;
-  errors: any;
-  handleChange: any;
+export interface Props {
+  reaction: ModelFormReaction;
+  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  errors: ModelValidationErrors;
 }
 
 const Step_3 = (props: Props) => {
@@ -29,7 +31,7 @@ const Step_3 = (props: Props) => {
     setIsChecked(newIsChecked);
   }, [props.reaction.solvents]);
 
-  const handleCheckboxChange = ( idx: number, name: string) => {
+  const handleCheckboxChange = (idx: number, name: string) => {
     const newIsChecked = [...isChecked];
     newIsChecked[idx] = !newIsChecked[idx];
     setIsChecked(newIsChecked);
@@ -44,7 +46,7 @@ const Step_3 = (props: Props) => {
       []
     );
 
-    props.handleChange({solvents: getNewSolvents});
+    props.handleChange({ solvents: getNewSolvents });
   };
 
   const handleSelectChange = (value: string) => {
@@ -68,10 +70,10 @@ const Step_3 = (props: Props) => {
             key={key}
             name={name}
             checked={isChecked[key]}
-            onChange={() => handleCheckboxChange(key, name)}
-            classLabel={"reaction__checkboxLabel"}
-            classInput={"reaction__checkboxInput"}
-            classStyle={"reaction__checkboxStyle"}
+            handleChange={() => handleCheckboxChange(key, name)}
+            labelClass={"reaction__checkboxLabel"}
+            inputClass={"reaction__checkboxInput"}
+            styleClass={"reaction__checkboxStyle"}
             labelTransform={(label: string) =>
               label.split("").map(char =>
                 isNaN(Number(char)) ? (
@@ -98,11 +100,11 @@ const Step_3 = (props: Props) => {
         selectValues={["mieszanie", "ogrzewanie", "mikrofala", "chłodzenie"]}
         value={props.reaction.selectReactionCondition}
         handleChange={handleSelectChange}
-        classContainer="reaction__selectContainer"
-        classLabel="reaction__selectLabel"
-        classInputTop="reaction__selectTop"
-        classOptionsContainer="reaction__selectOptionsContainer"
-        classOption="reaction__selectOption"
+        containerClass={"reaction__selectContainer"}
+        labelClass="reaction__selectLabel"
+        inputTopClass="reaction__selectTop"
+        optionsContainerClass="reaction__selectOptionsContainer"
+        optionClass="reaction__selectOption"
       />
       <div className="reaction__error">
         <small>{props.errors.selectReactionCondition}</small>
@@ -112,12 +114,12 @@ const Step_3 = (props: Props) => {
         type={"text"}
         name={"substract"}
         value={props.reaction.substract}
-        onChange={handleTextInputChange}
-        text={"Substrat"}
+        handleChange={handleTextInputChange}
+        label={"Substrat"}
         placeholder={"Substrat"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
         <small>{props.errors.substract}</small>

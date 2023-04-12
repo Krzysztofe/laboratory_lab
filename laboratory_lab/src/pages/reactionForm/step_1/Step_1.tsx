@@ -1,20 +1,20 @@
+import { motion } from "framer-motion";
 import RadioInput from "../../../components/inputs/radioInput/RadioInput";
+import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
+import { ModelValidationErrors } from "../../../hooks/useValidationForm";
+import { ModelFormReaction } from "../formReaction/ModelFormReaction";
 import { alcaloidsData } from "./dataStep_1";
-import SelectInput from "../../../components/inputs/selectInput/SelectInput";
-import { motion } from "framer-motion";
 
 export interface Props {
-  reaction: any;
-  handleChange: any;
-  errors: any;
+  reaction: ModelFormReaction;
+  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  errors: ModelValidationErrors;
 }
 
 const Step_1 = (props: Props): JSX.Element => {
-
-
-   const handleChangeName = (e: ChangeEvent) => {
+  const handleChangeName = (e: ChangeEvent) => {
     return props.handleChange({ name: e.target.value });
   };
   const handleChangeAlcaloids = (e: ChangeEvent) => {
@@ -24,18 +24,14 @@ const Step_1 = (props: Props): JSX.Element => {
   const handleChangeTechnics = (e: ChangeEvent) => {
     return props.handleChange({ technics: e.target.value });
   };
- 
-  const handleChangeMilimolles = (value: string | number) => {
+
+  const handleChangeMilimolles = (value: string) => {
     props.handleChange({ selectMilimolles: value });
   };
 
 
-
-
-
   return (
     <motion.section
-      // className="stepContainer"
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
@@ -44,12 +40,12 @@ const Step_1 = (props: Props): JSX.Element => {
         type={"text"}
         name={"name"}
         value={props.reaction.name}
-        onChange={handleChangeName}
-        text={"Nazwa reakcji"}
+        handleChange={handleChangeName}
+        label={"Nazwa reakcji"}
         placeholder={"Nazwa"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
         <small>{props.errors.name}</small>
@@ -58,14 +54,14 @@ const Step_1 = (props: Props): JSX.Element => {
       <SelectInput
         label={"Ilość moli substratu"}
         inputName={"selectMilimolles"}
-        selectValues={[1, 2, 3, 4, 5, 6]}
+        selectValues={["1", "2", "3", "4", "5", "6"]}
         value={props.reaction.selectMilimolles}
         handleChange={handleChangeMilimolles}
-        classContainer="reaction__selectContainer"
-        classLabel="reaction__selectLabel"
-        classInputTop="reaction__selectTop"
-        classOptionsContainer="reaction__selectOptionsContainer"
-        classOption="reaction__selectOption"
+        containerClass="reaction__selectContainer"
+        labelClass="reaction__selectLabel"
+        inputTopClass="reaction__selectTop"
+        optionsContainerClass="reaction__selectOptionsContainer"
+        optionClass="reaction__selectOption"
       />
       <div className="reaction__error">
         <small>{props.errors.selectMilimolles}</small>
@@ -80,9 +76,9 @@ const Step_1 = (props: Props): JSX.Element => {
             name={"alcaloids"}
             handleChange={handleChangeAlcaloids}
             checked={props.reaction.alcaloids === alcaloid}
-            classContainer={"reaction__radioContainer"}
-            classInupt={"reaction__radioInput"}
-            classLabel={"reaction__radioLabel"}
+            containerClass={"reaction__radioContainer"}
+            inuptClass={"reaction__radioInput"}
+            labelClass={"reaction__radioLabel"}
           />
         );
       })}
@@ -93,12 +89,12 @@ const Step_1 = (props: Props): JSX.Element => {
         type={"text"}
         name={"technics"}
         value={props.reaction.technics}
-        onChange={handleChangeTechnics}
-        text={"Technika"}
+        handleChange={handleChangeTechnics}
+        label={"Technika"}
         placeholder={"Technika"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
         <small>{props.errors.technics}</small>

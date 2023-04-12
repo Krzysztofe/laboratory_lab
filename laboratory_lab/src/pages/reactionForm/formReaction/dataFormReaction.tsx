@@ -1,6 +1,6 @@
 import { ModelFormReaction } from "./ModelFormReaction";
 export const INITIAL_DATA: ModelFormReaction = {
-  name: "",
+  name: "AH - ",
   selectMilimolles: "--Wybierz--",
   alcaloids: "",
   technics: "",
@@ -13,3 +13,5 @@ export const INITIAL_DATA: ModelFormReaction = {
   finishTime: "",
   isEdit: true,
 };
+
+

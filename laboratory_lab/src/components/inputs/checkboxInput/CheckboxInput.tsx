@@ -1,11 +1,13 @@
+import { ReactElement } from "react";
+
 export interface Props {
   name: string;
   checked: boolean;
-  onChange: any;
-  classLabel: string;
-  classInput: string;
-  classStyle: string;
-  labelTransform?: (label: string) => any;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  labelClass: string;
+  inputClass: string;
+  styleClass: string;
+  labelTransform: (label: string) => any;
 }
 
 const CheckboxInput = (props: Props) => {
@@ -15,15 +17,15 @@ const CheckboxInput = (props: Props) => {
 
   return (
     <>
-      <label className={props.classLabel}>
+      <label className={props.labelClass}>
         <input
           type="checkbox"
           name={props.name}
           checked={props.checked}
-          onChange={props.onChange}
-          className={props.classInput}
+          onChange={props.handleChange}
+          className={props.inputClass}
         />
-        <div className={props.classStyle}>{transformedLabel}</div>
+        <div className={props.styleClass}>{transformedLabel}</div>
       </label>
     </>
   );

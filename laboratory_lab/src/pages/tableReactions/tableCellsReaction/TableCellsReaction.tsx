@@ -8,14 +8,14 @@ import { useReactionsQuery } from "../../../services/apiSlice";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import { ModelReaction } from "../../../hooks/useReactions";
 
-const TableCellsReaction = (props: ModelReaction) => {
+const TableCellsReaction = (props: Partial<ModelReaction>) => {
   const { error, isLoading } = useReactionsQuery(undefined);
 
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
   );
 
-  const toString = (solventsValue: any) => {
+  const toString = (solventsValue: string) => {
     if (Array.isArray(solventsValue)) {
       return solventsValue.join(", ");
     }
@@ -32,14 +32,13 @@ const TableCellsReaction = (props: ModelReaction) => {
       return <TableBodyRequestMessage message={error.error} />;
   }
 
- 
   return (
     <>
-      {getReactions(props.reaction).map((item, idx) => {
+      {getReactions(props.reaction).map((reaction, idx) => {
         return (
           <td key={crypto.randomUUID()}>
             {idx === 6
-              ? toString(item)
+              ? toString(reaction)
                   .split("")
                   .map((char: string) => {
                     return isNaN(Number(char)) ? (
@@ -53,7 +52,7 @@ const TableCellsReaction = (props: ModelReaction) => {
                       </small>
                     );
                   })
-              : item}
+              : reaction}
           </td>
         );
       })}

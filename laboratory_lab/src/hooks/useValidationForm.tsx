@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
-import { FaLaptopHouse } from "react-icons/fa";
+import { ModelReaction } from "./useReactions";
 
-export interface Error {
-  error?: boolean;
-  name?: any;
-  technics?: any;
-  alcaloids?: any;
+export interface ModelValidationErrors {
+  [key: string]: any;
+  name?: string;
+  technics?: string;
+  alcaloids?: string;
   selectMilimolles?: string;
   substract?: string;
   solvents?: string;
@@ -16,18 +15,26 @@ export interface Error {
   finishTime?: string;
 }
 
-export const useValidationForm = (editedReaction: any, idx?: any) => {
+const toString = (solventsValue: string[] | string) => {
+  return Array.isArray(solventsValue)
+    ? solventsValue.join(", ")
+    : solventsValue;
+};
 
+export const useValidationForm = (
+  editedReaction: ModelReaction,
+  idx?: number
+) => {
 
   const conditions = [
     [
       {
-        condition: editedReaction.name.trim().length < 3,
-        errorMessage: "Min. 3 znaki",
+        condition: editedReaction?.name.trim().length < 6,
+        errorMessage: "Min. 6 znaków",
         key: "name",
       },
       {
-        condition: editedReaction.name.trim().length > 10,
+        condition: editedReaction?.name.trim().length > 10,
         errorMessage: "Max. 10 znaków",
         key: "name",
       },
@@ -63,8 +70,28 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
 
     [
       {
-        condition: editedReaction.solvents.length<3,
-        errorMessage: "Min. 3 znaki",
+        condition:
+          !toString(editedReaction.solvents)
+            .trim()
+            .toLocaleUpperCase()
+            .includes("CH3OH") &&
+          !toString(editedReaction.solvents)
+            .trim()
+            .toLocaleUpperCase()
+            .includes("DMSO") &&
+          !toString(editedReaction.solvents)
+            .trim()
+            .toLocaleUpperCase()
+            .includes("DMF") &&
+          !toString(editedReaction.solvents)
+            .trim()
+            .toLocaleUpperCase()
+            .includes("CHCL3") &&
+          !toString(editedReaction.solvents)
+            .trim()
+            .toLocaleUpperCase()
+            .includes("C2H5OH"),
+        errorMessage: "Rozp. z listy",
         key: "solvents",
       },
 
@@ -126,7 +153,7 @@ export const useValidationForm = (editedReaction: any, idx?: any) => {
   ];
 
   const validationForm = () => {
-    let _errors: any = {};
+    let _errors: ModelValidationErrors = {};
 
     const conditionSet =
       idx === undefined ? conditions.flat() : conditions[idx];

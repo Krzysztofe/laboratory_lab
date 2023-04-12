@@ -1,28 +1,26 @@
 interface Props {
   value: string;
   name: string;
-  handleChange: any;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checked: boolean;
-  handleBlur?: any;
-  classContainer?: string;
-  classInupt?: string;
-  classLabel?: string;
+  containerClass?: string;
+  inuptClass?: string;
+  labelClass?: string;
 }
 
 const RadioInput = (props: Props) => {
   return (
-    <div className={props.classContainer}>
+    <div className={props.containerClass}>
       <input
         type="radio"
         name={props.name}
         value={props.value}
         checked={props.checked}
         onChange={props.handleChange}
-        onBlur={props.handleBlur}
-        className={props.classInupt}
+        className={props.inuptClass}
         id={props.value}
       />
-      <label htmlFor={props.value} className={props.classLabel}>
+      <label htmlFor={props.value} className={props.labelClass}>
         {props.value}
       </label>
     </div>

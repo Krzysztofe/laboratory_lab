@@ -1,40 +1,31 @@
 export interface Props {
   type: string;
-  name?: string;
-  value?: string | number;
-  onChange: any;
-  ref?: any;
-  onChangeSolv?: any;
-  handleBlur?: any;
-  onFocus?: any;
-  onBlur?: any;
-  onKeyDown?: any;
-  text: string;
+  name: string;
+  value: string | number;
+  handleChange:  (e: React.ChangeEvent<HTMLInputElement>) => void | string[];
+  handleBlur?:  (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label: string;
   placeholder?: string;
-  classContainer?: string;
-  classLabel?: string;
-  classInput?: string;
+  containerClass?: string;
+  labelClass?: string;
+  inputClass?: string;
 }
 
 const TextInput = (props: Props) => {
   return (
-    <div className={props.classContainer}>
-      <label htmlFor={props.name} className={props.classLabel}>
-        {props.text}
+    <div className={props.containerClass}>
+      <label className={props.labelClass}>
+        {props.label}
       </label>
       <input
         type={props.type}
         name={props.name}
         value={props.value}
-        onChange={props.onChange}
-        onBlur={props.onBlur}
-        onFocus={props.onFocus}
-        onKeyDown={props.onKeyDown}
+        onChange={props.handleChange}
+        onBlur={props.handleBlur}
         placeholder={props.placeholder}
-        className={props.classInput}
+        className={props.inputClass}
         autoComplete="off"
-        id={props.name}
-        ref={props.ref}
       />
     </div>
   );

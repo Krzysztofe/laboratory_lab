@@ -1,12 +1,13 @@
-
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { motion } from "framer-motion";
+import { ModelFormReaction } from "../formReaction/ModelFormReaction";
+import { ModelValidationErrors } from "../../../hooks/useValidationForm";
 
 interface Props {
-  reaction: any;
-  errors: any;
-  handleChange: any;
+  reaction: ModelFormReaction;
+  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  errors: ModelValidationErrors;
 }
 
 const Step_4 = (props: Props) => {
@@ -28,7 +29,6 @@ const Step_4 = (props: Props) => {
 
   return (
     <motion.section
-      // className="stepContainer"
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
@@ -37,11 +37,11 @@ const Step_4 = (props: Props) => {
         type={"date"}
         name={"startDate"}
         value={props.reaction.startDate}
-        onChange={handleStarthDate}
-        text={"Data rozpoczęcia"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        handleChange={handleStarthDate}
+        label={"Data rozpoczęcia"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
 
       <div className="reaction__error">
@@ -52,11 +52,11 @@ const Step_4 = (props: Props) => {
         type={"date"}
         name={"finishDate"}
         value={props.reaction.finishDate}
-        onChange={handleFinishDate}
-        text={"Data ukończenia"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        handleChange={handleFinishDate}
+        label={"Data ukończenia"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
         <small>{props.errors.finishDate}</small>
@@ -66,11 +66,11 @@ const Step_4 = (props: Props) => {
         type={"time"}
         name={"startTime"}
         value={props.reaction.startTime}
-        onChange={handleStartTime}
-        text={"Godzina rozpoczęcia"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        handleChange={handleStartTime}
+        label={"Godzina rozpoczęcia"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
         <small>{props.errors.startTime}</small>
@@ -80,11 +80,11 @@ const Step_4 = (props: Props) => {
         type={"time"}
         name={"finishTime"}
         value={props.reaction.finishTime}
-        onChange={handleFinishTime}
-        text={"Godzina zakończenia"}
-        classContainer={"reaction__textInputContainer"}
-        classLabel={"reaction__textInputLabel"}
-        classInput={"reaction__textInput"}
+        handleChange={handleFinishTime}
+        label={"Godzina zakończenia"}
+        containerClass={"reaction__textInputContainer"}
+        labelClass={"reaction__textInputLabel"}
+        inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
         <small>{props.errors.finishTime}</small>

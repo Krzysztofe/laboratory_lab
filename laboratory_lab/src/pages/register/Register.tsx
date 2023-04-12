@@ -52,13 +52,13 @@ const Register = () => {
               type={"text"}
               name={"email"}
               value={formik.values.email}
-              onChange={formik.handleChange}
+              handleChange={formik.handleChange}
               handleBlur={formik.handleBlur}
-              text={"Email"}
+              label={"Email"}
               placeholder={"Email"}
-              classContainer={"loginForm__inputContainer"}
-              classLabel={"loginForm__label"}
-              classInput={"loginForm__input"}
+              containerClass={"loginForm__inputContainer"}
+              labelClass={"loginForm__label"}
+              inputClass={"loginForm__input"}
             />
 
             <div className="loginForm__error">
@@ -71,13 +71,13 @@ const Register = () => {
               type={"password"}
               name={"password"}
               value={formik.values.password}
-              onChange={formik.handleChange}
+              handleChange={formik.handleChange}
               handleBlur={formik.handleBlur}
-              text={"Hasło"}
+              label={"Hasło"}
               placeholder={"Hasło"}
-              classContainer={"loginForm__inputContainer"}
-              classLabel={"loginForm__label"}
-              classInput={"loginForm__input"}
+              containerClass={"loginForm__inputContainer"}
+              labelClass={"loginForm__label"}
+              inputClass={"loginForm__input"}
             />
 
             <div className="loginForm__error">
@@ -90,13 +90,13 @@ const Register = () => {
               type={"password"}
               name={"passwordRepeated"}
               value={formik.values.passwordRepeated}
-              onChange={formik.handleChange}
+              handleChange={formik.handleChange}
               handleBlur={formik.handleBlur}
-              text={"Powtórz hasło"}
+              label={"Powtórz hasło"}
               placeholder={"Hasło"}
-              classContainer={"loginForm__inputContainer"}
-              classLabel={"loginForm__label"}
-              classInput={"loginForm__input"}
+              containerClass={"loginForm__inputContainer"}
+              labelClass={"loginForm__label"}
+              inputClass={"loginForm__input"}
             />
 
             <div className="loginForm__error">
@@ -110,7 +110,6 @@ const Register = () => {
               link={"/login"}
               textRight="Załuż konto"
               textLeft="Zaloguj się"
-              // inputFocus={inputFocus}
             />
           </form>
         </div>

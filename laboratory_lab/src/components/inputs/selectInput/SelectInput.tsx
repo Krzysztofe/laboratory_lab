@@ -1,17 +1,16 @@
 import { useState } from "react";
 
 interface Props {
-  selectValues: number[] | string[];
+  selectValues: string[];
   label: string;
-  inputName: any;
-  value: string | number;
-  handleChange: any;
-  handleBlur?: any;
-  classContainer?: string;
-  classLabel?: string;
-  classOptionsContainer?: string;
-  classInputTop?: string;
-  classOption?: string;
+  inputName: string;
+  value: string;
+  handleChange: (vaue: string) => void;
+  containerClass?: string;
+  labelClass?: string;
+  optionsContainerClass?: string;
+  inputTopClass?: string;
+  optionClass?: string;
 }
 
 const SelectInput = (props: Props) => {
@@ -22,14 +21,11 @@ const SelectInput = (props: Props) => {
   };
 
   return (
-    <div className={props.classContainer}>
-      <label className={props.classLabel}>{props.label}</label>
+    <div className={props.containerClass}>
+      <label className={props.labelClass}>{props.label}</label>
 
-      <div className={props.classOptionsContainer}>
-        <div
-          onClick={handleOpen}
-          className={props.classInputTop}
-        >
+      <div className={props.optionsContainerClass}>
+        <div onClick={handleOpen} className={props.inputTopClass}>
           {props.value}
           <div className={open ? "select__arrow--up" : "select__arrow"}></div>
         </div>
@@ -40,7 +36,7 @@ const SelectInput = (props: Props) => {
               return (
                 <div
                   key={value}
-                  className={props.classOption}
+                  className={props.optionClass}
                   onClick={() => {
                     props.handleChange(value);
                     handleOpen();

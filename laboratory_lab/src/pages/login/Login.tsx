@@ -35,10 +35,8 @@ const Login = () => {
 
   return (
     <>
-     
       <main className="wrapper login">
- 
-        <div style={{ height: 74}}></div>
+        <div style={{ height: 74 }}></div>
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="loginForm">
             <h2 className="loginForm__title">Zaloguj się</h2>
@@ -52,13 +50,13 @@ const Login = () => {
               type={"text"}
               name={"email"}
               value={formik.values.email}
-              onChange={formik.handleChange}
+              handleChange={formik.handleChange}
               handleBlur={formik.handleBlur}
-              text={"Email"}
+              label={"Email"}
               placeholder={"Email"}
-              classContainer={"loginForm__inputContainer"}
-              classLabel={"loginForm__label"}
-              classInput={"loginForm__input"}
+              containerClass={"loginForm__inputContainer"}
+              labelClass={"loginForm__label"}
+              inputClass={"loginForm__input"}
             />
             <div className="loginForm__error">
               {formik.touched.email && formik.errors.email && (
@@ -70,13 +68,13 @@ const Login = () => {
               type={"password"}
               name={"password"}
               value={formik.values.password}
-              onChange={formik.handleChange}
+              handleChange={formik.handleChange}
               handleBlur={formik.handleBlur}
-              text={"Hasło"}
+              label={"Hasło"}
               placeholder={"Hasło"}
-              classContainer={"loginForm__inputContainer"}
-              classLabel={"loginForm__label"}
-              classInput={"loginForm__input"}
+              containerClass={"loginForm__inputContainer"}
+              labelClass={"loginForm__label"}
+              inputClass={"loginForm__input"}
             />
 
             <div className="loginForm__error">

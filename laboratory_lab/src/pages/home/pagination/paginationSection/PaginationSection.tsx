@@ -15,7 +15,7 @@ const PaginationSection = () => {
   const pageCount =
     getReactionsToPrint && Math.ceil(getReactionsToPrint.length / 3);
 
-  const changePage = ({ selected }: any) => {
+  const changePage = ({ selected }: { selected: number }) => {
     setPageNumber(selected);
   };
 

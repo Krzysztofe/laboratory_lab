@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export interface Props {
-  text: string;
+  label: string;
   class: string;
   link: string;
 }
@@ -10,7 +10,7 @@ export interface Props {
 const BtnLink = (props:Props) => {
   return (
     <Link className={props.class} to={props.link} >
-        {props.text}
+        {props.label}
     </Link>
   );
 };

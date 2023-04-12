@@ -5,7 +5,9 @@ interface Props {
   setCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
+
 const BtnsPagination = (props: Props) => {
+
   return (
     <div className="paginationHome__btns">
       {btnsReactionsNamesData.map((name, idx) => {

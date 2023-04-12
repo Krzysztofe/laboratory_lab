@@ -21,14 +21,14 @@ const FormContainer = () => {
             type={"text"}
             name={"name"}
             value={""}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               console.log("")
             }
-            text={"Wpisz imię"}
+            label={"Wpisz imię"}
             placeholder={"Imię"}
-            classContainer={"contactForm__container"}
-            classLabel={"contactForm__label"}
-            classInput={"contactForm__input"}
+            containerClass={"contactForm__container"}
+            labelClass={"contactForm__label"}
+            inputClass={"contactForm__input"}
           />
           <div className="contactForm__error">
             {isOpen && <small>Formularz w przygotowaniu</small>}
@@ -40,14 +40,14 @@ const FormContainer = () => {
             type={"text"}
             name={"email"}
             value={""}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               console.log("")
             }
-            text={"Wpisz email"}
+            label={"Wpisz email"}
             placeholder={"Email"}
-            classContainer={"contactForm__container"}
-            classLabel={"contactForm__label"}
-            classInput={"contactForm__input"}
+            containerClass={"contactForm__container"}
+            labelClass={"contactForm__label"}
+            inputClass={"contactForm__input"}
           />
           <div className="contactForm__error">
             {isOpen && <small>Formularz w przygotowaniu</small>}
@@ -70,11 +70,8 @@ const FormContainer = () => {
           </div>
         </div>
 
-        <BtnFormSubbmit text={"Wyślij"} class={"btn contactForm__btn"} />
+        <BtnFormSubbmit label={"Wyślij"} class={"btn contactForm__btn"} />
       </form>
-      <div className="div" contentEditable="true">
-        moli ala ola ela jkkkk wwwww
-      </div>
     </aside>
   );
 };
