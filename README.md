@@ -1,9 +1,9 @@
 # Dziennik Laboratoryjny
 
-"Laboratory Log" is an application used to record data of chemical reactions. <br/>
-- The homepage displays the basic data of reactions currently stored in the database. <br/>
-- After logging in, it is possible to fill in the reaction data form and display a list of all stored reactions. <br/>
-- Reactions in the list can be edited or deleted from the list.   
+"The Laboratory Log" is a web application used to record data on chemical reactions. <br/>
+- The homepage displays the basic informations about reactions currently saved in the database. <br/>
+- After logging in, user can input reaction data using a form and display a list of all stored reactions. <br/>
+- Users can edit or delete reactions in the list of stored reactios.   
 
 ## Features
 * Comunication with database
