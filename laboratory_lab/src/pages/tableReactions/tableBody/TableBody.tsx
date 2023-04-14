@@ -30,6 +30,8 @@ const TableBody = () => {
     return <TableBodyRequestMessage message={"Brak zapisanych reakcji"} />;
   }
 
+
+
   return (
     <tbody>
       {printReactions?.map((reaction, idx) => {

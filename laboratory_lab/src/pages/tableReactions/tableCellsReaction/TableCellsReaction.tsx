@@ -4,12 +4,18 @@ import {
   getTableBodyReactionsFirst,
   getTableBodyReactionsSecond,
 } from "./utilsTableCellsReaction";
-import { useReactionsQuery } from "../../../services/apiSlice";
+import {
+  useReactionsQuery,
+  useAddReactionMutation,
+  useUpdateReactionMutation,
+} from "../../../services/apiSlice";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import { ModelReaction } from "../../../hooks/useReactions";
 
 const TableCellsReaction = (props: Partial<ModelReaction>) => {
   const { error, isLoading } = useReactionsQuery(undefined);
+  // const [updateReaction, success] = useAddReactionMutation();
+  const [updateReaction, success] = useUpdateReactionMutation();
 
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
@@ -26,17 +32,22 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
     ? getTableBodyReactionsFirst
     : getTableBodyReactionsSecond;
 
-  isLoading && <TableBodyRequestMessage message={"Loading..."} />;
-  if (error) {
-    if ("error" in error)
-      return <TableBodyRequestMessage message={error.error} />;
-  }
+  // isLoading && <TableBodyRequestMessage message={"Loading..."} />;
+  // if (error) {
+  //   if ("error" in error)
+  //     return <TableBodyRequestMessage message={error.error} />;
+
+  // }
+
 
   return (
     <>
       {getReactions(props.reaction).map((reaction, idx) => {
         return (
-          <td key={crypto.randomUUID()}>
+          <td
+            className={success.error ? "editError" : ""}
+            key={crypto.randomUUID()}
+          >
             {idx === 6
               ? toString(reaction)
                   .split("")

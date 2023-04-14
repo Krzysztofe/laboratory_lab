@@ -4,9 +4,9 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  font-size: 2rem;
-  transition: 850ms;
   width: fit-content;
+  font-size: 2rem;
+  margin: 0;
   padding: $space-large 0;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
@@ -14,72 +14,91 @@
   -moz-backdrop-filter: blur(5px);
   -o-backdrop-filter: blur(5px);
   z-index: 2;
-  &:hover {
-    display: block;
+  transition: 700ms;
+  @include breakpointNav {
+    &:hover .navAsideItems__signIn {
+      font-size: $font-size-xsmall;
+      width: 30rem;
+      transition: 700ms;
+      margin-left: 0%;
+      &:hover {
+        font-size: calc($font-size-xsmall + 0.2rem);
+        transition: 200ms;
+      }
+    }
+    &:hover .navAsideItems__item {
+      transition: 700ms;
+      margin-left: 0;
+      width: 30rem;
+    }
+    &:hover .navAsideItems__name {
+      transition: 700ms;
+      margin-left: 0;
+    }
   }
+
   &__close {
     margin-left: -100%;
     @include breakpointNav {
-      margin-left: 0%;
-      &:hover .navAsideItem__name {
-        display: block;
-      }
-    }
-  }
-  &__open {
-    @include breakpointNav {
-      &:hover .navAsideItem__name {
-        display: block;
-      }
+      margin-left: 0;
     }
   }
 }
 
-.navAsideSignIn {
-  color: $color-white;
+.navAsideItems__signIn {
+  height: $font-size-xsmall;
+  color: $color-neutral-secondary-light;
   font-size: $font-size-xsmall;
   letter-spacing: 0.15rem;
   text-align: center;
   margin-bottom: $space-small;
+  margin-left: 0%;
   cursor: pointer;
+  &:hover {
+    transition: 200ms;
+    color: $color-white;
+    font-size: calc($font-size-xsmall + 0.2rem);
+    transition: 200ms;
+  }
   @include breakpointNav {
+    margin-left: -800%;
     height: $font-size-xsmall;
     font-size: 0;
     width: 0;
   }
 }
 
-.navAsideItems__close:hover .navAsideSignIn,
-.navAsideItems__open:hover .navAsideSignIn {
-  @include breakpointNav {
-    font-size: $font-size-xsmall;
-    width: auto;
-  }
-}
-
-.navAsideItem__link {
-  display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.6);
-  padding: $space-small;
-  height: 5rem;
+.navAsideItems__item {
+  width: auto;
   &:hover {
-    background-color: rgb(52, 53, 65);
+    background-color: $color-neutral-dark;
   }
-  .navAsideItem__icon {
-    width: 2rem;
-  }
-  &:hover .navAsideItem__icon {
+  &:hover .navAsideItems__icon {
     transition: 200ms;
     font-size: 2.7rem;
     color: $color-white;
   }
+  @include breakpointNav {
+    width: 7rem;
+    transition: 700ms;
+  }
 
-  .navAsideItem__name {
-    padding-left: $space-small * 2;
-    transition-delay: 200ms;
-    @include breakpointNav {
-      display: none;
-    }
+  & a {
+    display: flex;
+    align-items: center;
+    color: $color-neutral-secondary-light;
+  }
+}
+
+.navAsideItems__icon {
+  width: 2.7rem;
+  padding: 0 $space-small;
+}
+
+.navAsideItems__name {
+  padding: $space-small;
+  padding-left: $space-small * 2;
+  @include breakpointNav {
+    margin-left: -800%;
   }
 }

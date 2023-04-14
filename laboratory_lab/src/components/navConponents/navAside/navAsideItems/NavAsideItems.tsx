@@ -19,24 +19,20 @@ const NavAsideItems = (props: Props) => {
 
   return (
     <>
-      <ul
-        className={`navAsideItems ${
-          props.isOpen ? "navAsideItems__open" : "navAsideItems__close"
-        } `}
-      >
-        <li onClick={handleLogout} className="navAsideSignIn">
+      <ul className={`navAsideItems ${!props.isOpen && "navAsideItems__close"} `}>
+        <li onClick={handleLogout} className="navAsideItems__signIn">
           Wyloguj: {user?.email}
         </li>
 
         {links.map(({ text, icon, link }) => (
           <li
             key={text}
-            className="navAsideItem"
             onClick={() => props.setIsOpen(prev => !prev)}
+            className={"navAsideItems__item"}
           >
-            <Link to={link} className={"navAsideItem__link"}>
-              <div className={"navAsideItem__icon"}>{icon}</div>
-              <div className={"navAsideItem__name"}>{text}</div>
+            <Link to={link}>
+              <div className={"navAsideItems__icon"}>{icon}</div>
+              <div className={"navAsideItems__name"}>{text}</div>
             </Link>
           </li>
         ))}

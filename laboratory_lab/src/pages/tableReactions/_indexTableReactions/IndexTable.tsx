@@ -18,10 +18,10 @@ const IndexTable = () => {
   );
 
   const { validationForm } = useValidationForm(editedReaction);
-  const values = editedReaction.isEdit
+ 
 
   const conditionsPrint =
-    !values &&
+    !editedReaction.isEdit &&
     (validationForm().name ||
       validationForm().technics ||
       validationForm().alcaloids ||
@@ -33,7 +33,7 @@ const IndexTable = () => {
       : { color: "black", text: "Parametry" };
 
   const timePrint =
-    !values &&
+    !editedReaction.isEdit &&
     (validationForm().startDate ||
       validationForm().finishDate ||
       validationForm().startTime ||

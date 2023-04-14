@@ -1,4 +1,3 @@
-
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import {
@@ -16,7 +15,8 @@ import { AiFillEdit } from "react-icons/ai";
 import { MdSystemUpdateAlt } from "react-icons/md";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { ModelReaction } from "../../../hooks/useReactions";
-
+import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
+import RequestMessage from "../../reactionForm/RequestMessage";
 
 const TableBtns = (props: Partial<ModelReaction>) => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     (state: RootState) => state.tableReactions
   );
   const { validationForm } = useValidationForm(editedReaction);
-  const [updateReaction] = useUpdateReactionMutation();
+  const [updateReaction, success] = useUpdateReactionMutation();
   const [deleteReaction] = useDeleteReactionMutation();
 
   const handleReactionEdit = (
@@ -43,7 +43,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     dispatch(handleUpdate([printReactions, reactionID]));
     dispatch(handleClearEditForm());
     await updateReaction(updatedEditedReaction);
-    
   };
 
   const handleDelete = async (id?: string) => {
@@ -51,40 +50,58 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     await deleteReaction(id);
   };
 
- 
+  let tdBtns = (
+    <>
+      {props.reaction.isEdit ? (
+        <button
+          onClick={() => handleReactionEdit(printReactions, props.reaction.id)}
+          className="tableReactions__btn tableReactions__btn--edit"
+        >
+          <AiFillEdit />
+        </button>
+      ) : (
+        <button
+          onClick={() =>
+            handleReactionUpdate(printReactions, props.reaction.id)
+          }
+          className="tableReactions__btn tableReactions__btn--edit"
+        >
+          <MdSystemUpdateAlt />
+        </button>
+      )}
+
+      <button
+        onClick={() => handleDelete(props.reaction.id)}
+        className="tableReactions__btn tableReactions__btn--trash"
+      >
+        <FaTrashAlt />
+      </button>
+    </>
+  );
+
+  if (success.error) {
+    if ("error" in success.error)
+      tdBtns = (
+        <RequestMessage
+          message={"Błąd"}
+          className="tableReactions__requestError"
+        />
+      );
+  }
+
+  if (success.isLoading) {
+    tdBtns = (
+      <RequestMessage
+        message={"Wysyła..."}
+        className="tableReactions__requestMessage"
+      />
+    );
+  }
 
   return (
-    <>
-      <td>
-        {props.reaction.isEdit ? (
-          <button
-            onClick={() =>
-              handleReactionEdit(printReactions, props.reaction.id)
-            }
-            className="tableReactions__btn tableReactions__btn--edit"
-          >
-            <AiFillEdit />
-          </button>
-        ) : (
-          <button
-            onClick={() =>
-              handleReactionUpdate(printReactions, props.reaction.id)
-            }
-            className="tableReactions__btn tableReactions__btn--edit"
-          >
-            <MdSystemUpdateAlt />
-          </button>
-        )}
-     
-          <button
-            onClick={() => handleDelete(props.reaction.id)}
-            className="tableReactions__btn tableReactions__btn--trash"
-          >
-            <FaTrashAlt />
-          </button>
-        
-      </td>
-    </>
+    <td>
+      {tdBtns}
+    </td>
   );
 };
 

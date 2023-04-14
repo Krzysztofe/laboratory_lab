@@ -85,7 +85,6 @@
     width: 50%;
   }
 
-  
   @media (min-width: 650px) {
     &:nth-child(-n + 4) {
       display: block;
@@ -117,4 +116,8 @@
   &--trash {
     color: rgba(238, 28, 24, 0.6);
   }
+}
+
+.tableReactions__requestError {
+  color: $color-red;
 }
