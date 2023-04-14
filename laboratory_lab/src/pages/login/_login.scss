@@ -9,7 +9,7 @@
   background-size: cover;
   padding: 0;
   &__opacity {
-    height: calc(100% - 74px);
+    height: calc(100% - (5rem + 24px));
     background-color: rgba(255, 255, 255, 0.3);
     display: flex;
     justify-content: center;

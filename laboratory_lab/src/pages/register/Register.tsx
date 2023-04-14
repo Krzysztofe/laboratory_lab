@@ -6,6 +6,7 @@ import { auth } from "../../data/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import NavHomeSpacer from "../../components/navHomeSpacer/NavHomeSpacer";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Register = () => {
   return (
     <>
       <main className="wrapper login">
-        <div style={{ height: 74 }}></div>
+        <NavHomeSpacer/>
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
             <h2 className="loginForm__title">Załóż konto</h2>

@@ -1,6 +1,8 @@
 import BtnLink from "../../../components/btnLink/BtnLink";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../data/firebaseConfig";
+import NavHomeSpacer from "../../../components/navHomeSpacer/NavHomeSpacer";
+
 
 const Hero = () => {
   const [user] = useAuthState(auth);
@@ -8,7 +10,7 @@ const Hero = () => {
 
   return (
     <section>
-      <div style={{ height: 74 }}></div>
+      <NavHomeSpacer/>
       <div className="wrapper hero">
         <div className="hero__opacity">
           <h1 className="hero__title">
