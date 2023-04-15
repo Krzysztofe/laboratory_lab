@@ -1,11 +1,11 @@
-import FormContainer from "../form/FormContainer";
+import ContactForm from "../contactForm/ContactForm";
 
 const Contact = () => {
   return (
-    <section>
-      <div className="wrapper contact" id="contact">
+    <section id="contact">
+      <div className="wrapper contact">
         <div className="contact__leftContainer"></div>
-        <FormContainer />
+        <ContactForm />
       </div>
     </section>
   );

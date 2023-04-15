@@ -1,8 +1,8 @@
-import { useState, FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import BtnFormSubbmit from "../../../../components/btnFormSubmit/BtnFormSubbmit";
 import TextInput from "../../../../components/inputs/textInput/TextInput";
 
-const FormContainer = () => {
+const ContactForm = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSubmit = (e: FormEvent) => {
@@ -13,7 +13,7 @@ const FormContainer = () => {
   return (
     <aside className="contactformContainer">
       <h3 className="contactformContainer__title">
-        Skontaktuj się z grupą <br /> badawczą
+        Wiadomość dla grupy <br /> badawczej
       </h3>
       <form onSubmit={handleSubmit} className="contactForm">
         <div className="contactForm__inputWrapper">
@@ -26,7 +26,7 @@ const FormContainer = () => {
             }
             label={"Wpisz imię"}
             placeholder={"Imię"}
-            containerClass={"contactForm__container"}
+            containerClass={"contactForm__inputContainer"}
             labelClass={"contactForm__label"}
             inputClass={"contactForm__input"}
           />
@@ -45,7 +45,7 @@ const FormContainer = () => {
             }
             label={"Wpisz email"}
             placeholder={"Email"}
-            containerClass={"contactForm__container"}
+            containerClass={"contactForm__inputContainer"}
             labelClass={"contactForm__label"}
             inputClass={"contactForm__input"}
           />
@@ -76,4 +76,4 @@ const FormContainer = () => {
   );
 };
 
-export default FormContainer;
+export default ContactForm;

@@ -12,6 +12,8 @@
       color: $color-white;
     }
     &:focus {
+       border: 2px solid $color-button;
+      background-color: $color-button;
       color: $color-white;
     }
   }

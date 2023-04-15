@@ -1,16 +1,20 @@
 .footer {
   display: flex;
   justify-content: center;
-  padding: $space-small 0;
-  font-size: $font-size-small;
-  line-height: $font-size-small;
-  background-color: $color-neutral-light;
   position: relative;
   z-index: 1;
+  padding: $space-small 0;
+  background-color: $color-neutral-light;
+  font-size: $font-size-small;
+  line-height: $font-size-small;
+  font-weight: $font-weight-bold;
   &__link {
     display: flex;
     align-items: center;
     color: $color-black;
+    &:hover {
+      color: $color-accent;
+    }
   }
   &__icon {
     margin-left: 0.5em;

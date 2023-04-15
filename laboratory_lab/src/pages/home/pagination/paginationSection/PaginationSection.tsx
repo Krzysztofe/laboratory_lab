@@ -1,10 +1,10 @@
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useReactionsQuery } from "../../../../services/apiSlice";
-import { useReactionsSelection } from "../utilsPagination";
+import BtnsPagination from "../btnsPagination/BtnsPagination";
 import { btnsSubtitleData } from "../dataPagination";
 import TablePagination from "../tablePagination/TablePagination";
-import BtnsPagination from "../btnsPagination/BtnsPagination";
+import { useReactionsSelection } from "../utilsPagination";
 
 const PaginationSection = () => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -19,23 +19,23 @@ const PaginationSection = () => {
     setPageNumber(selected);
   };
 
-  let tablePrint = (
+  let tableContent = (
     <div className="reactionsHome__emptyTableMessage">
       Brak reakcji zapisanych w dzienniku
     </div>
   );
 
   if (isLoading) {
-    tablePrint = <div style={{ textAlign: "center" }}>Loading...</div>;
+    tableContent = <div style={{ textAlign: "center" }}>Loading...</div>;
   }
 
   if (error) {
     if ("error" in error)
-      tablePrint = <div style={{ textAlign: "center" }}> {error.error} </div>;
+      tableContent = <div style={{ textAlign: "center" }}> {error.error} </div>;
   }
 
   if (data) {
-    tablePrint = (
+    tableContent = (
       <>
         <TablePagination counter={counter} pageNumber={pageNumber} />
         {getReactionsToPrint.length > 0 ? (
@@ -58,16 +58,6 @@ const PaginationSection = () => {
     );
   }
 
-
- if (isLoading) {
-   tablePrint = <div style={{ textAlign: "center" }}>Loading...</div>;
- }
-
- if (error) {
-   if ("error" in error)
-     tablePrint = <div style={{ textAlign: "center" }}> {error.error} </div>;
- }
-
   return (
     <section id="pagination">
       <div className="wrapper paginationHome">
@@ -80,7 +70,7 @@ const PaginationSection = () => {
           {btnsSubtitleData[counter]}
         </div>
 
-        {tablePrint}
+        {tableContent}
       </div>
     </section>
   );

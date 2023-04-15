@@ -1,7 +1,7 @@
-import BtnLink from "../../../components/btnLink/BtnLink";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../data/firebaseConfig";
+import BtnLink from "../../../components/btnLink/BtnLink";
 import NavHomeSpacer from "../../../components/navHomeSpacer/NavHomeSpacer";
+import { auth } from "../../../data/firebaseConfig";
 
 
 const Hero = () => {
@@ -11,18 +11,20 @@ const Hero = () => {
   return (
     <section>
       <NavHomeSpacer/>
-      <div className="wrapper hero">
-        <div className="hero__opacity">
-          <h1 className="hero__title">
+      <div className="wrapper heroHome">
+        <div className="heroHome__opacity">
+          <h1 className="heroHome__title">
             Dziennik laboratoryjny
             <br /> grupy badawczej
           </h1>
           <BtnLink
             label={"Wypełnij dziennik"}
-            class={"btn btn--hero"}
+            class={"btn btn--heroHome"}
             link={link}
           />
         </div>
+
+        
       </div>
     </section>
   );

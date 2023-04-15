@@ -14,9 +14,7 @@ export interface Props {
 const TextInput = (props: Props) => {
   return (
     <div className={props.containerClass}>
-      <label className={props.labelClass}>
-        {props.label}
-      </label>
+      <label className={props.labelClass}>{props.label}</label>
       <input
         type={props.type}
         name={props.name}

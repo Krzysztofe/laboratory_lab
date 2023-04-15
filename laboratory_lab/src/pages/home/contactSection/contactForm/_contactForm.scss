@@ -1,32 +1,31 @@
 .contactformContainer {
   margin: $space-large auto;
   @include breakpointNav {
+    box-shadow: -4px -2px 14px 11px white;
     width: 50%;
     margin: 0;
     margin-left: auto;
     padding: 7rem 4rem;
-    box-shadow: -4px -2px 14px 11px white;
   }
   &__title {
     margin-bottom: $space-large;
+    font-size: $font-size-large;
     text-align: center;
-    font-size: 2.7rem;
   }
   .contactForm {
     padding: 0 $space-small;
-    position: relative;
     @include breakpointFirst {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
-    &__inputWrapper{
-        width: 100%;
+    &__inputWrapper {
+      width: 100%;
       @include breakpointFirst {
         width: 45%;
       }
     }
-    &__container {
+    &__inputContainer {
       width: 100%;
     }
     &__label {
@@ -35,12 +34,12 @@
       font-weight: $font-weight-bold;
     }
     &__input {
-      width: 100%;
-      border: none;
-      background-color: rgba(0, 0, 0, 0);
-      border-bottom: 1px solid black;
       resize: none;
+      width: 100%;
       padding: 0.2rem;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      border-bottom: 1px solid black;
       &:focus {
         background-color: $color-neutral-light;
       }
@@ -53,29 +52,28 @@
       }
     }
 
-    input::placeholder {
+    .contactForm__input::placeholder {
+      font-family: $font-family-Open-Sans;
       color: rgba(0, 0, 0, 0.4);
     }
 
-    textarea::placeholder {
-      color: rgba(0, 0, 0, 0.4);
-      font-family: $font-family-Open-Sans;
-    }
     &__error {
-       width: 100%;
-      color: $color-red;
+      width: 100%;
       height: $font-size-small;
-      line-height: $font-size-small;
       font-size: $font-size-small;
+      line-height: $font-size-small;
+      color: $color-red;
     }
 
     &__btn {
-      width: 45%;
       display: flex;
       justify-content: center;
-      margin-left: auto;
+      width: 45%;
       margin-top: 1rem;
-     
+      margin-left: auto;
+      &:active {
+        color: $color-black;
+      }
     }
   }
 }

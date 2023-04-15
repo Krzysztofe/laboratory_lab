@@ -1,27 +1,26 @@
-.hero {
-  padding: 0;
+.heroHome {
   position: relative;
-  &:before,
-  &:after {
+  padding: 0;
+  &:after,
+  &:before {
     content: "";
     position: absolute;
+    z-index: -1;
     top: 0;
     width: 50%;
     height: 100%;
     background-image: url("../../../asets/hero-small.jpg");
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: left;
-    z-index: -1;
-     @include breakpointNav {
-        background-size: 250%;
-         background-image: url("../../../asets/hero_large.jpg");
-      }
+    background-size: cover;
+    @include breakpointNav {
+      background-image: url("../../../asets/hero_large.jpg");
+      background-size: 250%;
+    }
   }
 
   &:before {
     right: 0;
-    width: 50%;
     transform: scaleX(-1);
   }
 
@@ -35,16 +34,16 @@
   }
 
   &__title {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    color: $color-white;
+    text-align: center;
     text-transform: uppercase;
     margin-bottom: $space-small;
-    text-align: center;
-    color: $color-white;
-    font-size: clamp(2.5rem, 7vw, 4rem);
   }
 
-  .btn--hero {
-    font-size: $font-size-small;
+  .btn--heroHome {
     padding: 0.5em 1.5em;
+    font-size: $font-size-small;
     color: $color-white;
   }
 }
