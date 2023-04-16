@@ -6,11 +6,11 @@
 }
 .reaction__textInput {
   width: 250px;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0.3);
   padding: $space-small/3;
-  color: $color-white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
   font-weight: $font-weight-bold;
+  color: $color-white;
   &::placeholder {
     color: rgba(255, 255, 255, 0.5);
   }
@@ -34,13 +34,13 @@
 }
 
 .reaction__radioInput {
+  -webkit-appearance: none;
   width: 1.5em;
   height: 1.5em;
   margin-right: 2em;
-  font-weight: $font-weight-bold;
-  -webkit-appearance: none;
   transition-duration: 320ms;
   background-color: rgba(0, 0, 0, 0.3);
+  font-weight: $font-weight-bold;
   &:checked {
     background-color: $color-white;
   }
@@ -54,22 +54,21 @@
 }
 
 .reaction__selectTop {
-  max-width: 250px;
-  width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: $space-small/5;
+  align-items: center;
+  width: 100%;
+  max-width: 250px;
   margin-bottom: $space-small/3;
+  padding: $space-small/5;
   background-color: rgba(0, 0, 0, 0.3);
   font-weight: $font-weight-bold;
-  .select__arrow,
   .select__arrow--up {
+    clip-path: polygon(50% 80%, 90% 0, 100% 0, 50% 100%, 0 0, 10% 0);
     width: 20px;
     height: 10px;
-    background-color: $color-white;
     transition-duration: 320ms;
-    clip-path: polygon(50% 80%, 90% 0, 100% 0, 50% 100%, 0 0, 10% 0);
+    background-color: $color-white;
   }
 
   .select__arrow--up {
@@ -82,12 +81,12 @@
 }
 
 .reaction__selectOption {
-  width: 15rem;
-  border: 1px solid $color-grey;
   position: relative;
   z-index: 1;
-  background-color: $color-white;
+  width: 15rem;
   padding: 0 0.6rem;
+  background-color: $color-white;
+  border: 1px solid $color-grey;
   color: $color-black;
   &:hover {
     background-color: $color-grey;
@@ -103,37 +102,36 @@
 }
 
 .reaction__checkboxecContainer {
-  max-width: 250px;
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1rem;
   row-gap: 1rem;
-
+  column-gap: 1rem;
+  width: 100%;
+  max-width: 250px;
   .reaction__checkboxLabel {
     display: block;
-    letter-spacing: 0.1rem;
-    width: 45%;
     flex-grow: 1;
+    width: 45%;
+    letter-spacing: 0.1rem;
     .reaction__checkboxInput {
       display: none;
     }
     .reaction__checkboxStyle {
-      background-color: rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      text-align: center;
-      font-weight: $font-weight-bold;
       padding: 0.5em 0;
       transition-duration: 320ms;
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      font-weight: $font-weight-bold;
+      text-align: center;
     }
   }
 }
 
 .numberInCheckbox {
+  padding: 0 2px;
   font-size: $font-size-xsmall;
   line-height: 6px;
   vertical-align: -0.4em;
-  padding: 0 2px;
 }
 
 .reaction__checkboxInput:checked + .reaction__checkboxStyle {
@@ -145,10 +143,10 @@
 
 .reaction__error {
   width: fit-content;
-  color: $color-red;
-  font-size: $font-size-small;
-  letter-spacing: 3px;
-  line-height: $font-size-small;
   height: $font-size-small;
+  font-size: $font-size-small;
   font-weight: $font-weight-bold;
+  line-height: $font-size-small;
+  color: $color-red;
+  letter-spacing: 3px;
 }

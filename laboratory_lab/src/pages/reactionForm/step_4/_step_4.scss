@@ -1,6 +1,6 @@
 .step4 {
-  max-width: 400px;
   width: 100%;
+  max-width: 400px;
 }
 
 .step4__subHeader {
@@ -11,17 +11,16 @@
   .step4__reactionProperty {
     display: inline-block;
     width: 50%;
-    text-align: right;
     background-color: rgba(0, 0, 0, 0.3);
-      font-weight: $font-weight-slim;
+    font-weight: $font-weight-slim;
+    text-align: right;
   }
   .step4__reactionValue {
     display: inline-block;
     width: fit-content;
-    text-align: left;
     padding: 0 1em 0 0.5em;
-    font-weight: $font-weight-bold;
     background-color: rgba(0, 0, 0, 0.3);
+    font-weight: $font-weight-bold;
+    text-align: left;
   }
 }
-

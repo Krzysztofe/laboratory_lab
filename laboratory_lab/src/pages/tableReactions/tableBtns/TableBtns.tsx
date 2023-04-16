@@ -1,21 +1,19 @@
+import { AiFillEdit } from "react-icons/ai";
+import { FaTrashAlt } from "react-icons/fa";
+import { MdSystemUpdateAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
+import { ModelReaction } from "../../../hooks/useReactions";
+import { useValidationForm } from "../../../hooks/useValidationForm";
 import { RootState } from "../../../redux/store";
+import {
+  handleClearEditForm,
+  handleEdit,
+  handleUpdate,
+} from "../../../redux/storeFeatures/tableReactionsSlice";
 import {
   useDeleteReactionMutation,
   useUpdateReactionMutation,
 } from "../../../services/apiSlice";
-import {
-  handleUpdate,
-  handleEdit,
-  handleClearEditForm,
-  handleToggleIsEdit,
-} from "../../../redux/storeFeatures/tableReactionsSlice";
-import { FaTrashAlt } from "react-icons/fa";
-import { AiFillEdit } from "react-icons/ai";
-import { MdSystemUpdateAlt } from "react-icons/md";
-import { useValidationForm } from "../../../hooks/useValidationForm";
-import { ModelReaction } from "../../../hooks/useReactions";
-import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import RequestMessage from "../../reactionForm/RequestMessage";
 
 const TableBtns = (props: Partial<ModelReaction>) => {
@@ -25,7 +23,7 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   );
   const { validationForm } = useValidationForm(editedReaction);
   const [updateReaction, success] = useUpdateReactionMutation();
-  const [deleteReaction] = useDeleteReactionMutation();
+  const [deleteReaction, isLoading] = useDeleteReactionMutation();
 
   const handleReactionEdit = (
     printReactions: ModelReaction[],
@@ -46,8 +44,10 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   };
 
   const handleDelete = async (id?: string) => {
-    dispatch(handleToggleIsEdit());
-    await deleteReaction(id);
+    const result = window.confirm("Chcesz usunąć zapis?");
+    if (result) {
+      await deleteReaction(id);
+    }
   };
 
   let tdBtns = (
@@ -93,6 +93,24 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     tdBtns = (
       <RequestMessage
         message={"Wysyła..."}
+        className="tableReactions__requestMessage"
+      />
+    );
+  }
+
+  if (isLoading.isError) {
+    tdBtns = (
+      <RequestMessage
+        message={"Błąd"}
+        className="tableReactions__requestMessage"
+      />
+    );
+  }
+
+  if (isLoading.isLoading) {
+    tdBtns = (
+      <RequestMessage
+        message={"Usuwa..."}
         className="tableReactions__requestMessage"
       />
     );

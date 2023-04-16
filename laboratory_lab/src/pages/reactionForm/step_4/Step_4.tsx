@@ -1,14 +1,14 @@
 import { summaryParams, summaryDates } from "./dataStep_4";
 import { motion } from "framer-motion";
-import { ModelFormReaction } from "../formReaction/ModelFormReaction";
-
+import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
 
 interface Props {
-   reaction: ModelFormReaction;
+  reaction: ModelFormReaction;
 }
 
 const Step_5 = (props: Props) => {
   const getReactionValues = Object.values(props.reaction);
+
 
   return (
     <motion.section
@@ -29,7 +29,18 @@ const Step_5 = (props: Props) => {
                   {summaryParams[idx]}:&nbsp;
                 </div>
                 <div className="step4__reactionValue">
-                  {Array.isArray(value) ? value.flat().join(", ") : value}
+                  {Array.isArray(value)
+                    ? value
+                        .join(", ")
+                        .split("")
+                        .map(char => {
+                          return isNaN(Number(char)) ? (
+                            char
+                          ) : (
+                            <small className="numberInCheckbox">{char}</small>
+                          );
+                        })
+                    : value}
                 </div>
               </li>
             );

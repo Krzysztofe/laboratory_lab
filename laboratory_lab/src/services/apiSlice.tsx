@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { URL_DATA } from "../data/apiKeys";
-import { ModelFormReaction } from "../pages/reactionForm/formReaction/ModelFormReaction";
+import { ModelFormReaction } from "../pages/reactionForm/_indexFormReaction/ModelFormReaction";
 
 interface Reactions {
   [key: string]: ModelFormReaction;

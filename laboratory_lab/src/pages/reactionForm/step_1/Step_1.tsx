@@ -4,7 +4,7 @@ import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
-import { ModelFormReaction } from "../formReaction/ModelFormReaction";
+import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
 import { alcaloidsData } from "./dataStep_1";
 
 export interface Props {
@@ -14,21 +14,19 @@ export interface Props {
 }
 
 const Step_1 = (props: Props): JSX.Element => {
+
   const handleChangeName = (e: ChangeEvent) => {
     return props.handleChange({ name: e.target.value });
   };
   const handleChangeAlcaloids = (e: ChangeEvent) => {
     return props.handleChange({ alcaloids: e.target.value });
   };
-
   const handleChangeTechnics = (e: ChangeEvent) => {
     return props.handleChange({ technics: e.target.value });
   };
-
   const handleChangeMilimolles = (value: string) => {
     props.handleChange({ selectMilimolles: value });
   };
-
 
   return (
     <motion.section
@@ -85,6 +83,7 @@ const Step_1 = (props: Props): JSX.Element => {
       <div className="reaction__error">
         <small>{props.errors.alcaloids}</small>
       </div>
+
       <TextInput
         type={"text"}
         name={"technics"}

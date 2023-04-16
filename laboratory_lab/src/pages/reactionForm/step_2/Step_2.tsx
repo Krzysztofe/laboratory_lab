@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import CheckboxInput from "../../../components/inputs/checkboxInput/CheckboxInput";
 import SelectInput from "../../../components/inputs/selectInput/SelectInput";
-import { solventsNameKeyData } from "./dataStep_2";
-import { ChangeEvent } from "../../../data/types";
 import TextInput from "../../../components/inputs/textInput/TextInput";
-import { motion } from "framer-motion";
-import { ModelFormReaction } from "../formReaction/ModelFormReaction";
+import { ChangeEvent } from "../../../data/types";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
+import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
+import { solventsNameKeyData } from "./dataStep_2";
 
 export interface Props {
   reaction: ModelFormReaction;

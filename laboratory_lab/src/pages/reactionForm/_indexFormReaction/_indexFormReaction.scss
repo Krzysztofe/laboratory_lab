@@ -1,21 +1,17 @@
-@import "../formReaction/reactionInputsGeneric";
-@import "../formReaction/reactionStepGeneric";
+@import "../_indexFormReaction/reactionInputsGeneric";
 @import "../step_4/step_4";
 
 .formReaction {
-  min-height: calc(100% - $font-size-small - ($space-small * 2));
   display: flex;
   flex-direction: column;
-
-  // Header
-
+  min-height: calc(100% - $font-size-small - ($space-small * 2));
   .wrapper--formReactionHeader {
     background-color: $color-neutral-light;
   }
   &__stepIdx,
   &__topDescription {
-    max-width: 250px;
     width: 100%;
+    max-width: 250px;
     margin: 0 auto;
     font-size: 2rem;
     @include breakpointNav {
@@ -30,29 +26,32 @@
   // Form
 
   &__form {
-    position: relative;
-    height: 100%;
-    flex-grow: 1;
     display: flex;
     justify-content: center;
+    flex-grow: 1;
+    position: relative;
+    height: 100%;
     padding: 0;
-    color: $color-white;
     font-weight: $font-weight-bold;
+    color: $color-white;
     &:before,
     &:after {
       content: "";
       position: absolute;
+      z-index: -1;
       width: 50%;
       height: 100%;
       background-color: $color-neutral-light;
       background-image: url("../../../asets/hero-small.jpg");
-      background-size: cover;
       background-repeat: no-repeat;
       background-position: left;
-      z-index: -1;
+      background-size: cover;
       @include breakpointNav {
-        background-size: 250%;
         background-image: url("../../../asets/hero_large.jpg");
+        background-size: 250%;
+      }
+      @media (min-height: 1180px) {
+        background-size: cover;
       }
     }
     &:before {
@@ -69,24 +68,24 @@
     }
   }
   &__opacity {
-    width: 100%;
-    display: grid;
     place-items: center;
+    display: grid;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
   }
   &__wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     -moz-backdrop-filter: blur(5px);
     -o-backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     padding: $space-small $space-large;
+    background-color: rgba(255, 255, 255, 0.4);
     @include breakpointNav {
       width: 400px;
       max-height: 500px;
@@ -96,12 +95,12 @@
   // Request message
 
   &__requestMessage {
-    height: 100%;
-    display: grid;
     place-items: center;
+    display: grid;
+    height: 100%;
+    font-weight: $font-weight-slim;
     color: $color-white;
     text-align: center;
-    font-weight: $font-weight-slim;
   }
 
   // Btns
@@ -109,9 +108,8 @@
   &__btns {
     display: flex;
     justify-content: space-between;
-    max-width: 250px;
     width: 100%;
-
+    max-width: 250px;
     .btn--formReaction {
       width: 40%;
       padding: 0.5em 0;

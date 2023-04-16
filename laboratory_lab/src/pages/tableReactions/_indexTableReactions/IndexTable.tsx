@@ -1,11 +1,10 @@
-import { useDispatch } from "react-redux";
-import TableReactions from "../tableReactions/TableReactions";
+import { useDispatch, useSelector } from "react-redux";
+import { useValidationForm } from "../../../hooks/useValidationForm";
+import { RootState } from "../../../redux/store";
+import { handleTableOpen } from "../../../redux/storeFeatures/tableReactionsSlice";
 import TableBody from "../tableBody/TableBody";
 import TableHead from "../tableHead/TableHead";
-import { handleTableOpen } from "../../../redux/storeFeatures/tableReactionsSlice";
-import { useValidationForm } from "../../../hooks/useValidationForm";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../redux/store";
+import TableReactions from "../tableReactions/TableReactions";
 
 const IndexTable = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,6 @@ const IndexTable = () => {
   );
 
   const { validationForm } = useValidationForm(editedReaction);
- 
 
   const conditionsPrint =
     !editedReaction.isEdit &&
@@ -69,16 +67,16 @@ const IndexTable = () => {
           {timePrint.text}
         </div>
         <div className="tableReactions__header  tableReactions__header--counter ">
-          {printReactions.length>0
+          {printReactions.length > 0
             ? `Liczba reakcji: ${printReactions.length}`
             : ""}
         </div>
       </section>
 
       <TableReactions>
-         <TableHead />
-        <TableBody /> 
-      </TableReactions> 
+        <TableHead />
+        <TableBody />
+      </TableReactions>
     </main>
   );
 };

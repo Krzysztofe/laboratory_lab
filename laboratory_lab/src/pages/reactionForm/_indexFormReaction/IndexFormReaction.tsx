@@ -1,18 +1,17 @@
-import { useState, useEffect, FormEvent } from "react";
-import {
-  useAddReactionMutation,
-} from "../../../services/apiSlice";
-import { INITIAL_DATA } from "./dataFormReaction";
+import { FormEvent, useEffect, useState } from "react";
 import useMultistepForm from "../../../hooks/useMultistepForm";
+import { useValidationForm } from "../../../hooks/useValidationForm";
+import { useAddReactionMutation } from "../../../services/apiSlice";
+import RequestMessage from "../RequestMessage";
+import ReactionFormHeader from "../reactionFormHeader/ReactionFormHeader";
 import Step_1 from "../step_1/Step_1";
 import Step_2 from "../step_2/Step_2";
 import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
-import { useValidationForm } from "../../../hooks/useValidationForm";
 import { ModelFormReaction } from "./ModelFormReaction";
-import RequestMessage from "../RequestMessage";
+import { INITIAL_DATA } from "./dataFormReaction";
 
-const FormReaction = () => {
+const IndexFormReaction = () => {
   const [reaction, setReaction] = useState(INITIAL_DATA);
   const [errors, setErrors] = useState({});
   const [addReaction, success] = useAddReactionMutation();
@@ -60,13 +59,6 @@ const FormReaction = () => {
     }
     return () => clearTimeout(timeoutID);
   }, [success.isSuccess, setCurrentStepIdx, setReaction]);
-
-  const reactionFormHeaderData = [
-    "Podstawowe reagenty",
-    "Techniki laboratoryjne",
-    "Przebieg reakcji",
-    "Podsumowanie",
-  ];
 
   let formContent = (
     <>
@@ -121,23 +113,14 @@ const FormReaction = () => {
 
   return (
     <main className="formReaction">
-      <header className="wrapper wrapper--formReactionHeader ">
-        <p className="formReaction__stepIdx ">
-          Krok {currentStepIdx + 1}/{steps.length}
-        </p>
-        <h2 className="formReaction__topDescription">
-          {reactionFormHeaderData[currentStepIdx]}
-        </h2>
-      </header>
-
+      <ReactionFormHeader currentStepIdx={currentStepIdx} steps={steps} />
       <form onSubmit={handleSubmit} className={`wrapper formReaction__form`}>
         <div className="formReaction__opacity">
           <div className="formReaction__wrapper">{formContent}</div>
         </div>
       </form>
-
     </main>
   );
 };
 
-export default FormReaction;
+export default IndexFormReaction;

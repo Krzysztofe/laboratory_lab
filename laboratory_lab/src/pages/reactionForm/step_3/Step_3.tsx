@@ -1,7 +1,7 @@
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { motion } from "framer-motion";
-import { ModelFormReaction } from "../formReaction/ModelFormReaction";
+import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
 
 interface Props {
@@ -10,22 +10,43 @@ interface Props {
   errors: ModelValidationErrors;
 }
 
-const Step_4 = (props: Props) => {
-  const handleStarthDate = (e: ChangeEvent) => {
-    return props.handleChange({ startDate: e.target.value });
-  };
+const Step_3 = (props: Props) => {
 
-  const handleFinishDate = (e: ChangeEvent) => {
-    return props.handleChange({ finishDate: e.target.value });
-  };
+  const handleFieldChange =
+    (field: keyof ModelFormReaction) => (e: ChangeEvent) => {
+      props.handleChange({ [field]: e.target.value });
+    };
 
-  const handleStartTime = (e: ChangeEvent) => {
-    return props.handleChange({ startTime: e.target.value });
-  };
-
-  const handleFinishTime = (e: ChangeEvent) => {
-    return props.handleChange({ finishTime: e.target.value });
-  };
+  const fields = [
+    {
+      name: "startDate",
+      type: "date",
+      label: "Data rozpoczęcia",
+      value: props.reaction.startDate,
+      error: props.errors.startDate,
+    },
+    {
+      name: "finishDate",
+      type: "date",
+      label: "Data ukończenia",
+      value: props.reaction.finishDate,
+      error: props.errors.finishDate,
+    },
+    {
+      name: "startTime",
+      type: "time",
+      label: "Godzina rozpoczęcia",
+      value: props.reaction.startTime,
+      error: props.errors.startTime,
+    },
+    {
+      name: "finishTime",
+      type: "time",
+      label: "Godzina zakończenia",
+      value: props.reaction.finishTime,
+      error: props.errors.finishTime,
+    },
+  ] as const;
 
   return (
     <motion.section
@@ -33,64 +54,27 @@ const Step_4 = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
     >
-      <TextInput
-        type={"date"}
-        name={"startDate"}
-        value={props.reaction.startDate}
-        handleChange={handleStarthDate}
-        label={"Data rozpoczęcia"}
-        containerClass={"reaction__textInputContainer"}
-        labelClass={"reaction__textInputLabel"}
-        inputClass={"reaction__textInput"}
-      />
-
-      <div className="reaction__error">
-        <small>{props.errors.startDate}</small>
-      </div>
-
-      <TextInput
-        type={"date"}
-        name={"finishDate"}
-        value={props.reaction.finishDate}
-        handleChange={handleFinishDate}
-        label={"Data ukończenia"}
-        containerClass={"reaction__textInputContainer"}
-        labelClass={"reaction__textInputLabel"}
-        inputClass={"reaction__textInput"}
-      />
-      <div className="reaction__error">
-        <small>{props.errors.finishDate}</small>
-      </div>
-
-      <TextInput
-        type={"time"}
-        name={"startTime"}
-        value={props.reaction.startTime}
-        handleChange={handleStartTime}
-        label={"Godzina rozpoczęcia"}
-        containerClass={"reaction__textInputContainer"}
-        labelClass={"reaction__textInputLabel"}
-        inputClass={"reaction__textInput"}
-      />
-      <div className="reaction__error">
-        <small>{props.errors.startTime}</small>
-      </div>
-
-      <TextInput
-        type={"time"}
-        name={"finishTime"}
-        value={props.reaction.finishTime}
-        handleChange={handleFinishTime}
-        label={"Godzina zakończenia"}
-        containerClass={"reaction__textInputContainer"}
-        labelClass={"reaction__textInputLabel"}
-        inputClass={"reaction__textInput"}
-      />
-      <div className="reaction__error">
-        <small>{props.errors.finishTime}</small>
-      </div>
+      {fields.map(({ name, type, label, value, error }) => (
+        <div key={name}>
+          <TextInput
+            type={type}
+            name={name}
+            value={value}
+            handleChange={handleFieldChange(name)}
+            label={label}
+            containerClass={"reaction__textInputContainer"}
+            labelClass={"reaction__textInputLabel"}
+            inputClass={"reaction__textInput"}
+          />
+          {error && (
+            <div className="reaction__error">
+              <small>{error}</small>
+            </div>
+          )}
+        </div>
+      ))}
     </motion.section>
   );
 };
 
-export default Step_4;
+export default Step_3;
