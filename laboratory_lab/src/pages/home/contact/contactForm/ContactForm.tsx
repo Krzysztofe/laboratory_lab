@@ -13,7 +13,7 @@ const ContactForm = () => {
   return (
     <aside className="contactformContainer">
       <h3 className="contactformContainer__title">
-        Wiadomość dla grupy <br /> badawczej
+        Wiadomość do grupy <br /> badawczej
       </h3>
       <form onSubmit={handleSubmit} className="contactForm">
         <div className="contactForm__inputWrapper">

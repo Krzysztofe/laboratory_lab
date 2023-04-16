@@ -1,0 +1,33 @@
+.paginationHome__header {
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: $font-size-large;
+    text-align: center;
+}
+
+.paginationHome__btns {
+    display: flex;
+    justify-content: center;
+    column-gap: $space-small/2;
+    margin: $space-small auto $space-small/2 auto;
+  .paginationHome__btn {
+      width: 30%;
+      max-width: 125px;
+      color: $color-neutral-dark;
+    &:hover {
+        color: $color-white;
+    }
+    &:focus {
+        background-color: $color-button;
+        border: 2px solid $color-button;
+        color: $color-white;
+    }
+  }
+}
+
+
+  .paginationHome__reactionDescription {
+      margin: $space-small 0;
+      font-size: $font-size-small;
+      text-align: center;
+  }

@@ -1,5 +1,5 @@
 import { ModelReaction } from "../../../../hooks/useReactions";
-import { useReactionsSelection } from "../utilsPagination";
+import { useFilteredReactions } from "../useFilteredReactions";
 
 interface Props {
   counter: number;
@@ -7,11 +7,11 @@ interface Props {
 }
 
 const TablePagination = (props: Props) => {
-  const { getReactionsToPrint } = useReactionsSelection(props.counter);
+  const { getReactionsTablePrint } = useFilteredReactions(props.counter);
   const reactionPerPage = 3;
   const pagesVisited = props.pageNumber * reactionPerPage;
 
-  const displayReactions = getReactionsToPrint
+  const displayReactions = getReactionsTablePrint
     .slice(pagesVisited, pagesVisited + reactionPerPage)
     .map((reaction: ModelReaction) => {
       return (
@@ -25,7 +25,7 @@ const TablePagination = (props: Props) => {
 
   return (
     <>
-      {getReactionsToPrint.length === 0 ? (
+      {getReactionsTablePrint.length === 0 ? (
         <div className="reactionsHome__emptyTableMessage">
           Brak reakcji zapisanych w dzienniku
         </div>

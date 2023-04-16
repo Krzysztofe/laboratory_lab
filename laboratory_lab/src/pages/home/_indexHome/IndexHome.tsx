@@ -1,4 +1,4 @@
-import Contact from "../contactSection/contact/Contact";
+import ContactSection from "../contact/contactSection/ContactSection";
 import Hero from "../hero/Hero";
 import PaginationSection from "../pagination/paginationSection/PaginationSection";
 
@@ -7,7 +7,7 @@ const IndexHome = () => {
     <main>
       <Hero />
       <PaginationSection />
-      <Contact />
+      <ContactSection />
     </main>
   );
 };

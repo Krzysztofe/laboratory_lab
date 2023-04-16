@@ -1,12 +1,12 @@
-import { useEffect } from "react";
-import TextInput from "../../components/inputs/textInput/TextInput";
-import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../data/firebaseConfig";
-import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
+import TextInput from "../../components/inputs/textInput/TextInput";
 import NavHomeSpacer from "../../components/navHomeSpacer/NavHomeSpacer";
+import { auth } from "../../data/firebaseConfig";
 
 const Register = () => {
   const navigate = useNavigate();

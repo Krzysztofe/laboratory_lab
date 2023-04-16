@@ -1,29 +1,25 @@
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useReactionsQuery } from "../../../../services/apiSlice";
-import BtnsPagination from "../btnsPagination/BtnsPagination";
-import { btnsSubtitleData } from "../dataPagination";
+import HeaderPagination from "../headerPaination/HeaderPagination";
 import TablePagination from "../tablePagination/TablePagination";
-import { useReactionsSelection } from "../utilsPagination";
+import { useFilteredReactions } from "../useFilteredReactions";
 
 const PaginationSection = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [counter, setCounter] = useState(0);
   const { data, isLoading, error } = useReactionsQuery(undefined);
-  const { getReactionsToPrint } = useReactionsSelection(counter);
+  const { getReactionsTablePrint } = useFilteredReactions(counter);
 
   const pageCount =
-    getReactionsToPrint && Math.ceil(getReactionsToPrint.length / 3);
+    getReactionsTablePrint?.length &&
+    Math.ceil(getReactionsTablePrint.length / 3);
 
   const changePage = ({ selected }: { selected: number }) => {
     setPageNumber(selected);
   };
 
-  let tableContent = (
-    <div className="reactionsHome__emptyTableMessage">
-      Brak reakcji zapisanych w dzienniku
-    </div>
-  );
+  let tableContent;
 
   if (isLoading) {
     tableContent = <div style={{ textAlign: "center" }}>Loading...</div>;
@@ -38,12 +34,14 @@ const PaginationSection = () => {
     tableContent = (
       <>
         <TablePagination counter={counter} pageNumber={pageNumber} />
-        {getReactionsToPrint.length > 0 ? (
+        {getReactionsTablePrint.length > 0 ? (
           <ReactPaginate
             previousLabel={"<<"}
             nextLabel={">>"}
             pageCount={pageCount || 1}
             onPageChange={changePage}
+            pageRangeDisplayed={1}
+            marginPagesDisplayed={2}
             containerClassName={"paginationCounters"}
             previousLinkClassName={"paginationCounters__previousNext"}
             pageLinkClassName={"paginationCounters__btn"}
@@ -52,7 +50,7 @@ const PaginationSection = () => {
             disabledClassName={"paginationCounters__disabledBtn"}
           />
         ) : (
-          <div className="emptyContainer"></div>
+          <div className="emptyCountersContainer"></div>
         )}
       </>
     );
@@ -61,15 +59,11 @@ const PaginationSection = () => {
   return (
     <section id="pagination">
       <div className="wrapper paginationHome">
-        <h3 className="paginationHome__header">
-          Reakcje aktualnie zapisane w dzienniku
-        </h3>
-        <BtnsPagination setCounter={setCounter} setPageNumber={setPageNumber} />
-
-        <div className="paginationHome__reactionDescription">
-          {btnsSubtitleData[counter]}
-        </div>
-
+        <HeaderPagination
+          counter={counter}
+          setCounter={setCounter}
+          setPageNumber={setPageNumber}
+        />
         {tableContent}
       </div>
     </section>

@@ -1,40 +1,27 @@
 .paginationHome {
-  position: relative;
-  z-index: 1;
-  padding: $space-small;
-  background-color: $color-neutral-light;
-  color: $color-neutral-dark;
-  &__header {
-    max-width: 540px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: $font-size-large;
-  }
-
-  &__reactionDescription {
-    margin: $space-small 0;
-    font-size: $font-size-small;
-    text-align: center;
-  }
-
+    position: relative;
+    z-index: 1;
+    padding: $space-small;
+    background-color: $color-neutral-light;
+    color: $color-neutral-dark;
   .paginationCounters {
-    display: flex;
-    justify-content: center;
-    width: fit-content;
-    height: 3.5rem;
-    margin: 0 auto;
-    cursor: pointer;
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      height: 3.5rem;
+      margin: 0 auto;
+      cursor: pointer;
     &__previousNext {
-      margin: $space-small;
+        margin: $space-small;
     }
     &__btn {
-      padding: $space-small / 2;
+        padding: $space-small / 2;
     }
     &__active {
-      color: $color-accent;
+        color: $color-accent;
     }
   }
-  .emptyContainer {
-    height: 3.5rem;
+  .emptyCountersContainer {
+      height: 3.5rem;
   }
 }

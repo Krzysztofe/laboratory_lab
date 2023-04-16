@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import TextInput from "../../components/inputs/textInput/TextInput";
-import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
-import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../../data/firebaseConfig";
-import { useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from "formik";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
+import TextInput from "../../components/inputs/textInput/TextInput";
 import NavHomeSpacer from "../../components/navHomeSpacer/NavHomeSpacer";
+import { auth } from "../../data/firebaseConfig";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -41,11 +41,6 @@ const Login = () => {
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="loginForm">
             <h2 className="loginForm__title">Zaloguj się</h2>
-            <small>
-              login: &nbsp; ww@wp.pl
-              <br />
-              hasło: &nbsp; wwwwww
-            </small>
 
             <TextInput
               type={"text"}
@@ -88,7 +83,6 @@ const Login = () => {
               link={"/register"}
               textRight="Zaloguj się"
               textLeft="Załóż konto"
-              // inputFocus={inputFocus}
             />
           </form>
         </div>

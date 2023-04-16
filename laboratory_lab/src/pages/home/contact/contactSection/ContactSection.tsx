@@ -1,6 +1,6 @@
 import ContactForm from "../contactForm/ContactForm";
 
-const Contact = () => {
+const ContactSection = () => {
   return (
     <section id="contact">
       <div className="wrapper contact">
@@ -11,4 +11,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ContactSection;
