@@ -7,7 +7,7 @@
 
 ## Features
 * Comunication with database
-* Register form, login form using firebase
+* Register form, login form 
 * Multistep form
 * Forms validations 
 * Routing
