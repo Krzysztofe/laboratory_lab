@@ -1,7 +1,7 @@
 .tableReactions__table {
-  height: calc(100% - 65px);
   display: flex;
   flex-direction: column;
+  height: calc(100% - 65px);
   @include breakpointNav {
     padding-left: 70px;
   }
@@ -12,15 +12,15 @@
 .tableReactions__table thead tr {
   display: flex;
   padding: $space-small/2 0;
-  line-height: 2rem;
   background-color: $color-neutral-secondary-dark;
+  line-height: 2rem;
 }
 
 .tableReactions__table thead tr td {
   display: none;
-  font-weight: 900;
-  padding-left: $space-small/2;
   width: 100%;
+  padding-left: $space-small/2;
+  font-weight: 900;
   &:nth-child(-n + 3) {
     display: block;
   }
@@ -53,10 +53,10 @@
 // Table body
 
 .tableReactions__table tbody {
-  overflow-x: auto;
+  border-collapse: collapse;
   display: block;
   position: relative;
-  border-collapse: collapse;
+  overflow-x: auto;
   &::-webkit-scrollbar {
     display: none;
   }
@@ -64,38 +64,49 @@
 .tableReactions__table tbody tr {
   display: flex;
   padding: $font-size-small 0 $font-size-small/2 0;
-
   &:nth-child(even) {
     background-color: $color-neutral-secondary-light;
   }
 }
 
-.PostRequest,
-.DeleteRequest {
+.httpRequestInRow {
   &:before {
-    content: "Wysyła...";
+    content: "";
     backdrop-filter: blur(4px);
-    color: $color-black;
     position: absolute;
-    text-align: center;
-    letter-spacing: 2px;
-    font-size: $font-size-small * 2;
-    font-weight: $font-weight-bold;
     width: 100%;
     height: $font-size-small + 2rem + 0.8rem;
   }
 }
-.DeleteRequest:before {
-  content: "Błąd...";
-  color: $color-red;
+
+.httpRequestInRow:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: $font-size-small + 2rem + 0.8rem;
+  background-image: url("../../../asets/loading.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  animation: loading 1s infinite linear;
 }
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
 .tableReactions__table tbody tr td {
   display: none;
-  padding-left: $space-small/2;
-  height: $font-size-small + 2rem + 0.8rem;
   width: 100%;
-
+  height: $font-size-small + 2rem + 0.8rem;
+  padding-left: $space-small/2;
   &:nth-child(-n + 3) {
     display: block;
   }
@@ -129,9 +140,9 @@
 // Table btns
 
 .tableReactions__btn {
-  font-size: 2rem;
-  background-color: rgba(0, 0, 0, 0);
   padding-right: $space-small/3;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 2rem;
   &--edit {
     color: $color-accent;
   }
@@ -140,3 +151,6 @@
   }
 }
 
+.tableReactions__requestMessage{
+  color: $color-red;
+}

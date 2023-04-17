@@ -34,10 +34,10 @@ const TableBody = () => {
 
   const httpRequestAddClass = (reactionID: any) => {
     if (editRequestState.editIsLoading && editRequestState.id === reactionID) {
-      return "PostRequest";
+      return "httpRequestInRow";
     }
     if (editRequestState.editIsError && editRequestState.id === reactionID) {
-      return "DeleteRequest";
+      return "httpRequestInRow";
     }
 
     return "";

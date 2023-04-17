@@ -1,7 +1,27 @@
-.mainLoadingPage {
+.loadingPage {
   width: 100vw;
   height: 100vh;
   font-size: 4rem;
   display: grid;
   place-items: center;
+
+  &__icon {
+    width: 100px;
+    height: 100px;
+    background-image: url("../../asets/loading.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: loading 2s infinite linear;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

@@ -58,7 +58,8 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   };
 
   const handleDelete = async (id: string) => {
-     dispatch(handleEidtId(id));
+    dispatch(handleEidtId(id));
+    dispatch(handleClearEditForm());
     const result = window.confirm("Chcesz usunąć zapis?");
     if (result) {
       await deleteReaction(id);
@@ -93,7 +94,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
       </button>
     </>
   );
-
 
   if (isLoading.isError) {
     tdBtns = (
