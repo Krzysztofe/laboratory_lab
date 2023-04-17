@@ -5,6 +5,13 @@ interface TableReactionsState {
   editedReaction: ModelReaction;
   printReactions: ModelReaction[];
   toggleTable: { isOpen: boolean };
+  editRequestState: {
+    editIsLoading: boolean;
+    editIsError: boolean;
+    deleteIsLoading: boolean;
+    deleteIsError: boolean;
+    id: string;
+  };
 }
 
 const initialState: TableReactionsState = {
@@ -25,6 +32,13 @@ const initialState: TableReactionsState = {
   },
   printReactions: [],
   toggleTable: { isOpen: true },
+  editRequestState: {
+    editIsLoading: false,
+    editIsError: false,
+    deleteIsLoading: false,
+    deleteIsError: false,
+    id: "",
+  },
 };
 
 export const tableReactionsSlice = createSlice({
@@ -93,6 +107,15 @@ export const tableReactionsSlice = createSlice({
     handleTableOpen: (state, action: PayloadAction<boolean>) => {
       state.toggleTable.isOpen = action.payload;
     },
+    handleEidtisLoading: (state, action: PayloadAction<boolean>) => {
+      state.editRequestState.editIsLoading = action.payload;
+    },
+    handleEidtIsError: (state, action: PayloadAction<boolean>) => {
+      state.editRequestState.editIsError = action.payload;
+    },
+    handleEidtId: (state, action: PayloadAction<string>) => {
+      state.editRequestState.id = action.payload;
+    },
   },
 });
 
@@ -104,5 +127,8 @@ export const {
   handleClearEditForm,
   handleTableOpen,
   handleToggleIsEdit,
+  handleEidtisLoading,
+  handleEidtIsError,
+  handleEidtId,
 } = tableReactionsSlice.actions;
 export default tableReactionsSlice.reducer;

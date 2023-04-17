@@ -19,7 +19,11 @@ const PaginationSection = () => {
     setPageNumber(selected);
   };
 
-  let tableContent;
+  let tableContent = (
+    <div className="reactionsHome__emptyTableMessage">
+      Brak reakcji zapisanych w dzienniku
+    </div>
+  );
 
   if (isLoading) {
     tableContent = <div style={{ textAlign: "center" }}>Loading...</div>;

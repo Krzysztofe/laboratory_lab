@@ -55,6 +55,7 @@
 .tableReactions__table tbody {
   overflow-x: auto;
   display: block;
+  position: relative;
   border-collapse: collapse;
   &::-webkit-scrollbar {
     display: none;
@@ -69,11 +70,32 @@
   }
 }
 
+.PostRequest,
+.DeleteRequest {
+  &:before {
+    content: "Wysyła...";
+    backdrop-filter: blur(4px);
+    color: $color-black;
+    position: absolute;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: $font-size-small * 2;
+    font-weight: $font-weight-bold;
+    width: 100%;
+    height: $font-size-small + 2rem + 0.8rem;
+  }
+}
+.DeleteRequest:before {
+  content: "Błąd...";
+  color: $color-red;
+}
+
 .tableReactions__table tbody tr td {
   display: none;
   padding-left: $space-small/2;
   height: $font-size-small + 2rem + 0.8rem;
   width: 100%;
+
   &:nth-child(-n + 3) {
     display: block;
   }
@@ -118,6 +140,3 @@
   }
 }
 
-.tableReactions__requestError {
-  color: $color-red;
-}

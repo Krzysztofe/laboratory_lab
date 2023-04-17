@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { AiFillEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdSystemUpdateAlt } from "react-icons/md";
@@ -9,6 +10,9 @@ import {
   handleClearEditForm,
   handleEdit,
   handleUpdate,
+  handleEidtisLoading,
+  handleEidtIsError,
+  handleEidtId,
 } from "../../../redux/storeFeatures/tableReactionsSlice";
 import {
   useDeleteReactionMutation,
@@ -25,12 +29,22 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   const [updateReaction, success] = useUpdateReactionMutation();
   const [deleteReaction, isLoading] = useDeleteReactionMutation();
 
+  const { editRequestState } = useSelector(
+    (state: RootState) => state.tableReactions
+  );
+
   const handleReactionEdit = (
     printReactions: ModelReaction[],
     reactionID: string
   ) => {
     dispatch(handleEdit([printReactions, reactionID]));
+    dispatch(handleEidtId(reactionID));
   };
+
+  useEffect(() => {
+    dispatch(handleEidtisLoading(success.isLoading));
+    dispatch(handleEidtIsError(success.isError));
+  }, [success.isLoading, success.isError, dispatch]);
 
   const handleReactionUpdate = async (
     printReactions: ModelReaction[],
@@ -43,7 +57,8 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     await updateReaction(updatedEditedReaction);
   };
 
-  const handleDelete = async (id?: string) => {
+  const handleDelete = async (id: string) => {
+     dispatch(handleEidtId(id));
     const result = window.confirm("Chcesz usunąć zapis?");
     if (result) {
       await deleteReaction(id);
@@ -79,24 +94,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     </>
   );
 
-  if (success.error) {
-    if ("error" in success.error)
-      tdBtns = (
-        <RequestMessage
-          message={"Błąd"}
-          className="tableReactions__requestError"
-        />
-      );
-  }
-
-  if (success.isLoading) {
-    tdBtns = (
-      <RequestMessage
-        message={"Wysyła..."}
-        className="tableReactions__requestMessage"
-      />
-    );
-  }
 
   if (isLoading.isError) {
     tdBtns = (
@@ -116,11 +113,7 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     );
   }
 
-  return (
-    <td>
-      {tdBtns}
-    </td>
-  );
+  return <td>{tdBtns}</td>;
 };
 
 export default TableBtns;

@@ -11,14 +11,19 @@ import {
 } from "../../../services/apiSlice";
 import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import { ModelReaction } from "../../../hooks/useReactions";
+import RequestMessage from "../../reactionForm/RequestMessage";
 
 const TableCellsReaction = (props: Partial<ModelReaction>) => {
   const { error, isLoading } = useReactionsQuery(undefined);
-  // const [updateReaction, success] = useAddReactionMutation();
+ 
   const [updateReaction, success] = useUpdateReactionMutation();
 
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
+  );
+
+  const { printReactions, editRequestState } = useSelector(
+    (state: RootState) => state.tableReactions
   );
 
   const toString = (solventsValue: string) => {
@@ -32,13 +37,25 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
     ? getTableBodyReactionsFirst
     : getTableBodyReactionsSecond;
 
-  // isLoading && <TableBodyRequestMessage message={"Loading..."} />;
-  // if (error) {
-  //   if ("error" in error)
-  //     return <TableBodyRequestMessage message={error.error} />;
+  let tdBtns: any;
 
-  // }
+  if (editRequestState.editIsError) {
+    tdBtns = (
+      <RequestMessage
+        message={"Błąd"}
+        className="tableReactions__requestError"
+      />
+    );
+  }
 
+  if (editRequestState.editIsLoading) {
+    tdBtns = (
+      <RequestMessage
+        message={""}
+        className="tableReactions__requestMessage"
+      />
+    );
+  }
 
   return (
     <>
