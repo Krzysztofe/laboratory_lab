@@ -1,0 +1,24 @@
+.tableReactions__headers {
+  display: flex;
+  margin-top: $space-small;
+
+  @include breakpointNav {
+    padding-left: 70px;
+  }
+  .tableReactions__header {
+    padding: $space-small/2;
+    font-weight: $font-weight-bold;
+    width: 35%;
+    max-width: 20rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  .tableReactions__header--counter {
+    display: none;
+    @include breakpointNav {
+      display: block;
+      background-color: transparent;
+      cursor: auto;
+    }
+  }
+}
