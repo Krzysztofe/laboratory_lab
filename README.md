@@ -26,7 +26,7 @@
 * Lazy loading
 * Firebase APi keys hidden in .env
  <br/><br/>
-* React hooks: <br/> useState, useEffect, <br/> useDispatch, useSelector, useFormik, <br/> useNavigate, useLocation, useMemo, <br/> useAuthState, custom hooks
+* React hooks: <br/> useState, useEffect, <br/> useDispatch, useSelector, <br/> useNavigate, useLocation, <br/> useAuthState, useFormik, custom hooks
 * Libraries: <br/>
 react-router, react-router-dom, react-router-hash-link, <br/>
 react-firebase-hooks, react-paginate,<br/>
