@@ -92,15 +92,36 @@
     }
   }
 
-  // Request message
+  // Http Requests
 
   &__requestMessage {
     place-items: center;
     display: grid;
     height: 100%;
-    font-weight: $font-weight-slim;
     color: $color-white;
     text-align: center;
+  }
+  
+  &__loading {
+    display: grid;
+    place-items: center;
+    width: 100px;
+    height: 100%;
+    background-image: url("../../../asets/loading.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: loading 2s infinite linear;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
 
   // Btns

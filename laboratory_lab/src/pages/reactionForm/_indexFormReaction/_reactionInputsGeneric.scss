@@ -2,7 +2,6 @@
 
 .reaction__textInputLabel {
   display: block;
-  font-weight: $font-weight-slim;
 }
 .reaction__textInput {
   width: 250px;
@@ -30,7 +29,6 @@
 // Radio input
 
 .reaction__radioInputHeader {
-  font-weight: $font-weight-slim;
 }
 
 .reaction__radioInput {
@@ -50,7 +48,6 @@
 
 .reaction__selectLabel {
   display: block;
-  font-weight: $font-weight-slim;
 }
 
 .reaction__selectTop {
@@ -98,7 +95,6 @@
 
 .reaction__checkboxesHeader {
   margin-bottom: $space-small/2;
-  font-weight: $font-weight-slim;
 }
 
 .reaction__checkboxecContainer {

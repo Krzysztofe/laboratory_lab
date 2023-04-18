@@ -83,31 +83,20 @@ const IndexFormReaction = () => {
   if (success.error) {
     if ("error" in success.error)
       formContent = (
-        <RequestMessage
-          message={success.error.error}
-          className="formReaction__requestMessage"
-        />
+        <div className="formReaction__requestMessage ">
+          {success.error.error}
+        </div>
       );
   }
   if (success.isLoading) {
-    formContent = (
-      <RequestMessage
-        message={<> Wysyła... </>}
-        className="formReaction__requestMessage"
-      />
-    );
+    formContent = <div className="formReaction__loading"></div>;
   }
 
   if (success.isSuccess) {
     formContent = (
-      <RequestMessage
-        message={
-          <>
-            Dane wysłane i zapisane <br /> w liście reakcji
-          </>
-        }
-        className="formReaction__requestMessage"
-      />
+      <div className="formReaction__requestMessage ">
+        Dane wysłane i zapisane <br /> w liście reakcji
+      </div>
     );
   }
 
