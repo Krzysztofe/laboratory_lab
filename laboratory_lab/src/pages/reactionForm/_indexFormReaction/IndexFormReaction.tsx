@@ -2,7 +2,6 @@ import { FormEvent, useEffect, useState } from "react";
 import useMultistepForm from "../../../hooks/useMultistepForm";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { useAddReactionMutation } from "../../../services/apiSlice";
-import RequestMessage from "../RequestMessage";
 import ReactionFormHeader from "../reactionFormHeader/ReactionFormHeader";
 import Step_1 from "../step_1/Step_1";
 import Step_2 from "../step_2/Step_2";

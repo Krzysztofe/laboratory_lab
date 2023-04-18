@@ -13,7 +13,6 @@ import {
   useAddReactionMutation,
   useReactionsQuery,
 } from "../../../services/apiSlice";
-import RequestMessage from "../../reactionForm/RequestMessage";
 
 const TableEditForm = () => {
   const dispatch = useDispatch();
@@ -35,54 +34,8 @@ const TableEditForm = () => {
 
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
 
-  // let rowContent = (
-  //   <>
-  //     {inputsPrintData.map(({ type, name }) => {
-  //       return (
-  //         <td style={{ position: "relative" }} key={name}>
-  //           <TextInput
-  //             label={""}
-  //             type={type}
-  //             name={name}
-  //             value={editedReaction[name]}
-  //             handleChange={handleInputChange}
-  //             containerClass={"editForm__textInputContainer"}
-  //             labelClass={"editForm__textInputLabel"}
-  //             inputClass={`editForm__textInput ${
-  //               editedReaction[name] === editedReaction.solvents &&
-  //               "editForm__textInput--solvents"
-  //             }`}
-  //           />
-
-  //           <div className="editForm__error">
-  //             <small>
-  //               {validationForm()[name as keyof typeof validationForm]}
-  //             </small>
-  //           </div>
-  //         </td>
-  //       );
-  //     })}
-  //   </>
-  // );
-
-  // if (success.isLoading) {
-  //   rowContent = (
-  //     <RequestMessage
-  //       message={<> Wysyła... </>}
-  //       className="formReaction__requestMessage"
-  //     />
-  //   );
-  // }
-
-  // if (success.error) {
-  //   if ("error" in success.error)
-  //     rowContent = (
-  //       <RequestMessage
-  //         message={success.error.error}
-  //         className="formReaction__requestMessage"
-  //       />
-  //     );
-  // }
+ 
+  
 
   return (
     <>

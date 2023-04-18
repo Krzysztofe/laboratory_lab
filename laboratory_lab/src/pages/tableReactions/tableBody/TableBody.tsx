@@ -7,7 +7,7 @@ import { getReactions } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../redux/store";
 import TableBtns from "../tableBtns/TableBtns";
-import RequestMessage from "../../reactionForm/RequestMessage";
+
 
 const TableBody = () => {
   const dispatch = useDispatch();

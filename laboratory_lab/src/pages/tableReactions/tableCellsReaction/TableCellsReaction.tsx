@@ -1,17 +1,15 @@
 import { useSelector } from "react-redux";
+import { ModelReaction } from "../../../hooks/useReactions";
 import { RootState } from "../../../redux/store";
+import {
+  useReactionsQuery,
+  useUpdateReactionMutation
+} from "../../../services/apiSlice";
 import {
   getTableBodyReactionsFirst,
   getTableBodyReactionsSecond,
 } from "./utilsTableCellsReaction";
-import {
-  useReactionsQuery,
-  useAddReactionMutation,
-  useUpdateReactionMutation,
-} from "../../../services/apiSlice";
-import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
-import { ModelReaction } from "../../../hooks/useReactions";
-import RequestMessage from "../../reactionForm/RequestMessage";
+
 
 const TableCellsReaction = (props: Partial<ModelReaction>) => {
   const { error, isLoading } = useReactionsQuery(undefined);
@@ -37,25 +35,6 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
     ? getTableBodyReactionsFirst
     : getTableBodyReactionsSecond;
 
-  let tdBtns: any;
-
-  if (editRequestState.editIsError) {
-    tdBtns = (
-      <RequestMessage
-        message={"Błąd"}
-        className="tableReactions__requestError"
-      />
-    );
-  }
-
-  if (editRequestState.editIsLoading) {
-    tdBtns = (
-      <RequestMessage
-        message={""}
-        className="tableReactions__requestMessage"
-      />
-    );
-  }
 
   return (
     <>

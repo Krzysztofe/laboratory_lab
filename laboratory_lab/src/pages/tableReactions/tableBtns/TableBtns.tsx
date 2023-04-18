@@ -9,16 +9,15 @@ import { RootState } from "../../../redux/store";
 import {
   handleClearEditForm,
   handleEdit,
-  handleUpdate,
-  handleEidtisLoading,
-  handleEidtIsError,
   handleEidtId,
+  handleEidtIsError,
+  handleEidtisLoading,
+  handleUpdate,
 } from "../../../redux/storeFeatures/tableReactionsSlice";
 import {
   useDeleteReactionMutation,
   useUpdateReactionMutation,
 } from "../../../services/apiSlice";
-import RequestMessage from "../../reactionForm/RequestMessage";
 
 const TableBtns = (props: Partial<ModelReaction>) => {
   const dispatch = useDispatch();
@@ -96,21 +95,11 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   );
 
   if (isLoading.isError) {
-    tdBtns = (
-      <RequestMessage
-        message={"Błąd"}
-        className="tableReactions__requestMessage"
-      />
-    );
+    tdBtns = <div className="tableReactions__requestMessage">Błąd</div>;
   }
 
   if (isLoading.isLoading) {
-    tdBtns = (
-      <RequestMessage
-        message={"Usuwa..."}
-        className="tableReactions__requestMessage"
-      />
-    );
+    tdBtns = <div className="tableReactions__requestMessage">Usówa...</div>;
   }
 
   return <td>{tdBtns}</td>;
