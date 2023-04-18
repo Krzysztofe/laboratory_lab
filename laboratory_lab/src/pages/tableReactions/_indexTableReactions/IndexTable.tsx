@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { RootState } from "../../../redux/store";
@@ -5,8 +6,18 @@ import { handleTableOpen } from "../../../redux/storeFeatures/tableReactionsSlic
 import TableBody from "../tableBody/TableBody";
 import TableHead from "../tableHead/TableHead";
 import TableReactions from "../tableReactions/TableReactions";
+import { auth } from "../../../data/firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const IndexTable = () => {
+  
+ const navigate = useNavigate();
+ useEffect(() => {
+   auth.onAuthStateChanged(user => {
+     !user && navigate("/login");
+   });
+ }, []);
+
   const dispatch = useDispatch();
   const { printReactions, editedReaction } = useSelector(
     (state: RootState) => state.tableReactions

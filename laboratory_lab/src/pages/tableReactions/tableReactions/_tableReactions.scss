@@ -69,39 +69,6 @@
   }
 }
 
-.httpRequestInRow {
-  &:before {
-    content: "";
-    backdrop-filter: blur(4px);
-    position: absolute;
-    width: 100%;
-    height: $font-size-small + 2rem + 0.8rem;
-  }
-}
-
-.httpRequestInRow:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: $font-size-small + 2rem + 0.8rem;
-  background-image: url("../../../asets/loading.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  animation: loading 1s infinite linear;
-}
-
-@keyframes loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
 .tableReactions__table tbody tr td {
   display: none;
   width: 100%;
@@ -151,6 +118,51 @@
   }
 }
 
-.tableReactions__requestMessage{
+// Http requests
+
+.tableReactions__requestMessage {
   color: $color-red;
+}
+
+.httpLoadingInRow:before {
+  backdrop-filter: blur(4px);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: $font-size-small + 4rem + 0.8rem;
+}
+
+.httpLoadingInRow:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: $font-size-small + 2rem + 0.8rem;
+  animation: loading 1s infinite linear;
+  background-image: url("../../../asets/loading.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.httpErrorInRow:before {
+  backdrop-filter: blur(4px);
+  content: "Błąd";
+  position: absolute;
+  width: 100%;
+  height: $font-size-small + 2rem + 0.8rem;
+  font-size: $font-size-large;
+  font-weight: $font-weight-bold;
+  color: $color-red;
+  text-align: center;
+  letter-spacing: 2px;
 }

@@ -38,7 +38,7 @@ const Register = () => {
       const { email, password } = values;
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => navigate("/reaction-form"))
-        .catch(error => alert(error.code));
+        .catch(error => alert(error.message));
     },
   });
 

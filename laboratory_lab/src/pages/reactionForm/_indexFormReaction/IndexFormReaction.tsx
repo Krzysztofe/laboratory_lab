@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useMultistepForm from "../../../hooks/useMultistepForm";
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { useAddReactionMutation } from "../../../services/apiSlice";
@@ -9,8 +10,17 @@ import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
 import { ModelFormReaction } from "./ModelFormReaction";
 import { INITIAL_DATA } from "./dataFormReaction";
+import { auth } from "../../../data/firebaseConfig";
 
 const IndexFormReaction = () => {
+  
+  const navigate = useNavigate();
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      !user && navigate("/login");
+    });
+  }, []);
+
   const [reaction, setReaction] = useState(INITIAL_DATA);
   const [errors, setErrors] = useState({});
   const [addReaction, success] = useAddReactionMutation();
