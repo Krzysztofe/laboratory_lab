@@ -1,5 +1,6 @@
-import { ModelFormReaction } from "./ModelFormReaction";
-export const INITIAL_DATA: ModelFormReaction = {
+import { ModelReaction } from "../../../services/apiSlice";
+
+export const INITIAL_DATA: ModelReaction = {
   name: "AH - ",
   selectMilimolles: "--Wybierz--",
   alcaloids: "",

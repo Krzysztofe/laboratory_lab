@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { useReactionsQuery } from "../../../services/apiSlice";
-import TableEditForm from "../tableEditForm/TableEditForm";
-import TableCellsReaction from "../tableCellsReaction/TableCellsReaction";
-import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
-import { getReactions } from "../../../redux/storeFeatures/tableReactionsSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
+import { getReactions } from "../../../redux/storeFeatures/tableReactionsSlice";
+import { useReactionsQuery } from "../../../services/apiSlice";
+import TableBodyRequestMessage from "../requestMesageTableBody/TableBodyRequestMessage";
 import TableBtns from "../tableBtns/TableBtns";
+import TableCellsReaction from "../tableCellsReaction/TableCellsReaction";
+import TableEditForm from "../tableEditForm/TableEditForm";
 
 
 const TableBody = () => {
@@ -39,7 +39,6 @@ const TableBody = () => {
     if (editRequestState.editIsError && editRequestState.id === reactionID) {
       return "httpErrorInRow";
     }
-
     return "";
   };
 

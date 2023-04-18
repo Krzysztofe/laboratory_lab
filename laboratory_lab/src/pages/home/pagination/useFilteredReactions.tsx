@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ModelReaction } from "../../../hooks/useReactions";
+import { ModelReaction } from "../../../services/apiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { useReactionsQuery } from "../../../services/apiSlice";

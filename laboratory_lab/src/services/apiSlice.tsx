@@ -1,9 +1,25 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { URL_DATA } from "../data/apiKeys";
-import { ModelFormReaction } from "../pages/reactionForm/_indexFormReaction/ModelFormReaction";
+
+export interface ModelReaction {
+  [key: string]: any;
+  id?: string;
+  name: string;
+  alcaloids: string;
+  selectMilimolles: string;
+  substract: string;
+  selectReactionCondition: string;
+  solvents: string[] | string;
+  startDate: string;
+  finishDate: string;
+  startTime: string;
+  finishTime: string;
+  technics: string;
+  isEdit: boolean;
+}
 
 interface Reactions {
-  [key: string]: ModelFormReaction;
+  [key: string]: ModelReaction;
 }
 
 export const reactionsApiSlice = createApi({
@@ -15,7 +31,7 @@ export const reactionsApiSlice = createApi({
       query: () => "/reactions.json",
       providesTags: ["reactions"],
     }),
-    addReaction: builder.mutation<void, ModelFormReaction>({
+    addReaction: builder.mutation<void, ModelReaction>({
       query: reaction => ({
         url: "/reactions.json",
         method: "POST",
@@ -24,7 +40,7 @@ export const reactionsApiSlice = createApi({
       invalidatesTags: ["reactions"],
     }),
 
-    updateReaction: builder.mutation<void, ModelFormReaction>({
+    updateReaction: builder.mutation<void, ModelReaction>({
       query: ubdateReaction => ({
         url: `/reactions/${ubdateReaction.id}.json`,
         method: "PUT",
@@ -33,7 +49,7 @@ export const reactionsApiSlice = createApi({
       invalidatesTags: ["reactions"],
     }),
 
-    deleteReaction: builder.mutation<ModelFormReaction, string | undefined>({
+    deleteReaction: builder.mutation<ModelReaction, string | undefined>({
       query: id => ({
         url: `/reactions/${id}.json`,
         method: "DELETE",

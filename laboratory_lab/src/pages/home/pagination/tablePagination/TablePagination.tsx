@@ -1,4 +1,4 @@
-import { ModelReaction } from "../../../../hooks/useReactions";
+import { ModelReaction } from "../../../../services/apiSlice"; 
 import { useFilteredReactions } from "../useFilteredReactions";
 
 interface Props {

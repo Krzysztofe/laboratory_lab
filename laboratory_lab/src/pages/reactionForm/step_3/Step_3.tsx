@@ -1,19 +1,19 @@
+import { motion } from "framer-motion";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
-import { motion } from "framer-motion";
-import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
+import { ModelReaction } from "../../../services/apiSlice";
 
 interface Props {
-  reaction: ModelFormReaction;
-  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  reaction: ModelReaction;
+  handleChange: (fields: Partial<ModelReaction>) => void;
   errors: ModelValidationErrors;
 }
 
 const Step_3 = (props: Props) => {
 
   const handleFieldChange =
-    (field: keyof ModelFormReaction) => (e: ChangeEvent) => {
+    (field: keyof ModelReaction) => (e: ChangeEvent) => {
       props.handleChange({ [field]: e.target.value });
     };
 

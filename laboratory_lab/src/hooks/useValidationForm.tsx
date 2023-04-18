@@ -1,4 +1,4 @@
-import { ModelReaction } from "./useReactions";
+import { ModelReaction } from "../services/apiSlice";
 
 export interface ModelValidationErrors {
   [key: string]: any;

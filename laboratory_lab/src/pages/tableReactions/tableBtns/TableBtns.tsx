@@ -3,11 +3,11 @@ import { AiFillEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
 import { MdSystemUpdateAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { ModelReaction } from "../../../hooks/useReactions";
+import { ModelReaction } from "../../../services/apiSlice"; 
 import { useValidationForm } from "../../../hooks/useValidationForm";
 import { RootState } from "../../../redux/store";
 import {
-  handleClearEditForm,
+  handleCleanEditForm,
   handleEdit,
   handleEidtId,
   handleEidtIsError,
@@ -28,9 +28,10 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   const [updateReaction, success] = useUpdateReactionMutation();
   const [deleteReaction, isLoading] = useDeleteReactionMutation();
 
-  const { editRequestState } = useSelector(
-    (state: RootState) => state.tableReactions
-  );
+   useEffect(() => {
+     dispatch(handleEidtisLoading(success.isLoading));
+     dispatch(handleEidtIsError(success.isError));
+   }, [success.isLoading, success.isError, dispatch]);
 
   const handleReactionEdit = (
     printReactions: ModelReaction[],
@@ -40,11 +41,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     dispatch(handleEidtId(reactionID));
   };
 
-  useEffect(() => {
-    dispatch(handleEidtisLoading(success.isLoading));
-    dispatch(handleEidtIsError(success.isError));
-  }, [success.isLoading, success.isError, dispatch]);
-
   const handleReactionUpdate = async (
     printReactions: ModelReaction[],
     reactionID: string
@@ -52,13 +48,13 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     if (Object.keys(validationForm()).length) return;
     const updatedEditedReaction = { ...editedReaction, isEdit: true };
     dispatch(handleUpdate([printReactions, reactionID]));
-    dispatch(handleClearEditForm());
+    dispatch(handleCleanEditForm());
     await updateReaction(updatedEditedReaction);
   };
 
   const handleDelete = async (id: string) => {
     dispatch(handleEidtId(id));
-    dispatch(handleClearEditForm());
+    dispatch(handleCleanEditForm());
     const result = window.confirm("Chcesz usunąć zapis?");
     if (result) {
       await deleteReaction(id);
@@ -99,7 +95,7 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   }
 
   if (isLoading.isLoading) {
-    tdBtns = <div className="tableReactions__requestMessage">Usówa...</div>;
+    tdBtns = <div className="tableReactions__requestMessage">Usuwa...</div>;
   }
 
   return <td>{tdBtns}</td>;

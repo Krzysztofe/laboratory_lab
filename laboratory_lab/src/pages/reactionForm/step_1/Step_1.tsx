@@ -4,12 +4,12 @@ import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
-import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
+import { ModelReaction } from "../../../services/apiSlice";
 import { alcaloidsData } from "./dataStep_1";
 
 export interface Props {
-  reaction: ModelFormReaction;
-  handleChange: (fields: Partial<ModelFormReaction>) => void;
+  reaction: ModelReaction;
+  handleChange: (fields: Partial<ModelReaction>) => void;
   errors: ModelValidationErrors;
 }
 

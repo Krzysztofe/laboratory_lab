@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ModelReaction } from "../../hooks/useReactions";
+import { ModelReaction } from "../../services/apiSlice";
 
-interface TableReactionsState {
+interface TableReactionInitialsState {
   editedReaction: ModelReaction;
   printReactions: ModelReaction[];
   toggleTable: { isOpen: boolean };
@@ -14,7 +14,7 @@ interface TableReactionsState {
   };
 }
 
-const initialState: TableReactionsState = {
+const initialState: TableReactionInitialsState = {
   editedReaction: {
     id: "",
     name: "",
@@ -98,10 +98,9 @@ export const tableReactionsSlice = createSlice({
       });
     },
 
-    handleClearEditForm: state => {
+    handleCleanEditForm: state => {
       state.editedReaction = initialState.editedReaction;
     },
-    
     handleTableOpen: (state, action: PayloadAction<boolean>) => {
       state.toggleTable.isOpen = action.payload;
     },
@@ -122,7 +121,7 @@ export const {
   getReactions,
   handleEdit,
   handleUpdate,
-  handleClearEditForm,
+  handleCleanEditForm,
   handleTableOpen,
   handleEidtisLoading,
   handleEidtIsError,

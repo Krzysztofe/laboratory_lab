@@ -1,15 +1,13 @@
 import { useSelector } from "react-redux";
-import { ModelReaction } from "../../../hooks/useReactions";
 import { RootState } from "../../../redux/store";
 import {
-  useReactionsQuery,
+  ModelReaction, useReactionsQuery,
   useUpdateReactionMutation
 } from "../../../services/apiSlice";
 import {
   getTableBodyReactionsFirst,
   getTableBodyReactionsSecond,
 } from "./utilsTableCellsReaction";
-
 
 const TableCellsReaction = (props: Partial<ModelReaction>) => {
   const { error, isLoading } = useReactionsQuery(undefined);

@@ -1,9 +1,10 @@
 import { summaryParams, summaryDates } from "./dataStep_4";
 import { motion } from "framer-motion";
-import { ModelFormReaction } from "../_indexFormReaction/ModelFormReaction";
+import { ModelReaction } from "../../../services/apiSlice";
+
 
 interface Props {
-  reaction: ModelFormReaction;
+  reaction: ModelReaction;
 }
 
 const Step_5 = (props: Props) => {
@@ -24,7 +25,7 @@ const Step_5 = (props: Props) => {
           .slice(0, 7)
           .map((value: string | string[], idx: number) => {
             return (
-              <li key={idx} className="step4__reactionItem">
+              <li key={crypto.randomUUID()} className="step4__reactionItem">
                 <div className="step4__reactionProperty">
                   {summaryParams[idx]}:&nbsp;
                 </div>
@@ -48,7 +49,7 @@ const Step_5 = (props: Props) => {
         <li className="step4__subHeader">Czasy:</li>
         {getReactionValues.slice(7, 11).map((value: string, idx: number) => {
           return (
-            <li key={idx} className="step4__reactionItem">
+            <li key={crypto.randomUUID()} className="step4__reactionItem">
               <div className="step4__reactionProperty">
                 {summaryDates[idx]}:data
               </div>
