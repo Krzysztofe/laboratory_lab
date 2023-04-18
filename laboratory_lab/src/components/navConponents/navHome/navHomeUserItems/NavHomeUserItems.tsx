@@ -1,20 +1,17 @@
-import { useNavigate } from "react-router";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../../../data/firebaseConfig";
-import { signedOutLinks } from "../navHomeItems/dataNavHomeItems";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { auth } from "../../../../data/firebaseConfig";
 import { handleToggleNav } from "../../../../redux/storeFeatures/navHomeSlice";
+import { signedOutLinks } from "../navHomeItems/dataNavHomeItems";
 
 const NavHomeUserItems = () => {
   const [user] = useAuthState(auth);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogout = (): void => {
     auth.signOut();
-    navigate("/");
     dispatch(handleToggleNav());
   };
 

@@ -15,7 +15,7 @@ export const reactionsApiSlice = createApi({
       query: () => "/reactions.json",
       providesTags: ["reactions"],
     }),
-    addReaction: builder.mutation<void, any>({
+    addReaction: builder.mutation<void, ModelFormReaction>({
       query: reaction => ({
         url: "/reactions.json",
         method: "POST",
@@ -24,7 +24,7 @@ export const reactionsApiSlice = createApi({
       invalidatesTags: ["reactions"],
     }),
 
-    updateReaction: builder.mutation<any, any>({
+    updateReaction: builder.mutation<void, ModelFormReaction>({
       query: ubdateReaction => ({
         url: `/reactions/${ubdateReaction.id}.json`,
         method: "PUT",

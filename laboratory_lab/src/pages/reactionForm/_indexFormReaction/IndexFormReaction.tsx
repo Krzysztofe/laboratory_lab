@@ -17,7 +17,7 @@ const IndexFormReaction = () => {
   const navigate = useNavigate();
   useEffect(() => {
     auth.onAuthStateChanged(user => {
-      !user && navigate("/login");
+      !user && navigate("/");
     });
   }, []);
 

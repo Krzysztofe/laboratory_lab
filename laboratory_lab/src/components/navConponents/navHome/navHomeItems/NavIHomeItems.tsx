@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { useMemo } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { auth } from "../../../../data/firebaseConfig";
 import { handleToggleNav } from "../../../../redux/storeFeatures/navHomeSlice";
-import { navLinksData } from "./dataNavHomeItems";
 import NavHomeUserItems from "../navHomeUserItems/NavHomeUserItems";
-
+import { navLinksData } from "./dataNavHomeItems";
 export interface Props {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const NavHomeItems = () => {
-  const [user] = useAuthState(auth);
   const dispatch = useDispatch();
+  const url = useLocation().pathname;
+
+  const selectedNavLinksData =
+    url === "/login" || url === "/register" ? [navLinksData[0]] : navLinksData;
 
   const scrollToHash = (hash: string): void => {
     const element = document.querySelector(hash);
@@ -25,37 +25,36 @@ const NavHomeItems = () => {
     }
   };
 
-  const memoizedNavHomeItems = useMemo(() => {
-    return (
-      <>
-        <ul className="navHomeItems">
-          {navLinksData.map(link => {
-            return (
-              <motion.li
-                key={crypto.randomUUID()}
-                onClick={() => dispatch(handleToggleNav())}
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: link.delay }}
-              >
-                <HashLink
-                  to={link.to}
-                  smooth
-                  className="navHomeItems__item"
-                  scroll={el => scrollToHash(link.to)}
-                >
-                  {link.text}
-                </HashLink>
-              </motion.li>
-            );
-          })}
-        </ul>
-        <NavHomeUserItems />
-      </>
-    );
-  }, [user]);
 
-  return memoizedNavHomeItems;
+const windowWidth = window.innerWidth < 769;
+
+  return (
+    <>
+      <ul className="navHomeItems">
+        {selectedNavLinksData.map(link => {
+          return (
+            <motion.li
+              key={crypto.randomUUID()}
+              onClick={() => dispatch(handleToggleNav())}
+              initial={windowWidth ?{ opacity: 0, y: -40 }:{}}
+              animate={windowWidth ?{ opacity: 1, y: 0 }:{}}
+              transition={windowWidth ? { delay: link.delay } : {}}
+            >
+              <HashLink
+                to={link.to}
+                smooth
+                className="navHomeItems__item"
+                scroll={el => scrollToHash(link.to)}
+              >
+                {link.text}
+              </HashLink>
+            </motion.li>
+          );
+        })}
+      </ul>
+      <NavHomeUserItems />
+    </>
+  );
 };
 
 export default NavHomeItems;

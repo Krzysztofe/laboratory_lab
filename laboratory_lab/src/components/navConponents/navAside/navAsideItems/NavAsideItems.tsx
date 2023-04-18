@@ -13,13 +13,15 @@ const NavAsideItems = (props: Props) => {
   const navigate = useNavigate();
 
   const handleLogout = (): void => {
-    auth.signOut();
     navigate("/");
+    auth.signOut();
   };
 
   return (
     <>
-      <ul className={`navAsideItems ${!props.isOpen && "navAsideItems__close"} `}>
+      <ul
+        className={`navAsideItems ${!props.isOpen && "navAsideItems__close"} `}
+      >
         <li onClick={handleLogout} className="navAsideItems__signIn">
           Wyloguj: {user?.email}
         </li>

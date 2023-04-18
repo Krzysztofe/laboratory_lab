@@ -30,7 +30,7 @@ const Login = () => {
       const { email, password } = values;
       signInWithEmailAndPassword(auth, email, password)
         .then(() => navigate("/reaction-form"))
-        .catch(error => alert(error.message));
+        .catch(error => alert(error.mess));
     },
   });
 
