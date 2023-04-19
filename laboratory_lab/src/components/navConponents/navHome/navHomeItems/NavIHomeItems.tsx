@@ -13,8 +13,11 @@ const NavHomeItems = () => {
   const dispatch = useDispatch();
   const url = useLocation().pathname;
 
-  const selectedNavLinksData =
-    url === "/login" || url === "/register" ? [navLinksData[0]] : navLinksData;
+  const selectedNavLinksData = () => {
+    if (url === "/login" || url === "/register") return [navLinksData[0]];
+
+    if (url === "/") return navLinksData.slice(1, 3);
+  };
 
   const scrollToHash = (hash: string): void => {
     const element = document.querySelector(hash);
@@ -25,19 +28,18 @@ const NavHomeItems = () => {
     }
   };
 
-
-const windowWidth = window.innerWidth < 769;
+  const windowWidth = window.innerWidth < 769;
 
   return (
     <>
       <ul className="navHomeItems">
-        {selectedNavLinksData.map(link => {
+        {selectedNavLinksData()?.map(link => {
           return (
             <motion.li
               key={crypto.randomUUID()}
               onClick={() => dispatch(handleToggleNav())}
-              initial={windowWidth ?{ opacity: 0, y: -40 }:{}}
-              animate={windowWidth ?{ opacity: 1, y: 0 }:{}}
+              initial={windowWidth ? { opacity: 0, y: -40 } : {}}
+              animate={windowWidth ? { opacity: 1, y: 0 } : {}}
               transition={windowWidth ? { delay: link.delay } : {}}
             >
               <HashLink

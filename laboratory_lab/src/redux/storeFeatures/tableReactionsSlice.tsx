@@ -113,6 +113,15 @@ export const tableReactionsSlice = createSlice({
     handleEidtId: (state, action: PayloadAction<string>) => {
       state.editRequestState.id = action.payload;
     },
+    handleHttpRequest: (state, action: PayloadAction<[boolean, boolean, boolean, boolean]>) => {
+      state.editRequestState = {
+        ...state.editRequestState,
+        editIsLoading: action.payload[0],
+        editIsError: action.payload[1],
+        deleteIsLoading: action.payload[2],
+        deleteIsError: action.payload[3],
+      };
+    },
   },
 });
 
@@ -126,5 +135,6 @@ export const {
   handleEidtisLoading,
   handleEidtIsError,
   handleEidtId,
+  handleHttpRequest,
 } = tableReactionsSlice.actions;
 export default tableReactionsSlice.reducer;

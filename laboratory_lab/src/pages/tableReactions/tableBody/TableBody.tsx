@@ -8,7 +8,6 @@ import TableBtns from "../tableBtns/TableBtns";
 import TableCellsReaction from "../tableCellsReaction/TableCellsReaction";
 import TableEditForm from "../tableEditForm/TableEditForm";
 
-
 const TableBody = () => {
   const dispatch = useDispatch();
   const { data, error, isLoading } = useReactionsQuery(undefined);
@@ -39,6 +38,17 @@ const TableBody = () => {
     if (editRequestState.editIsError && editRequestState.id === reactionID) {
       return "httpErrorInRow";
     }
+
+    if (
+      editRequestState.deleteIsLoading &&
+      editRequestState.id === reactionID
+    ) {
+      return "httpLoadingInRow";
+    }
+    if (editRequestState.deleteIsError && editRequestState.id === reactionID) {
+      return "httpErrorInRow";
+    }
+
     return "";
   };
 

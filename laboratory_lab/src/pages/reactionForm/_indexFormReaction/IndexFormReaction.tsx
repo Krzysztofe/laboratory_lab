@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../../../data/firebaseConfig";
 import useMultistepForm from "../../../hooks/useMultistepForm";
 import { useValidationForm } from "../../../hooks/useValidationForm";
-import { ModelReaction, useAddReactionMutation } from "../../../services/apiSlice";
+import {
+  ModelReaction,
+  useAddReactionMutation,
+} from "../../../services/apiSlice";
 import ReactionFormHeader from "../reactionFormHeader/ReactionFormHeader";
 import Step_1 from "../step_1/Step_1";
 import Step_2 from "../step_2/Step_2";
@@ -11,9 +14,7 @@ import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
 import { INITIAL_DATA } from "./dataFormReaction";
 
-
 const IndexFormReaction = () => {
-  
   const navigate = useNavigate();
   useEffect(() => {
     auth.onAuthStateChanged(user => {
@@ -103,9 +104,7 @@ const IndexFormReaction = () => {
 
   if (success.isSuccess) {
     formContent = (
-      <div className="formReaction__requestMessage ">
-        Dane wysłane i zapisane <br /> w liście reakcji
-      </div>
+      <div className="formReaction__requestMessage ">Dane zapisane w liście <br/> reakcji</div>
     );
   }
 

@@ -10,7 +10,7 @@ const HeaderPagination = (props: Props) => {
   return (
     <>
       <h3 className="paginationHome__header">
-        Reakcje aktualnie zapisane w dzienniku
+        Reakcje zapisane <br/>w dzienniku
       </h3>
 
       <div className="paginationHome__btns">
