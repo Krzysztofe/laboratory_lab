@@ -101,7 +101,7 @@ export const tableReactionsSlice = createSlice({
     },
 
     handleCleanEditForm: state => {
-      state.editedReaction = initialState.editedReaction;
+      state.editedReaction = { ...state.editedReaction, isEdit: true };
     },
     handleTableOpen: (state, action: PayloadAction<boolean>) => {
       state.toggleTable.isOpen = action.payload;
@@ -115,7 +115,10 @@ export const tableReactionsSlice = createSlice({
     handleRequestStateId: (state, action: PayloadAction<string>) => {
       state.requestState.id = action.payload;
     },
-    handleHttpRequest: (state, action: PayloadAction<[boolean, boolean, boolean, boolean]>) => {
+    handleHttpRequest: (
+      state,
+      action: PayloadAction<[boolean, boolean, boolean, boolean]>
+    ) => {
       state.requestState = {
         ...state.requestState,
         editIsLoading: action.payload[0],

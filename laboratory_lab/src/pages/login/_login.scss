@@ -1,67 +1,77 @@
 @import "../../components/btnsLogin/btnsLogin";
 
 .login {
-    height: 100%;
-    min-height: 500px;
-    max-height: calc(100% - $font-size-small - ($space-small * 2));
-    padding: 0;
-    background-image: url("../../asets/microscope-small.jpg");
-    background-size: cover;
+  height: 100%;
+  min-height: 500px;
+  max-height: calc(100% - $font-size-small - ($space-small * 2));
+  padding: 0;
+  background-image: url("../../asets/microscope-small.jpg");
+  background-size: cover;
   @include breakpointNav {
-      background-image: url("../../asets/microscope-largre.jpg");
+    background-image: url("../../asets/microscope-largre.jpg");
   }
 
   &__opacity {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: calc(100% - ($font-size-large + 24px));
-      background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - ($font-size-large + 24px));
+    background-color: rgba(255, 255, 255, 0.3);
   }
 
   .loginForm {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      max-width: 400px;
-      height: 100%;
-      padding: $space-small;
-      background-color: rgba(233, 234, 236, 0.6);
-      color: $color-black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    padding: $space-small;
+    background-color: rgba(233, 234, 236, 0.6);
+    color: $color-black;
     @include breakpointFirst {
-        height: fit-content;
+      height: fit-content;
     }
 
     .loginForm__title {
-        padding-bottom: $space-small/2;
+      padding-bottom: $space-small/2;
     }
 
     &__inputContainer {
-        width: 70%;
+      width: 70%;
     }
     &__label {
-        display: block;
-        width: 100%;
-        margin-bottom: $space-small/3;
-        font-weight: $font-weight-bold;
+      display: block;
+      width: 100%;
+      margin-bottom: $space-small/3;
+      font-weight: $font-weight-bold;
     }
     &__input {
-        width: 100%;
-        padding: 0.5em;
-        border: 0;
+      width: 100%;
+      padding: 0.5em;
+      border: 0;
       &:focus {
-          background-color: $color-neutral-light;
+        background-color: $color-neutral-light;
       }
     }
     &__error {
-        width: 70%;
-        height: $font-size-small + ($space-small/3) * 2;
-        padding: $space-small/3 0;
-        font-size: $font-size-small;
-        line-height: $font-size-small;
-        color: $color-red;
+      width: 70%;
+      height: $font-size-small + ($space-small/3) * 2;
+      padding: $space-small/3 0;
+      font-size: $font-size-small;
+      line-height: $font-size-small;
+      color: $color-red;
     }
   }
+}
+
+// Alert
+
+.swal2-title {
+  color: red !important;
+}
+.swal2-html-container {
+  font-weight: 900 !important;
+  letter-spacing: 1.5px;
 }

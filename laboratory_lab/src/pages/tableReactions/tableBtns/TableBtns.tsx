@@ -81,8 +81,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     });
   };
 
-
-
   return (
     <td>
       {props.reaction.isEdit ? (
@@ -109,7 +107,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
       >
         <FaTrashAlt />
       </button>
-
     </td>
   );
 };

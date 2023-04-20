@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from "formik";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import * as Yup from "yup";
 import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
 import TextInput from "../../components/inputs/textInput/TextInput";
@@ -30,14 +31,20 @@ const Login = () => {
       const { email, password } = values;
       signInWithEmailAndPassword(auth, email, password)
         .then(() => navigate("/reaction-form"))
-        .catch(error => alert(error.mess));
+        .catch(error =>
+          Swal.fire({
+            title: "Błąd",
+            text: error.message,
+            confirmButtonColor: "rgb(31, 180, 255)",
+          })
+        );
     },
   });
 
   return (
     <>
       <main className="wrapper login">
-      <NavHomeSpacer/>
+        <NavHomeSpacer />
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="loginForm">
             <h2 className="loginForm__title">Zaloguj się</h2>

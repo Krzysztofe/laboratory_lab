@@ -7,6 +7,7 @@ import BtnsLogin from "../../components/btnsLogin/BtnsLogin";
 import TextInput from "../../components/inputs/textInput/TextInput";
 import NavHomeSpacer from "../../components/navHomeSpacer/NavHomeSpacer";
 import { auth } from "../../data/firebaseConfig";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -38,14 +39,20 @@ const Register = () => {
       const { email, password } = values;
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => navigate("/reaction-form"))
-        .catch(error => alert(error.message));
+        .catch(error =>
+          Swal.fire({
+            title: "Błąd",
+            text: error.message,
+            confirmButtonColor: "rgb(31, 180, 255)",
+          })
+        );
     },
   });
 
   return (
     <>
       <main className="wrapper login">
-        <NavHomeSpacer/>
+        <NavHomeSpacer />
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="wrapper loginForm">
             <h2 className="loginForm__title">Załóż konto</h2>
