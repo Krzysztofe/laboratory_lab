@@ -32,7 +32,7 @@ react-router, react-router-dom, react-router-hash-link, <br/>
 react-firebase-hooks, react-paginate,<br/>
 react-redux, @reduxjs/toolkit, react-scripts,<br/>
 formik, yup, <br/>
-framer-motion, 
+framer-motion, sweetalert2
 
 
 ## Demo <a href = "https://krzysztofe.github.io/Laboratory_Lab/"> here --></a>
