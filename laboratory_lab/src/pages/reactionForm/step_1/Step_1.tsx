@@ -16,13 +16,13 @@ export interface Props {
 const Step_1 = (props: Props): JSX.Element => {
 
   const handleChangeName = (e: ChangeEvent) => {
-    return props.handleChange({ name: e.target.value });
+    return props.handleChange({ name: e.target.value.trim() });
   };
   const handleChangeAlcaloids = (e: ChangeEvent) => {
     return props.handleChange({ alcaloids: e.target.value });
   };
   const handleChangeTechnics = (e: ChangeEvent) => {
-    return props.handleChange({ technics: e.target.value });
+    return props.handleChange({ technics: e.target.value.trim() });
   };
   const handleChangeMilimolles = (value: string) => {
     props.handleChange({ selectMilimolles: value });

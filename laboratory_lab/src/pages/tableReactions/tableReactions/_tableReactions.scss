@@ -63,6 +63,7 @@
 }
 .tableReactions__table tbody tr {
   display: flex;
+  position: relative;
   padding: $font-size-small 0 $font-size-small/2 0;
   &:nth-child(even) {
     background-color: $color-neutral-secondary-light;
@@ -118,18 +119,14 @@
   }
 }
 
-// Http requests
-
-.tableReactions__requestMessage {
-  color: $color-red;
-}
+// Http requests in tr
 
 .httpLoadingInRow:before {
   backdrop-filter: blur(4px);
   content: "";
   position: absolute;
   width: 100%;
-  height: $font-size-small + 4rem + 0.8rem;
+  height: 100%;
 }
 
 .httpLoadingInRow:after {
@@ -165,4 +162,9 @@
   color: $color-red;
   text-align: center;
   letter-spacing: 2px;
+}
+
+// Alert
+.swal2-shown {
+  padding-right: 0px !important;
 }

@@ -54,7 +54,7 @@ const Step_3 = (props: Props) => {
   };
 
   const handleTextInputChange = (e: ChangeEvent) => {
-    props.handleChange({ substract: e.target.value });
+    props.handleChange({ substract: e.target.value.trim() });
   };
 
   return (

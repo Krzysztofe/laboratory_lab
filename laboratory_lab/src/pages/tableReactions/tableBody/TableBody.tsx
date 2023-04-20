@@ -12,7 +12,7 @@ const TableBody = () => {
   const dispatch = useDispatch();
   const { data, error, isLoading } = useReactionsQuery(undefined);
 
-  const { printReactions, editRequestState } = useSelector(
+  const { printReactions, requestState } = useSelector(
     (state: RootState) => state.tableReactions
   );
 
@@ -31,21 +31,18 @@ const TableBody = () => {
     return <TableBodyRequestMessage message={"Brak zapisanych reakcji"} />;
   }
 
-  const httpRequestAddClass = (reactionID: any) => {
-    if (editRequestState.editIsLoading && editRequestState.id === reactionID) {
+  const requestLoadingClass = (reactionID: any) => {
+    if (requestState.editIsLoading && requestState.id === reactionID) {
       return "httpLoadingInRow";
     }
-    if (editRequestState.editIsError && editRequestState.id === reactionID) {
+    if (requestState.editIsError && requestState.id === reactionID) {
       return "httpErrorInRow";
     }
 
-    if (
-      editRequestState.deleteIsLoading &&
-      editRequestState.id === reactionID
-    ) {
+    if (requestState.deleteIsLoading && requestState.id === reactionID) {
       return "httpLoadingInRow";
     }
-    if (editRequestState.deleteIsError && editRequestState.id === reactionID) {
+    if (requestState.deleteIsError && requestState.id === reactionID) {
       return "httpErrorInRow";
     }
 
@@ -56,7 +53,10 @@ const TableBody = () => {
     <tbody>
       {printReactions?.map((reaction, idx) => {
         return (
-          <tr className={httpRequestAddClass(reaction?.id)} key={reaction.id}>
+          <tr
+            className={requestLoadingClass(reaction?.id)}
+            key={reaction.id}
+          >
             <td>{idx + 1}</td>
             {reaction.isEdit ? (
               <>

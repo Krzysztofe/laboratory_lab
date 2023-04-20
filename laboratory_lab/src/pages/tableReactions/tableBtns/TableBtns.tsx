@@ -8,23 +8,25 @@ import { RootState } from "../../../redux/store";
 import {
   handleCleanEditForm,
   handleEdit,
-  handleEidtId,
+  handleRequestStateId,
   handleHttpRequest,
-  handleUpdate
+  handleUpdate,
 } from "../../../redux/storeFeatures/tableReactionsSlice";
 import {
-  ModelReaction, useDeleteReactionMutation,
-  useUpdateReactionMutation
+  ModelReaction,
+  useDeleteReactionMutation,
+  useUpdateReactionMutation,
 } from "../../../services/apiSlice";
+import Swal from "sweetalert2";
 
 const TableBtns = (props: Partial<ModelReaction>) => {
   const dispatch = useDispatch();
   const { editedReaction, printReactions } = useSelector(
     (state: RootState) => state.tableReactions
   );
-  const { validationForm } = useValidationForm(editedReaction);
   const [updateReaction, success] = useUpdateReactionMutation();
   const [deleteReaction, isLoading] = useDeleteReactionMutation();
+  const { validationForm } = useValidationForm(editedReaction);
 
   useEffect(() => {
     dispatch(
@@ -43,15 +45,15 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     dispatch,
   ]);
 
-  const handleReactionEdit = (
+  const handleEditReaction = (
     printReactions: ModelReaction[],
     reactionID: string
   ) => {
     dispatch(handleEdit([printReactions, reactionID]));
-    dispatch(handleEidtId(reactionID));
+    dispatch(handleRequestStateId(reactionID));
   };
 
-  const handleReactionUpdate = async (
+  const handleUpdateReaction = async (
     printReactions: ModelReaction[],
     reactionID: string
   ) => {
@@ -62,46 +64,52 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     await updateReaction(updatedEditedReaction);
   };
 
-  const handleDelete = async (id: string) => {
-    dispatch(handleEidtId(id));
+  const handleDeleteReaction = async (id: string) => {
+    dispatch(handleRequestStateId(id));
     dispatch(handleCleanEditForm());
-    const result = window.confirm("Chcesz usunąć zapis?");
-    if (result) {
-      await deleteReaction(id);
-    }
+    Swal.fire({
+      title: "Chcesz usunąć reakcję?",
+      showCancelButton: true,
+      confirmButtonColor: "rgb(31, 180, 255)",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Tak usuń",
+      cancelButtonText: "Nie usówaj",
+    }).then(async result => {
+      if (result.isConfirmed) {
+        await deleteReaction(id);
+      }
+    });
   };
+
 
 
   return (
     <td>
-     
-        {props.reaction.isEdit ? (
-          <button
-            onClick={() =>
-              handleReactionEdit(printReactions, props.reaction.id)
-            }
-            className="tableReactions__btn tableReactions__btn--edit"
-          >
-            <AiFillEdit />
-          </button>
-        ) : (
-          <button
-            onClick={() =>
-              handleReactionUpdate(printReactions, props.reaction.id)
-            }
-            className="tableReactions__btn tableReactions__btn--edit"
-          >
-            <MdSystemUpdateAlt />
-          </button>
-        )}
-
+      {props.reaction.isEdit ? (
         <button
-          onClick={() => handleDelete(props.reaction.id)}
-          className="tableReactions__btn tableReactions__btn--trash"
+          onClick={() => handleEditReaction(printReactions, props.reaction.id)}
+          className="tableReactions__btn tableReactions__btn--edit"
         >
-          <FaTrashAlt />
+          <AiFillEdit />
         </button>
-      
+      ) : (
+        <button
+          onClick={() =>
+            handleUpdateReaction(printReactions, props.reaction.id)
+          }
+          className="tableReactions__btn tableReactions__btn--edit"
+        >
+          <MdSystemUpdateAlt />
+        </button>
+      )}
+
+      <button
+        onClick={() => handleDeleteReaction(props.reaction.id)}
+        className="tableReactions__btn tableReactions__btn--trash"
+      >
+        <FaTrashAlt />
+      </button>
+
     </td>
   );
 };

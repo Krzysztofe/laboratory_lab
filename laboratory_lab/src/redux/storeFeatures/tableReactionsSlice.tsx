@@ -5,7 +5,7 @@ interface TableReactionInitialsState {
   editedReaction: ModelReaction;
   printReactions: ModelReaction[];
   toggleTable: { isOpen: boolean };
-  editRequestState: {
+  requestState: {
     editIsLoading: boolean;
     editIsError: boolean;
     deleteIsLoading: boolean;
@@ -32,7 +32,7 @@ const initialState: TableReactionInitialsState = {
   },
   printReactions: [],
   toggleTable: { isOpen: true },
-  editRequestState: {
+  requestState: {
     editIsLoading: false,
     editIsError: false,
     deleteIsLoading: false,
@@ -56,7 +56,7 @@ export const tableReactionsSlice = createSlice({
       const reactions = action.payload
         ? Object.keys(action.payload).map(key => ({
             id: key,
-            name: action.payload[key].name.trim(),
+            name: action.payload[key].name,
             technics: action.payload[key].technics,
             alcaloids: action.payload[key].alcaloids,
             selectMilimolles: action.payload[key].selectMilimolles,
@@ -69,6 +69,8 @@ export const tableReactionsSlice = createSlice({
             startTime: action.payload[key].startTime,
             finishTime: action.payload[key].finishTime,
             isEdit: action.payload[key].isEdit,
+            // ...action.payload[key],
+            // isEdit: action.payload[key].isEdit,
           }))
         : [];
 
@@ -105,17 +107,17 @@ export const tableReactionsSlice = createSlice({
       state.toggleTable.isOpen = action.payload;
     },
     handleEidtisLoading: (state, action: PayloadAction<boolean>) => {
-      state.editRequestState.editIsLoading = action.payload;
+      state.requestState.editIsLoading = action.payload;
     },
     handleEidtIsError: (state, action: PayloadAction<boolean>) => {
-      state.editRequestState.editIsError = action.payload;
+      state.requestState.editIsError = action.payload;
     },
-    handleEidtId: (state, action: PayloadAction<string>) => {
-      state.editRequestState.id = action.payload;
+    handleRequestStateId: (state, action: PayloadAction<string>) => {
+      state.requestState.id = action.payload;
     },
     handleHttpRequest: (state, action: PayloadAction<[boolean, boolean, boolean, boolean]>) => {
-      state.editRequestState = {
-        ...state.editRequestState,
+      state.requestState = {
+        ...state.requestState,
         editIsLoading: action.payload[0],
         editIsError: action.payload[1],
         deleteIsLoading: action.payload[2],
@@ -134,7 +136,7 @@ export const {
   handleTableOpen,
   handleEidtisLoading,
   handleEidtIsError,
-  handleEidtId,
+  handleRequestStateId,
   handleHttpRequest,
 } = tableReactionsSlice.actions;
 export default tableReactionsSlice.reducer;

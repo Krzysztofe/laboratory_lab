@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import {
-  ModelReaction, useReactionsQuery,
-  useUpdateReactionMutation
+  ModelReaction
 } from "../../../services/apiSlice";
 import {
   getTableBodyReactionsFirst,
@@ -10,17 +9,11 @@ import {
 } from "./utilsTableCellsReaction";
 
 const TableCellsReaction = (props: Partial<ModelReaction>) => {
-  const { error, isLoading } = useReactionsQuery(undefined);
  
-  const [updateReaction, success] = useUpdateReactionMutation();
-
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
   );
 
-  const { printReactions, editRequestState } = useSelector(
-    (state: RootState) => state.tableReactions
-  );
 
   const toString = (solventsValue: string) => {
     if (Array.isArray(solventsValue)) {
@@ -39,7 +32,6 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
       {getReactions(props.reaction).map((reaction, idx) => {
         return (
           <td
-            className={success.error ? "editError" : ""}
             key={crypto.randomUUID()}
           >
             {idx === 6
