@@ -5,12 +5,11 @@ import IndexHome from "./pages/home/_indexHome/IndexHome";
 import Footer from "./pages/home/footer/Footer";
 import LoadingPage from "./pages/loadingPage/LoadingPage";
 
-const Register = lazy(() => import("./pages/register/Register"));
-const Login = lazy(() => import("./pages/login/Login"));
+const IndexLogin = lazy(() => import("./pages/login/_indexLogin/IndexLogin"));
 const IndexFormReaction = lazy(
   () => import("./pages/reactionForm/_indexFormReaction/IndexFormReaction")
 );
-const ReactionsList = lazy(
+const IndexTable = lazy(
   () => import("./pages/tableReactions/_indexTableReactions/IndexTable")
 );
 
@@ -21,10 +20,9 @@ function App() {
         <NavComponents />
         <Routes>
           <Route path="/" element={<IndexHome />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<IndexLogin />} />
           <Route path="/reaction-form" element={<IndexFormReaction />} />
-          <Route path="/reactions-list" element={<ReactionsList />} />
+          <Route path="/reactions-list" element={<IndexTable />} />
         </Routes>
         <Footer />
       </Suspense>

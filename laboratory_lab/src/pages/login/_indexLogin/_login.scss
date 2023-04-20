@@ -1,14 +1,15 @@
-@import "../../components/btnsLogin/btnsLogin";
+@import "../btnsLogin/btnsLogin";
 
 .login {
   height: 100%;
   min-height: 500px;
   max-height: calc(100% - $font-size-small - ($space-small * 2));
   padding: 0;
-  background-image: url("../../asets/microscope-small.jpg");
+  background-image: url("../../../asets/microscope-small.jpg");
   background-size: cover;
+  background-position: right;
   @include breakpointNav {
-    background-image: url("../../asets/microscope-largre.jpg");
+    background-image: url("../../../asets/microscope-largre.jpg");
   }
 
   &__opacity {

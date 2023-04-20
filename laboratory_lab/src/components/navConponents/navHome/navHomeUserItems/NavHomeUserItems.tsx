@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../../../data/firebaseConfig";
 import { handleToggleNav } from "../../../../redux/storeFeatures/navHomeSlice";
-import { signedOutLinks } from "../navHomeItems/dataNavHomeItems";
+
 
 const NavHomeUserItems = () => {
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
+   const url = useLocation().pathname;
 
   const handleLogout = (): void => {
     auth.signOut();
@@ -17,25 +18,22 @@ const NavHomeUserItems = () => {
 
   return (
     <>
-      {!user?.email && (
+     
         <ul className="navHomeItems">
-          {signedOutLinks.map(link => {
-            return (
-              <motion.li
-                key={link.text}
-                onClick={() => dispatch(handleToggleNav())}
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: link.delay }}
-              >
-                <Link to={link.to} className="navHomeItems__item">
-                  {link.text}
-                </Link>
-              </motion.li>
-            );
-          })}
+          <motion.li
+            onClick={() => dispatch(handleToggleNav())}
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            {!user?.email && url === "/" && (
+              <Link to="/login" className="navHomeItems__item">
+                Login / Rejestracja
+              </Link>
+            )}
+          </motion.li>
         </ul>
-      )}
+      
 
       {user?.email && (
         <ul className="navHomeItems">

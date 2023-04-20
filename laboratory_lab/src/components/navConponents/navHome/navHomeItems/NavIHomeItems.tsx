@@ -14,7 +14,7 @@ const NavHomeItems = () => {
   const url = useLocation().pathname;
 
   const selectedNavLinksData = () => {
-    if (url === "/login" || url === "/register") return [navLinksData[0]];
+    if (url === "/login") return [navLinksData[0]];
 
     if (url === "/") return navLinksData.slice(1, 3);
   };
