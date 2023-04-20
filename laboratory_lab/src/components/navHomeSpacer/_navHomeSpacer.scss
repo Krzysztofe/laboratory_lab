@@ -1,3 +1,6 @@
 .navHomeSpacer{
     height: calc($font-size-large + 24px);
+      @include breakpointNav {
+      height: 86px;
+    }
 }

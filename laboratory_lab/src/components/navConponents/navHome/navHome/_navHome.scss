@@ -1,40 +1,41 @@
 .navHome {
-    display: none;
+  display: none;
   @include breakpointNav {
-      box-shadow: 0px -4px 14px -1px $color-grey;
-      display: flex;
-      flex-direction: column-reverse;
-      position: fixed;
-      z-index: 2;
-      left: 50%;
-      right: 50%;
-      transform: translate(-50%);
-      padding: $space-small/3;
-      background-color: $color-white;
-      font-weight: $font-weight-bold;
+    box-shadow: 0px -4px 14px -1px $color-grey;
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
+    padding: $space-small/3;
+    background-color: $color-white;
+    font-weight: $font-weight-bold;
+  
   }
 }
 .navHomeMobile {
-    box-shadow: 0px -4px 14px -1px $color-grey;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    width: 100%;
-    background-color: $color-white;
+  box-shadow: 0px -4px 14px -1px $color-grey;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  background-color: $color-white;
   @include breakpointNav {
-      display: none;
+    display: none;
   }
 
   &__topIconContainer {
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      height: 100%;
-      padding: 12px 0;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    padding: 12px 0;
     .navHomeMobile__icon {
-        margin-right: $space-small;
-        cursor: pointer;
-        font-size: $font-size-large * 2;
+      margin-right: $space-small;
+      cursor: pointer;
+      font-size: $font-size-large * 2;
     }
   }
 }
