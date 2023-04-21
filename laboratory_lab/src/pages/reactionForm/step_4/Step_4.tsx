@@ -2,14 +2,12 @@ import { summaryParams, summaryDates } from "./dataStep_4";
 import { motion } from "framer-motion";
 import { ModelReaction } from "../../../services/apiSlice";
 
-
 interface Props {
   reaction: ModelReaction;
 }
 
-const Step_5 = (props: Props) => {
+const Step_4 = (props: Props) => {
   const getReactionValues = Object.values(props.reaction);
-
 
   return (
     <motion.section
@@ -19,13 +17,15 @@ const Step_5 = (props: Props) => {
       transition={{ delay: 0.1 }}
     >
       <ul>
-        <li className="step4__subHeader">Parametry:</li>
+        <li className="step4__subHeader">
+          Parametry:
+        </li>
 
         {getReactionValues
           .slice(0, 7)
           .map((value: string | string[], idx: number) => {
             return (
-              <li key={crypto.randomUUID()} className="step4__reactionItem">
+              <li key={summaryParams[idx]} className="step4__reactionItem">
                 <div className="step4__reactionProperty">
                   {summaryParams[idx]}:&nbsp;
                 </div>
@@ -38,7 +38,7 @@ const Step_5 = (props: Props) => {
                           return isNaN(Number(char)) ? (
                             char
                           ) : (
-                            <small className="numberInCheckbox">{char}</small>
+                            <small key = {crypto.randomUUID()}className="numberInCheckbox">{char}</small>
                           );
                         })
                     : value}
@@ -46,13 +46,13 @@ const Step_5 = (props: Props) => {
               </li>
             );
           })}
-        <li className="step4__subHeader">Czasy:</li>
+        <li className="step4__subHeader">
+          Czasy:
+        </li>
         {getReactionValues.slice(7, 11).map((value: string, idx: number) => {
           return (
             <li key={crypto.randomUUID()} className="step4__reactionItem">
-              <div className="step4__reactionProperty">
-                {summaryDates[idx]}:data
-              </div>
+              <div className="step4__reactionProperty">{summaryDates[idx]}</div>
               <div className="step4__reactionValue">{value}</div>
             </li>
           );
@@ -62,4 +62,4 @@ const Step_5 = (props: Props) => {
   );
 };
 
-export default Step_5;
+export default Step_4;

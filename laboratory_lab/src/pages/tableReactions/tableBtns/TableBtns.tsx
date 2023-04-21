@@ -66,17 +66,20 @@ const TableBtns = (props: Partial<ModelReaction>) => {
 
   const handleDeleteReaction = async (id: string) => {
     dispatch(handleRequestStateId(id));
-    dispatch(handleCleanEditForm());
     Swal.fire({
       title: "Chcesz usunąć reakcję?",
       showCancelButton: true,
       confirmButtonColor: "rgb(31, 180, 255)",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Tak usuń",
-      cancelButtonText: "Nie usówaj",
+      confirmButtonText: "Tak",
+      cancelButtonText: "Nie",
+      customClass: {
+        title: "tableReactions__alertTitle", 
+      },
     }).then(async result => {
       if (result.isConfirmed) {
         await deleteReaction(id);
+        dispatch(handleCleanEditForm());
       }
     });
   };
