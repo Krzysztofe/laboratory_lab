@@ -25,7 +25,6 @@ export const useValidationForm = (
   editedReaction: ModelReaction,
   idx?: number
 ) => {
-
   const conditions = [
     [
       {
@@ -70,29 +69,29 @@ export const useValidationForm = (
 
     [
       {
-        condition:
-          !toString(editedReaction.solvents)
-            .trim()
-            .toLocaleUpperCase()
-            .includes("CH3OH") &&
-          !toString(editedReaction.solvents)
-            .trim()
-            .toLocaleUpperCase()
-            .includes("DMSO") &&
-          !toString(editedReaction.solvents)
-            .trim()
-            .toLocaleUpperCase()
-            .includes("DMF") &&
-          !toString(editedReaction.solvents)
-            .trim()
-            .toLocaleUpperCase()
-            .includes("CHCL3") &&
-          !toString(editedReaction.solvents)
-            .trim()
-            .toLocaleUpperCase()
-            .includes("C2H5OH"),
-        errorMessage: "Rozp. z listy",
-        key: "solvents",
+        // condition:
+        //   !toString(editedReaction.solvents)
+        //     .trim()
+        //     .toLocaleUpperCase()
+        //     .includes("CH3OH") &&
+        //   !toString(editedReaction.solvents)
+        //     .trim()
+        //     .toLocaleUpperCase()
+        //     .includes("DMSO") &&
+        //   !toString(editedReaction.solvents)
+        //     .trim()
+        //     .toLocaleUpperCase()
+        //     .includes("DMF") &&
+        //   !toString(editedReaction.solvents)
+        //     .trim()
+        //     .toLocaleUpperCase()
+        //     .includes("CHCL3") &&
+        //   !toString(editedReaction.solvents)
+        //     .trim()
+        //     .toLocaleUpperCase()
+        //     .includes("C2H5OH"),
+        // errorMessage: "Rozp. z listy",
+        // key: "solvents",
       },
 
       {
@@ -107,17 +106,6 @@ export const useValidationForm = (
             "CHŁODZENIE",
         errorMessage: "Podaj warunki",
         key: "selectReactionCondition",
-      },
-
-      {
-        condition: editedReaction.substract.trim().length < 3,
-        errorMessage: "Min. 3 znaki",
-        key: "substract",
-      },
-      {
-        condition: editedReaction.substract.trim().length > 10,
-        errorMessage: "Max. 10 znaków",
-        key: "substract",
       },
     ],
 

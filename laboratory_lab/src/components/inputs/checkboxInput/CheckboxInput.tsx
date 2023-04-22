@@ -7,14 +7,9 @@ export interface Props {
   labelClass: string;
   inputClass: string;
   styleClass: string;
-  labelTransform: (label: string) => any;
 }
 
 const CheckboxInput = (props: Props) => {
-  const transformedLabel = props.labelTransform
-    ? props.labelTransform(props.name)
-    : props.name;
-
   return (
     <>
       <label className={props.labelClass}>
@@ -25,7 +20,7 @@ const CheckboxInput = (props: Props) => {
           onChange={props.handleChange}
           className={props.inputClass}
         />
-        <div className={props.styleClass}>{transformedLabel}</div>
+        <div className={props.styleClass}>{props.name}</div>
       </label>
     </>
   );

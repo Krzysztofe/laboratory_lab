@@ -5,14 +5,12 @@ export const INITIAL_DATA: ModelReaction = {
   selectMilimolles: "--Wybierz--",
   alcaloids: "",
   technics: "",
-  solvents: [],
+  atmosphere: [],
   selectReactionCondition: "--Wybierz--",
-  substract: "",
+  solvents: "",
   startDate: "",
   finishDate: "",
   startTime: "",
   finishTime: "",
   isEdit: true,
 };
-
-

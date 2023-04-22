@@ -3,9 +3,9 @@ export const summaryParams = [
   "Ilość milimoli",
   "Alkaloidy",
   "Technika",
-  "Rozpuszczalniki",
+  "Środowisko",
   "Warunki reakcji",
-  "Substract",
+  "Rozpuszczalnik",
 ];
 
 export const summaryDates = [

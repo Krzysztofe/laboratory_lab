@@ -6,6 +6,7 @@ interface Props {
   containerClass?: string;
   inuptClass?: string;
   labelClass?: string;
+  label?:any
 }
 
 const RadioInput = (props: Props) => {
@@ -21,7 +22,7 @@ const RadioInput = (props: Props) => {
         id={props.value}
       />
       <label htmlFor={props.value} className={props.labelClass}>
-        {props.value}
+        {props.label? props.label :props.value}
       </label>
     </div>
   );

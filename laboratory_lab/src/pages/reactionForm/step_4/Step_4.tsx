@@ -9,6 +9,26 @@ interface Props {
 const Step_4 = (props: Props) => {
   const getReactionValues = Object.values(props.reaction);
 
+  const summaryParamsContemt = (value: string | string[], idx: number) => {
+    if (typeof value === "string" && idx === 6) {
+      return value.split("").map(char => {
+        return isNaN(Number(char)) ? (
+          char
+        ) : (
+          <small key={crypto.randomUUID()} className="numberInCheckbox">
+            {char}
+          </small>
+        );
+      });
+    }
+
+    if (Array.isArray(value)) {
+      return value.join(", ");
+    }
+
+    return value;
+  };
+
   return (
     <motion.section
       className="step4"
@@ -17,9 +37,7 @@ const Step_4 = (props: Props) => {
       transition={{ delay: 0.1 }}
     >
       <ul>
-        <li className="step4__subHeader">
-          Parametry:
-        </li>
+        <li className="step4__subHeader">Parametry:</li>
 
         {getReactionValues
           .slice(0, 7)
@@ -30,25 +48,12 @@ const Step_4 = (props: Props) => {
                   {summaryParams[idx]}:&nbsp;
                 </div>
                 <div className="step4__reactionValue">
-                  {Array.isArray(value)
-                    ? value
-                        .join(", ")
-                        .split("")
-                        .map(char => {
-                          return isNaN(Number(char)) ? (
-                            char
-                          ) : (
-                            <small key = {crypto.randomUUID()}className="numberInCheckbox">{char}</small>
-                          );
-                        })
-                    : value}
+                  {summaryParamsContemt(value, idx)}
                 </div>
               </li>
             );
           })}
-        <li className="step4__subHeader">
-          Czasy:
-        </li>
+        <li className="step4__subHeader">Czasy:</li>
         {getReactionValues.slice(7, 11).map((value: string, idx: number) => {
           return (
             <li key={crypto.randomUUID()} className="step4__reactionItem">

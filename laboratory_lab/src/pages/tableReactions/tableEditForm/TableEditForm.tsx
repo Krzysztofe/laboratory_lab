@@ -1,18 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
-import { useDispatch, useSelector } from "react-redux";
-import { handleChange } from "../../../redux/storeFeatures/tableReactionsSlice";
 import { RootState } from "../../../redux/store";
+import { handleChange } from "../../../redux/storeFeatures/tableReactionsSlice";
 import {
   inputsPrintDataFirst,
   inputsPrintDataSecond,
 } from "./dataTableEditForm";
 
 import { useValidationForm } from "../../../hooks/useValidationForm";
-import {
-  useAddReactionMutation,
-  useReactionsQuery,
-} from "../../../services/apiSlice";
+;
 
 const TableEditForm = () => {
   const dispatch = useDispatch();
@@ -22,9 +19,7 @@ const TableEditForm = () => {
   const { isOpen } = useSelector(
     (state: RootState) => state.tableReactions.toggleTable
   );
-  const [addReaction, success] = useAddReactionMutation();
 
-  const { error, isLoading } = useReactionsQuery(undefined);
   const { validationForm } = useValidationForm(editedReaction);
 
   const handleInputChange = (e: ChangeEvent) => {
@@ -33,9 +28,6 @@ const TableEditForm = () => {
   };
 
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
-
- 
-  
 
   return (
     <>
@@ -46,11 +38,13 @@ const TableEditForm = () => {
               label={""}
               type={type}
               name={name}
-              value={editedReaction[name]}
+              value={
+                Array.isArray(editedReaction[name])
+                  ? editedReaction[name].join(', ')
+                  : editedReaction[name]
+              }
               handleChange={handleInputChange}
-              containerClass={`editForm__textInputContainer ${
-                success.error && "editError"
-              }`}
+              containerClass={"editForm__textInputContainer"}
               labelClass={"editForm__textInputLabel"}
               inputClass={`editForm__textInput`}
             />

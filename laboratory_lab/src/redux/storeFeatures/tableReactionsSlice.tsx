@@ -24,6 +24,7 @@ const initialState: TableReactionInitialsState = {
     substract: "",
     selectReactionCondition: "",
     solvents: "",
+    atmosphere: "",
     startDate: "",
     finishDate: "",
     startTime: "",
@@ -57,13 +58,13 @@ export const tableReactionsSlice = createSlice({
         ? Object.keys(action.payload).map(key => ({
             id: key,
             name: action.payload[key].name,
+            solvents: action.payload[key].solvents,
             technics: action.payload[key].technics,
             alcaloids: action.payload[key].alcaloids,
             selectMilimolles: action.payload[key].selectMilimolles,
-            substract: action.payload[key].substract,
             selectReactionCondition:
               action.payload[key].selectReactionCondition,
-            solvents: action.payload[key].solvents,
+            atmosphere: action.payload[key].atmosphere,
             startDate: action.payload[key].startDate,
             finishDate: action.payload[key].finishDate,
             startTime: action.payload[key].startTime,

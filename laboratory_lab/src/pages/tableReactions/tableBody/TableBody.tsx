@@ -45,9 +45,9 @@ const TableBody = () => {
     if (requestState.deleteIsError && requestState.id === reactionID) {
       return "httpErrorInRow";
     }
-
     return "";
   };
+
 
   return (
     <tbody>
