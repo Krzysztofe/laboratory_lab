@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.52c63268.css",
-    "main.js": "/Laboratory_Lab/static/js/main.66942ab6.js",
+    "main.css": "/Laboratory_Lab/static/css/main.95290fdb.css",
+    "main.js": "/Laboratory_Lab/static/js/main.6c0b1d3b.js",
     "static/js/146.45a4ebad.chunk.js": "/Laboratory_Lab/static/js/146.45a4ebad.chunk.js",
-    "static/js/86.23973886.chunk.js": "/Laboratory_Lab/static/js/86.23973886.chunk.js",
-    "static/js/518.36018cf5.chunk.js": "/Laboratory_Lab/static/js/518.36018cf5.chunk.js",
+    "static/js/86.49a7f845.chunk.js": "/Laboratory_Lab/static/js/86.49a7f845.chunk.js",
+    "static/js/518.c1e26bb4.chunk.js": "/Laboratory_Lab/static/js/518.c1e26bb4.chunk.js",
     "static/js/830.f0a8c7cd.chunk.js": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js",
     "static/js/306.0bb8fdd3.chunk.js": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js",
     "static/js/856.89a5d45a.chunk.js": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js",
@@ -15,17 +15,17 @@
     "static/media/microscope-small.jpg": "/Laboratory_Lab/static/media/microscope-small.2380c1629aad2cdd262f.jpg",
     "static/media/loading.png": "/Laboratory_Lab/static/media/loading.777add4dbefff8a49205.png",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.52c63268.css.map": "/Laboratory_Lab/static/css/main.52c63268.css.map",
-    "main.66942ab6.js.map": "/Laboratory_Lab/static/js/main.66942ab6.js.map",
+    "main.95290fdb.css.map": "/Laboratory_Lab/static/css/main.95290fdb.css.map",
+    "main.6c0b1d3b.js.map": "/Laboratory_Lab/static/js/main.6c0b1d3b.js.map",
     "146.45a4ebad.chunk.js.map": "/Laboratory_Lab/static/js/146.45a4ebad.chunk.js.map",
-    "86.23973886.chunk.js.map": "/Laboratory_Lab/static/js/86.23973886.chunk.js.map",
-    "518.36018cf5.chunk.js.map": "/Laboratory_Lab/static/js/518.36018cf5.chunk.js.map",
+    "86.49a7f845.chunk.js.map": "/Laboratory_Lab/static/js/86.49a7f845.chunk.js.map",
+    "518.c1e26bb4.chunk.js.map": "/Laboratory_Lab/static/js/518.c1e26bb4.chunk.js.map",
     "830.f0a8c7cd.chunk.js.map": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js.map",
     "306.0bb8fdd3.chunk.js.map": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js.map",
     "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.52c63268.css",
-    "static/js/main.66942ab6.js"
+    "static/css/main.95290fdb.css",
+    "static/js/main.6c0b1d3b.js"
   ]
 }
