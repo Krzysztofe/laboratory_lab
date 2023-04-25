@@ -1,10 +1,11 @@
-import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { RootState } from "../../../../redux/store";
 import { handleToggleNav } from "../../../../redux/storeFeatures/navHomeSlice";
 import NavHomeUserItems from "../navHomeUserItems/NavHomeUserItems";
 import { navLinksData } from "./dataNavHomeItems";
+
 export interface Props {
   setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -12,6 +13,7 @@ export interface Props {
 const NavHomeItems = () => {
   const dispatch = useDispatch();
   const url = useLocation().pathname;
+  const { isOpen } = useSelector((state: RootState) => state.navHome);
 
   const selectedNavLinksData = () => {
     if (url === "/login") return [navLinksData[0]];
@@ -28,19 +30,14 @@ const NavHomeItems = () => {
     }
   };
 
-  const windowWidth = window.innerWidth < 769;
-
   return (
     <>
-      <ul className="navHomeItems">
+      <ul className={`navHomeItems ${isOpen && "navHomeItems--isOpen"}`}>
         {selectedNavLinksData()?.map(link => {
           return (
-            <motion.li
+            <li
               key={crypto.randomUUID()}
               onClick={() => dispatch(handleToggleNav())}
-              initial={windowWidth ? { opacity: 0, y: -40 } : {}}
-              animate={windowWidth ? { opacity: 1, y: 0 } : {}}
-              transition={windowWidth ? { delay: link.delay } : {}}
             >
               <HashLink
                 to={link.to}
@@ -50,7 +47,7 @@ const NavHomeItems = () => {
               >
                 {link.text}
               </HashLink>
-            </motion.li>
+            </li>
           );
         })}
       </ul>

@@ -1,39 +1,39 @@
 .navAsideItems {
-  position: fixed;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: fit-content;
-  font-size: 2rem;
-  margin: 0;
-  padding: $space-large 0;
-  background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   -moz-backdrop-filter: blur(5px);
   -o-backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
   z-index: 2;
+  top: 0;
+  width: fit-content;
+  height: 100%;
+  margin: 0;
+  padding: $space-large 0;
   transition: 700ms;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 2rem;
   @include breakpointNav {
     &:hover .navAsideItems__signIn {
-      font-size: $font-size-xsmall;
       width: 30rem;
-      transition: 700ms;
       margin-left: 0%;
+      transition: 700ms;
+      font-size: $font-size-xsmall;
       &:hover {
-        font-size: calc($font-size-xsmall + 0.2rem);
         transition: 200ms;
+        font-size: calc($font-size-xsmall + 0.2rem);
       }
     }
     &:hover .navAsideItems__item {
-      transition: 700ms;
-      margin-left: 0;
       width: 30rem;
+      margin-left: 0;
+      transition: 700ms;
     }
     &:hover .navAsideItems__name {
-      transition: 700ms;
       margin-left: 0;
+      transition: 700ms;
     }
   }
 
@@ -47,24 +47,23 @@
 
 .navAsideItems__signIn {
   height: $font-size-xsmall;
-  color: $color-neutral-secondary-light;
-  font-size: $font-size-xsmall;
-  letter-spacing: 0.15rem;
-  text-align: center;
   margin-bottom: $space-small;
   margin-left: 0%;
   cursor: pointer;
+  font-size: $font-size-xsmall;
+  color: $color-neutral-secondary-light;
+  text-align: center;
+  letter-spacing: 0.15rem;
   &:hover {
     transition: 200ms;
-    color: $color-white;
     font-size: calc($font-size-xsmall + 0.2rem);
-    transition: 200ms;
+    color: $color-white;
   }
   @include breakpointNav {
-    margin-left: -800%;
-    height: $font-size-xsmall;
-    font-size: 0;
     width: 0;
+    height: $font-size-xsmall;
+    margin-left: -800%;
+    font-size: 0;
   }
 }
 

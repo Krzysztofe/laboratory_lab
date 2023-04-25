@@ -12,7 +12,6 @@
     padding: $space-small/3;
     background-color: $color-white;
     font-weight: $font-weight-bold;
-  
   }
 }
 .navHomeMobile {
@@ -32,6 +31,9 @@
     align-items: center;
     height: 100%;
     padding: 12px 0;
+    background-color: $color-white;
+    position: relative;
+    z-index: 1;
     .navHomeMobile__icon {
       margin-right: $space-small;
       cursor: pointer;

@@ -1,14 +1,15 @@
-import { motion } from "framer-motion";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { auth } from "../../../../data/firebaseConfig";
+import { RootState } from "../../../../redux/store";
 import { handleToggleNav } from "../../../../redux/storeFeatures/navHomeSlice";
 
 const NavHomeUserItems = () => {
   const [user] = useAuthState(auth);
   const dispatch = useDispatch();
   const url = useLocation().pathname;
+  const { isOpen } = useSelector((state: RootState) => state.navHome);
 
   const handleLogout = (): void => {
     auth.signOut();
@@ -16,51 +17,41 @@ const NavHomeUserItems = () => {
   };
 
   const isLoggedIn = user?.email;
-  const windowWidth = window.innerWidth < 769;
-
-
 
   return (
     <>
       {!isLoggedIn && (
-        <ul className="navHomeItems">
-          <motion.li
-            onClick={() => dispatch(handleToggleNav())}
-            initial={windowWidth ? { opacity: 0, y: -40 } : {}}
-            animate={windowWidth ? { opacity: 1, y: 0 } : {}}
-            transition={windowWidth ? { delay: 0.6 } : {}}
-          >
+        <ul
+          className={`navHomeItems navHomeItems--user ${
+            isOpen && "navHomeItems--isOpen"
+          }`}
+        >
+          <li onClick={() => dispatch(handleToggleNav())}>
             {!isLoggedIn && url === "/" && (
               <Link to="/login" className="navHomeItems__item">
                 Zaloguj / Rejestracja
               </Link>
             )}
-          </motion.li>
+          </li>
         </ul>
       )}
       {isLoggedIn && (
-        <ul className="navHomeItems">
-          <motion.li
-            initial={windowWidth ? { opacity: 0, y: -40 } : {}}
-            animate={windowWidth ? { opacity: 1, y: 0 } : {}}
-            transition={windowWidth ? { delay: 0.6 } : {}}
-            onClick={handleLogout}
-          >
+        <ul
+          className={`navHomeItems navHomeItems--user ${
+            isOpen && "navHomeItems--isOpen"
+          }`}
+        >
+          <li onClick={handleLogout}>
             <Link to="" className="navHomeItems__item">
               Wyloguj: {user?.email}
             </Link>
-          </motion.li>
+          </li>
 
-          <motion.li
-            onClick={() => dispatch(handleToggleNav())}
-            initial={windowWidth ? { opacity: 0, y: -40 } : {}}
-            animate={windowWidth ? { opacity: 1, y: 0 } : {}}
-            transition={windowWidth ? { delay: 0.7 } : {}}
-          >
+          <li onClick={() => dispatch(handleToggleNav())}>
             <Link to="reaction-form" className="navHomeItems__item">
               Wypełnij dziennik
             </Link>
-          </motion.li>
+          </li>
         </ul>
       )}
     </>
