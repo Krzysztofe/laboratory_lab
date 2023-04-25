@@ -17,7 +17,6 @@
   }
 }
 
-
 .editForm__textInput {
   width: 100%;
   font-size: 2rem;
@@ -30,10 +29,23 @@
   z-index: 1;
   overflow-x: auto;
   &--solvents {
-    // color: red;
-    // opacity: 0.5;
+    color: transparent;
   }
 }
+
+.editForm__printSolvents {
+  position: absolute;
+  top: 0;
+  
+}
+
+.editForm__numberInSolvent {
+  padding: 0 2px;
+  font-size: $font-size-xsmall;
+  line-height: 6px;
+  vertical-align: -0.4em;
+}
+
 .editForm__error {
   color: $color-red;
   font-size: $font-size-small;
@@ -58,5 +70,3 @@
     display: none;
   }
 }
-
-

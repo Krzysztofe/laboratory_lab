@@ -170,6 +170,25 @@ html body.swal2-height-auto {
   padding-right: 0px !important;
   height: 100% !important;
 }
-.tableReactions__alertTitle{
-color: $color-black !important
+
+.swal2-popup {
+  border-radius: 0 !important;
+}
+
+.tableReactions__alertTitle {
+  color: $color-black !important;
+}
+
+.tableReactions__alertConfirmButton,
+.tableReactions__alertCancelButton {
+  border-radius: 0 !important;
+  padding: 1em 3em !important;
+}
+
+.tableReactions__alertConfirmButton {
+  margin-right: 2rem !important;
+}
+
+.tableReactions__alertCancelButton {
+  margin-left: 2rem !important;
 }

@@ -70,11 +70,13 @@ const TableBtns = (props: Partial<ModelReaction>) => {
       title: "Chcesz usunąć reakcję?",
       showCancelButton: true,
       confirmButtonColor: "rgb(31, 180, 255)",
-      cancelButtonColor: "#d33",
+      cancelButtonColor: "rgb(238, 28, 24)",
       confirmButtonText: "Tak",
       cancelButtonText: "Nie",
       customClass: {
-        title: "tableReactions__alertTitle", 
+        title: "tableReactions__alertTitle",
+        confirmButton: "tableReactions__alertConfirmButton",
+        cancelButton: "tableReactions__alertCancelButton",
       },
     }).then(async result => {
       if (result.isConfirmed) {

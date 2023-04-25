@@ -4,11 +4,12 @@
   letter-spacing: 0.2rem;
   background-color: transparent;
   padding: 0.5em 0;
+  transition: transform 500ms;
   &:hover {
     border: 2px solid $color-button;
     background-color: $color-button;
     color: $color-white;
-    transition-duration: 0.35s;
+    transform: translateY(-3.5px);
   }
    &:active {
       border: 2px solid $color-button;
