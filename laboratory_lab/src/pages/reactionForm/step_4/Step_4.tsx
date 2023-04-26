@@ -1,6 +1,7 @@
 import { summaryParams, summaryDates } from "./dataStep_4";
 import { motion } from "framer-motion";
 import { ModelReaction } from "../../../services/apiSlice";
+import { solventIdx } from "../../../utils/solventIdx";
 
 interface Props {
   reaction: ModelReaction;
@@ -11,15 +12,7 @@ const Step_4 = (props: Props) => {
 
   const summaryParamsContemt = (value: string | string[], idx: number) => {
     if (typeof value === "string" && idx === 6) {
-      return value.split("").map(char => {
-        return isNaN(Number(char)) ? (
-          char
-        ) : (
-          <small key={crypto.randomUUID()} className="numberInCheckbox">
-            {char}
-          </small>
-        );
-      });
+      return solventIdx(value);
     }
 
     if (Array.isArray(value)) {

@@ -38,6 +38,11 @@
           @include breakpointFirst {
             font-size: $font-size-small;
           }
+          & .reactionsHome__solventIdx {
+            font-size: $font-size-xsmall;
+            line-height: 6px;
+            vertical-align: -0.4em;
+          }
         }
       }
     }

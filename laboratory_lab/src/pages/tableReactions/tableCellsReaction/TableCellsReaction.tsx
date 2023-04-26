@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { ModelReaction } from "../../../services/apiSlice";
+import { solventIdx } from "../../../utils/solventIdx";
 import {
   getTableBodyReactionsFirst,
   getTableBodyReactionsSecond,
@@ -20,15 +21,7 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
       {getReactions(props.reaction).map((reaction, idx) => {
         let result;
         if (isOpen && idx === 1) {
-          result = reaction?.split("").map((char: string) =>
-            isNaN(Number(char)) ? (
-              char
-            ) : (
-              <small className="numberInCheckbox" key={crypto.randomUUID()}>
-                {char}
-              </small>
-            )
-          );
+          result = solventIdx(reaction);
         } else if (isOpen && idx === 6) {
           result = reaction?.join(", ");
         } else {

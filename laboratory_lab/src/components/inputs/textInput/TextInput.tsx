@@ -2,9 +2,13 @@ export interface Props {
   type: string;
   name: string;
   value: string | number;
-  handleChange:  (e: React.ChangeEvent<HTMLInputElement>) => void | string[];
-  handleBlur?:  (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void | string[];
+  handleBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleKeyPress?: (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    inputValue: string | number
+  ) => void;
   placeholder?: string;
   containerClass?: string;
   labelClass?: string;
@@ -20,6 +24,10 @@ const TextInput = (props: Props) => {
         name={props.name}
         value={props.value}
         onChange={props.handleChange}
+        onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+          props.handleKeyPress &&
+          props.handleKeyPress(e, props.value.toString())
+        }
         onBlur={props.handleBlur}
         placeholder={props.placeholder}
         className={props.inputClass}

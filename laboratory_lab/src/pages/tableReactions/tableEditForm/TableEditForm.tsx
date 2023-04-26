@@ -7,8 +7,9 @@ import {
   inputsPrintDataFirst,
   inputsPrintDataSecond,
 } from "./dataTableEditForm";
-
 import { useValidationForm } from "../../../hooks/useValidationForm";
+import { solventIdx } from "../../../utils/solventIdx";
+
 const TableEditForm = () => {
   const dispatch = useDispatch();
   const { editedReaction } = useSelector(
@@ -25,6 +26,15 @@ const TableEditForm = () => {
     dispatch(handleChange([name, value]));
   };
 
+  const handleKeyPress = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    inputValue: string
+  ) => {
+    if (inputValue.length > 8) {
+      e.preventDefault();
+      return;
+    }
+  };
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
 
   return (
@@ -42,6 +52,9 @@ const TableEditForm = () => {
                   : editedReaction[name]
               }
               handleChange={handleInputChange}
+              handleKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                name === "solvents" && handleKeyPress(e, editedReaction[name])
+              }
               containerClass={"editForm__textInputContainer"}
               labelClass={"editForm__textInputLabel"}
               inputClass={`editForm__textInput ${
@@ -51,18 +64,7 @@ const TableEditForm = () => {
 
             {name === "solvents" && (
               <div className="editForm__printSolvents">
-                {editedReaction[name].split("").map(char => {
-                  return isNaN(Number(char)) ? (
-                    char
-                  ) : (
-                    <small
-                      key={crypto.randomUUID()}
-                      className="editForm__numberInSolvent"
-                    >
-                      {char}
-                    </small>
-                  );
-                })}
+                {solventIdx(editedReaction[name])}
               </div>
             )}
             <div className="editForm__error">

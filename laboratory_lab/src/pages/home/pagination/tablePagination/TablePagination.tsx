@@ -1,5 +1,7 @@
 import { ModelReaction } from "../../../../services/apiSlice"; 
 import { useFilteredReactions } from "../useFilteredReactions";
+import { solventIdx } from "../../../../utils/solventIdx";
+
 
 interface Props {
   counter: number;
@@ -18,7 +20,7 @@ const TablePagination = (props: Props) => {
         <tr key={reaction.id}>
           <td>{reaction.name}</td>
           <td>{reaction.alcaloids}</td>
-          <td>{reaction.substract}</td>
+          <td>{solventIdx(reaction.solvents)}</td>
         </tr>
       );
     });
@@ -36,7 +38,7 @@ const TablePagination = (props: Props) => {
               <tr>
                 <th>Nazwa</th>
                 <th>Alkaloidy</th>
-                <th>Substraty</th>
+                <th>Rozp.</th>
               </tr>
             </thead>
             <tbody className="reactionsHome__tBody">{displayReactions}</tbody>

@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import CheckboxInput from "../../../components/inputs/checkboxInput/CheckboxInput";
+import RadioInput from "../../../components/inputs/radioInput/RadioInput";
 import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import { ChangeEvent } from "../../../data/types";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
 import { ModelReaction } from "../../../services/apiSlice";
+import { solventIdx } from "../../../utils/solventIdx";
 import { atmosphereNameKeyData, solventsData } from "./dataStep_2";
-import RadioInput from "../../../components/inputs/radioInput/RadioInput";
 
 export interface Props {
   reaction: ModelReaction;
@@ -67,7 +68,6 @@ const Step_3 = (props: Props) => {
             labelClass={"reaction__checkboxLabel"}
             inputClass={"reaction__checkboxInput"}
             styleClass={"reaction__checkboxStyle"}
-            
           />
         ))}
         <div className="reaction__checkboxLabel"></div>
@@ -105,13 +105,7 @@ const Step_3 = (props: Props) => {
             containerClass={"reaction__radioContainer"}
             inuptClass={"reaction__radioInput"}
             labelClass={"reaction__radioLabel"}
-            label={solvent.split("").map(char => {
-             return isNaN(Number(char)) ? (
-               char
-             ) : (
-               <small key = {crypto.randomUUID()} className= "numberInCheckbox">{char}</small>
-             );
-            })}
+            label={solventIdx(solvent)}
           />
         );
       })}

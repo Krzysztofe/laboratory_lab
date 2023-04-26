@@ -124,13 +124,6 @@
   }
 }
 
-.numberInCheckbox {
-  padding: 0 2px;
-  font-size: $font-size-xsmall;
-  line-height: 6px;
-  vertical-align: -0.4em;
-}
-
 .reaction__checkboxInput:checked + .reaction__checkboxStyle {
   background-color: $color-white;
   color: $color-black;

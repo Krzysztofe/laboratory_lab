@@ -5,4 +5,4 @@ export const atmosphereNameKeyData = [
 ];
 
 
-export const solventsData = ["CHCl3", "C2H5Oh", "C6h5Ch3"]
+export const solventsData = ["CHCl3", "C2H5Oh", "C6H5Ch3"]
