@@ -70,8 +70,6 @@ export const tableReactionsSlice = createSlice({
             startTime: action.payload[key].startTime,
             finishTime: action.payload[key].finishTime,
             isEdit: action.payload[key].isEdit,
-            // ...action.payload[key],
-            // isEdit: action.payload[key].isEdit,
           }))
         : [];
 

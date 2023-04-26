@@ -9,25 +9,19 @@ import { alcaloidsData } from "./dataStep_1";
 
 export interface Props {
   reaction: ModelReaction;
-  handleChange: (fields: Partial<ModelReaction>) => void;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    inputType?: string,
+    name?: string,
+    passedValue?: string | string[]
+  ) => void;
   errors: ModelValidationErrors;
 }
 
+
 const Step_1 = (props: Props): JSX.Element => {
 
-  const handleChangeName = (e: ChangeEvent) => {
-    return props.handleChange({ name: e.target.value.trim() });
-  };
-  const handleChangeAlcaloids = (e: ChangeEvent) => {
-    return props.handleChange({ alcaloids: e.target.value });
-  };
-  const handleChangeTechnics = (e: ChangeEvent) => {
-    return props.handleChange({ technics: e.target.value.trim() });
-  };
-  const handleChangeMilimolles = (value: string) => {
-    props.handleChange({ selectMilimolles: value });
-  };
-
+  
   return (
     <motion.section
       initial={{ opacity: 0, y: -40 }}
@@ -38,7 +32,7 @@ const Step_1 = (props: Props): JSX.Element => {
         type={"text"}
         name={"name"}
         value={props.reaction.name}
-        handleChange={handleChangeName}
+        handleChange={props.handleChange}
         label={"Nazwa reakcji"}
         placeholder={"Nazwa"}
         containerClass={"reaction__textInputContainer"}
@@ -54,7 +48,7 @@ const Step_1 = (props: Props): JSX.Element => {
         inputName={"selectMilimolles"}
         selectValues={["1", "2", "3", "4", "5", "6"]}
         value={props.reaction.selectMilimolles}
-        handleChange={handleChangeMilimolles}
+        handleChange={props.handleChange}
         containerClass="reaction__selectContainer"
         labelClass="reaction__selectLabel"
         inputTopClass="reaction__selectTop"
@@ -72,7 +66,7 @@ const Step_1 = (props: Props): JSX.Element => {
             key={alcaloid}
             value={alcaloid}
             name={"alcaloids"}
-            handleChange={handleChangeAlcaloids}
+            handleChange={props.handleChange}
             checked={props.reaction.alcaloids === alcaloid}
             containerClass={"reaction__radioContainer"}
             inuptClass={"reaction__radioInput"}
@@ -88,7 +82,7 @@ const Step_1 = (props: Props): JSX.Element => {
         type={"text"}
         name={"technics"}
         value={props.reaction.technics}
-        handleChange={handleChangeTechnics}
+        handleChange={props.handleChange}
         label={"Technika"}
         placeholder={"Technika"}
         containerClass={"reaction__textInputContainer"}

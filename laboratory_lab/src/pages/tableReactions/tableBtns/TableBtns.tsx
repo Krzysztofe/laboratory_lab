@@ -59,8 +59,6 @@ const TableBtns = (props: Partial<ModelReaction>) => {
   ) => {
     if (Object.keys(validationForm()).length) return;
     const updatedEditedReaction = { ...editedReaction, isEdit: true };
-    dispatch(handleUpdate([printReactions, reactionID]));
-    dispatch(handleCleanEditForm());
     await updateReaction(updatedEditedReaction);
   };
 

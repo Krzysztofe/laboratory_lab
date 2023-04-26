@@ -13,6 +13,7 @@ import Step_2 from "../step_2/Step_2";
 import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
 import { INITIAL_DATA } from "./dataFormReaction";
+import { ChangeEvent } from "../../../data/types";
 
 const IndexFormReaction = () => {
   const navigate = useNavigate();
@@ -26,11 +27,23 @@ const IndexFormReaction = () => {
   const [errors, setErrors] = useState({});
   const [addReaction, success] = useAddReactionMutation();
 
-  const handleChange = (fields: Partial<ModelReaction>) => {
-    setReaction(prev => {
-      return { ...prev, ...fields };
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    inputType?: string,
+    name?: string,
+    passedValue?: string | string[]
+  ) => {
+    let value: string | string[] | undefined = e?.target.value;
+
+    if (inputType === "checkbox" || inputType === "select") {
+      value = passedValue;
+    }
+
+    const targetName: string = name ? name : e?.target?.name;
+    setReaction({ ...reaction, [targetName]: value });
   };
+
+
 
   const {
     steps,
@@ -104,7 +117,9 @@ const IndexFormReaction = () => {
 
   if (success.isSuccess) {
     formContent = (
-      <div className="formReaction__requestMessage ">Dane zapisane w liście <br/> reakcji</div>
+      <div className="formReaction__requestMessage ">
+        Dane zapisane w liście <br /> reakcji
+      </div>
     );
   }
 

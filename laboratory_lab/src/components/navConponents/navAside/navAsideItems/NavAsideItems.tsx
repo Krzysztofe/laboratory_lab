@@ -2,6 +2,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../../../data/firebaseConfig";
 import { links } from "./dataNavAsideItems";
+import { useDispatch } from "react-redux";
+import { handleCleanEditForm } from "../../../../redux/storeFeatures/tableReactionsSlice";
 
 export interface Props {
   isOpen: boolean;
@@ -17,20 +19,32 @@ const NavAsideItems = (props: Props) => {
     auth.signOut();
   };
 
-  
+  const dispatch = useDispatch();
+
   return (
     <>
       <ul
         className={`navAsideItems ${!props.isOpen && "navAsideItems__close"} `}
       >
-        <li onClick={handleLogout} className="navAsideItems__signIn">
+        <li
+          onClick={() => {
+            handleLogout();
+            dispatch(handleCleanEditForm());
+          }}
+          className="navAsideItems__signIn"
+        >
           Wyloguj: {user?.email}
         </li>
 
         {links.map(({ text, icon, link }) => (
           <li
             key={text}
-            onClick={() => props.setIsOpen(prev => !prev)}
+            onClick={() => {
+              props.setIsOpen(prev => !prev);
+              {
+                text !== "Lista reakcji" && dispatch(handleCleanEditForm());
+              }
+            }}
             className={"navAsideItems__item"}
           >
             <Link to={link}>

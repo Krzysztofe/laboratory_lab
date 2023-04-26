@@ -5,7 +5,8 @@ interface Props {
   label: string;
   inputName: string;
   value: string;
-  handleChange: (vaue: string) => void;
+  // handleChange: (vaue: string) => void;
+  handleChange: any;
   containerClass?: string;
   labelClass?: string;
   optionsContainerClass?: string;
@@ -38,7 +39,7 @@ const SelectInput = (props: Props) => {
                   key={value}
                   className={props.optionClass}
                   onClick={() => {
-                    props.handleChange(value);
+                    props.handleChange(null, "select", props.inputName, value);
                     handleOpen();
                   }}
                 >

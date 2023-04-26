@@ -1,9 +1,16 @@
+import { ChangeEvent } from "../../../data/types";
+
 export interface Props {
   type: string;
   name: string;
   value: string | number;
   label: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void | string[];
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    inputType?: string,
+    name?: string,
+    passedValue?: string | string[]
+  ) => void;
   handleBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleKeyPress?: (
     e: React.KeyboardEvent<HTMLInputElement>,

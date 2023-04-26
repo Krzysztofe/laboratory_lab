@@ -1,12 +1,19 @@
+
+
 interface Props {
   value: string;
   name: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    inputType?: string,
+    name?: string,
+    passedValue?: string | string[]
+  ) => void;
   checked: boolean;
   containerClass?: string;
   inuptClass?: string;
   labelClass?: string;
-  label?:any
+  label?: any;
 }
 
 const RadioInput = (props: Props) => {

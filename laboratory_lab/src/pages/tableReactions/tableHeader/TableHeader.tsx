@@ -24,9 +24,9 @@ const TableHeader = () => {
       validationForm().selectMilimolles ||
       validationForm().substract ||
       validationForm().selectReactionCondition ||
-      validationForm().solvents)
-      ? { color: "red", text: "Uzupełnij" }
-      : { color: "black", text: "Parametry" };
+      validationForm().atmosphere)
+      ? { color: "rgb(251, 0, 0)", text: "Uzupełnij" }
+      : { color: "rgb(0 0 0)", text: "Parametry" };
 
   const timePrint =
     !editedReaction.isEdit &&
@@ -34,8 +34,8 @@ const TableHeader = () => {
       validationForm().finishDate ||
       validationForm().startTime ||
       validationForm().finishTime)
-      ? { color: "red", text: "Uzupełnij" }
-      : { color: "black", text: "Czasy" };
+      ? { color: "rgb(251, 0, 0)", text: "Uzupełnij" }
+      : { color: "rgb(0 0 0)", text: "Czasy" };
 
   return (
     <section className="wrapper tableReactions__headers">

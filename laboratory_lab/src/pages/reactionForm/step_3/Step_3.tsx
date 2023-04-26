@@ -6,16 +6,19 @@ import { ModelReaction } from "../../../services/apiSlice";
 
 interface Props {
   reaction: ModelReaction;
-  handleChange: (fields: Partial<ModelReaction>) => void;
+ 
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    inputType?: string,
+    name?: string,
+    passedValue?: string | string[]
+  ) => void;
   errors: ModelValidationErrors;
 }
 
 const Step_3 = (props: Props) => {
 
-  const handleFieldChange =
-    (field: keyof ModelReaction) => (e: ChangeEvent) => {
-      props.handleChange({ [field]: e.target.value });
-    };
+ 
 
   const fields = [
     {
@@ -60,7 +63,7 @@ const Step_3 = (props: Props) => {
             type={type}
             name={name}
             value={value}
-            handleChange={handleFieldChange(name)}
+            handleChange={props.handleChange}
             label={label}
             containerClass={"reaction__textInputContainer"}
             labelClass={"reaction__textInputLabel"}

@@ -11,7 +11,12 @@ import { atmosphereNameKeyData, solventsData } from "./dataStep_2";
 
 export interface Props {
   reaction: ModelReaction;
-  handleChange: (fields: Partial<ModelReaction>) => void;
+  handleChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    inputType?: string,
+    name?: string,
+    passedValue?: string | string[]
+  ) => void;
   errors: ModelValidationErrors;
 }
 
@@ -26,7 +31,11 @@ const Step_3 = (props: Props) => {
     setIsChecked(newIsChecked);
   }, [props.reaction.atmosphere]);
 
-  const handleCheckboxChange = (idx: number, name: string) => {
+  const handleCheckboxChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    idx: number,
+    name: string
+  ) => {
     const newIsChecked = [...isChecked];
     newIsChecked[idx] = !newIsChecked[idx];
     setIsChecked(newIsChecked);
@@ -40,15 +49,7 @@ const Step_3 = (props: Props) => {
       },
       []
     );
-    props.handleChange({ atmosphere: getNewSolvents });
-  };
-
-  const handleSelectChange = (value: string) => {
-    props.handleChange({ selectReactionCondition: value });
-  };
-
-  const handleChangeSolvents = (e: ChangeEvent) => {
-    return props.handleChange({ solvents: e.target.value });
+    props.handleChange(e, "checkbox", "atmosphere", getNewSolvents);
   };
 
   return (
@@ -64,7 +65,7 @@ const Step_3 = (props: Props) => {
             key={key}
             name={name}
             checked={isChecked[key]}
-            handleChange={() => handleCheckboxChange(key, name)}
+            handleChange={e => handleCheckboxChange(e, key, name)}
             labelClass={"reaction__checkboxLabel"}
             inputClass={"reaction__checkboxInput"}
             styleClass={"reaction__checkboxStyle"}
@@ -82,7 +83,7 @@ const Step_3 = (props: Props) => {
         inputName={"selectReactionCondition"}
         selectValues={["Mieszanie", "Ogrzewanie", "Mikrofala", "Chłodzenie"]}
         value={props.reaction.selectReactionCondition}
-        handleChange={handleSelectChange}
+        handleChange={props.handleChange}
         containerClass={"reaction__selectContainer"}
         labelClass="reaction__selectLabel"
         inputTopClass="reaction__selectTop"
@@ -99,8 +100,9 @@ const Step_3 = (props: Props) => {
           <RadioInput
             key={solvent}
             value={solvent}
-            name={"alcaloids"}
-            handleChange={handleChangeSolvents}
+            name={"solvents"}
+            // handleChange={handleChangeSolvents}
+            handleChange={props.handleChange}
             checked={props.reaction.solvents === solvent}
             containerClass={"reaction__radioContainer"}
             inuptClass={"reaction__radioInput"}
