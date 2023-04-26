@@ -23,7 +23,7 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
         if (isOpen && idx === 1) {
           result = solventIdx(reaction);
         } else if (isOpen && idx === 6) {
-          result = reaction?.join(", ");
+          result = Array.isArray(reaction) ? reaction.join(", "): reaction
         } else {
           result = reaction;
         }

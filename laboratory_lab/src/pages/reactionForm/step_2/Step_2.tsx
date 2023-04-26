@@ -74,7 +74,7 @@ const Step_3 = (props: Props) => {
       </div>
 
       <div className="reaction__error">
-        <small>{props.errors.solvents}</small>
+        <small>{props.errors.atmosphere}</small>
       </div>
 
       <SelectInput

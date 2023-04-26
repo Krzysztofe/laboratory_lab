@@ -15,10 +15,10 @@ export interface ModelValidationErrors {
   finishTime?: string;
 }
 
-const toString = (solventsValue: string[] | string) => {
-  return Array.isArray(solventsValue)
-    ? solventsValue.join(", ")
-    : solventsValue;
+const toString = (atmosphereValue: string[] | string) => {
+  return Array.isArray(atmosphereValue)
+    ? atmosphereValue.join(", ")
+    : atmosphereValue;
 };
 
 export const useValidationForm = (
@@ -69,29 +69,21 @@ export const useValidationForm = (
 
     [
       {
-        // condition:
-        //   !toString(editedReaction.solvents)
-        //     .trim()
-        //     .toLocaleUpperCase()
-        //     .includes("CH3OH") &&
-        //   !toString(editedReaction.solvents)
-        //     .trim()
-        //     .toLocaleUpperCase()
-        //     .includes("DMSO") &&
-        //   !toString(editedReaction.solvents)
-        //     .trim()
-        //     .toLocaleUpperCase()
-        //     .includes("DMF") &&
-        //   !toString(editedReaction.solvents)
-        //     .trim()
-        //     .toLocaleUpperCase()
-        //     .includes("CHCL3") &&
-        //   !toString(editedReaction.solvents)
-        //     .trim()
-        //     .toLocaleUpperCase()
-        //     .includes("C2H5OH"),
-        // errorMessage: "Rozp. z listy",
-        // key: "solvents",
+        condition:
+          !toString(editedReaction.atmosphere)
+            ?.trim()
+            .toLocaleUpperCase()
+            .includes("PROTYCZNE") &&
+          !toString(editedReaction.atmosphere)
+            ?.trim()
+            .toLocaleUpperCase()
+            .includes("APROTYCZNE") &&
+          !toString(editedReaction.atmosphere)
+            ?.trim()
+            .toLocaleUpperCase()
+            .includes("POLARNE"),
+        errorMessage: "Środowisko z listy",
+        key: "atmosphere",
       },
 
       {
@@ -106,6 +98,14 @@ export const useValidationForm = (
             "CHŁODZENIE",
         errorMessage: "Podaj warunki",
         key: "selectReactionCondition",
+      },
+      {
+        condition:
+          editedReaction.solvents.trim().toUpperCase() !== "CHCL3" &&
+          editedReaction.solvents.trim().toUpperCase() !== "C2H5OH" &&
+          editedReaction.solvents.trim().toUpperCase() !== "C6H5CH3",
+        errorMessage: "Rozp. z listy",
+        key: "solvents",
       },
     ],
 
