@@ -22,46 +22,46 @@ const toString = (atmosphereValue: string[] | string) => {
 };
 
 export const useValidationForm = (
-  editedReaction: ModelReaction,
+  validateReaction: ModelReaction,
   idx?: number
 ) => {
   const conditions = [
     [
       {
-        condition: editedReaction?.name.trim().length < 6,
+        condition: validateReaction?.name.trim().length < 6,
         errorMessage: "Min. 6 znaków",
         key: "name",
       },
       {
-        condition: editedReaction?.name.trim().length > 10,
+        condition: validateReaction?.name.trim().length > 10,
         errorMessage: "Max. 10 znaków",
         key: "name",
       },
 
       {
         condition:
-          isNaN(+editedReaction.selectMilimolles) ||
-          +editedReaction.selectMilimolles < 1 ||
-          +editedReaction.selectMilimolles > 6,
+          isNaN(+validateReaction.selectMilimolles) ||
+          +validateReaction.selectMilimolles < 1 ||
+          +validateReaction.selectMilimolles > 6,
         errorMessage: "Podaj liczbę: 1-6",
         key: "selectMilimolles",
       },
       {
         condition:
-          editedReaction.alcaloids.trim().toUpperCase() !== "GRAMINA" &&
-          editedReaction.alcaloids.trim().toUpperCase() !== "KOFEINA" &&
-          editedReaction.alcaloids.trim().toUpperCase() !== "NIKOTYNA",
+          validateReaction.alcaloids.trim().toUpperCase() !== "GRAMINA" &&
+          validateReaction.alcaloids.trim().toUpperCase() !== "KOFEINA" &&
+          validateReaction.alcaloids.trim().toUpperCase() !== "NIKOTYNA",
         errorMessage: "Podaj alkaloid",
         key: "alcaloids",
       },
 
       {
-        condition: editedReaction.technics.trim().length < 3,
+        condition: validateReaction.technics.trim().length < 3,
         errorMessage: "Min. 3 znaki",
         key: "technics",
       },
       {
-        condition: editedReaction.technics.trim().length > 10,
+        condition: validateReaction.technics.trim().length > 10,
         errorMessage: "Max. 10 znaków",
         key: "technics",
       },
@@ -70,15 +70,15 @@ export const useValidationForm = (
     [
       {
         condition:
-          !toString(editedReaction.atmosphere)
+          !validateReaction.atmosphere
             ?.trim()
             .toLocaleUpperCase()
             .includes("PROTYCZNE") &&
-          !toString(editedReaction.atmosphere)
+          !validateReaction.atmosphere
             ?.trim()
             .toLocaleUpperCase()
             .includes("APROTYCZNE") &&
-          !toString(editedReaction.atmosphere)
+          !validateReaction.atmosphere
             ?.trim()
             .toLocaleUpperCase()
             .includes("POLARNE"),
@@ -88,22 +88,22 @@ export const useValidationForm = (
 
       {
         condition:
-          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+          validateReaction.selectReactionCondition.trim().toUpperCase() !==
             "MIESZANIE" &&
-          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+          validateReaction.selectReactionCondition.trim().toUpperCase() !==
             "OGRZEWANIE" &&
-          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+          validateReaction.selectReactionCondition.trim().toUpperCase() !==
             "MIKROFALA" &&
-          editedReaction.selectReactionCondition.trim().toUpperCase() !==
+          validateReaction.selectReactionCondition.trim().toUpperCase() !==
             "CHŁODZENIE",
         errorMessage: "Podaj warunki",
         key: "selectReactionCondition",
       },
       {
         condition:
-          editedReaction.solvents.trim().toUpperCase() !== "CHCL3" &&
-          editedReaction.solvents.trim().toUpperCase() !== "C2H5OH" &&
-          editedReaction.solvents.trim().toUpperCase() !== "C6H5CH3",
+          validateReaction.solvents.trim().toUpperCase() !== "CHCL3" &&
+          validateReaction.solvents.trim().toUpperCase() !== "C2H5OH" &&
+          validateReaction.solvents.trim().toUpperCase() !== "C6H5CH3",
         errorMessage: "Rozp. z listy",
         key: "solvents",
       },
@@ -111,29 +111,29 @@ export const useValidationForm = (
 
     [
       {
-        condition: !editedReaction.startDate,
+        condition: !validateReaction.startDate,
         errorMessage: "Wymagane",
         key: "startDate",
       },
       {
-        condition: !editedReaction.finishDate,
+        condition: !validateReaction.finishDate,
         errorMessage: "Wymagane",
         key: "finishDate",
       },
       {
         condition:
-          new Date(editedReaction.startDate) >
-          new Date(editedReaction.finishDate),
+          new Date(validateReaction.startDate) >
+          new Date(validateReaction.finishDate),
         errorMessage: "Data po rozpoczęciu",
         key: "finishDate",
       },
       {
-        condition: !editedReaction.startTime,
+        condition: !validateReaction.startTime,
         errorMessage: "Wymagane",
         key: "startTime",
       },
       {
-        condition: !editedReaction.finishTime,
+        condition: !validateReaction.finishTime,
         errorMessage: "Wymagane",
         key: "finishTime",
       },

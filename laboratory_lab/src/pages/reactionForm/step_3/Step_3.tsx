@@ -1,55 +1,26 @@
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
-import { ModelReaction } from "../../../services/apiSlice";
+import { RootState } from "../../../redux/store";
+import { handleChange } from "../../../redux/storeFeatures/formReactionSlice";
+import { fields } from "./dataStep_3";
+
 
 interface Props {
-  reaction: ModelReaction;
- 
-  handleChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    inputType?: string,
-    name?: string,
-    passedValue?: string | string[]
-  ) => void;
   errors: ModelValidationErrors;
 }
 
 const Step_3 = (props: Props) => {
+  const dispatch = useDispatch();
+  const { reaction } = useSelector((state: RootState) => state.formReaction);
 
- 
 
-  const fields = [
-    {
-      name: "startDate",
-      type: "date",
-      label: "Data rozpoczęcia",
-      value: props.reaction.startDate,
-      error: props.errors.startDate,
-    },
-    {
-      name: "finishDate",
-      type: "date",
-      label: "Data ukończenia",
-      value: props.reaction.finishDate,
-      error: props.errors.finishDate,
-    },
-    {
-      name: "startTime",
-      type: "time",
-      label: "Godzina rozpoczęcia",
-      value: props.reaction.startTime,
-      error: props.errors.startTime,
-    },
-    {
-      name: "finishTime",
-      type: "time",
-      label: "Godzina zakończenia",
-      value: props.reaction.finishTime,
-      error: props.errors.finishTime,
-    },
-  ] as const;
+  const handleInputChange = (e: ChangeEvent) => {
+    const { name, value } = e.target;
+    dispatch(handleChange([name, value]));
+  };
 
   return (
     <motion.section
@@ -57,23 +28,23 @@ const Step_3 = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
     >
-      {fields.map(({ name, type, label, value, error }) => (
+      {fields.map(({ name, type, label, value, errorKey }) => (
         <div key={name}>
           <TextInput
             type={type}
             name={name}
-            value={value}
-            handleChange={props.handleChange}
+            value={value(reaction)}
+            handleChange={handleInputChange}
             label={label}
             containerClass={"reaction__textInputContainer"}
             labelClass={"reaction__textInputLabel"}
             inputClass={"reaction__textInput"}
           />
-          {error && (
+        
             <div className="reaction__error">
-              <small>{error}</small>
+              {props.errors[errorKey]}
             </div>
-          )}
+        
         </div>
       ))}
     </motion.section>

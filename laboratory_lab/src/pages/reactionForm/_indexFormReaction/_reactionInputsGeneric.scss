@@ -134,9 +134,10 @@
 .reaction__error {
   width: fit-content;
   height: $font-size-small;
-  font-size: $font-size-small;
+  font-size: $font-size-xsmall;
   font-weight: $font-weight-bold;
   line-height: $font-size-small;
   color: $color-red;
   letter-spacing: 3px;
+  padding: 0.2rem 0;
 }

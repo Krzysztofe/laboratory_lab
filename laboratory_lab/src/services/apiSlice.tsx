@@ -9,13 +9,13 @@ export interface ModelReaction {
   selectMilimolles: string;
   selectReactionCondition: string;
   solvents: string;
-  atmosphere: string[] | string;
+  atmosphere: string;
   startDate: string;
   finishDate: string;
   startTime: string;
   finishTime: string;
   technics: string;
-  isEdit: boolean;
+  isEdit?: boolean;
 }
 
 interface Reactions {

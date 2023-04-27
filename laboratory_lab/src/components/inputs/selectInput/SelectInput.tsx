@@ -39,7 +39,7 @@ const SelectInput = (props: Props) => {
                   key={value}
                   className={props.optionClass}
                   onClick={() => {
-                    props.handleChange(null, "select", props.inputName, value);
+                    props.handleChange(props.inputName, value);
                     handleOpen();
                   }}
                 >

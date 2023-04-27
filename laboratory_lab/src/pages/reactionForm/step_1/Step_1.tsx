@@ -1,27 +1,31 @@
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 import RadioInput from "../../../components/inputs/radioInput/RadioInput";
 import SelectInput from "../../../components/inputs/selectInput/SelectInput";
 import TextInput from "../../../components/inputs/textInput/TextInput";
 import { ChangeEvent } from "../../../data/types";
 import { ModelValidationErrors } from "../../../hooks/useValidationForm";
-import { ModelReaction } from "../../../services/apiSlice";
+import { RootState } from "../../../redux/store";
+import { handleChange } from "../../../redux/storeFeatures/formReactionSlice";
 import { alcaloidsData } from "./dataStep_1";
 
 export interface Props {
-  reaction: ModelReaction;
-  handleChange: (
-    event: React.ChangeEvent<HTMLInputElement>,
-    inputType?: string,
-    name?: string,
-    passedValue?: string | string[]
-  ) => void;
   errors: ModelValidationErrors;
 }
 
-
 const Step_1 = (props: Props): JSX.Element => {
+  const dispatch = useDispatch();
+  const { reaction } = useSelector((state: RootState) => state.formReaction);
 
-  
+  const handleInputChange = (e: ChangeEvent) => {
+    const { name, value } = e.target;
+    dispatch(handleChange([name, value]));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    dispatch(handleChange([name, value]));
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0, y: -40 }}
@@ -31,8 +35,8 @@ const Step_1 = (props: Props): JSX.Element => {
       <TextInput
         type={"text"}
         name={"name"}
-        value={props.reaction.name}
-        handleChange={props.handleChange}
+        value={reaction.name}
+        handleChange={handleInputChange}
         label={"Nazwa reakcji"}
         placeholder={"Nazwa"}
         containerClass={"reaction__textInputContainer"}
@@ -40,15 +44,15 @@ const Step_1 = (props: Props): JSX.Element => {
         inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
-        <small>{props.errors.name}</small>
+        {props.errors.name}
       </div>
 
       <SelectInput
         label={"Ilość moli substratu"}
         inputName={"selectMilimolles"}
         selectValues={["1", "2", "3", "4", "5", "6"]}
-        value={props.reaction.selectMilimolles}
-        handleChange={props.handleChange}
+        value={reaction.selectMilimolles}
+        handleChange={handleSelectChange}
         containerClass="reaction__selectContainer"
         labelClass="reaction__selectLabel"
         inputTopClass="reaction__selectTop"
@@ -56,7 +60,7 @@ const Step_1 = (props: Props): JSX.Element => {
         optionClass="reaction__selectOption"
       />
       <div className="reaction__error">
-        <small>{props.errors.selectMilimolles}</small>
+        {props.errors.selectMilimolles}
       </div>
 
       <p className="reaction__radioInputHeader">Alkaloid</p>
@@ -66,8 +70,8 @@ const Step_1 = (props: Props): JSX.Element => {
             key={alcaloid}
             value={alcaloid}
             name={"alcaloids"}
-            handleChange={props.handleChange}
-            checked={props.reaction.alcaloids === alcaloid}
+            handleChange={handleInputChange}
+            checked={reaction.alcaloids === alcaloid}
             containerClass={"reaction__radioContainer"}
             inuptClass={"reaction__radioInput"}
             labelClass={"reaction__radioLabel"}
@@ -75,14 +79,14 @@ const Step_1 = (props: Props): JSX.Element => {
         );
       })}
       <div className="reaction__error">
-        <small>{props.errors.alcaloids}</small>
+        {props.errors.alcaloids}
       </div>
 
       <TextInput
         type={"text"}
         name={"technics"}
-        value={props.reaction.technics}
-        handleChange={props.handleChange}
+        value={reaction.technics}
+        handleChange={handleInputChange}
         label={"Technika"}
         placeholder={"Technika"}
         containerClass={"reaction__textInputContainer"}
@@ -90,7 +94,7 @@ const Step_1 = (props: Props): JSX.Element => {
         inputClass={"reaction__textInput"}
       />
       <div className="reaction__error">
-        <small>{props.errors.technics}</small>
+        {props.errors.technics}
       </div>
     </motion.section>
   );

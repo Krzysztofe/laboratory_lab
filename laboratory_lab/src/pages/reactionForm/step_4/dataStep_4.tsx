@@ -1,11 +1,11 @@
 export const summaryParams = [
   "Nazwa",
-  "Ilość milimoli",
-  "Alkaloidy",
   "Technika",
-  "Środowisko",
+  "Alkaloidy",
+  "Ilość moli",
   "Warunki reakcji",
   "Rozpuszczalnik",
+  "Środowisko",
 ];
 
 export const summaryDates = [

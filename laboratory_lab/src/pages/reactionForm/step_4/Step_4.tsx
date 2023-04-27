@@ -1,26 +1,17 @@
-import { summaryParams, summaryDates } from "./dataStep_4";
 import { motion } from "framer-motion";
-import { ModelReaction } from "../../../services/apiSlice";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 import { solventIdx } from "../../../utils/solventIdx";
+import { summaryDates, summaryParams } from "./dataStep_4";
 
-interface Props {
-  reaction: ModelReaction;
-}
 
-const Step_4 = (props: Props) => {
-  const getReactionValues = Object.values(props.reaction);
 
-  const summaryParamsContemt = (value: string | string[], idx: number) => {
-    if (typeof value === "string" && idx === 6) {
-      return solventIdx(value);
-    }
+const Step_4 = () => {
+  const { reaction } = useSelector((state: RootState) => state.formReaction);
 
-    if (Array.isArray(value)) {
-      return value.join(", ");
-    }
+  const getReactionValues = Object.values(reaction) as string[];
 
-    return value;
-  };
+
 
   return (
     <motion.section
@@ -32,22 +23,20 @@ const Step_4 = (props: Props) => {
       <ul>
         <li className="step4__subHeader">Parametry:</li>
 
-        {getReactionValues
-          .slice(0, 7)
-          .map((value: string | string[], idx: number) => {
-            return (
-              <li key={summaryParams[idx]} className="step4__reactionItem">
-                <div className="step4__reactionProperty">
-                  {summaryParams[idx]}:&nbsp;
-                </div>
-                <div className="step4__reactionValue">
-                  {summaryParamsContemt(value, idx)}
-                </div>
-              </li>
-            );
-          })}
+        {getReactionValues.slice(0, 7).map((value: string, idx) => {
+          return (
+            <li key={summaryParams[idx]} className="step4__reactionItem">
+              <div className="step4__reactionProperty">
+                {summaryParams[idx]}:&nbsp;
+              </div>
+              <div className="step4__reactionValue">
+                {idx === 5 ? solventIdx(value) : value}
+              </div>
+            </li>
+          );
+        })}
         <li className="step4__subHeader">Czasy:</li>
-        {getReactionValues.slice(7, 11).map((value: string, idx: number) => {
+        {getReactionValues.slice(7, 11).map((value, idx) => {
           return (
             <li key={crypto.randomUUID()} className="step4__reactionItem">
               <div className="step4__reactionProperty">{summaryDates[idx]}</div>

@@ -12,8 +12,11 @@ import Step_1 from "../step_1/Step_1";
 import Step_2 from "../step_2/Step_2";
 import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
-import { INITIAL_DATA } from "./dataFormReaction";
+// import { INITIAL_DATA } from "./dataFormReaction";
 import { ChangeEvent } from "../../../data/types";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
+import { handleCleanFormReaction } from "../../../redux/storeFeatures/formReactionSlice";
 
 const IndexFormReaction = () => {
   const navigate = useNavigate();
@@ -23,26 +26,10 @@ const IndexFormReaction = () => {
     });
   }, []);
 
-  const [reaction, setReaction] = useState(INITIAL_DATA);
+  const dispatch = useDispatch();
+  const { reaction } = useSelector((state: RootState) => state.formReaction);
   const [errors, setErrors] = useState({});
   const [addReaction, success] = useAddReactionMutation();
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    inputType?: string,
-    name?: string,
-    passedValue?: string | string[]
-  ) => {
-    let value: string | string[] | undefined = e?.target.value;
-
-    if (inputType === "checkbox" || inputType === "select") {
-      value = passedValue;
-    }
-
-    const targetName: string = name ? name : e?.target?.name;
-    setReaction({ ...reaction, [targetName]: value });
-  };
-
 
 
   const {
@@ -55,10 +42,10 @@ const IndexFormReaction = () => {
     back,
     next,
   } = useMultistepForm([
-    <Step_1 reaction={reaction} handleChange={handleChange} errors={errors} />,
-    <Step_2 reaction={reaction} handleChange={handleChange} errors={errors} />,
-    <Step_3 reaction={reaction} handleChange={handleChange} errors={errors} />,
-    <Step_4 reaction={reaction} />,
+    <Step_1 errors={errors} />,
+    <Step_2 errors={errors} />,
+    <Step_3 errors={errors} />,
+    <Step_4 />,
   ]);
 
   const idx = currentStepIdx === 3 ? undefined : currentStepIdx;
@@ -76,12 +63,12 @@ const IndexFormReaction = () => {
     if (success.isSuccess) {
       timeoutID = setTimeout(() => {
         setCurrentStepIdx(0);
-        setReaction(INITIAL_DATA);
+        dispatch(handleCleanFormReaction());
         success.isSuccess = false as true;
       }, 3000);
     }
     return () => clearTimeout(timeoutID);
-  }, [success.isSuccess, setCurrentStepIdx, setReaction]);
+  }, [success.isSuccess, setCurrentStepIdx, dispatch]);
 
   let formContent = (
     <>
