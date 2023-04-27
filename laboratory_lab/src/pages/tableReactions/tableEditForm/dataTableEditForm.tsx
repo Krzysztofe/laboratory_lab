@@ -1,6 +1,6 @@
 export const inputsPrintDataFirst = [
   { name: "name", type: "text" },
-  { name: "solvents", type: "text" },
+  { name: "solvent", type: "text" },
   { name: "technics", type: "text" },
   { name: "alcaloids", type: "text" },
   { name: "selectMilimolles", type: "text" },

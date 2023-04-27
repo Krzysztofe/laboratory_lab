@@ -20,7 +20,7 @@ const TablePagination = (props: Props) => {
         <tr key={reaction.id}>
           <td>{reaction.name}</td>
           <td>{reaction.alcaloids}</td>
-          <td>{solventIdx(reaction.solvents)}</td>
+          <td>{solventIdx(reaction.solvent)}</td>
         </tr>
       );
     });

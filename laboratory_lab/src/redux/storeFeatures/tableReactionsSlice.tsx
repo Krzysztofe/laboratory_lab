@@ -23,13 +23,13 @@ const initialState: TableReactionInitialsState = {
     selectMilimolles: "",
     substract: "",
     selectReactionCondition: "",
-    solvents: "",
+    solvent: "",
     atmosphere: "",
     startDate: "",
     finishDate: "",
     startTime: "",
     finishTime: "",
-    isEdit: true,
+    isEdit: false,
   },
   printReactions: [],
   toggleTable: { isOpen: true },
@@ -58,7 +58,7 @@ export const tableReactionsSlice = createSlice({
         ? Object.keys(action.payload).map(key => ({
             id: key,
             name: action.payload[key].name,
-            solvents: action.payload[key].solvents,
+            solvent: action.payload[key].solvent,
             technics: action.payload[key].technics,
             alcaloids: action.payload[key].alcaloids,
             selectMilimolles: action.payload[key].selectMilimolles,
@@ -79,8 +79,8 @@ export const tableReactionsSlice = createSlice({
     handleEdit: (state, action: PayloadAction<[ModelReaction[], string]>) => {
       state.printReactions = action.payload[0].map(reaction => {
         return reaction.id === action.payload[1]
-          ? { ...reaction, isEdit: false }
-          : { ...reaction, isEdit: true };
+          ? { ...reaction, isEdit: true }
+          : { ...reaction, isEdit: false };
       });
 
       const getEditedReaction = state.printReactions?.find(reaction => {
@@ -94,13 +94,13 @@ export const tableReactionsSlice = createSlice({
     handleUpdate: (state, action: PayloadAction<[ModelReaction[], string]>) => {
       state.printReactions = action.payload[0].map(reaction => {
         return reaction.id === action.payload[1]
-          ? { ...reaction, isEdit: true }
-          : { ...reaction, isEdit: true };
+          ? { ...reaction, isEdit: false }
+          : { ...reaction, isEdit: false };
       });
     },
 
     handleCleanEditForm: state => {
-      state.editedReaction = { ...state.editedReaction, isEdit: true };
+      state.editedReaction = { ...state.editedReaction, isEdit: false };
     },
     handleTableOpen: (state, action: PayloadAction<boolean>) => {
       state.toggleTable.isOpen = action.payload;

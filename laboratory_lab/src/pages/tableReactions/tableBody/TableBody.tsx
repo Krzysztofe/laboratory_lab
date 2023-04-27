@@ -48,13 +48,14 @@ const TableBody = () => {
     return "";
   };
 
+
   return (
     <tbody>
       {printReactions?.map((reaction, idx) => {
         return (
           <tr className={requestLoadingClass(reaction?.id)} key={reaction.id}>
             <td>{idx + 1}</td>
-            {reaction.isEdit ? (
+            {!reaction.isEdit ? (
               <TableCellsReaction reaction={reaction} />
             ) : (
               <TableEditForm />

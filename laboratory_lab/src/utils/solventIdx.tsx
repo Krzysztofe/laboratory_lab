@@ -1,5 +1,5 @@
 export const solventIdx = (solvent: string) => {
-  return solvent.split("").map(char => {
+  return solvent?.split("").map(char => {
     return isNaN(Number(char)) ? (
       char
     ) : (

@@ -17,19 +17,20 @@ const TableHeader = () => {
   const { validationForm } = useValidationForm(editedReaction);
 
   const conditionsPrint =
-    !editedReaction.isEdit &&
+    editedReaction.isEdit 
+    &&
     (validationForm().name ||
       validationForm().technics ||
       validationForm().alcaloids ||
       validationForm().selectMilimolles ||
-      validationForm().substract ||
+      validationForm().solvent ||
       validationForm().selectReactionCondition ||
       validationForm().atmosphere)
       ? { color: "rgb(251, 0, 0)", text: "Uzupełnij" }
       : { color: "rgb(0 0 0)", text: "Parametry" };
 
   const timePrint =
-    !editedReaction.isEdit &&
+    editedReaction.isEdit &&
     (validationForm().startDate ||
       validationForm().finishDate ||
       validationForm().startTime ||

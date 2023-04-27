@@ -53,17 +53,17 @@ const TableEditForm = () => {
               }
               handleChange={handleInputChange}
               handleKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
-                name === "solvents" && handleKeyPress(e, editedReaction[name])
+                name === "solvent" && handleKeyPress(e, editedReaction[name])
               }
               containerClass={"editForm__textInputContainer"}
               labelClass={"editForm__textInputLabel"}
               inputClass={`editForm__textInput ${
-                name === "solvents" && "editForm__textInput--solvents"
+                name === "solvent" && "editForm__textInput--solvent"
               }`}
             />
 
-            {name === "solvents" && (
-              <div className="editForm__printSolvents">
+            {name === "solvent" && (
+              <div className="editForm__printSolvent">
                 {solventIdx(editedReaction[name])}
               </div>
             )}

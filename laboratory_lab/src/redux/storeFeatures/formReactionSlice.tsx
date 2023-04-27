@@ -12,12 +12,13 @@ const initialState: any = {
     alcaloids: "",
     selectMilimolles: "--Wybierz--",
     selectReactionCondition: "--Wybierz--",
-    solvents: "",
+    solvent: "",
     atmosphere: "",
     startDate: "",
     finishDate: "",
     startTime: "",
     finishTime: "",
+    isEdit: false,
   },
 };
 

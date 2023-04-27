@@ -8,7 +8,7 @@ export interface ModelReaction {
   alcaloids: string;
   selectMilimolles: string;
   selectReactionCondition: string;
-  solvents: string;
+  solvent: string;
   atmosphere: string;
   startDate: string;
   finishDate: string;

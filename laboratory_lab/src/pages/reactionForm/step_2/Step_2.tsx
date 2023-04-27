@@ -103,9 +103,9 @@ const Step_3 = (props: Props) => {
           <RadioInput
             key={solvent}
             value={solvent}
-            name={"solvents"}
+            name={"solvent"}
             handleChange={handleInputChange}
-            checked={reaction.solvents === solvent}
+            checked={reaction.solvent === solvent}
             containerClass={"reaction__radioContainer"}
             inuptClass={"reaction__radioInput"}
             labelClass={"reaction__radioLabel"}
@@ -114,7 +114,7 @@ const Step_3 = (props: Props) => {
         );
       })}
       <div className="reaction__error">
-        {props.errors.solvents}
+        {props.errors.solvent}
       </div>
     </motion.div>
   );

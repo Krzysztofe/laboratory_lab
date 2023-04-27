@@ -28,12 +28,12 @@
   position: relative;
   z-index: 1;
   overflow-x: auto;
-  &--solvents {
+  &--solvent {
     color: transparent;
   }
 }
 
-.editForm__printSolvents {
+.editForm__printSolvent {
   position: absolute;
   top: 0;
 }

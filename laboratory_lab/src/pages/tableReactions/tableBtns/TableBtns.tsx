@@ -58,7 +58,10 @@ const TableBtns = (props: Partial<ModelReaction>) => {
     reactionID: string
   ) => {
     if (Object.keys(validationForm()).length) return;
-    const updatedEditedReaction = { ...editedReaction, isEdit: true };
+    dispatch(handleUpdate([printReactions, reactionID]));
+    dispatch(handleCleanEditForm());
+    const updatedEditedReaction = { ...editedReaction, isEdit: false };
+
     await updateReaction(updatedEditedReaction);
   };
 
@@ -86,7 +89,7 @@ const TableBtns = (props: Partial<ModelReaction>) => {
 
   return (
     <td>
-      {props.reaction.isEdit ? (
+      {!props.reaction.isEdit ? (
         <button
           onClick={() => handleEditReaction(printReactions, props.reaction.id)}
           className="tableReactions__btn tableReactions__btn--edit"

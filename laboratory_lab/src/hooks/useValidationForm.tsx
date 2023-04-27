@@ -6,20 +6,14 @@ export interface ModelValidationErrors {
   technics?: string;
   alcaloids?: string;
   selectMilimolles?: string;
-  substract?: string;
-  solvents?: string;
+  atmosphere?: string;
+  solvent?: string;
   selectReactionCondition?: string;
   startDate?: string;
   finishDate?: string;
   startTime?: string;
   finishTime?: string;
 }
-
-const toString = (atmosphereValue: string[] | string) => {
-  return Array.isArray(atmosphereValue)
-    ? atmosphereValue.join(", ")
-    : atmosphereValue;
-};
 
 export const useValidationForm = (
   validateReaction: ModelReaction,
@@ -101,11 +95,11 @@ export const useValidationForm = (
       },
       {
         condition:
-          validateReaction.solvents.trim().toUpperCase() !== "CHCL3" &&
-          validateReaction.solvents.trim().toUpperCase() !== "C2H5OH" &&
-          validateReaction.solvents.trim().toUpperCase() !== "C6H5CH3",
+          validateReaction.solvent?.trim().toUpperCase() !== "CHCL3" &&
+          validateReaction.solvent?.trim().toUpperCase() !== "C2H5OH" &&
+          validateReaction.solvent?.trim().toUpperCase() !== "C6H5CH3",
         errorMessage: "Rozp. z listy",
-        key: "solvents",
+        key: "solvent",
       },
     ],
 
