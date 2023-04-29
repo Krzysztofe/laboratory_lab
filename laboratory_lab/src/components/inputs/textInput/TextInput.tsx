@@ -5,11 +5,15 @@ export interface Props {
   name: string;
   value: string | number;
   label: string;
-  handleChange: any;
   handleBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange: any;
   handleKeyPress?: (
     e: React.KeyboardEvent<HTMLInputElement>,
     inputValue: string | number
+  ) => void;
+  handleTouchEnd?: (
+    e: React.TouchEvent<HTMLInputElement>,
+    inputValue: string
   ) => void;
   placeholder?: string;
   containerClass?: string;
@@ -26,9 +30,13 @@ const TextInput = (props: Props) => {
         name={props.name}
         value={props.value}
         onChange={props.handleChange}
-        onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+        onKeyPress={(e) =>
           props.handleKeyPress &&
           props.handleKeyPress(e, props.value.toString())
+        }
+        onTouchEnd={(e) =>
+          props.handleTouchEnd &&
+          props.handleTouchEnd(e, props.value.toString())
         }
         onBlur={props.handleBlur}
         placeholder={props.placeholder}

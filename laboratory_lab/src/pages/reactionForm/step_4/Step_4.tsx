@@ -39,7 +39,9 @@ const Step_4 = () => {
         {getReactionValues.slice(7, 11).map((value, idx) => {
           return (
             <li key={crypto.randomUUID()} className="step4__reactionItem">
-              <div className="step4__reactionProperty">{summaryDates[idx]}</div>
+              <div className="step4__reactionProperty">
+                {summaryDates[idx]}:&nbsp;
+              </div>
               <div className="step4__reactionValue">{value}</div>
             </li>
           );

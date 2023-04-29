@@ -1,67 +1,60 @@
 .editForm__textInputContainer {
-  width: 100%;
-  position: relative;
-  & input[type="date"],
+    position: relative;
+    width: 100%;
   & input[type="time"] {
-    font-size: $font-size-small;
-    width: 130px;
+      width: 130px;
+      font-size: $font-size-small;
   }
 }
 
 .editForm__textInput {
-  width: 100%;
-  font-size: $font-size-primary;
-  font-family: $font-family-Open-Sans;
-  background-color: rgba(0, 0, 0, 0);
-  border: 0;
-  border-bottom: 2px solid $color-neutral-secondary-dark;
-  caret-color: $color-black;
-  position: relative;
-  z-index: 1;
-  overflow-x: auto;
+    caret-color: $color-black;
+    position: relative;
+    z-index: 1;
+    overflow-x: auto;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    border-bottom: 2px solid $color-neutral-secondary-dark;
+    font-size: $font-size-small;
+    font-family: $font-family-Open-Sans;
   &--solvent {
-    color: transparent;
-    // color: red;
+      color: transparent;
   }
   @include breakpointNav {
-    font-size: $font-size-small;
+      font-size: $font-size-small;
   }
 }
 .editForm__solventCellDisplay {
-  display: flex !important;
+    display: flex !important;
 }
 
 .editForm__inputWrapper .editForm__printSolvent {
-  position: absolute;
-  top: 0;
-  font-size: 1.5rem;
-  display: flex;
-  font-size: $font-size-primary;
+    display: flex;
+    position: absolute;
+    top: 0;
+    font-size: 1.5rem;
   @include breakpointNav {
-    font-size: $font-size-small;
+      font-size: $font-size-small;
   }
 
   & .solventIdx {
-    display: flex;
-    align-items: flex-end;
-    height: 2.5rem;
-    padding: 0 0.3rem;
-    @include breakpointNav {
-      padding: 0 0.1rem;
+      display: flex;
+      align-items: flex-end;
       height: 2rem;
-    }
+      padding: 0 0.1rem;
   }
 }
 
 .editForm__error {
-  color: $color-red;
-  font-size: $font-size-xsmall;
-  line-height: $font-size-xsmall;
-  height: $font-size-xsmall;
-  margin-top: 0.3rem;
-  @include breakpointNav {
+    height: $font-size-xxsmall;
+    margin-top: 0.1rem;
     font-size: $font-size-xxsmall;
     line-height: $font-size-xxsmall;
-    height: $font-size-xxsmall;
+    color: $color-red;
+  @include breakpointNav {
+      height: $font-size-xxsmall;
+      font-size: $font-size-xxsmall;
+      line-height: $font-size-xxsmall;
   }
 }

@@ -5,7 +5,7 @@ export const summaryParams = [
   "Ilość moli",
   "Warunki reakcji",
   "Rozpuszczalnik",
-  "Środowisko",
+  "Atmosfera",
 ];
 
 export const summaryDates = [

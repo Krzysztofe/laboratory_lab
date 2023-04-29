@@ -39,6 +39,17 @@ const TableEditForm = () => {
       return;
     }
   };
+
+const handleTouchEnd = (
+  e: React.TouchEvent<HTMLInputElement>,
+  inputValue: string
+) => {
+  if (inputValue.length > 6) {
+    e.preventDefault();
+    return;
+  }
+};
+
   const inputsPrintData = isOpen ? inputsPrintDataFirst : inputsPrintDataSecond;
 
   const getThValues = isOpen ? thValuesFirst : thValuesSecond;
@@ -67,9 +78,11 @@ const TableEditForm = () => {
                     : editedReaction[name]
                 }
                 handleChange={handleInputChange}
-                handleKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                handleKeyPress={(e) =>
                   name === "solvent" && handleKeyPress(e, editedReaction[name])
                 }
+                handleTouchEnd = {(e) =>
+                  name === "solvent" && handleTouchEnd(e, editedReaction[name])}
                 containerClass={"editForm__textInputContainer"}
                 labelClass={"editForm__textInputLabel"}
                 inputClass={`editForm__textInput ${
