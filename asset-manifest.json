@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/Laboratory_Lab/static/css/main.7d28cdde.css",
-    "main.js": "/Laboratory_Lab/static/js/main.7ef32a55.js",
+    "main.js": "/Laboratory_Lab/static/js/main.ee8c3366.js",
     "static/js/146.45a4ebad.chunk.js": "/Laboratory_Lab/static/js/146.45a4ebad.chunk.js",
     "static/js/930.1229978a.chunk.js": "/Laboratory_Lab/static/js/930.1229978a.chunk.js",
-    "static/js/518.eae8ce52.chunk.js": "/Laboratory_Lab/static/js/518.eae8ce52.chunk.js",
+    "static/js/518.cb85bd65.chunk.js": "/Laboratory_Lab/static/js/518.cb85bd65.chunk.js",
     "static/js/830.f0a8c7cd.chunk.js": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js",
     "static/js/750.31997229.chunk.js": "/Laboratory_Lab/static/js/750.31997229.chunk.js",
     "static/js/306.0bb8fdd3.chunk.js": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js",
@@ -17,10 +17,10 @@
     "static/media/loading.png": "/Laboratory_Lab/static/media/loading.777add4dbefff8a49205.png",
     "index.html": "/Laboratory_Lab/index.html",
     "main.7d28cdde.css.map": "/Laboratory_Lab/static/css/main.7d28cdde.css.map",
-    "main.7ef32a55.js.map": "/Laboratory_Lab/static/js/main.7ef32a55.js.map",
+    "main.ee8c3366.js.map": "/Laboratory_Lab/static/js/main.ee8c3366.js.map",
     "146.45a4ebad.chunk.js.map": "/Laboratory_Lab/static/js/146.45a4ebad.chunk.js.map",
     "930.1229978a.chunk.js.map": "/Laboratory_Lab/static/js/930.1229978a.chunk.js.map",
-    "518.eae8ce52.chunk.js.map": "/Laboratory_Lab/static/js/518.eae8ce52.chunk.js.map",
+    "518.cb85bd65.chunk.js.map": "/Laboratory_Lab/static/js/518.cb85bd65.chunk.js.map",
     "830.f0a8c7cd.chunk.js.map": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js.map",
     "750.31997229.chunk.js.map": "/Laboratory_Lab/static/js/750.31997229.chunk.js.map",
     "306.0bb8fdd3.chunk.js.map": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js.map",
@@ -28,6 +28,6 @@
   },
   "entrypoints": [
     "static/css/main.7d28cdde.css",
-    "static/js/main.7ef32a55.js"
+    "static/js/main.ee8c3366.js"
   ]
 }
