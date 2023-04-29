@@ -11,7 +11,7 @@ export interface Props {
     e: React.KeyboardEvent<HTMLInputElement>,
     inputValue: string | number
   ) => void;
-  handleTouchEnd?: (
+  handleTouchStart?: (
     e: React.TouchEvent<HTMLInputElement>,
     inputValue: string
   ) => void;
@@ -34,9 +34,9 @@ const TextInput = (props: Props) => {
           props.handleKeyPress &&
           props.handleKeyPress(e, props.value.toString())
         }
-        onTouchEnd={(e) =>
-          props.handleTouchEnd &&
-          props.handleTouchEnd(e, props.value.toString())
+        onTouchStart={(e) =>
+          props.handleTouchStart &&
+          props.handleTouchStart(e, props.value.toString())
         }
         onBlur={props.handleBlur}
         placeholder={props.placeholder}
