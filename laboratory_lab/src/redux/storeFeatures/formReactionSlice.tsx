@@ -5,7 +5,7 @@ interface ModelInitialState {
   reaction: ModelReaction;
 }
 
-const initialState: any = {
+const initialState: ModelInitialState = {
   reaction: {
     name: "Ah - ",
     technics: "",
@@ -26,10 +26,10 @@ export const formReactionSlice = createSlice({
   name: "formReaction",
   initialState,
   reducers: {
-    handleChange: (state, action: PayloadAction<[string, string]>) => {
+    handleChange: (state, action: PayloadAction<{name:string, value:string}>) => {
       state.reaction = {
         ...state.reaction,
-        [action.payload[0]]: action.payload[1],
+        [action.payload.name]: action.payload.value,
       };
     },
     handleCleanFormReaction: (state) => {

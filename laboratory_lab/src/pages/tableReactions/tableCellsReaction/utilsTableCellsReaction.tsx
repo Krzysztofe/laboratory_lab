@@ -2,7 +2,7 @@
 import { ModelReaction } from "../../../services/apiSlice";
 
 export const getTableBodyReactionsFirst = (reaction: ModelReaction) => {
-  const reactionValues = Object.values(reaction).slice(0, 9);
+  const reactionValues = Object.values(reaction).slice(0, 8);
   reactionValues.shift();
   return reactionValues;
 };

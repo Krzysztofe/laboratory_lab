@@ -6,10 +6,8 @@ interface TableReactionInitialsState {
   printReactions: ModelReaction[];
   toggleTable: { isOpen: boolean };
   requestState: {
-    editIsLoading: boolean;
-    editIsError: boolean;
-    deleteIsLoading: boolean;
-    deleteIsError: boolean;
+    edit: { isLoading: boolean; isError: boolean };
+    delete: { isLoading: boolean; isError: boolean };
     id: string;
   };
 }
@@ -34,10 +32,11 @@ const initialState: TableReactionInitialsState = {
   printReactions: [],
   toggleTable: { isOpen: true },
   requestState: {
-    editIsLoading: false,
-    editIsError: false,
-    deleteIsLoading: false,
-    deleteIsError: false,
+    edit: { isLoading: false, isError: false },
+    delete: {
+      isLoading: false,
+      isError: false,
+    },
     id: "",
   },
 };
@@ -46,10 +45,13 @@ export const tableReactionsSlice = createSlice({
   name: "tableReactions",
   initialState,
   reducers: {
-    handleChange: (state, action: PayloadAction<[string, string]>) => {
+    handleChange: (
+      state,
+      action: PayloadAction<{ name: string; value: string }>
+    ) => {
       state.editedReaction = {
         ...state.editedReaction,
-        [action.payload[0]]: action.payload[1],
+        [action.payload.name]: action.payload.value,
       };
     },
 
@@ -76,26 +78,30 @@ export const tableReactionsSlice = createSlice({
       state.printReactions = reactions;
     },
 
-    handleEdit: (state, action: PayloadAction<[ModelReaction[], string]>) => {
-      state.printReactions = action.payload[0].map(reaction => {
-        return reaction.id === action.payload[1]
+    handleEdit: (
+      state,
+      action: PayloadAction<{
+        printReactions: ModelReaction[];
+        reactionId: string;
+      }>
+    ) => {
+      state.printReactions = action.payload.printReactions.map(reaction => {
+        return reaction.id === action.payload.reactionId
           ? { ...reaction, isEdit: true }
           : { ...reaction, isEdit: false };
       });
 
       const getEditedReaction = state.printReactions?.find(reaction => {
-        return reaction.id === action.payload[1];
+        return reaction.id === action.payload.reactionId;
       });
       if (getEditedReaction) {
         state.editedReaction = getEditedReaction;
       }
     },
 
-    handleUpdate: (state, action: PayloadAction<[ModelReaction[], string]>) => {
-      state.printReactions = action.payload[0].map(reaction => {
-        return reaction.id === action.payload[1]
-          ? { ...reaction, isEdit: false }
-          : { ...reaction, isEdit: false };
+    handleUpdate: state => {
+      state.printReactions = state.printReactions.map(reaction => {
+        return { ...reaction, isEdit: false };
       });
     },
 
@@ -106,25 +112,27 @@ export const tableReactionsSlice = createSlice({
       state.toggleTable.isOpen = action.payload;
     },
     handleEidtisLoading: (state, action: PayloadAction<boolean>) => {
-      state.requestState.editIsLoading = action.payload;
+      state.requestState.edit.isLoading = action.payload;
     },
     handleEidtIsError: (state, action: PayloadAction<boolean>) => {
-      state.requestState.editIsError = action.payload;
+      state.requestState.edit.isError = action.payload;
     },
     handleRequestStateId: (state, action: PayloadAction<string>) => {
       state.requestState.id = action.payload;
     },
     handleHttpRequest: (
       state,
-      action: PayloadAction<[boolean, boolean, boolean, boolean]>
+      action: PayloadAction<{
+        editIsLoading: boolean;
+        editIsError: boolean;
+        deleteIsLoading: boolean;
+        deleteIsError: boolean;
+      }>
     ) => {
-      state.requestState = {
-        ...state.requestState,
-        editIsLoading: action.payload[0],
-        editIsError: action.payload[1],
-        deleteIsLoading: action.payload[2],
-        deleteIsError: action.payload[3],
-      };
+      state.requestState.edit.isLoading = action.payload.editIsLoading;
+      state.requestState.edit.isError = action.payload.editIsError;
+      state.requestState.delete.isLoading = action.payload.deleteIsLoading;
+      state.requestState.delete.isError = action.payload.deleteIsError;
     },
   },
 });

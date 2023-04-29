@@ -1,7 +1,6 @@
 .tableReactions__headers {
   display: flex;
   margin-top: $space-small;
-
   @include breakpointNav {
     padding-left: 70px;
   }
@@ -15,8 +14,10 @@
   }
   .tableReactions__header--counter {
     display: none;
+    font-size: $font-size-xsmall;
     @include breakpointNav {
-      display: block;
+      display: flex;
+      align-items: flex-end;
       background-color: transparent;
       cursor: auto;
     }

@@ -37,7 +37,7 @@ export const useValidationForm = (
           isNaN(+validateReaction.selectMilimolles) ||
           +validateReaction.selectMilimolles < 1 ||
           +validateReaction.selectMilimolles > 6,
-        errorMessage: "Podaj liczbę: 1-6",
+        errorMessage: "Cyfra: 1-6",
         key: "selectMilimolles",
       },
       {
@@ -45,7 +45,7 @@ export const useValidationForm = (
           validateReaction.alcaloids.trim().toUpperCase() !== "GRAMINA" &&
           validateReaction.alcaloids.trim().toUpperCase() !== "KOFEINA" &&
           validateReaction.alcaloids.trim().toUpperCase() !== "NIKOTYNA",
-        errorMessage: "Podaj alkaloid",
+        errorMessage: "Alkaloid z listy",
         key: "alcaloids",
       },
 
@@ -67,16 +67,16 @@ export const useValidationForm = (
           !validateReaction.atmosphere
             ?.trim()
             .toLocaleUpperCase()
-            .includes("PROTYCZNE") &&
+            .includes("PROTYCZNA") &&
           !validateReaction.atmosphere
             ?.trim()
             .toLocaleUpperCase()
-            .includes("APROTYCZNE") &&
+            .includes("APROTYCZNA") &&
           !validateReaction.atmosphere
             ?.trim()
             .toLocaleUpperCase()
-            .includes("POLARNE"),
-        errorMessage: "Środowisko z listy",
+            .includes("POLARNA"),
+        errorMessage: "1 atmosfera z listy",
         key: "atmosphere",
       },
 
@@ -90,7 +90,7 @@ export const useValidationForm = (
             "MIKROFALA" &&
           validateReaction.selectReactionCondition.trim().toUpperCase() !==
             "CHŁODZENIE",
-        errorMessage: "Podaj warunki",
+        errorMessage: "Warunki z listy",
         key: "selectReactionCondition",
       },
       {
@@ -98,7 +98,13 @@ export const useValidationForm = (
           validateReaction.solvent?.trim().toUpperCase() !== "CHCL3" &&
           validateReaction.solvent?.trim().toUpperCase() !== "C2H5OH" &&
           validateReaction.solvent?.trim().toUpperCase() !== "C6H5CH3",
-        errorMessage: "Rozp. z listy",
+        errorMessage: "Roztwór z listy",
+        key: "solvent",
+      },
+      {
+        condition:
+          validateReaction.solvent?.length>6,
+        errorMessage: "Max. 7 znaków",
         key: "solvent",
       },
     ],
@@ -118,7 +124,7 @@ export const useValidationForm = (
         condition:
           new Date(validateReaction.startDate) >
           new Date(validateReaction.finishDate),
-        errorMessage: "Data po rozpoczęciu",
+        errorMessage: "Data po otwarciu",
         key: "finishDate",
       },
       {

@@ -22,27 +22,27 @@ const TableBody = () => {
 
   isLoading && <TableBodyRequestMessage message={"Loading..."} />;
 
-  if (error) {
-    if ("error" in error)
-      return <TableBodyRequestMessage message={error.error} />;
-  }
+  // if (error) {
+  //   if ("error" in error)
+  //     return <TableBodyRequestMessage message={error.error} />;
+  // }
 
-  if (printReactions.length === 0) {
-    return <TableBodyRequestMessage message={"Brak zapisanych reakcji"} />;
-  }
+  // if (printReactions.length === 0) {
+  //   return <TableBodyRequestMessage message={"Brak zapisanych reakcji"} />;
+  // }
 
-  const requestLoadingClass = (reactionID: any) => {
-    if (requestState.editIsLoading && requestState.id === reactionID) {
+  const requestLoadingClass = (reactionID: string| undefined) => {
+    if (requestState.edit.isLoading && requestState.id === reactionID) {
       return "httpLoadingInRow";
     }
-    if (requestState.editIsError && requestState.id === reactionID) {
-      return "httpErrorInRow";
-    }
-
-    if (requestState.deleteIsLoading && requestState.id === reactionID) {
+    if (requestState.edit.isError && requestState.id === reactionID) {
       return "httpLoadingInRow";
     }
-    if (requestState.deleteIsError && requestState.id === reactionID) {
+
+    if (requestState.delete.isLoading && requestState.id === reactionID) {
+      return "httpLoadingInRow";
+    }
+    if (requestState.delete.isError && requestState.id === reactionID) {
       return "httpErrorInRow";
     }
     return "";
@@ -54,7 +54,7 @@ const TableBody = () => {
       {printReactions?.map((reaction, idx) => {
         return (
           <tr className={requestLoadingClass(reaction?.id)} key={reaction.id}>
-            <td>{idx + 1}</td>
+            <td data-cell = "nr: ">{idx + 1}</td>
             {!reaction.isEdit ? (
               <TableCellsReaction reaction={reaction} />
             ) : (

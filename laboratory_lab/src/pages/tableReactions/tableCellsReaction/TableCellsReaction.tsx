@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { ModelReaction } from "../../../services/apiSlice";
 import { solventIdx } from "../../../utils/solventIdx";
+import { thValuesFirst, thValuesSecond } from "../tableEditForm/dataTableEditForm";
 import {
   getTableBodyReactionsFirst,
   getTableBodyReactionsSecond,
@@ -16,6 +17,8 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
     ? getTableBodyReactionsFirst
     : getTableBodyReactionsSecond;
 
+  const getThValues = isOpen ? thValuesFirst : thValuesSecond
+
   return (
     <>
       {getReactions(props.reaction).map((reaction, idx) => {
@@ -23,12 +26,13 @@ const TableCellsReaction = (props: Partial<ModelReaction>) => {
         if (isOpen && idx === 1) {
           result = solventIdx(reaction);
         } else if (isOpen && idx === 6) {
-          result = Array.isArray(reaction) ? reaction.join(", "): reaction
+          result = Array.isArray(reaction) ? reaction.join(", ") : reaction;
         } else {
           result = reaction;
         }
 
-        return <td key={crypto.randomUUID()}>{result}</td>;
+        return <td data-cell = {`${getThValues[idx]}`} key={crypto.randomUUID()}>{result}</td>;
+
       })}
     </>
   );

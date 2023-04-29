@@ -21,6 +21,7 @@ const NavHomeUserItems = () => {
   return (
     <>
       {!isLoggedIn && (
+      
         <ul
           className={`navHomeItems navHomeItems--user ${
             isOpen && "navHomeItems--isOpen"

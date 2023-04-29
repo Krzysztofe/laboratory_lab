@@ -21,11 +21,13 @@ const NavHomeItems = () => {
     if (url === "/") return navLinksData.slice(1, 3);
   };
 
+  const userItems = url === "/login" ? null : <NavHomeUserItems/>
+
   const scrollToHash = (hash: string): void => {
     const element = document.querySelector(hash);
     if (element) {
       const offset =
-        element.getBoundingClientRect().top + window.pageYOffset - 70;
+        element.getBoundingClientRect().top + window.pageYOffset - 66;
       window.scrollTo({ top: offset, behavior: "smooth" });
     }
   };
@@ -51,7 +53,7 @@ const NavHomeItems = () => {
           );
         })}
       </ul>
-      <NavHomeUserItems />
+     {userItems}
     </>
   );
 };

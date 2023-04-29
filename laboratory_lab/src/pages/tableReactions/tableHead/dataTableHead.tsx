@@ -1,11 +1,11 @@
 export const tableHeadDataFirst = [
   "Nazwa",
-  "Rozp.",
+  "Roztwór",
   "Technika",
   "Alkaloidy",
   "Mole",
   "Warunki",
-  "Środowisko",
+  "Atmosfera",
 ];
 
 export const tableHeadDataSecond = [

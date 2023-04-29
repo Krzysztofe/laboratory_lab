@@ -43,16 +43,16 @@ const Step_3 = (props: Props) => {
       },
       []
     );
-    dispatch(handleChange(["atmosphere", getNewAtmosphere.join(", ")]));
+    dispatch(handleChange({name:"atmosphere", value: getNewAtmosphere.join(", ")}));
   };
 
   const handleSelectChange = (name: string, value: string) => {
-    dispatch(handleChange([name, value]));
+    dispatch(handleChange({ name: name, value: value }));
   };
 
   const handleInputChange = (e: ChangeEvent) => {
     const { name, value } = e.target;
-    dispatch(handleChange([name, value]));
+      dispatch(handleChange({ name: name, value: value }));
   };
 
   return (

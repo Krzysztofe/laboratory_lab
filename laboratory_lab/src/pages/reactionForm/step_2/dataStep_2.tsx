@@ -1,8 +1,8 @@
 export const atmosphereNameKeyData = [
-  { name: "Protyczne", key: 0 },
-  { name: "Aprotyczne", key: 1 },
-  { name: "Polarne", key: 2 },
+  { name: "Protyczna", key: 0 },
+  { name: "Aprotyczna", key: 1 },
+  { name: "Polarna", key: 2 },
 ];
 
 
-export const solventsData = ["CHCl3", "C2H5Oh", "C6H5Ch3"]
+export const solventsData = ["CHCl3", "C2H5OH", "C6H5CH3"]

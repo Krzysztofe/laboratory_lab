@@ -38,7 +38,7 @@ const TablePagination = (props: Props) => {
               <tr>
                 <th>Nazwa</th>
                 <th>Alkaloidy</th>
-                <th>Rozp.</th>
+                <th>Roztwór</th>
               </tr>
             </thead>
             <tbody className="reactionsHome__tBody">{displayReactions}</tbody>

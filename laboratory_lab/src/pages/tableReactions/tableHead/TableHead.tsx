@@ -10,15 +10,15 @@ const TableHead = () => {
   return (
     <thead>
       <tr>
-        <td>nr</td>
+        <th>nr</th>
         {isOpen
           ? tableHeadDataFirst.map(reaction => {
-              return <td key={reaction}>{reaction}</td>;
+              return <th key={reaction}>{reaction}</th>;
             })
           : tableHeadDataSecond.map(reaction => {
-              return <td key={crypto.randomUUID()}>{reaction}</td>;
+              return <th key={crypto.randomUUID()}>{reaction}</th>;
             })}
-        <td></td>
+        <th></th>
       </tr>
     </thead>
   );

@@ -4,14 +4,14 @@ export const fields = [
   {
     name: "startDate",
     type: "date",
-    label: "Data rozpoczęcia",
+    label: "Data otwarcia",
     value: (reaction: ModelReaction) => reaction.startDate,
     errorKey: "startDate",
   },
   {
     name: "finishDate",
     type: "date",
-    label: "Data ukończenia",
+    label: "Data zamknięcia",
     value: (reaction: ModelReaction) => reaction.finishDate,
     errorKey: "finishDate",
   },

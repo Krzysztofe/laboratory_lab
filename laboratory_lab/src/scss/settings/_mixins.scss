@@ -4,11 +4,6 @@
 };
 
 @mixin breakpointNav {
-  @media (min-width: 769px)
+  @media (min-width: 760px)
   {@content}
 };
-
-@mixin breakpointTable {
-  @media (min-width: 1000px)
-  {@content}
-}

@@ -19,7 +19,7 @@ const Step_3 = (props: Props) => {
 
   const handleInputChange = (e: ChangeEvent) => {
     const { name, value } = e.target;
-    dispatch(handleChange([name, value]));
+     dispatch(handleChange({ name: name, value: value }));
   };
 
   return (

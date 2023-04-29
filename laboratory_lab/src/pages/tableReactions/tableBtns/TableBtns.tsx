@@ -30,12 +30,12 @@ const TableBtns = (props: Partial<ModelReaction>) => {
 
   useEffect(() => {
     dispatch(
-      handleHttpRequest([
-        success.isLoading,
-        success.isError,
-        isLoading.isLoading,
-        isLoading.isError,
-      ])
+      handleHttpRequest({
+        editIsLoading: success.isLoading,
+        editIsError: success.isError,
+        deleteIsLoading: isLoading.isLoading,
+        deleteIsError: isLoading.isError,
+      })
     );
   }, [
     success.isLoading,
@@ -47,18 +47,17 @@ const TableBtns = (props: Partial<ModelReaction>) => {
 
   const handleEditReaction = (
     printReactions: ModelReaction[],
-    reactionID: string
+    reactionId: string
   ) => {
-    dispatch(handleEdit([printReactions, reactionID]));
-    dispatch(handleRequestStateId(reactionID));
+    dispatch(
+      handleEdit({ printReactions: printReactions, reactionId: reactionId })
+    );
+    dispatch(handleRequestStateId(reactionId));
   };
 
-  const handleUpdateReaction = async (
-    printReactions: ModelReaction[],
-    reactionID: string
-  ) => {
+  const handleUpdateReaction = async ( ) => {
     if (Object.keys(validationForm()).length) return;
-    dispatch(handleUpdate([printReactions, reactionID]));
+    dispatch(handleUpdate());
     dispatch(handleCleanEditForm());
     const updatedEditedReaction = { ...editedReaction, isEdit: false };
 
@@ -99,7 +98,7 @@ const TableBtns = (props: Partial<ModelReaction>) => {
       ) : (
         <button
           onClick={() =>
-            handleUpdateReaction(printReactions, props.reaction.id)
+            handleUpdateReaction()
           }
           className="tableReactions__btn tableReactions__btn--edit"
         >

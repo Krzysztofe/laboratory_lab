@@ -14,3 +14,14 @@ export const inputsPrintDataSecond = [
   { name: "startTime", type: "time" },
   { name: "finishTime", type: "time" },
 ];
+
+export const thValuesFirst = [
+  "Nazwa: ",
+  "Roztówr: ",
+  "Technika: ",
+  "Alkaloid: ",
+  "Mole: ",
+  "Warunki: ",
+  "Atmosfera: ",
+];
+export const thValuesSecond = ["Otwarcie", "Zamknięcie", "Początek", "Koniec"];
