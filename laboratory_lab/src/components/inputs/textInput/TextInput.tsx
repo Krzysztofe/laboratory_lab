@@ -1,4 +1,4 @@
-import { ChangeEvent } from "../../../data/types";
+
 
 export interface Props {
   type: string;
@@ -21,7 +21,11 @@ export interface Props {
   inputClass?: string;
 }
 
+
+
+
 const TextInput = (props: Props) => {
+
   return (
     <div className={props.containerClass}>
       <label className={props.labelClass}>{props.label}</label>
@@ -29,19 +33,22 @@ const TextInput = (props: Props) => {
         type={props.type}
         name={props.name}
         value={props.value}
+    
         onChange={props.handleChange}
-        onKeyPress={(e) =>
+
+        onKeyDown={e =>
           props.handleKeyPress &&
           props.handleKeyPress(e, props.value.toString())
         }
-        onTouchStart={(e) =>
-          props.handleTouchStart &&
-          props.handleTouchStart(e, props.value.toString())
-        }
+        // onTouchStart={e =>
+        //   props.handleTouchStart &&
+        //   props.handleTouchStart(e, props.value.toString())
+        // }
         onBlur={props.handleBlur}
         placeholder={props.placeholder}
         className={props.inputClass}
-        autoComplete="off"
+      
+        // autoComplete="off"
       />
     </div>
   );

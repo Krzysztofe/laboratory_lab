@@ -34,10 +34,10 @@ const TableEditForm = () => {
     e: React.KeyboardEvent<HTMLInputElement>,
     inputValue: string
   ) => {
-    if (inputValue.length > 6) {
-      e.preventDefault();
-      return;
-    }
+   if (inputValue.length > 6 && e.keyCode !== 8) {
+     e.preventDefault();
+     return;
+   }
   };
 
 const handleTouchStart = (
