@@ -43,7 +43,11 @@ const Step_1 = (props: Props): JSX.Element => {
         labelClass={"reaction__textInputLabel"}
         inputClass={"reaction__textInput"}
       />
-      <div className="reaction__error">{props.errors.name}</div>
+      <div className="reaction__error">
+        {props.errors.name ? (
+          <div className="reaction__errorAnimation">{props.errors.name}</div>
+        ) : null}
+      </div>
 
       <SelectInput
         label={"Ilość moli substratu"}
@@ -57,7 +61,14 @@ const Step_1 = (props: Props): JSX.Element => {
         optionsContainerClass="reaction__selectOptionsContainer"
         optionClass="reaction__selectOption"
       />
-      <div className="reaction__error">{props.errors.selectMilimolles}</div>
+
+      <div className="reaction__error">
+        {props.errors.selectMilimolles ? (
+          <div className="reaction__errorAnimation">
+            {props.errors.selectMilimolles}
+          </div>
+        ) : null}
+      </div>
 
       <p className="reaction__radioInputHeader">Alkaloid</p>
       {alcaloidsData.map(alcaloid => {
@@ -74,7 +85,14 @@ const Step_1 = (props: Props): JSX.Element => {
           />
         );
       })}
-      <div className="reaction__error">{props.errors.alcaloids}</div>
+
+      <div className="reaction__error">
+        {props.errors.alcaloids ? (
+          <div className="reaction__errorAnimation">
+            {props.errors.alcaloids}
+          </div>
+        ) : null}
+      </div>
 
       <TextInput
         type={"text"}
@@ -87,7 +105,14 @@ const Step_1 = (props: Props): JSX.Element => {
         labelClass={"reaction__textInputLabel"}
         inputClass={"reaction__textInput"}
       />
-      <div className="reaction__error">{props.errors.technics}</div>
+
+      <div className="reaction__error">
+        {props.errors.technics ? (
+          <div className="reaction__errorAnimation">
+            {props.errors.technics}{" "}
+          </div>
+        ) : null}
+      </div>
     </motion.section>
   );
 };

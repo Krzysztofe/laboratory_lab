@@ -1,12 +1,10 @@
-
-
 export interface Props {
   type: string;
   name: string;
   value: string | number;
   label: string;
   handleBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChange: any;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleKeyPress?: (
     e: React.KeyboardEvent<HTMLInputElement>,
     inputValue: string | number
@@ -21,11 +19,7 @@ export interface Props {
   inputClass?: string;
 }
 
-
-
-
 const TextInput = (props: Props) => {
-
   return (
     <div className={props.containerClass}>
       <label className={props.labelClass}>{props.label}</label>
@@ -33,22 +27,18 @@ const TextInput = (props: Props) => {
         type={props.type}
         name={props.name}
         value={props.value}
-    
         onChange={props.handleChange}
-
         onKeyDown={e =>
           props.handleKeyPress &&
           props.handleKeyPress(e, props.value.toString())
         }
-        // onTouchStart={e =>
-        //   props.handleTouchStart &&
-        //   props.handleTouchStart(e, props.value.toString())
-        // }
+        onTouchStart={e =>
+          props.handleTouchStart &&
+          props.handleTouchStart(e, props.value.toString())
+        }
         onBlur={props.handleBlur}
         placeholder={props.placeholder}
         className={props.inputClass}
-      
-        // autoComplete="off"
       />
     </div>
   );

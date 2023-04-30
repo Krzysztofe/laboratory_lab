@@ -5,8 +5,7 @@ interface Props {
   label: string;
   inputName: string;
   value: string;
-  // handleChange: (vaue: string) => void;
-  handleChange: any;
+  handleChange: (name: string, value: string) => void
   containerClass?: string;
   labelClass?: string;
   optionsContainerClass?: string;

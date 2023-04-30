@@ -30,25 +30,6 @@ const TableEditForm = () => {
     dispatch(handleChange({ name: name, value: value }));
   };
 
-  const handleKeyPress = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-    inputValue: string
-  ) => {
-   if (inputValue.length > 6 && e.keyCode !== 8) {
-     e.preventDefault();
-     return;
-   }
-  };
-
-const handleTouchStart = (
-  e: React.TouchEvent<HTMLInputElement>,
-  inputValue: string
-) => {
-  if (inputValue.length > 6) {
-    e.preventDefault();
-    return;
-  }
-};
 
 
 
@@ -80,23 +61,13 @@ const handleTouchStart = (
                     : editedReaction[name]
                 }
                 handleChange={handleInputChange}
-                handleKeyPress={(e) =>
-                  name === "solvent" && handleKeyPress(e, editedReaction[name])
-                }
-                handleTouchStart = {(e) =>
-                  name === "solvent" && handleTouchStart(e, editedReaction[name])}
+              
                 containerClass={"editForm__textInputContainer"}
                 labelClass={"editForm__textInputLabel"}
-                inputClass={`editForm__textInput ${
-                  name === "solvent" && "editForm__textInput--solvent"
-                }`}
+                inputClass={"editForm__textInput" }
               />
 
-              {name === "solvent" && (
-                <div className="editForm__printSolvent">
-                  {solventIdx(editedReaction[name])}
-                </div>
-              )}
+          
               <div className="editForm__error">
                 {validationForm()[name as keyof typeof validationForm]}
               </div>

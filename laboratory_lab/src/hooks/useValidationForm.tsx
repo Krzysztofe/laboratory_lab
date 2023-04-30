@@ -101,12 +101,7 @@ export const useValidationForm = (
         errorMessage: "Roztwór z listy",
         key: "solvent",
       },
-      {
-        condition:
-          validateReaction.solvent?.length>6,
-        errorMessage: "Max. 7 znaków",
-        key: "solvent",
-      },
+    
     ],
 
     [

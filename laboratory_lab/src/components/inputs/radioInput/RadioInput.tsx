@@ -1,19 +1,15 @@
+import { ReactNode } from "react";
 
 
 interface Props {
   value: string;
   name: string;
-  handleChange: (
-    e: React.ChangeEvent<HTMLInputElement>,
-    inputType?: string,
-    name?: string,
-    passedValue?: string | string[]
-  ) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   checked: boolean;
   containerClass?: string;
   inuptClass?: string;
   labelClass?: string;
-  label?: any;
+  label?: ReactNode;
 }
 
 const RadioInput = (props: Props) => {

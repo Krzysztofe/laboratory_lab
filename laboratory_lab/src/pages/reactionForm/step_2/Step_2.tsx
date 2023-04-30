@@ -43,7 +43,9 @@ const Step_3 = (props: Props) => {
       },
       []
     );
-    dispatch(handleChange({name:"atmosphere", value: getNewAtmosphere.join(", ")}));
+    dispatch(
+      handleChange({ name: "atmosphere", value: getNewAtmosphere.join(", ") })
+    );
   };
 
   const handleSelectChange = (name: string, value: string) => {
@@ -52,7 +54,7 @@ const Step_3 = (props: Props) => {
 
   const handleInputChange = (e: ChangeEvent) => {
     const { name, value } = e.target;
-      dispatch(handleChange({ name: name, value: value }));
+    dispatch(handleChange({ name: name, value: value }));
   };
 
   return (
@@ -78,7 +80,11 @@ const Step_3 = (props: Props) => {
       </div>
 
       <div className="reaction__error">
-        {props.errors.atmosphere}
+        {props.errors.atmosphere ? (
+          <div className="reaction__errorAnimation">
+            {props.errors.atmosphere}
+          </div>
+        ) : null}
       </div>
 
       <SelectInput
@@ -93,10 +99,14 @@ const Step_3 = (props: Props) => {
         optionsContainerClass="reaction__selectOptionsContainer"
         optionClass="reaction__selectOption"
       />
-      <div className="reaction__error">
-        {props.errors.selectReactionCondition}
-      </div>
 
+      <div className="reaction__error">
+        {props.errors.selectReactionCondition ? (
+          <div className="reaction__errorAnimation">
+            {props.errors.selectReactionCondition}
+          </div>
+        ) : null}
+      </div>
       <p className="reaction__radioInputHeader">Rozpuszczalniki</p>
       {solventsData.map(solvent => {
         return (
@@ -113,8 +123,13 @@ const Step_3 = (props: Props) => {
           />
         );
       })}
+
       <div className="reaction__error">
-        {props.errors.solvent}
+        {props.errors.solvent ? (
+          <div className="reaction__errorAnimation">
+            {props.errors.solvent}
+          </div>
+        ) : null}
       </div>
     </motion.div>
   );

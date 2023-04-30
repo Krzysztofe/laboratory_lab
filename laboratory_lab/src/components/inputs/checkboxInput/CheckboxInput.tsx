@@ -3,8 +3,7 @@ import { ReactElement } from "react";
 export interface Props {
   name: string;
   checked: boolean;
-
-  handleChange:any;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   labelClass: string;
   inputClass: string;
   styleClass: string;

@@ -40,11 +40,14 @@ const Step_3 = (props: Props) => {
             labelClass={"reaction__textInputLabel"}
             inputClass={"reaction__textInput"}
           />
-        
-            <div className="reaction__error">
-              {props.errors[errorKey]}
-            </div>
-        
+
+          <div className="reaction__error">
+            {props.errors[errorKey] ? (
+              <div className="reaction__errorAnimation">
+                {props.errors[errorKey]}
+              </div>
+            ) : null}
+          </div>
         </div>
       ))}
     </motion.section>
