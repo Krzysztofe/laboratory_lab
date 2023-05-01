@@ -10,65 +10,37 @@
   top: 0;
   width: fit-content;
   height: 100%;
-  margin: 0;
   padding: $space-large 0;
   transition: 700ms;
   background-color: rgba(0, 0, 0, 0.7);
   font-size: 2rem;
   @include breakpointNav {
-    &:hover .navAsideItems__signIn {
-      width: 30rem;
-      margin-left: 0%;
-      transition: 700ms;
-      font-size: $font-size-xsmall;
-      &:hover {
-        transition: 200ms;
-        font-size: calc($font-size-xsmall + 0.2rem);
-      }
-    }
+  
     &:hover .navAsideItems__item {
       width: 30rem;
-      margin-left: 0;
+      transform: translate(0);
       transition: 700ms;
     }
-    &:hover .navAsideItems__name {
-      margin-left: 0;
+    &:hover .navAsideItems__itemTitle {
+      transform: translate(0);
       transition: 700ms;
     }
   }
 
   &__close {
-    margin-left: -100%;
+    transform: translate(-100%);
     @include breakpointNav {
-      margin-left: 0;
+      transform: translate(0);
     }
   }
 }
 
-.navAsideItems__signIn {
-  height: $font-size-xsmall;
-  margin-bottom: $space-small;
-  margin-left: 0%;
-  cursor: pointer;
-  font-size: $font-size-xsmall;
-  color: $color-neutral-secondary-light;
-  text-align: center;
-  letter-spacing: 0.15rem;
-  &:hover {
-    transition: 200ms;
-    font-size: calc($font-size-xsmall + 0.2rem);
-    color: $color-white;
-  }
-  @include breakpointNav {
-    width: 0;
-    height: $font-size-xsmall;
-    margin-left: -800%;
-    font-size: 0;
-  }
+.navAsideItems__item--signIn {
+  font-size: $font-size-small;
 }
 
 .navAsideItems__item {
-  width: auto;
+  color: $color-neutral-secondary-light;
   &:hover {
     background-color: $color-neutral-dark;
   }
@@ -86,6 +58,7 @@
     display: flex;
     align-items: center;
     color: $color-neutral-secondary-light;
+    width: 30rem;
   }
 }
 
@@ -94,10 +67,11 @@
   padding: 0 $space-small;
 }
 
-.navAsideItems__name {
+.navAsideItems__itemTitle {
   padding: $space-small;
   padding-left: $space-small * 2;
+  width: 25rem;
   @include breakpointNav {
-    margin-left: -800%;
+    transform: translate(-150%);
   }
 }

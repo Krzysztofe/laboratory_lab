@@ -1,19 +1,9 @@
-
 import { ModelReaction } from "../../../services/apiSlice";
 
 export const getTableBodyReactionsFirst = (reaction: ModelReaction) => {
-  const reactionValues = Object.values(reaction).slice(0, 8);
-  reactionValues.shift();
-  return reactionValues;
+  return Object.values(reaction).slice(1, 8);
 };
 
-
 export const getTableBodyReactionsSecond = (reaction: ModelReaction) => {
-  const reactionValues = Object.values(reaction);
-  const reactionValuesFiltered = [
-    reactionValues[0],
-    ...reactionValues.slice(8, 12),
-  ];
-  reactionValuesFiltered.shift();
-  return reactionValuesFiltered;
+  return Object.values(reaction).slice(8, 12);
 };

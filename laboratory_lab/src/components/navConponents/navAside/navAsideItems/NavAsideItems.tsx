@@ -4,7 +4,6 @@ import { auth } from "../../../../data/firebaseConfig";
 import { links } from "./dataNavAsideItems";
 import { useDispatch } from "react-redux";
 import { handleCleanEditForm } from "../../../../redux/storeFeatures/tableReactionsSlice";
-
 export interface Props {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,9 +30,15 @@ const NavAsideItems = (props: Props) => {
             handleLogout();
             dispatch(handleCleanEditForm());
           }}
-          className="navAsideItems__signIn"
+          className="navAsideItems__item navAsideItems__item--signIn"
         >
-          Wyloguj: {user?.email}
+          <Link to={""}>
+            <div className={"navAsideItems__icon"}>
+            </div>
+            <div className={"navAsideItems__itemTitle"}>
+              Wyloguj: {user?.email}
+            </div>
+          </Link>
         </li>
 
         {links.map(({ text, icon, link }) => (
@@ -49,7 +54,7 @@ const NavAsideItems = (props: Props) => {
           >
             <Link to={link}>
               <div className={"navAsideItems__icon"}>{icon}</div>
-              <div className={"navAsideItems__name"}>{text}</div>
+              <div className={"navAsideItems__itemTitle"}>{text}</div>
             </Link>
           </li>
         ))}
