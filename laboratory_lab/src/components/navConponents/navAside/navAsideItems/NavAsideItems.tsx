@@ -23,7 +23,8 @@ const NavAsideItems = (props: Props) => {
   return (
     <>
       <ul
-        className={`navAsideItems ${!props.isOpen && "navAsideItems__close"} `}
+        className={`navAsideItems 
+        ${!props.isOpen && "navAsideItems__close"} `}
       >
         <li
           onClick={() => {
@@ -33,8 +34,7 @@ const NavAsideItems = (props: Props) => {
           className="navAsideItems__item navAsideItems__item--signIn"
         >
           <Link to={""}>
-            <div className={"navAsideItems__icon"}>
-            </div>
+            <div className={"navAsideItems__icon"}></div>
             <div className={"navAsideItems__itemTitle"}>
               Wyloguj: {user?.email}
             </div>

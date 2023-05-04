@@ -3,23 +3,20 @@
   -webkit-backdrop-filter: blur(5px);
   -moz-backdrop-filter: blur(5px);
   -o-backdrop-filter: blur(5px);
+  will-change: transform;
   display: flex;
   flex-direction: column;
   position: fixed;
   z-index: 2;
   top: 0;
-  width: fit-content;
   height: 100%;
   padding: $space-large 0;
-  transition: 700ms;
+  transition: transform 700ms;
   background-color: rgba(0, 0, 0, 0.7);
-  font-size: 2rem;
   @include breakpointNav {
-  
     &:hover .navAsideItems__item {
-      width: 30rem;
       transform: translate(0);
-      transition: 700ms;
+      width: 30rem;
     }
     &:hover .navAsideItems__itemTitle {
       transform: translate(0);
@@ -40,25 +37,25 @@
 }
 
 .navAsideItems__item {
+  transition: 700ms;
   color: $color-neutral-secondary-light;
   &:hover {
     background-color: $color-neutral-dark;
   }
   &:hover .navAsideItems__icon {
+    transform: scale(1.2);
     transition: 200ms;
-    font-size: 2.7rem;
     color: $color-white;
   }
   @include breakpointNav {
     width: 7rem;
-    transition: 700ms;
   }
 
   & a {
     display: flex;
     align-items: center;
-    color: $color-neutral-secondary-light;
     width: 30rem;
+    color: $color-neutral-secondary-light;
   }
 }
 
@@ -68,9 +65,10 @@
 }
 
 .navAsideItems__itemTitle {
+  transform: translateX(0%);
+  width: 25rem;
   padding: $space-small;
   padding-left: $space-small * 2;
-  width: 25rem;
   @include breakpointNav {
     transform: translate(-150%);
   }

@@ -8,6 +8,9 @@ const Hero = () => {
   const [user] = useAuthState(auth);
   const link = user?.email ? "/reaction-form" : "/login";
 
+
+
+
   return (
     <section>
       <NavHomeSpacer/>
