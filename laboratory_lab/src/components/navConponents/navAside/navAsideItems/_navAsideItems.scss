@@ -17,6 +17,7 @@
     &:hover .navAsideItems__item {
       transform: translate(0);
       width: 30rem;
+      transition: 700ms;
     }
     &:hover .navAsideItems__itemTitle {
       transform: translate(0);
@@ -39,6 +40,7 @@
 .navAsideItems__item {
   transition: 700ms;
   color: $color-neutral-secondary-light;
+
   &:hover {
     background-color: $color-neutral-dark;
   }
@@ -54,7 +56,6 @@
   & a {
     display: flex;
     align-items: center;
-    width: 30rem;
     color: $color-neutral-secondary-light;
   }
 }
@@ -65,10 +66,10 @@
 }
 
 .navAsideItems__itemTitle {
-  transform: translateX(0%);
-  width: 25rem;
+  transform: translate(0);
   padding: $space-small;
   padding-left: $space-small * 2;
+  white-space: nowrap;
   @include breakpointNav {
     transform: translate(-150%);
   }
