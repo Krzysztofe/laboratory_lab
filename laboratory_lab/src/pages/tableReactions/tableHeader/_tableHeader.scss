@@ -5,21 +5,23 @@
     padding-left: 70px;
   }
   .tableReactions__header {
-    padding: $space-small/2;
-    font-weight: $font-weight-bold;
+    place-items: center;
+    display: grid;
     width: 35%;
     max-width: 20rem;
-    text-align: center;
+    height: 38px;
     cursor: pointer;
+    font-weight: $font-weight-bold;
+    text-align: center;
   }
   .tableReactions__header--counter {
     display: none;
-    font-size: $font-size-xsmall;
     @include breakpointNav {
-      display: flex;
-      align-items: flex-end;
-      background-color: transparent;
+      display: grid;
+      transform: translateY(3px);
+      width: 100%;
       cursor: auto;
+      font-size: $font-size-xsmall;
     }
   }
 }

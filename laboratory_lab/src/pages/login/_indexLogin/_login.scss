@@ -1,23 +1,23 @@
 @import "../btnsLogin/btnsLogin";
 
 .login {
-  height: 100%;
-  min-height: 500px;
-  max-height: calc(100% - $font-size-small - ($space-small * 2));
+  height: calc(
+    100% - $font-size-small - ($space-small * 2) - ($font-size-large + 24px)
+  );
   padding: 0;
   background-image: url("../../../asets/microscope-small.jpg");
+  background-position: top;
   background-size: cover;
-  background-position: right;
   @include breakpointNav {
+    height: calc(100% - $font-size-small - ($space-small * 2) - 66px);
     background-image: url("../../../asets/microscope-largre.jpg");
   }
 
   &__opacity {
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100% - ($font-size-large + 24px));
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.3);
   }
 
@@ -32,7 +32,7 @@
     padding: $space-small;
     background-color: rgba(233, 234, 236, 0.6);
     color: $color-black;
-    @include breakpointFirst {
+    @include breakpointNav {
       height: fit-content;
     }
 
@@ -42,6 +42,7 @@
 
     &__inputContainer {
       width: 70%;
+      height: 64px;
     }
     &__label {
       display: block;

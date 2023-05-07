@@ -26,8 +26,8 @@ const IndexLogin = () => {
 
   return (
     <>
+      <NavHomeSpacer />
       <main className="wrapper login">
-        <NavHomeSpacer />
         <div className="login__opacity">
           <form onSubmit={formik.handleSubmit} className="loginForm">
             <h2 className="loginForm__title">
@@ -64,12 +64,18 @@ const IndexLogin = () => {
               labelClass={"loginForm__label"}
               inputClass={"loginForm__input"}
             />
-
             <div className="loginForm__error">
               {formik.touched.password && formik.errors.password && (
                 <small>{formik.errors.password}</small>
               )}
             </div>
+
+            {isLogin && (
+              <>
+                <div className="loginForm__inputContainer"></div>
+                <div className="loginForm__error"></div>
+              </>
+            )}
 
             {!isLogin && (
               <>

@@ -1,45 +1,45 @@
 .navHome {
-    display: none;
+  display: none;
   @include breakpointNav {
-      box-shadow: 0px -4px 14px -1px $color-grey;
-      display: flex;
-      flex-direction: column-reverse;
-      position: fixed;
-      z-index: 2;
-      left: 50%;
-      right: 50%;
-      transform: translate(-50%);
-      height: 66px;
-      padding: $space-small/3;
-      background-color: $color-white;
-      font-weight: $font-weight-bold;
+    box-shadow: 0px -4px 14px -1px $color-grey;
+    display: flex;
+    flex-direction: column-reverse;
+    position: fixed;
+    z-index: 2;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
+    height: 66px;
+    padding: $space-small/3;
+    background-color: $color-white;
+    font-weight: $font-weight-bold;
   }
 }
 .navHomeMobile {
-    box-shadow: 0px -4px 14px -1px $color-grey;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    width: 100%;
-    height: calc($font-size-large * 2 + 24px);
-    background-color: $color-white;
+  box-shadow: 0px -4px 14px -1px $color-grey;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  height: calc($font-size-large * 2 + 24px);
+  background-color: $color-white;
   @include breakpointNav {
-      display: none;
+    display: none;
   }
 
   &__topIconContainer {
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      padding: 12px 0;
-      background-color: $color-white;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 12px 0;
+    background-color: $color-white;
     .navHomeMobile__icon {
-        margin-right: $space-small;
-        cursor: pointer;
-        font-size: $font-size-large * 2;
+      margin-right: $space-small;
+      cursor: pointer;
+      font-size: $font-size-large * 2;
     }
   }
 }
