@@ -5,8 +5,10 @@ export interface Props {
 const TableBodyRequestMessage = (props:Props) => {
   return (
     <tbody>
-      <tr>
-        <td style={{ margin: "0px auto", width:"fit-content"}}>{props.message}</td>
+      <tr className="tableBodyRequestMessage__tr">
+        <td className="tableBodyRequestMessage__td tableBodyRequestMessage__td">
+          {props.message}
+        </td>
       </tr>
     </tbody>
   );

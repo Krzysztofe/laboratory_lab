@@ -1,0 +1,16 @@
+.tableBodyRequestMessage {
+  &__tr {
+    height: fit-content !important;
+  }
+
+  &__td {
+    margin: 0px auto;
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include breakpointNav {
+      display: block;
+    }
+  }
+}

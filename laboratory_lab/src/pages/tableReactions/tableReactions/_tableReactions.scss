@@ -187,12 +187,15 @@
   content: "Błąd";
   position: absolute;
   width: 100%;
-  height: $font-size-small + 2rem + 0.8rem;
+  height: 100%;
+  display: grid;
+  place-items: center;
   font-size: $font-size-large;
   font-weight: $font-weight-bold;
   color: $color-red;
   text-align: center;
   letter-spacing: 2px;
+  z-index: 2;
 }
 
 // Alert

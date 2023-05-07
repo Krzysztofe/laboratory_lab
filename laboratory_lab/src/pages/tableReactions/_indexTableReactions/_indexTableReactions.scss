@@ -1,6 +1,7 @@
 @import "../tableHeader/tableHeader";
 @import "../tableReactions/tableReactions";
 @import "../tableEditForm/tableEditForm";
+@import "../requestMesageTableBody/tableBodyRequestMessage";
 
 .tableReactions__main {
   height: calc(100% - $font-size-small - ($space-small * 2));
