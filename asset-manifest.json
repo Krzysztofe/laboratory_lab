@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.e2845c9e.css",
-    "main.js": "/Laboratory_Lab/static/js/main.c1b6d5c5.js",
-    "static/js/146.45a4ebad.chunk.js": "/Laboratory_Lab/static/js/146.45a4ebad.chunk.js",
+    "main.css": "/Laboratory_Lab/static/css/main.41f25863.css",
+    "main.js": "/Laboratory_Lab/static/js/main.79f9394e.js",
+    "static/js/146.be982ae3.chunk.js": "/Laboratory_Lab/static/js/146.be982ae3.chunk.js",
     "static/js/930.178f867d.chunk.js": "/Laboratory_Lab/static/js/930.178f867d.chunk.js",
     "static/js/518.35147343.chunk.js": "/Laboratory_Lab/static/js/518.35147343.chunk.js",
     "static/js/830.f0a8c7cd.chunk.js": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js",
@@ -16,9 +16,9 @@
     "static/media/microscope-small.jpg": "/Laboratory_Lab/static/media/microscope-small.2380c1629aad2cdd262f.jpg",
     "static/media/loading.png": "/Laboratory_Lab/static/media/loading.777add4dbefff8a49205.png",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.e2845c9e.css.map": "/Laboratory_Lab/static/css/main.e2845c9e.css.map",
-    "main.c1b6d5c5.js.map": "/Laboratory_Lab/static/js/main.c1b6d5c5.js.map",
-    "146.45a4ebad.chunk.js.map": "/Laboratory_Lab/static/js/146.45a4ebad.chunk.js.map",
+    "main.41f25863.css.map": "/Laboratory_Lab/static/css/main.41f25863.css.map",
+    "main.79f9394e.js.map": "/Laboratory_Lab/static/js/main.79f9394e.js.map",
+    "146.be982ae3.chunk.js.map": "/Laboratory_Lab/static/js/146.be982ae3.chunk.js.map",
     "930.178f867d.chunk.js.map": "/Laboratory_Lab/static/js/930.178f867d.chunk.js.map",
     "518.35147343.chunk.js.map": "/Laboratory_Lab/static/js/518.35147343.chunk.js.map",
     "830.f0a8c7cd.chunk.js.map": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js.map",
@@ -27,7 +27,7 @@
     "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2845c9e.css",
-    "static/js/main.c1b6d5c5.js"
+    "static/css/main.41f25863.css",
+    "static/js/main.79f9394e.js"
   ]
 }
