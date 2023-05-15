@@ -41,6 +41,9 @@ framer-motion, sweetalert2
 ![Zrzut ekranu (167)](https://user-images.githubusercontent.com/96065197/232578699-b9280879-5829-44e3-9016-bbe2c5e6f97a.png)
 
 ![Zrzut ekranu (165)](https://user-images.githubusercontent.com/96065197/232578229-bd210d87-bc1e-4a30-a531-d606b4a69d71.png)
-
+#### Desktop
 ![Zrzut ekranu (159)](https://user-images.githubusercontent.com/96065197/232575819-6ebd3d29-1664-433a-be86-70381ead02e9.png)
 
+#### Mobile
+
+![Zrzut ekranu (189)](https://github.com/Krzysztofe/Laboratory_Lab/assets/96065197/d79c617b-ecb0-4fb5-921f-f5fb3e3b8ca9)
