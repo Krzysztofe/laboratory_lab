@@ -22,12 +22,12 @@ export const useValidationForm = (
   const conditions = [
     [
       {
-        condition: validateReaction?.name.trim().length < 6,
+        condition: validateReaction.name.trim().length < 6,
         errorMessage: "Min. 6 znaków",
         key: "name",
       },
       {
-        condition: validateReaction?.name.trim().length > 10,
+        condition: validateReaction.name.trim().length > 10,
         errorMessage: "Max. 10 znaków",
         key: "name",
       },
@@ -41,10 +41,9 @@ export const useValidationForm = (
         key: "selectMilimolles",
       },
       {
-        condition:
-          validateReaction.alcaloids.trim().toUpperCase() !== "GRAMINA" &&
-          validateReaction.alcaloids.trim().toUpperCase() !== "KOFEINA" &&
-          validateReaction.alcaloids.trim().toUpperCase() !== "NIKOTYNA",
+        condition: !["GRAMINA", "KOFEINA", "NIKOTYNA"].includes(
+          validateReaction.alcaloids.trim().toUpperCase()
+        ),
         errorMessage: "Alkaloid z listy",
         key: "alcaloids",
       },
@@ -66,42 +65,34 @@ export const useValidationForm = (
         condition:
           !validateReaction.atmosphere
             ?.trim()
-            .toLocaleUpperCase()
+            .toUpperCase()
             .includes("PROTYCZNA") &&
           !validateReaction.atmosphere
             ?.trim()
-            .toLocaleUpperCase()
+            .toUpperCase()
             .includes("APROTYCZNA") &&
           !validateReaction.atmosphere
             ?.trim()
-            .toLocaleUpperCase()
+            .toUpperCase()
             .includes("POLARNA"),
-        errorMessage: "1 atmosfera z listy",
+        errorMessage: "Atmosfera z listy",
         key: "atmosphere",
       },
 
       {
-        condition:
-          validateReaction.selectReactionCondition.trim().toUpperCase() !==
-            "MIESZANIE" &&
-          validateReaction.selectReactionCondition.trim().toUpperCase() !==
-            "OGRZEWANIE" &&
-          validateReaction.selectReactionCondition.trim().toUpperCase() !==
-            "MIKROFALA" &&
-          validateReaction.selectReactionCondition.trim().toUpperCase() !==
-            "CHŁODZENIE",
+        condition: !["MIESZANIE", "OGRZEWANIE", "MIKROFALA"].includes(
+          validateReaction.selectReactionCondition.trim().toUpperCase()
+        ),
         errorMessage: "Warunki z listy",
         key: "selectReactionCondition",
       },
       {
-        condition:
-          validateReaction.solvent?.trim().toUpperCase() !== "CHCL3" &&
-          validateReaction.solvent?.trim().toUpperCase() !== "C2H5OH" &&
-          validateReaction.solvent?.trim().toUpperCase() !== "C6H5CH3",
+        condition: !["CHCL3", "C2H5OH", "C6H5CH3"].includes(
+          validateReaction.solvent.trim().toUpperCase()
+        ),
         errorMessage: "Roztwór z listy",
         key: "solvent",
       },
-    
     ],
 
     [

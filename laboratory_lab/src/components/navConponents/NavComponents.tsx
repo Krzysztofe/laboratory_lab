@@ -7,7 +7,7 @@ const NavComponents = () => {
 
   return (
     <>
-      {url === "/" || url === "/login" || url === "/register" ? (
+      {["/", "/login", "/register"].includes(url) ? (
         <HeaderHome />
       ) : (
         <NavAside />

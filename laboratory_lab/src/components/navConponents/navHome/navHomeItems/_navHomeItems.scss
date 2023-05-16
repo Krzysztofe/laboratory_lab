@@ -1,61 +1,54 @@
 .navHomeItems {
-    box-shadow: 0px 11px 6px -9px $color-grey;
-    transform: translateY(-350px);
-    padding: $space-small;
-    transition: transform 700ms;
-    background-color: $color-white;
-    font-weight: $font-weight-bold;
+  box-shadow: 0px 11px 6px -9px $color-grey;
+  transform: translateY(-350px);
+  padding: $space-small;
+  transition: transform 700ms;
+  background-color: $color-white;
+  font-weight: $font-weight-bold;
   @include breakpointNav {
-      box-shadow: none;
-      display: flex;
-      transform: translateY(0);
-      padding: 0;
+    box-shadow: none;
+    display: flex;
+    transform: translateY(0);
+    padding: 0;
   }
 
   &--user {
-      position: relative;
+    position: relative;
     &:before {
-        content: "";
-        position: absolute;
-        top: 0px;
-        width: 50%;
-        height: 1px;
-        background-color: $color-black;
-        @include breakpointNav {
+      content: "";
+      position: absolute;
+      top: 0px;
+      width: 50%;
+      height: 1px;
+      background-color: $color-black;
+      @include breakpointNav {
         display: none;
-    }
+      }
     }
     @include breakpointNav {
-        border: 0;
-        font-size: $font-size-small;
-        line-height: $font-size-small;
+      border: 0;
+      font-size: $font-size-xsmall;
+      line-height: $font-size-small;
     }
   }
   &--isOpen {
-      transform: translateY(0);
-
-
-      
+    transform: translateY(0);
   }
 
   &__item {
-      display: block;
-      padding: $space-small/2 $space-small;
-      color: $color-black;
-      text-decoration: 0;
+    display: block;
+    padding: $space-small/2 $space-small;
+    color: $color-black;
+    text-decoration: 0;
+    transition: 350ms;
+    border-bottom: 2px solid transparent;
     &:hover {
-        transition-duration: 350ms;
-        background-color: $color-accent;
+      border-bottom: 2px solid $color-accent;
     }
     @include breakpointNav {
-        margin: 0 $space-small;
-        padding: 0;
-        padding-bottom: 3px;
-        border-bottom: 2px solid transparent;
-      &:hover {
-          background-color: transparent;
-          border-bottom: 2px solid $color-accent;
-      }
+      margin: 0 $space-small;
+      padding: 0;
+      padding-bottom: 3px;
     }
   }
 }

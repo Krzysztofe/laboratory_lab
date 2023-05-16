@@ -46,12 +46,12 @@ const PaginationSection = () => {
             onPageChange={changePage}
             pageRangeDisplayed={1}
             marginPagesDisplayed={2}
-            containerClassName={"paginationCounters"}
-            previousLinkClassName={"paginationCounters__previousNext"}
-            pageLinkClassName={"paginationCounters__btn"}
-            nextLinkClassName={"paginationCounters__previousNext"}
-            activeClassName={"paginationCounters__active"}
-            disabledClassName={"paginationCounters__disabledBtn"}
+            containerClassName="paginationCounters"
+            previousLinkClassName="paginationCounters__previousNext"
+            pageLinkClassName="paginationCounters__btn"
+            nextLinkClassName="paginationCounters__previousNext"
+            activeClassName="paginationCounters__active"
+            disabledClassName="paginationCounters__disabledBtn"
           />
         ) : (
           <div className="emptyCountersContainer"></div>

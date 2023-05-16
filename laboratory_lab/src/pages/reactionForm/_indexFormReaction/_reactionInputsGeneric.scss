@@ -13,6 +13,9 @@
   &::placeholder {
     color: rgba(255, 255, 255, 0.5);
   }
+  &:hover {
+    background-color: $color-neutral-dark;
+  }
 
   @include breakpointFirst {
     font-size: 2rem;
@@ -27,9 +30,6 @@
 }
 
 // Radio input
-
-.reaction__radioInputHeader {
-}
 
 .reaction__radioInput {
   -webkit-appearance: none;
@@ -60,6 +60,10 @@
   padding: $space-small/5;
   background-color: rgba(0, 0, 0, 0.3);
   font-weight: $font-weight-bold;
+  cursor: pointer;
+  &:hover {
+    background-color: $color-neutral-dark;
+  }
   .select__arrow--up {
     clip-path: polygon(50% 80%, 90% 0, 100% 0, 50% 100%, 0 0, 10% 0);
     width: 20px;
@@ -75,6 +79,7 @@
 
 .reaction__selectOptionsContainer {
   height: 4rem;
+  cursor: pointer;
 }
 
 .reaction__selectOption {
@@ -86,7 +91,7 @@
   border: 1px solid $color-grey;
   color: $color-black;
   &:hover {
-    background-color: $color-grey;
+    background-color: $color-neutral-dark;
     color: $color-white;
   }
 }
@@ -166,5 +171,4 @@
   100% {
     transform: translate(0);
   }
-  
 }

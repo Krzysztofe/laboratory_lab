@@ -21,8 +21,6 @@ const NavHomeItems = () => {
     if (url === "/") return navLinksData.slice(1, 3);
   };
 
-  const userItems = url === "/login" ? null : <NavHomeUserItems/>
-
   const scrollToHash = (hash: string): void => {
     const element = document.querySelector(hash);
     if (element) {
@@ -37,10 +35,7 @@ const NavHomeItems = () => {
       <ul className={`navHomeItems ${isOpen && "navHomeItems--isOpen"}`}>
         {selectedNavLinksData()?.map(link => {
           return (
-            <li
-              key={crypto.randomUUID()}
-              onClick={() => dispatch(handleToggleNav())}
-            >
+            <li key={link.to} onClick={() => dispatch(handleToggleNav())}>
               <HashLink
                 to={link.to}
                 smooth
@@ -53,7 +48,7 @@ const NavHomeItems = () => {
           );
         })}
       </ul>
-     {userItems}
+      {url !== "/login" && <NavHomeUserItems />}
     </>
   );
 };
