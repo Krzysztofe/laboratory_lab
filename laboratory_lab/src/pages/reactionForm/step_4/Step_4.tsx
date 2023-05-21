@@ -9,9 +9,7 @@ import { summaryDates, summaryParams } from "./dataStep_4";
 const Step_4 = () => {
   const { reaction } = useSelector((state: RootState) => state.formReaction);
 
-  const getReactionValues = Object.values(reaction) as string[];
-
-
+  const getReactionValues = Object.values(reaction);
 
   return (
     <motion.section
@@ -23,14 +21,18 @@ const Step_4 = () => {
       <ul>
         <li className="step4__subHeader">Parametry:</li>
 
-        {getReactionValues.slice(0, 7).map((value: string, idx) => {
+        {getReactionValues.slice(0, 7).map((value, idx) => {
           return (
             <li key={summaryParams[idx]} className="step4__reactionItem">
               <div className="step4__reactionProperty">
                 {summaryParams[idx]}:&nbsp;
               </div>
               <div className="step4__reactionValue">
-                {idx === 5 ? solventIdx(value) : value}
+                {idx === 5
+                  ? solventIdx(value)
+                  : idx === 6
+                  ?  value.split(",").join(", ")
+                  : value}
               </div>
             </li>
           );
@@ -38,7 +40,7 @@ const Step_4 = () => {
         <li className="step4__subHeader">Czasy:</li>
         {getReactionValues.slice(7, 11).map((value, idx) => {
           return (
-            <li key={crypto.randomUUID()} className="step4__reactionItem">
+            <li key={summaryParams[idx]} className="step4__reactionItem">
               <div className="step4__reactionProperty">
                 {summaryDates[idx]}:&nbsp;
               </div>

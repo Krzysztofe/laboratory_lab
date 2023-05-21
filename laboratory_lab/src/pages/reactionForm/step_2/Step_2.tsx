@@ -9,7 +9,6 @@ import { ModelValidationErrors } from "../../../hooks/useValidationForm";
 import { RootState } from "../../../redux/store";
 import { handleChange } from "../../../redux/storeFeatures/formReactionSlice";
 import { solventIdx } from "../../../utils/solventIdx";
-import { atmosphereNameKeyData, solventsData } from "./dataStep_2";
 
 export interface Props {
   errors: ModelValidationErrors;
@@ -19,40 +18,38 @@ const Step_3 = (props: Props) => {
   const dispatch = useDispatch();
   const { reaction } = useSelector((state: RootState) => state.formReaction);
 
-  const [isChecked, setIsChecked] = useState([false, false, false]);
+  const [checkboxValues, setCheckboxValues] = useState<string>(
+    reaction.atmosphere
+  );
 
   useEffect(() => {
-    const newIsChecked = [...isChecked];
-    atmosphereNameKeyData.forEach((atmosphere, idx) => {
-      newIsChecked[idx] = reaction.atmosphere.includes(atmosphere.name);
-    });
-    setIsChecked(newIsChecked);
-  }, [reaction.atmosphere]);
+    dispatch(handleChange({ name: "atmosphere", value: checkboxValues }));
+  }, [checkboxValues]);
 
-  const handleCheckboxChange = (idx: number, name: string) => {
-    const newIsChecked = [...isChecked];
-    newIsChecked[idx] = !newIsChecked[idx];
-    setIsChecked(newIsChecked);
+  const handleCheckboxChange = (e: ChangeEvent) => {
+    const { value, checked } = e.target;
+    let updatedValues;
 
-    const getNewAtmosphere = newIsChecked.reduce(
-      (acc: string[], checked, idx) => {
-        if (checked) {
-          acc.push(atmosphereNameKeyData[idx].name);
-        }
-        return acc;
-      },
-      []
-    );
-    dispatch(
-      handleChange({ name: "atmosphere", value: getNewAtmosphere.join(", ") })
-    );
+    if (checked) {
+      checkboxValues
+        ? (updatedValues = `${checkboxValues},${value}`)
+        : (updatedValues = value);
+    } else {
+      updatedValues = checkboxValues
+        .split(",")
+        .filter(val => val !== value)
+        .join(",");
+    }
+
+    setCheckboxValues(updatedValues);
   };
+
 
   const handleSelectChange = (name: string, value: string) => {
     dispatch(handleChange({ name: name, value: value }));
   };
 
-  const handleInputChange = (e: ChangeEvent) => {
+  const handleRadioChange = (e: ChangeEvent) => {
     const { name, value } = e.target;
     dispatch(handleChange({ name: name, value: value }));
   };
@@ -63,14 +60,16 @@ const Step_3 = (props: Props) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1 }}
     >
+      {/* Checkboxes  */}
+
       <p className="reaction__checkboxesHeader">Środowisko reakcji</p>
       <div className="reaction__checkboxecContainer">
-        {atmosphereNameKeyData.map(({ name, key }) => (
+        {["Protyczna", "Aprotyczna", "Polarna"].map(value => (
           <CheckboxInput
-            key={key}
-            name={name}
-            checked={isChecked[key]}
-            handleChange={() => handleCheckboxChange(key, name)}
+            key={crypto.randomUUID()}
+            value={value}
+            checked={reaction.atmosphere.includes(value)}
+            handleChange={handleCheckboxChange}
             labelClass={"reaction__checkboxLabel"}
             inputClass={"reaction__checkboxInput"}
             styleClass={"reaction__checkboxStyle"}
@@ -86,6 +85,8 @@ const Step_3 = (props: Props) => {
           </div>
         ) : null}
       </div>
+
+      {/* Select */}
 
       <SelectInput
         label={"Warunki reakcji"}
@@ -107,14 +108,17 @@ const Step_3 = (props: Props) => {
           </div>
         ) : null}
       </div>
+
+      {/* Radio */}
+
       <p className="reaction__radioInputHeader">Rozpuszczalniki</p>
-      {solventsData.map(solvent => {
+      {["CHCl3", "C2H5OH", "C6H5CH3"].map(solvent => {
         return (
           <RadioInput
             key={solvent}
             value={solvent}
             name={"solvent"}
-            handleChange={handleInputChange}
+            handleChange={handleRadioChange}
             checked={reaction.solvent === solvent}
             containerClass={"reaction__radioContainer"}
             inuptClass={"reaction__radioInput"}
@@ -126,9 +130,7 @@ const Step_3 = (props: Props) => {
 
       <div className="reaction__error">
         {props.errors.solvent ? (
-          <div className="reaction__errorAnimation">
-            {props.errors.solvent}
-          </div>
+          <div className="reaction__errorAnimation">{props.errors.solvent}</div>
         ) : null}
       </div>
     </motion.div>

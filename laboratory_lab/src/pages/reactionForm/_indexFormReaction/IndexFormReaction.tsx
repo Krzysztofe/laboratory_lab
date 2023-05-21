@@ -3,17 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../../../data/firebaseConfig";
 import useMultistepForm from "../../../hooks/useMultistepForm";
 import { useValidationForm } from "../../../hooks/useValidationForm";
-import {
-  ModelReaction,
-  useAddReactionMutation,
-} from "../../../services/apiSlice";
+import { useAddReactionMutation } from "../../../services/apiSlice";
 import ReactionFormHeader from "../reactionFormHeader/ReactionFormHeader";
 import Step_1 from "../step_1/Step_1";
 import Step_2 from "../step_2/Step_2";
 import Step_3 from "../step_3/Step_3";
 import Step_4 from "../step_4/Step_4";
-// import { INITIAL_DATA } from "./dataFormReaction";
-import { ChangeEvent } from "../../../data/types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { handleCleanFormReaction } from "../../../redux/storeFeatures/formReactionSlice";
@@ -30,7 +25,6 @@ const IndexFormReaction = () => {
   const { reaction } = useSelector((state: RootState) => state.formReaction);
   const [errors, setErrors] = useState({});
   const [addReaction, success] = useAddReactionMutation();
-
 
   const {
     steps,
@@ -55,7 +49,12 @@ const IndexFormReaction = () => {
     e.preventDefault();
     setErrors(validationForm());
     if (Object.keys(validationForm()).length) return;
-    isLastStep ? await addReaction(reaction) : next();
+    isLastStep
+      ? await addReaction({
+          ...reaction,
+          atmosphere: reaction.atmosphere.split(",").join(", "),
+        })
+      : next();
   };
 
   useEffect(() => {

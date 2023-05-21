@@ -21,9 +21,7 @@ const ContactForm = () => {
             type={"text"}
             name={"name"}
             value={""}
-            handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              console.log("")
-            }
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
             label={"Wpisz imię"}
             placeholder={"Imię"}
             containerClass={"contactForm__inputContainer"}
@@ -40,9 +38,7 @@ const ContactForm = () => {
             type={"text"}
             name={"email"}
             value={""}
-            handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              console.log("")
-            }
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => null}
             label={"Wpisz email"}
             placeholder={"Email"}
             containerClass={"contactForm__inputContainer"}
