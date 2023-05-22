@@ -1,33 +1,32 @@
 {
   "files": {
-    "main.css": "/Laboratory_Lab/static/css/main.85bf6528.css",
-    "main.js": "/Laboratory_Lab/static/js/main.b7218c67.js",
+    "main.css": "/Laboratory_Lab/static/css/main.b85aea39.css",
+    "main.js": "/Laboratory_Lab/static/js/main.e0d00723.js",
     "static/js/146.be982ae3.chunk.js": "/Laboratory_Lab/static/js/146.be982ae3.chunk.js",
-    "static/js/930.178f867d.chunk.js": "/Laboratory_Lab/static/js/930.178f867d.chunk.js",
-    "static/js/518.e8fac7ee.chunk.js": "/Laboratory_Lab/static/js/518.e8fac7ee.chunk.js",
+    "static/js/874.e15aa2fe.chunk.js": "/Laboratory_Lab/static/js/874.e15aa2fe.chunk.js",
+    "static/js/518.94c8eeb6.chunk.js": "/Laboratory_Lab/static/js/518.94c8eeb6.chunk.js",
     "static/js/830.f0a8c7cd.chunk.js": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js",
     "static/js/750.31997229.chunk.js": "/Laboratory_Lab/static/js/750.31997229.chunk.js",
     "static/js/306.0bb8fdd3.chunk.js": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js",
     "static/js/856.89a5d45a.chunk.js": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js",
-    "static/media/microscope-largre.jpg": "/Laboratory_Lab/static/media/microscope-largre.e506f8d0071da76b747e.jpg",
-    "static/media/hero_large.jpg": "/Laboratory_Lab/static/media/hero_large.e0c3a6f601896387cd38.jpg",
-    "static/media/scott-graham-OQMZwNd3ThU-unsplash.jpg": "/Laboratory_Lab/static/media/scott-graham-OQMZwNd3ThU-unsplash.7e7ac93dacd0d89ff51b.jpg",
-    "static/media/hero-small.jpg": "/Laboratory_Lab/static/media/hero-small.b9874b65cbd1dceb5b42.jpg",
-    "static/media/microscope-small.jpg": "/Laboratory_Lab/static/media/microscope-small.2380c1629aad2cdd262f.jpg",
-    "static/media/loading.png": "/Laboratory_Lab/static/media/loading.777add4dbefff8a49205.png",
+    "static/media/hero_large-—-kopia.webp": "/Laboratory_Lab/static/media/hero_large-—-kopia.ae7ebb2460217be36369.webp",
+    "static/media/hero-small-—-kopia.webp": "/Laboratory_Lab/static/media/hero-small-—-kopia.559b596f12d5231e9525.webp",
+    "static/media/form-large.webp": "/Laboratory_Lab/static/media/form-large.e932a4e9944ab4e738d3.webp",
+    "static/media/microscope-small.webp": "/Laboratory_Lab/static/media/microscope-small.40a49e2721842e093691.webp",
+    "static/media/loading.webp": "/Laboratory_Lab/static/media/loading.350885bf36a7d369ad7e.webp",
     "index.html": "/Laboratory_Lab/index.html",
-    "main.85bf6528.css.map": "/Laboratory_Lab/static/css/main.85bf6528.css.map",
-    "main.b7218c67.js.map": "/Laboratory_Lab/static/js/main.b7218c67.js.map",
+    "main.b85aea39.css.map": "/Laboratory_Lab/static/css/main.b85aea39.css.map",
+    "main.e0d00723.js.map": "/Laboratory_Lab/static/js/main.e0d00723.js.map",
     "146.be982ae3.chunk.js.map": "/Laboratory_Lab/static/js/146.be982ae3.chunk.js.map",
-    "930.178f867d.chunk.js.map": "/Laboratory_Lab/static/js/930.178f867d.chunk.js.map",
-    "518.e8fac7ee.chunk.js.map": "/Laboratory_Lab/static/js/518.e8fac7ee.chunk.js.map",
+    "874.e15aa2fe.chunk.js.map": "/Laboratory_Lab/static/js/874.e15aa2fe.chunk.js.map",
+    "518.94c8eeb6.chunk.js.map": "/Laboratory_Lab/static/js/518.94c8eeb6.chunk.js.map",
     "830.f0a8c7cd.chunk.js.map": "/Laboratory_Lab/static/js/830.f0a8c7cd.chunk.js.map",
     "750.31997229.chunk.js.map": "/Laboratory_Lab/static/js/750.31997229.chunk.js.map",
     "306.0bb8fdd3.chunk.js.map": "/Laboratory_Lab/static/js/306.0bb8fdd3.chunk.js.map",
     "856.89a5d45a.chunk.js.map": "/Laboratory_Lab/static/js/856.89a5d45a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85bf6528.css",
-    "static/js/main.b7218c67.js"
+    "static/css/main.b85aea39.css",
+    "static/js/main.e0d00723.js"
   ]
 }
