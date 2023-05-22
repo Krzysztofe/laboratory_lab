@@ -42,16 +42,11 @@
       width: 50%;
       height: 100%;
       background-color: $color-neutral-light;
-      background-image: url("../../../asets/hero-small.jpg");
-      background-repeat: no-repeat;
-      background-position: left;
+      background-image: url("../../../asets/hero-small-—-kopia.webp");
       background-size: cover;
+      background-position: center;
       @include breakpointNav {
-        background-image: url("../../../asets/hero_large.jpg");
-        background-size: 250%;
-      }
-      @media (min-height: 1180px) {
-        background-size: cover;
+        background-image: url("../../../asets/hero_large-—-kopia.webp");
       }
     }
     &:before {
@@ -101,13 +96,13 @@
     color: $color-white;
     text-align: center;
   }
-  
+
   &__loading {
     display: grid;
     place-items: center;
     width: 100px;
     height: 100%;
-    background-image: url("../../../asets/loading.png");
+    background-image: url("../../../asets/loading.webp");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -141,7 +136,7 @@
       }
       &:focus {
         background-color: $color-button;
-         border: 2px solid $color-button;
+        border: 2px solid $color-button;
       }
     }
   }

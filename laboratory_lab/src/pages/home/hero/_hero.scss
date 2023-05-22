@@ -9,13 +9,11 @@
     top: 0;
     width: 50%;
     height: 100%;
-    background-image: url("../../../asets/hero-small.jpg");
-    background-repeat: no-repeat;
-    background-position: left;
+    background-image: url("../../../asets/hero-small-—-kopia.webp");
     background-size: cover;
+    background-position: center;
     @include breakpointNav {
-      background-image: url("../../../asets/hero_large.jpg");
-      background-size: 250%;
+      background-image: url("../../../asets/hero_large-—-kopia.webp");
     }
   }
 

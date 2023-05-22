@@ -5,12 +5,12 @@
     100% - $font-size-small - ($space-small * 2) - ($font-size-large + 24px)
   );
   padding: 0;
-  background-image: url("../../../asets/microscope-small.jpg");
+  background-image: url("../../../asets/microscope-small.webp");
   background-position: top;
   background-size: cover;
   @include breakpointNav {
     height: calc(100% - $font-size-small - ($space-small * 2) - 66px);
-    background-image: url("../../../asets/microscope-largre.jpg");
+    background-image: url("../../../asets/form-large.webp");
   }
 
   &__opacity {
