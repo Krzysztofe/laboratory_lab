@@ -10,7 +10,7 @@
   background-size: cover;
   @include breakpointNav {
     height: calc(100% - $font-size-small - ($space-small * 2) - 66px);
-    background-image: url("../../../asets/form-large.webp");
+    background-image: url("../../../asets/microscope-largre.webp");
   }
 
   &__opacity {

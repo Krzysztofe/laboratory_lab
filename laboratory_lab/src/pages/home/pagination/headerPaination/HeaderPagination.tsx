@@ -9,9 +9,9 @@ interface Props {
 const HeaderPagination = (props: Props) => {
   return (
     <>
-      <h3 className="paginationHome__header">
+      <h2 className="paginationHome__header">
         Reakcje zapisane <br/>w dzienniku
-      </h3>
+      </h2>
 
       <div className="paginationHome__btns">
         {btnsReactionsNamesData.map((name, idx) => {

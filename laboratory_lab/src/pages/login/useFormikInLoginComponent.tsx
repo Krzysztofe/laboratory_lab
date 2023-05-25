@@ -1,33 +1,25 @@
-import { useEffect } from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import {
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
+import { useFormik } from "formik";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { auth } from "../../data/firebaseConfig";
-import { useNavigate } from "react-router-dom";
+import {
+  loginValidationSchema,
+  registerValidationSchema,
+} from "./validationsLogin";
+import { loginInitialvalue, registerInitialvalue } from "./dataLogin";
 
 
 const useFormikInLoginComponent = () => {
   const navigate = useNavigate();
 
   const formikLogin = useFormik({
-    initialValues: {
-      email: "qq@wp.pl",
-      password: "qqqqqq",
-      passwordRepeated: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Podaj email").required("Email wymagany"),
-      password: Yup.string().required("Hasło wymagane"),
-      passwordRepeated: Yup.string()
-        .required("Pwtórz hasło")
-        .test("match", "Hasło niezgodne", function (value) {
-          return this.parent.password === value;
-        }),
-    }),
+    initialValues:loginInitialvalue,
+    validationSchema: loginValidationSchema,
 
     onSubmit: values => {
       const { email, password } = values;
@@ -54,22 +46,8 @@ const useFormikInLoginComponent = () => {
   }, [formikLogin.values.password]);
 
   const formikRegister = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-      passwordRepeated: "",
-    },
-    validationSchema: Yup.object({
-      email: Yup.string().email("Podaj email").required("Email wymagany"),
-      password: Yup.string()
-        .required("Podaj hasło")
-        .min(6, "Hasło min.6 znaków"),
-      passwordRepeated: Yup.string()
-        .required("Pwtórz hasło")
-        .test("match", "Hasło niezgodne", function (value) {
-          return this.parent.password === value;
-        }),
-    }),
+    initialValues: registerInitialvalue,
+    validationSchema: registerValidationSchema,
     onSubmit: values => {
       const { email, password } = values;
       createUserWithEmailAndPassword(auth, email, password)

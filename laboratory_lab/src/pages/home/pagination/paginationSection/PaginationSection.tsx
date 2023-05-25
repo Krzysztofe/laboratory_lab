@@ -39,6 +39,7 @@ const PaginationSection = () => {
       <>
         <TablePagination counter={counter} pageNumber={pageNumber} />
         {getReactionsTablePrint.length > 0 ? (
+          <ul>
           <ReactPaginate
             previousLabel={"<<"}
             nextLabel={">>"}
@@ -53,6 +54,7 @@ const PaginationSection = () => {
             activeClassName="paginationCounters__active"
             disabledClassName="paginationCounters__disabledBtn"
           />
+          </ul>
         ) : (
           <div className="emptyCountersContainer"></div>
         )}
