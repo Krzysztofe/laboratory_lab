@@ -22,8 +22,11 @@ export interface Props {
 const TextInput = (props: Props) => {
   return (
     <div className={props.containerClass}>
-      <label className={props.labelClass}>{props.label}</label>
+      <label htmlFor={props.name} className={props.labelClass}>
+        {props.label}
+      </label>
       <input
+        id={props.name}
         type={props.type}
         name={props.name}
         value={props.value}

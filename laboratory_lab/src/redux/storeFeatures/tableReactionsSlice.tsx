@@ -111,12 +111,7 @@ export const tableReactionsSlice = createSlice({
     handleTableOpen: (state, action: PayloadAction<boolean>) => {
       state.toggleTable.isOpen = action.payload;
     },
-    handleEidtisLoading: (state, action: PayloadAction<boolean>) => {
-      state.requestState.edit.isLoading = action.payload;
-    },
-    handleEidtIsError: (state, action: PayloadAction<boolean>) => {
-      state.requestState.edit.isError = action.payload;
-    },
+    
     handleRequestStateId: (state, action: PayloadAction<string>) => {
       state.requestState.id = action.payload;
     },
@@ -144,8 +139,6 @@ export const {
   handleUpdate,
   handleCleanEditForm,
   handleTableOpen,
-  handleEidtisLoading,
-  handleEidtIsError,
   handleRequestStateId,
   handleHttpRequest,
 } = tableReactionsSlice.actions;
