@@ -55,3 +55,4 @@ framer-motion, sweetalert2
 ![Zrzut ekranu (197)](https://github.com/Krzysztofe/Laboratory_Lab/assets/96065197/2f38f502-281a-4924-9ada-19e5bcb7662f)
 
 
+![Zrzut ekranu (189)](https://github.com/Krzysztofe/Laboratory_Lab/assets/96065197/4a6cda92-8e83-4877-973f-4b1022a6c78d)
